@@ -1,0 +1,21 @@
+{
+	"name": "node-query",
+	"version": "0.0.0",
+	"description": "A query builder for node based on the one in CodeIgniter",
+	"author": "Timothy J Warren <tim@timshomepage.net>",
+	"scripts": {
+		"test": ""
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/timw4mail/node-query"
+	},
+	"bugs": {
+		"url": "https://github.com/timw4mail/node-query/issues"
+	},
+	"main": "lib/node-query.js",
+	"devDependencies": {
+		"nodeunit":"*"
+	},
+	"license": "MIT"
+}
