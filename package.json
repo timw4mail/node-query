@@ -1,21 +1,30 @@
 {
-	"name": "node-query",
-	"version": "0.0.0",
-	"description": "A query builder for node based on the one in CodeIgniter",
-	"author": "Timothy J Warren <tim@timshomepage.net>",
-	"scripts": {
-		"test": ""
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/timw4mail/node-query"
-	},
-	"bugs": {
-		"url": "https://github.com/timw4mail/node-query/issues"
-	},
-	"main": "lib/node-query.js",
-	"devDependencies": {
-		"nodeunit":"*"
-	},
-	"license": "MIT"
+  "name": "node-query",
+  "version": "0.0.0",
+  "description": "A query builder for node based on the one in CodeIgniter",
+  "author": "Timothy J Warren <tim@timshomepage.net>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/timw4mail/node-query"
+  },
+  "bugs": {
+    "url": "https://github.com/timw4mail/node-query/issues"
+  },
+  "main": "lib/node-query.js",
+  "dependencies": {
+    "async": ""
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-nodeunit": "^0.4.1",
+    "grunt-jsdoc": "^0.6.1",
+    "jsdoc": "^3.2.2",
+    "nodeunit": "*"
+  },
+  "peerDependencies": {
+    "mysql": "",
+    "mysql2": "",
+    "pg": ""
+  },
+  "license": "MIT"
 }

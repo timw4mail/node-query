@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: query-builder.js</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+    
+    <h1 class="page-title">Source: query-builder.js</h1>
+    
+    
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source"><code>/** @module query-builder */
+
+var async = require('async');
+
+module.exports = function(driver) {
+
+	"use strict";
+
+	/**
+	 * Variables controlling the sql building
+	 *
+	 * @private
+	 * @type {{}}
+	 */
+	var state = {};
+
+	// ------------------------------------------------------------------------
+
+	/**
+	 * "Private" methods
+	 *
+	 * @private
+	 */
+	var _p = {
+		/**
+		 * Complete the sql building based on the type provided
+		 *
+		 * @param {String} type
+		 * @param {String} table
+		 * @return {String}
+		 */
+		compile: function (type, table) {
+			switch(type) {
+				case "insert":
+				break;
+
+				case "update":
+				break;
+
+				case "delete":
+				break;
+
+				default:
+				break;
+			}
+		},
+		compileType: function (type, table) {
+
+		}
+	};
+
+	// ------------------------------------------------------------------------
+
+	// Set up state object
+	this.resetQuery();
+
+	// ------------------------------------------------------------------------
+	// ! Query Builder Methods
+	// ------------------------------------------------------------------------
+
+	/**
+	 * Specify rows to select in the query
+	 *
+	 * @param {String|Array} fields
+	 * @returns {exports}
+	 */
+	this.select = function(fields) {
+
+		// Split/trim fields by comma
+		fields = (Array.isArray(fields)) ? fields : fields.split(",").map(String.trim);
+
+		// Split on 'As'
+		fields.forEach(function (field, index) {
+			if (field.match(/as/i))
+			{
+				fields[index] = field.split(/ as /i).map(String.trim);
+			}
+		});
+
+		var safeArray = driver.quoteIdentifiers(fields);
+
+		// Join the strings back together
+		safeArray.forEach(function (field, index) {
+			if (Array.isArray(field))
+			{
+				safeArray[index] = safeArray[index].join(' AS ');
+			}
+		});
+
+		state.selectString += safeArray.join(', ');
+
+		return this;
+	};
+
+	/**
+	 * Specify the database table to select from
+	 *
+	 * @param {String} tableName
+	 * @returns {exports}
+	 */
+	this.from = function(tableName) {
+		// Split identifiers on spaces
+		var identArray = String.trim(tableName).split(' ').map(String.trim);
+
+		// Quote/prefix identifiers
+		identArray[0] = driver.quoteTable(identArray[0]);
+		identArray = driver.quoteIdentifiers(identArray);
+
+		// Put it back together
+		state.fromString = identArray.join(' ');
+
+		return this;
+	};
+
+	this.like = function(field, val, pos) {
+
+	};
+
+	this.orLike = function(field, val, pos) {
+
+	};
+
+	this.orNotLike = function(field, val, pos) {
+
+	};
+
+	this.having = function(key, val) {
+
+	};
+
+	this.orHaving = function(key, val) {
+
+	};
+
+	this.where = function(key, val) {
+
+	};
+
+	this.orWhere = function(key, val) {
+
+	};
+
+	this.whereIn = function(key, val) {
+
+	};
+
+	this.orWhereIn = function(key, val) {
+
+	};
+
+	this.whereNotIn = function(key, val) {
+
+	};
+
+	this.orWhereNotIn = function(key, val) {
+
+	};
+
+	this.set = function(key, val) {
+		return this;
+	};
+
+	this.join = function(table1, cond, table2, type) {
+		type = type || "inner";
+
+		return this;
+	};
+
+	this.groupBy = function(field) {
+
+	};
+
+	this.orderBy = function(field) {
+
+	};
+
+	this.limit = function(limit, offset) {
+		state.limit = limit;
+		state.offset = offset;
+
+		return this;
+	};
+
+	this.groupStart = function() {
+
+	};
+
+	this.orGroupStart = function() {
+
+	};
+
+	this.orNotGroupStart = function() {
+
+	};
+
+	this.groupEnd = function() {
+
+	};
+
+	// ------------------------------------------------------------------------
+	// ! Result Methods
+	// ------------------------------------------------------------------------
+
+	this.get = function(table, limit, offset) {
+		// Reset state
+		this.resetQuery();
+	};
+
+	this.getWhere = function(table, where, limit, offset) {
+		// Reset state
+		this.resetQuery();
+	};
+
+	this.insert = function(table, data) {
+		// Reset state
+		this.resetQuery();
+	};
+
+	this.update = function(table, data) {
+		// Reset state
+		this.resetQuery();
+	};
+
+	this['delete'] = function (table, where) {
+		// Reset state
+		this.resetQuery();
+	};
+
+	// ------------------------------------------------------------------------
+	// ! Methods returning SQL
+	// ------------------------------------------------------------------------
+
+	/**
+	 * Return generated select query SQL
+	 *
+	 * @return {String}
+	 */
+	this.getCompiledSelect = function() {
+		// Return sql
+
+		// Reset state
+		this.resetQuery();
+	};
+
+	this.getCompiledInsert = function() {
+		// Return sql
+
+		// Reset state
+		this.resetQuery();
+	};
+
+	this.getCompiledUpdate = function() {
+		// Return sql
+
+		// Reset state
+		this.resetQuery();
+	};
+
+	this.getCompiledDelete = function() {
+		// Return sql
+
+		// Reset state
+		this.resetQuery();
+	};
+
+	// ----------------------------------------------------------------------------
+	// ! Miscellaneous Methods
+	// ----------------------------------------------------------------------------
+
+	/**
+	 * Reset the object state for a new query
+	 *
+	 * @return void
+	 */
+	this.resetQuery = function() {
+		state = {
+			// Arrays/Maps
+			queryMap: {},
+			values: [],
+			whereValues: [],
+			setArrayKeys: [],
+			orderArray: [],
+			groupArray: [],
+			havingMap: [],
+
+			// Partials
+			selectString: '',
+			fromString: '',
+			setString: '',
+			orderString: '',
+			groupString: '',
+
+			// Other various values
+			limit: null,
+			offset: null
+		};
+	};
+
+	/**
+	 * Returns the current class state for testing or other purposes
+	 *
+	 * @return {Object}
+	 */
+	this.getState = function() {
+		return state;
+	};
+
+	return this;
+};</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="module-driver.html">driver</a></li><li><a href="module-helpers.html">helpers</a></li><li><a href="module-query-builder.html">query-builder</a></li></ul><h3><a href="global.html">Global</a></h3>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.2</a> on Mon Oct 20 2014 16:34:02 GMT-0400 (EDT)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
