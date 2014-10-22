@@ -1,15 +1,15 @@
 module.exports = function(grunt) {
 	'use strict';
 
-	var exec = require('child_process').exec;
-
 	// Project configuration
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 		jsdoc: {
 			dist: {
-				src: ['lib/**/*.js', 'README.md'],
+				src: ['lib/*.js', 'lib/drivers/*.js', 'README.md'],
 				options: {
+					template: 'node_modules/grunt-jsdoc/node_modules/ink-docstrap/template',
+					configure: 'node_modules/grunt-jsdoc/node_modules/ink-docstrap/template/jsdoc.conf.json',
 					destination: 'docs'
 				}
 			}
@@ -25,4 +25,5 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('default', ['nodeunit','jsdoc']);
 	grunt.registerTask('tests', 'nodeunit');
+	grunt.registerTask('docs', 'jsdoc');
 };
