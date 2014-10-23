@@ -186,7 +186,11 @@ var d = {
 		}
 
 		// Handle commas
-		str = helpers.splitTrim(',', str);
+		if (str.contains(','))
+		{
+			var parts = str.split(',').map(helpers.stringTrim);
+			str = parts.map(d.quoteIdentifiers).join(',');
+		}
 
 		// Split identifiers by period
 		hiers = str.split('.').map(d._quote);

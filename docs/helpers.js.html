@@ -87,17 +87,6 @@ var h = {
 		return str.trim();
 	},
 	/**
-	 * Split a string by a character, trim the string
-	 * and rejoin the string
-	 *
-	 * @param {String} char
-	 * @param {String} string
-	 * @return {String}
-	 */
-	splitTrim: function(char, string) {
-		return string.split(char).map(h.stringTrim).join(char);
-	},
-	/**
 	 * Get the type of the variable passed
 	 *
 	 * @see https://techblog.badoo.com/blog/2013/11/01/type-checking-in-javascript/

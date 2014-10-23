@@ -68,9 +68,21 @@ module.exports = (function()  {
 		},
 		'Select tests' : {
 			'Select where get': function(test) {
+				base.qb.select(['id', 'key as k', 'val'])
+					.where('id >', 1)
+					.where('id <', 900)
+					.get('create_test', 2, 1, base.testCallback.bind(test, test));
+
 				base.qb.select('id, key as k, val')
 					.where('id !=', 1)
 					.get('create_test', 2, 1, base.testCallback.bind(test, test));
+
+				test.done();
+			},
+			'Multi Order By': function(test) {
+				base.qb.from('create_test')
+					.orderBy('id, key')
+					.get(base.testCallback.bind(test, test));
 
 				test.done();
 			}
