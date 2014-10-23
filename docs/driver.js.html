@@ -177,6 +177,7 @@ var d = {
 	 */
 	quoteIdentifiers: function(str) {
 		var hiers, raw;
+		var pattern = new RegExp(d.identifierChar + '(' + '([a-zA-Z0-9_]+)' + '(\((.*?)\))' + ')' + d.identifierChar, 'ig');
 
 		// Recurse for arrays of identifiiers
 		if (Array.isArray(str))
@@ -191,7 +192,19 @@ var d = {
 		hiers = str.split('.').map(d._quote);
 		raw = hiers.join('.');
 
-		// TODO: fix functions
+		// Fix functions
+		if (raw.contains('(') &amp;&amp; raw.contains(')'))
+		{
+			var funcs = pattern.exec(raw);
+			console.log(funcs);
+
+			// Unquote the function
+			raw = raw.replace(funcs[0], funcs[1]);
+
+			// Quote the identifiers inside of the parens
+			var inParens = funcs[3].substring(1, funcs[3].length -1);
+			raw = raw.replace(inParens, d.quoteIdentifiers(inParens));
+		}
 
 		return raw;
 	}

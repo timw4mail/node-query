@@ -6,10 +6,10 @@ A node query builder for various SQL databases, based on CodeIgniter's query bui
 
 	var nodeQuery = require('node-query');
 	
-	var mysql = ... // Database module connection 
+	var connection = ... // Database module connection 
 	
 	// Three arguments: database type, database connection, database connection library
-	var query = nodeQuery('mysql', mysql, 'mysql2');
+	var query = nodeQuery('mysql', connection, 'mysql2');
 
 	query.select('foo')
 		.from('bar')

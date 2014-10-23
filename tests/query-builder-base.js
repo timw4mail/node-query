@@ -20,6 +20,14 @@ module.exports = (function()  {
 	 */
 	base.tests = {
 		'Get tests' : {
+			'Get with function': function(test) {
+				base.qb.select('id, COUNT(id) as count')
+					.from('create_test')
+					.groupBy('id')
+					.get(base.testCallback.bind(test, test));
+
+				test.done();
+			},
 			'Basic select all get': function(test) {
 				base.qb.get('create_test', base.testCallback.bind(test, test));
 				test.done();
