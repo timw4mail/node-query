@@ -1,0 +1,24 @@
+{
+	"mysql": {
+		"driver": "mysql",
+		"conn": {
+			"host": "localhost",
+			"user": "test",
+			"password": "",
+			"database": "test"
+		}
+	},
+	"mysql2": {
+		"driver": "mysql",
+		"conn": {
+			"host": "localhost",
+			"user": "test",
+			"password": "",
+			"database": "test"
+		}
+	},
+	"pg": {
+		"driver": "pg",
+		"conn": "postgres://test:test@localhost/test"
+	}
+}

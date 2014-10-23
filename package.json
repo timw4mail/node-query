@@ -20,7 +20,10 @@
     "grunt-contrib-nodeunit": "^0.4.1",
     "grunt-jsdoc": ">=0.6.1",
     "jsdoc": "^3.3.0-alpha9",
-    "nodeunit": "^0.9.0"
+    "mysql": "^2.5.2",
+    "mysql2": "^0.12.5",
+    "nodeunit": "^0.9.0",
+    "pg": "^3.6.2"
   },
   "peerDependencies": {
     "mysql": "",

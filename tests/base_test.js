@@ -4,7 +4,10 @@ var modules = {
 	helpers: require('../lib/helpers'),
 	driver: require('../lib/driver'),
 	qb: require('../lib/query-builder'),
-	'node-query': require('../lib/node-query')
+	'node-query': require('../lib/node-query'),
+	'drivers/pg': require('../lib/drivers/pg'),
+	'drivers/mysql': require('../lib/drivers/mysql'),
+	adapter: require('../lib/adapter')
 };
 
 module.exports = {

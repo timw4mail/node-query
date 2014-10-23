@@ -6,7 +6,7 @@ module.exports = function(grunt) {
 		pkg: grunt.file.readJSON('package.json'),
 		jsdoc: {
 			dist: {
-				src: ['lib/*.js', 'lib/drivers/*.js', 'README.md'],
+				src: ['lib/*.js', 'README.md'],
 				options: {
 					template: 'node_modules/grunt-jsdoc/node_modules/ink-docstrap/template',
 					configure: 'node_modules/grunt-jsdoc/node_modules/ink-docstrap/template/jsdoc.conf.json',
@@ -15,7 +15,10 @@ module.exports = function(grunt) {
 			}
 		},
 		nodeunit: {
-			all: ['tests/**/*_test.js']
+			all: ['tests/**/*_test.js'],
+			options: {
+				reporter: 'verbose'
+			}
 		}
 	});
 
