@@ -10,6 +10,17 @@ var helperTests = {
 			test.deepEqual('string', helpers.type(new String("Foo")), "String Wrapper returns 'string' not 'object'");
 			test.done();
 		}
+	},
+	'is..Method tests exist' : function(test) {
+		test.expect(11);
+
+		var types = ['Null','Undefined','Object','Array','String','Number','Boolean','Function','RegExp','NaN','Infinite'];
+
+		types.forEach(function(type) {
+			test.ok(helpers['is' + type], 'is' + type + ' method exists');
+		});
+
+		test.done();
 	}
 };
 

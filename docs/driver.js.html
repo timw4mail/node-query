@@ -196,7 +196,6 @@ var d = {
 		if (raw.contains('(') &amp;&amp; raw.contains(')'))
 		{
 			var funcs = pattern.exec(raw);
-			console.log(funcs);
 
 			// Unquote the function
 			raw = raw.replace(funcs[0], funcs[1]);

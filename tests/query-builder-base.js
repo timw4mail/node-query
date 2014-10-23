@@ -36,6 +36,14 @@ module.exports = (function()  {
 				base.qb.from('create_test')
 					.get(base.testCallback.bind(test, test));
 				test.done();
+			},
+			'Get with limit': function(test) {
+				base.qb.get('create_test', 2, base.testCallback.bind(test, test));
+				test.done();
+			},
+			'Get with limit and offset': function(test) {
+				base.qb.get('create_test', 2, 1, base.testCallback.bind(test, test));
+				test.done();
 			}
 		},
 		'Select tests' : {
