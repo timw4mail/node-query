@@ -72,7 +72,7 @@
 			class="sunlight-highlight-javascript linenums">'use strict';
 
 /** @module query-builder */
-
+require('./es6-polyfill');
 var getArgs = require('getargs'),
 	helpers = require('./helpers');
 
@@ -218,12 +218,12 @@ var QueryBuilder = function(driver, adapter) {
 		 *
 		 * @private
 		 */
-		mixedSet: function(/* varName, key, [val], valType */) {
-			var args = getArgs('varName:string, key:string|array, [val]:string, valType:string', arguments);
+		mixedSet: function(/* varName, valType, key, [val] */) {
+			var args = getArgs('varName:string, valType:string, key:string|object, [val]:string|number|boolean', arguments);
 
 			var obj = {};
 
-			if (helpers.isString(args.key) &amp;&amp; helpers.isString(args.val))
+			if (helpers.isScalar(args.key) &amp;&amp; !helpers.isUndefined(args.val) &amp;&amp; !helpers.isNull(args.val))
 			{
 				obj[args.key] = args.val;
 			}
@@ -233,11 +233,11 @@ var QueryBuilder = function(driver, adapter) {
 			}
 
 			Object.keys(obj).forEach(function(k) {
-				if (args.valType != 'both')
+				// If a single value for the return
+				if (['key','value'].indexOf(args.valType) !== -1)
 				{
-					state[args.varName].push(
-						(args.valType === 'key')? k: obj[k]
-					);
+					var pushVal = (args.valType === 'key') ? k : obj[k];
+					state[args.varName].push(pushVal);
 				}
 				else
 				{
@@ -247,14 +247,18 @@ var QueryBuilder = function(driver, adapter) {
 
 			return state[args.varName];
 		},
-		whereMixedSet: function(key, val) {
-			_p.mixedSet('whereValues', key, val, 'value');
-			_p.mixedSet('whereMap', key, val, 'both');
+		whereMixedSet: function(/*key, val*/) {
+			var args = getArgs('key:string|object, [val]', arguments);
+
+			state.whereMap = [];
+
+			_p.mixedSet('whereMap', 'both', args.key, args.val);
+			_p.mixedSet('whereValues', 'value', args.key, args.val);
 		},
 		where: function(key, val, conj) {
 			conj = conj || 'AND';
 
-			// Get an object to iterate over
+			// Normalize key and value and insert into state.whereMap
 			_p.whereMixedSet(key, val);
 
 			Object.keys(state.whereMap).forEach(function(field) {
@@ -271,7 +275,7 @@ var QueryBuilder = function(driver, adapter) {
 					lastItem = state.queryMap[state.queryMap.length - 1];
 
 				// Determine the correct conjunction
-				if (state.queryMap.length &lt; 1 || firstItem.contains('JOIN'))
+				if (state.queryMap.length &lt; 1 || firstItem.conjunction.contains('JOIN'))
 				{
 					conj = " WHERE ";
 				}
@@ -287,10 +291,13 @@ var QueryBuilder = function(driver, adapter) {
 				_p.appendMap(conj, item, 'where');
 			});
 		},
-		having: function(key, val, conj) {
-			conj = conj || 'AND';
+		having: function(/*key, val, conj*/) {
+			var args = getArgs('key:string|object, [val]:string|number, [conj]:string', arguments);
+			args.conj = args.conj || 'AND';
+			args.val = args.val || null;
 
-			_p.whereMixedSet(key, val);
+			// Normalize key/val and put in state.whereMap
+			_p.whereMixedSet(args.key, args.val);
 
 			Object.keys(state.whereMap).forEach(function(field) {
 				// Split each key by spaces, in case there
@@ -304,7 +311,7 @@ var QueryBuilder = function(driver, adapter) {
 
 				// Put in the having map
 				state.havingMap.push({
-					conjunction: (state.havingMap.length > 0) ? " " + conj + " " : ' HAVING ',
+					conjunction: (state.havingMap.length > 0) ? " " + args.conj + " " : ' HAVING ',
 					string: item
 				});
 			});
@@ -353,7 +360,7 @@ var QueryBuilder = function(driver, adapter) {
 		resetState: function() {
 			state = {
 				// Arrays/Maps
-				queryMap: {},
+				queryMap: [],
 				values: [],
 				whereValues: [],
 				setArrayKeys: [],
@@ -522,8 +529,10 @@ var QueryBuilder = function(driver, adapter) {
 	 * @param {String|Number} [val] - The value to compare if the value of key is a string
 	 * @return this
 	 */
-	this.having = function(key, val) {
-		_p.having(key, val, 'AND');
+	this.having = function(/*key, [val]*/) {
+		var args = getArgs('key:string|object, [val]:string|number', arguments);
+
+		_p.having(args.key, args.val, 'AND');
 		return this;
 	};
 
@@ -534,8 +543,10 @@ var QueryBuilder = function(driver, adapter) {
 	 * @param {String|Number} [val] - The value to compare if the value of key is a string
 	 * @return this
 	 */
-	this.orHaving = function(key, val) {
-		_p.having(key, val, 'OR');
+	this.orHaving = function(/*key, [val]*/) {
+		var args = getArgs('key:string|object, [val]:string|number', arguments);
+
+		_p.having(args.key, args.val, 'OR');
 		return this;
 	};
 
@@ -622,8 +633,8 @@ var QueryBuilder = function(driver, adapter) {
 		var args = getArgs('key:string|object, [val]:string', arguments);
 
 		// Set the appropriate state variables
-		_p.mixedSet('setArrayKeys', args.key, args.val, 'key');
-		_p.mixedSet('values', args.key, args.val, 'value');
+		_p.mixedSet('setArrayKeys', 'key', args.key, args.val);
+		_p.mixedSet('values', 'value', args.key, args.val);
 
 		// Use the keys of the array to make the insert/update string
 		// and escape the field names

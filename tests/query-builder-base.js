@@ -44,10 +44,36 @@ module.exports = (function()  {
 			'Get with limit and offset': function(test) {
 				base.qb.get('create_test', 2, 1, base.testCallback.bind(test, test));
 				test.done();
+			},
+			'Test get with having': function(test) {
+				base.qb.select('id')
+					.from('create_test')
+					.groupBy('id')
+					.having({'id >':1})
+					.having('id !=', 3)
+					.get(base.testCallback.bind(test, test));
+
+				test.done();
+			},
+			"Test get with 'orHaving'": function(test) {
+				base.qb.select('id')
+					.from('create_test')
+					.groupBy('id')
+					.having({'id >':1})
+					.orHaving('id !=', 3)
+					.get(base.testCallback.bind(test, test));
+
+				test.done();
 			}
 		},
 		'Select tests' : {
+			'Select where get': function(test) {
+				base.qb.select('id, key as k, val')
+					.where('id !=', 1)
+					.get('create_test', 2, 1, base.testCallback.bind(test, test));
 
+				test.done();
+			}
 		},
 		'Grouping tests' : {
 
