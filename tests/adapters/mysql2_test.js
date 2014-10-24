@@ -23,7 +23,8 @@ testBase._setUp(qb, function(test, err, rows) {
 		throw new Error(err);
 	}
 
-	test.ok(rows);
+	test.ok(rows, 'Valid result for generated query');
+	test.done();
 });
 
 // Export the final test object

@@ -19,12 +19,12 @@ var qb = nodeQuery('pg', connection, adapterName);
 
 
 // Set up the test base
-testBase._setUp(qb, function(test, err, rows) {
+testBase._setUp(qb, function(test, err, result) {
 	if (err) {
 		throw new Error(err);
 	}
 
-	test.ok(rows);
+	test.ok.call(test, result);
 });
 
 // Export the final test object
