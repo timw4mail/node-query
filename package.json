@@ -17,7 +17,9 @@
   },
   "devDependencies": {
     "grunt": "^0.4.5",
+    "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-nodeunit": "^0.4.1",
+    "grunt-istanbul": "^0.3.0",
     "grunt-jsdoc": ">=0.6.1",
     "jsdoc": "^3.3.0-alpha9",
     "mysql": "^2.5.2",
@@ -30,5 +32,8 @@
     "mysql2": "",
     "pg": ""
   },
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "test": "grunt tests"
+  }
 }
