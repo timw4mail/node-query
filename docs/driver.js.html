@@ -85,6 +85,7 @@ var helpers = require('./helpers');
 var d = {
 	identifierChar: '"',
 	tablePrefix: null,
+	hasTruncate: true,
 
 	/**
 	 * Low level function for naive quoting of strings
@@ -214,6 +215,22 @@ var d = {
 		}
 
 		return raw;
+	},
+
+	/**
+	 * SQL to truncate the passed table
+	 *
+	 * @param {String} table
+	 * @return {String} - sql
+	 */
+	truncate: function(table) {
+		var sql = (d.hasTruncate)
+			? 'TRUNCATE '
+			: 'DELETE FROM ';
+
+		sql += d.quoteTable(table);
+
+		return sql;
 	}
 };
 
