@@ -1,5 +1,7 @@
 'use strict';
 
+var configFile = (process.env.CI) ? '../config-travis.json' : '../config.json';
+
 // Load a fresh version of the test base
 delete require.cache[require.resolve('../query-builder-base')];
 var testBase = require('../query-builder-base');
@@ -7,7 +9,7 @@ var tests = testBase.tests;
 
 // Load the test config file
 var adapterName = 'mysql2';
-var config = require('../config.json')[adapterName];
+var config = require(configFile)[adapterName];
 
 // Set up the connection
 var mysql2 = require(adapterName);

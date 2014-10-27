@@ -1,0 +1,13 @@
+language: node_js
+
+node_js:
+  - "0.11"
+  - "0.10"
+  - "0.8"
+
+before_script:
+  - psql -c 'DROP DATABASE IF EXISTS test;' -U postgres
+  - psql -c 'create database test;' -U postgres
+  - mysql -e 'create database IF NOT EXISTS test;'
+  - mysql -Uroot test < ./tests/sql/mysql.sql
+  - psql -f ./tests/sql/pgsql.sql
