@@ -14,9 +14,9 @@ A node query builder for various SQL databases, based on CodeIgniter's query bui
 	query.select('foo')
 		.from('bar')
 		.where('x', 3)
-		.orWhere('y', 2)
+		.orWhere({y: 2})
 		.join('baz', 'baz.boo = bar.foo', 'left')
-		.orderBy('x')
+		.orderBy('x', 'DESC')
 		.limit(2, 3)
 		.get(function(/* Adapter dependent arguments */) {
 			// Database module result handling
