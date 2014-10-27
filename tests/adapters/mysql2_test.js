@@ -19,7 +19,8 @@ var qb = nodeQuery('mysql', connection, adapterName);
 
 // Set up the test base
 testBase._setUp(qb, function(test, err, rows) {
-	if (err) {
+	if (err != null) {
+		test.done();
 		throw new Error(err);
 	}
 

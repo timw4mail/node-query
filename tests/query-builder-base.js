@@ -19,6 +19,16 @@ module.exports = (function()  {
 	 * Generic query builder tests
 	 */
 	base.tests = {
+		setUp: function(callback) {
+			var sql = base.qb.driver.truncate('create_test');
+			base.qb.adapter.execute(sql, function(err, result) {
+				if (err) {
+					throw new Error(err);
+				}
+
+				callback();
+			});
+		},
 		// ! Get tests
 		'Get tests' : {
 			'Get with function': function(test) {
@@ -240,7 +250,7 @@ module.exports = (function()  {
 			}
 		},
 		'DB update tests' : {
-			/*'Test Insert': function(test) {
+			'Test Insert': function(test) {
 				base.qb.set('id', 98)
 					.set('key', 84)
 					.set('val', 120)
@@ -252,12 +262,38 @@ module.exports = (function()  {
 					key: 1,
 					val: 2
 				}, base.testCallback.bind(null, test));
-			}*/
+			},
+			'Test Update': function(test) {
+				base.qb.where('id', 7)
+					.update('create_test', {
+						id: 7,
+						key: 'gogle',
+						val: 'non-word'
+					}, base.testCallback.bind(null, test));
+			},
+			'Test set Array Update': function(test) {
+				var object = {
+					id: 22,
+					key: 'gogle',
+					val: 'non-word'
+				};
+
+				base.qb.set(object)
+					.where('id', 22)
+					.update('create_test', base.testCallback.bind(null, test));
+			},
+			'Test where set update': function(test) {
+				base.qb.where('id', 36)
+					.set('id', 36)
+					.set('key', 'gogle')
+					.set('val', 'non-word')
+					.update('create_test', base.testCallback.bind(null, test));
+			},
+			'Test delete': function(test) {
+				base.qb.delete('create_test', {id: 5}, base.testCallback.bind(null, test));
+			}
 		},
 		'Compiled query tests' : {
-
-		},
-		'Error tests' : {
 
 		}
 	};
