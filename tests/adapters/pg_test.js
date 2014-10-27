@@ -12,6 +12,11 @@ var config = require('../config.json')[adapterName];
 // Set up the connection
 var pg = require(adapterName);
 var connection = new pg.Client(config.conn);
+connection.connect(function(err) {
+	if (err) {
+		throw new Error(err);
+	}
+});
 
 // Set up the query builder object
 var nodeQuery = require('../../lib/node-query');
@@ -20,14 +25,16 @@ var qb = nodeQuery('pg', connection, adapterName);
 
 // Set up the test base
 testBase._setUp(qb, function(test, err, result) {
-	if (err) {
-		throw new Error(err);
+	if (err != null) {
+		//throw new Error(err);
+		console.error('SQL syntax error', err);
 	}
 
-	test.ok.call(test, result);
+	test.ok(result, 'Valid result for generated query');
+	test.done();
 });
 
-// Export the final test object
+
 tests["pg adapter with query builder"] = function(test) {
 	test.ok(testBase.qb);
 	test.done();
