@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>DocStrap Module: node-query</title>
+	<title>DocStrap Source: query-parser.js</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -62,285 +62,108 @@
 	<div class="row-fluid">
 
 		
-		<div class="span8">
-			
+			<div class="span12">
+				
 				<div id="main">
 					
 
 
-	<h1 class="page-title">Module: node-query</h1>
+		<h1 class="page-title">Source: query-parser.js</h1>
+    
 <section>
-
-<header>
-    <h2>
-    node-query
-    </h2>
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-<dt>
-    <h4 class="name" id="module:node-query"><span class="type-signature"></span>require("node-query")<span class="signature">(drivername, connObject, connLib)</span><span class="type-signature"> &rarr; {queryBuilder}</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Create a query builder object</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>drivername</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The name of the database type, eg. mysql or pg</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>connObject</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>A connection object from the database library you are connecting with</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>connLib</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The name of the db connection library you are using, eg. mysql or mysql2</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-    
-    
-    
-<dl class="details">
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="node-query.js.html">node-query.js</a>,
-				 <a href="node-query.js.html#sunlight-1-line-15">line 15</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
-
-
-<dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
-<span class="param-type">queryBuilder</span>
-
-
-	</dd>
-</dl>
-
-
-        
-    
-    
-</dd>
-
-    
-
-    
-        
-
-        
-<dl class="details">
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="node-query.js.html">node-query.js</a>,
-				 <a href="node-query.js.html#sunlight-1-line-3">line 3</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
+	<article>
+		<pre
+			class="sunlight-highlight-javascript linenums">'use strict';
+
+var helpers = require('./helpers');
+
+var matchPatterns = {
+	'function': /([a-zA-Z0-9_]+\((.*?)\))/i,
+	identifier: /([a-zA-Z0-9_\-]+\.?)+/ig,
+	operator: /\=|AND|&amp;&amp;?|~|\|\|?|\^|\/|>=?|&lt;=?|-|%|OR|\+|NOT|\!=?|&lt;>|XOR/i
+};
+
+// Full pattern for determining ordering of the pieces
+matchPatterns.combined = new RegExp(matchPatterns['function'].source + "+|"
+	+ matchPatterns.identifier.source
+	+ '|(' + matchPatterns.operator.source + ')+', 'ig');
+
+var filterMatches = function(array) {
+	var output = [];
+
+	// Return non-array matches
+	if (helpers.isScalar(array) || helpers.isNull(array) || helpers.isUndefined(array)) return output;
+
+	array.forEach(function(item) {
+		if ( ! helpers.isUndefined(item))
+		{
+			output.push(item);
+		}
+	});
+
+	return output;
+};
+
+var parseJoin = function(sql) {
+	var matches = {};
+	var output = {};
+
+	// Get clause components
+	matches['function'] = sql.match(matchPatterns['function']);
+	matches.identifiers = sql.match(matchPatterns.identifier);
+	matches.operators = sql.match(matchPatterns.operator);
+
+	// Get everything at once for ordering
+	matches.combined = sql.match(matchPatterns.combined);
+
+	// Flatten the matches to increase relevance
+	Object.keys(matches).forEach(function(key) {
+		output[key] = filterMatches(matches[key]);
+	});
+
+	return output;
+};
+
+// --------------------------------------------------------------------------
+
+/**
+ * @constructor
+ * @param {Driver} - The driver object for the database in use
+ * @module query-parser
+ */
+var QueryParser = function(driver) {
+
+	// That 'new' keyword is annoying
+	if ( ! (this instanceof QueryParser)) return new QueryParser(driver);
+
+	/**
+	 * Return the output of the parsing of the join condition
+	 *
+	 * @param {String} condition - The join condition to evalate
+	 * @return {String} - The parsed/escaped join condition
+	 */
+	this.compileJoin = function(condition) {
+		var parts = parseJoin(condition);
+		var count = parts.identifiers.length;
+		var i;
+
+		// Quote the identifiers
+		parts.combined.forEach(function(part, i) {
+			if (parts.identifiers.indexOf(part) !== -1 &amp;&amp; ! helpers.isNumber(part))
+			{
+				parts.combined[i] = driver.quoteIdentifiers(part);
+			}
+		});
+
+		return parts.combined.join('');
+	};
+};
+
+module.exports = QueryParser;
+</pre>
+	</article>
 </section>
+
 
 
 
@@ -364,10 +187,6 @@
 				</footer>
 			</div>
 
-			
-			<div class="span3">
-				<div id="toc"></div>
-			</div>
 			
 			<br clear="both">
 		</div>

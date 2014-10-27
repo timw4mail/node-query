@@ -47,6 +47,10 @@
 							<a href="module-query-builder.html">query-builder</a>
 						</li>
 						
+						<li>
+							<a href="module-query-parser.html">query-parser</a>
+						</li>
+						
 
 					</ul>
 				</li>
@@ -93,6 +97,8 @@ var QueryBuilder = function(driver, adapter) {
 
 	// That 'new' keyword is annoying
 	if ( ! (this instanceof QueryBuilder)) return new QueryBuilder(driver, adapter);
+
+	var parser = require('./query-parser')(driver);
 
 	/**
 	 * "Private" methods
@@ -141,9 +147,8 @@ var QueryBuilder = function(driver, adapter) {
 
 			switch(type) {
 				case "insert":
-					var paramCount = state.setArrayKeys.length;
-					var params = [];
-					params.fill('?', 0, paramCount);
+					var params = new Array(state.setArrayKeys.length);
+					params.fill('?');
 
 					sql = "INSERT INTO " + table + " (";
 					sql += state.setArrayKeys.join(',');
@@ -191,7 +196,7 @@ var QueryBuilder = function(driver, adapter) {
 				val = "%" + val + "%";
 			}
 
-			conj = (state.queryMap.length &lt; 1) ? ' WHERE ' : ' ' + conj + '';
+			conj = (state.queryMap.length &lt; 1) ? ' WHERE ' : ' ' + conj + ' ';
 			_p.appendMap(conj, like, 'like');
 
 			state.whereValues.push(val);
@@ -217,34 +222,38 @@ var QueryBuilder = function(driver, adapter) {
 		 *
 		 * @private
 		 */
-		mixedSet: function(/* varName, valType, key, [val] */) {
-			var args = getArgs('varName:string, valType:string, key:string|object, [val]:string|number|boolean', arguments);
+		mixedSet: function(/* $varName, $valType, $key, [$val] */) {
+			var args = getArgs('$varName:string, $valType:string, $key:object|string|number, [$val]', arguments);
 
 			var obj = {};
 
-			if (helpers.isScalar(args.key) &amp;&amp; !helpers.isUndefined(args.val) &amp;&amp; !helpers.isNull(args.val))
+			if (helpers.isScalar(args.$key) &amp;&amp; !helpers.isUndefined(args.$val) &amp;&amp; !helpers.isNull(args.$val))
 			{
-				obj[args.key] = args.val;
+				obj[args.$key] = args.$val;
+			}
+			else if ( ! helpers.isScalar(args.$key))
+			{
+				obj = args.$key;
 			}
 			else
 			{
-				obj = args.key;
+				throw new Error("Invalid arguments passed");
 			}
 
 			Object.keys(obj).forEach(function(k) {
 				// If a single value for the return
-				if (['key','value'].indexOf(args.valType) !== -1)
+				if (['key','value'].indexOf(args.$valType) !== -1)
 				{
-					var pushVal = (args.valType === 'key') ? k : obj[k];
-					state[args.varName].push(pushVal);
+					var pushVal = (args.$valType === 'key') ? k : obj[k];
+					state[args.$varName].push(pushVal);
 				}
 				else
 				{
-					state[args.varName][k] = obj[k];
+					state[args.$varName][k] = obj[k];
 				}
 			});
 
-			return state[args.varName];
+			return state[args.$varName];
 		},
 		whereMixedSet: function(/*key, val*/) {
 			var args = getArgs('key:string|object, [val]', arguments);
@@ -263,12 +272,12 @@ var QueryBuilder = function(driver, adapter) {
 			Object.keys(state.whereMap).forEach(function(field) {
 				// Split each key by spaces, in case there
 				// is an operator such as >, &lt;, !=, etc.
-				var fieldArray = field.split(' ');
+				var fieldArray = field.trim().split(' ').map(helpers.stringTrim);
 
 				var item = driver.quoteIdentifiers(fieldArray[0]);
 
 				// Simple key value, or an operator?
-				item += (fieldArray.length === 1) ? '=?' : " " + fieldArray[1] + " ?";
+				item += (fieldArray.length === 1 || fieldArray[1] === '') ? '=?' : " " + fieldArray[1] + " ?";
 
 				var firstItem = state.queryMap[0],
 					lastItem = state.queryMap[state.queryMap.length - 1];
@@ -315,25 +324,29 @@ var QueryBuilder = function(driver, adapter) {
 				});
 			});
 		},
-		whereIn: function(key, val, inClause, conj) {
-			key = driver.quoteIdentifiers(key);
-			var params = [];
-			params.fill('?', 0, val.length);
+		whereIn: function(/*key, val, inClause, conj*/) {
+			var args = getArgs('key:string, val:array, inClause:string, conj:string', arguments);
 
-			val.forEach(function(value) {
+			args.key = driver.quoteIdentifiers(args.key);
+			var params = new Array(args.val.length);
+			params.fill('?');
+
+			args.val.forEach(function(value) {
 				state.whereValues.push(value);
 			});
 
-			conj = (state.queryMap.length > 0) ? " " + conj + " " : ' WHERE ';
-			var str = key + " " + inClause + " (" + params.join(',') + ") ";
+			args.conj = (state.queryMap.length > 0) ? " " + args.conj + " " : ' WHERE ';
+			var str = args.key + " " + args.inClause + " (" + params.join(',') + ") ";
 
-			_p.appendMap(conj, str, 'whereIn');
+			_p.appendMap(args.conj, str, 'whereIn');
 		},
 		run: function(type, table, callback, sql, vals) {
 			if ( ! sql)
 			{
 				sql = _p.compile(type, table);
 			}
+//console.log(sql);
+//console.log('------------------------');
 
 			if ( ! vals)
 			{
@@ -628,12 +641,12 @@ var QueryBuilder = function(driver, adapter) {
 	 * @param {String} [val] - The value if using a scalar key
 	 * @return this
 	 */
-	this.set = function(/* key, [val] */) {
-		var args = getArgs('key:string|object, [val]:string', arguments);
+	this.set = function(/* $key, [$val] */) {
+		var args = getArgs('$key, [$val]', arguments);
 
 		// Set the appropriate state variables
-		_p.mixedSet('setArrayKeys', 'key', args.key, args.val);
-		_p.mixedSet('values', 'value', args.key, args.val);
+		_p.mixedSet('setArrayKeys', 'key', args.$key, args.$val);
+		_p.mixedSet('values', 'value', args.$key, args.$val);
 
 		// Use the keys of the array to make the insert/update string
 		// and escape the field names
@@ -649,16 +662,26 @@ var QueryBuilder = function(driver, adapter) {
 	/**
 	 * Add a join clause to the query
 	 *
-	 * @param {String} joinOn - The table you are joining
-	 * @param {String} [cond='='] - The join condition, eg. =,&lt;,>,&lt;>,!=,etc.
-	 * @param {String} joinTo - The value of the condition you are joining on, whether another table's field, or a literal value
+	 * @param {String} table - The table you are joining
+	 * @param {String} cond - The join condition.
 	 * @param {String} [type='inner'] - The type of join, which defaults to inner
 	 * @return this
 	 */
-	this.join = function(/* joinOn, [cond='='], joinTo, [type='inner']*/) {
-		var args = getArgs('joinOn:string, [cond]:string, joinTo:string, [type]:string', arguments);
-		args.cond = args.cond || '=';
-		args.type = args.type || "inner";
+	this.join = function(table, cond, type) {
+		type = type || "inner";
+
+		// Prefix/quote table name
+		var table = table.split(' ').map(helpers.stringTrim);
+		table[0] = driver.quoteTable(table[0]);
+		table = table.map(driver.quoteIdentifiers);
+		table = table.join(' ');
+
+		// Parse out the join condition
+		var parsedCondition = parser.compileJoin(cond);
+		var condition = table + ' ON ' + parsedCondition;
+
+		// Append the join condition to the query map
+		_p.appendMap("\n" + type.toUpperCase() + ' JOIN ', condition, 'join');
 
 		return this;
 	};
@@ -810,13 +833,14 @@ var QueryBuilder = function(driver, adapter) {
 	 * @param {Function} callback - Callback for handling response from the database
 	 * @return void
 	 */
-	this.insert = function(table, data, callback) {
-		if (data) {
-			this.set(data);
+	this.insert = function(/* table, data, callback */) {
+		var args = getArgs('table:string, [data]:object, callback:function', arguments);
+		if (args.data) {
+			this.set(args.data);
 		}
 
 		// Run the query
-		_p.run('insert', table, callback);
+		_p.run('insert', args.table, args.callback);
 	};
 
 	/**
@@ -925,7 +949,7 @@ module.exports = QueryBuilder;</pre>
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha9</a>
-		on Thu Oct 23rd 2014 using the <a
+		on Mon Oct 27th 2014 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a>.
 		</span>
 				</footer>

@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>DocStrap Module: node-query</title>
+	<title>DocStrap Module: query-parser</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -68,12 +68,12 @@
 					
 
 
-	<h1 class="page-title">Module: node-query</h1>
+	<h1 class="page-title">Module: query-parser</h1>
 <section>
 
 <header>
     <h2>
-    node-query
+    query-parser
     </h2>
     
 </header>
@@ -81,9 +81,75 @@
 <article>
     <div class="container-overview">
     
+
+    
         
+
+        
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="query-parser.js.html">query-parser.js</a>,
+				 <a href="query-parser.js.html#sunlight-1-line-54">line 54</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        <dl>
+            
 <dt>
-    <h4 class="name" id="module:node-query"><span class="type-signature"></span>require("node-query")<span class="signature">(drivername, connObject, connLib)</span><span class="type-signature"> &rarr; {queryBuilder}</span></h4>
+    <h4 class="name" id="compileJoin"><span class="type-signature"></span>compileJoin<span class="signature">(condition)</span><span class="type-signature"> &rarr; {String}</span></h4>
     
     
 </dt>
@@ -91,7 +157,7 @@
     
     
     <div class="description">
-        <p>Create a query builder object</p>
+        <p>Return the output of the parsing of the join condition</p>
     </div>
     
 
@@ -125,7 +191,7 @@
 
         <tr>
             
-                <td class="name"><code>drivername</code></td>
+                <td class="name"><code>condition</code></td>
             
 
             <td class="type">
@@ -141,53 +207,7 @@
 
             
 
-            <td class="description last"><p>The name of the database type, eg. mysql or pg</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>connObject</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>A connection object from the database library you are connecting with</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>connLib</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The name of the db connection library you are using, eg. mysql or mysql2</p></td>
+            <td class="description last"><p>The join condition to evalate</p></td>
         </tr>
 
 	
@@ -223,8 +243,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="node-query.js.html">node-query.js</a>,
-				 <a href="node-query.js.html#sunlight-1-line-15">line 15</a>
+				<a href="query-parser.js.html">query-parser.js</a>,
+				 <a href="query-parser.js.html#sunlight-1-line-70">line 70</a>
 			</li>
 		</ul>
 	</dd>
@@ -250,6 +270,12 @@
     <h5>Returns:</h5>
     
             
+<div class="param-desc">
+    <ul>
+<li>The parsed/escaped join condition</li>
+</ul>
+</div>
+
 
 
 <dl>
@@ -258,7 +284,7 @@
 	</dt>
 	<dd>
 		
-<span class="param-type">queryBuilder</span>
+<span class="param-type">String</span>
 
 
 	</dd>
@@ -270,69 +296,7 @@
     
 </dd>
 
-    
-
-    
-        
-
-        
-<dl class="details">
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="node-query.js.html">node-query.js</a>,
-				 <a href="node-query.js.html#sunlight-1-line-3">line 3</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+        </dl>
     
 
     

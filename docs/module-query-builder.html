@@ -47,6 +47,10 @@
 							<a href="module-query-builder.html">query-builder</a>
 						</li>
 						
+						<li>
+							<a href="module-query-parser.html">query-parser</a>
+						</li>
+						
 
 					</ul>
 				</li>
@@ -305,7 +309,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="query-builder.js.html">query-builder.js</a>,
-				 <a href="query-builder.js.html#sunlight-1-line-387">line 387</a>
+				 <a href="query-builder.js.html#sunlight-1-line-396">line 396</a>
 			</li>
 		</ul>
 	</dd>
@@ -550,7 +554,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="query-builder.js.html">query-builder.js</a>,
-				 <a href="query-builder.js.html#sunlight-1-line-719">line 719</a>
+				 <a href="query-builder.js.html#sunlight-1-line-738">line 738</a>
 			</li>
 		</ul>
 	</dd>
@@ -741,7 +745,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="query-builder.js.html">query-builder.js</a>,
-				 <a href="query-builder.js.html#sunlight-1-line-829">line 829</a>
+				 <a href="query-builder.js.html#sunlight-1-line-849">line 849</a>
 			</li>
 		</ul>
 	</dd>
@@ -940,7 +944,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="query-builder.js.html">query-builder.js</a>,
-				 <a href="query-builder.js.html#sunlight-1-line-807">line 807</a>
+				 <a href="query-builder.js.html#sunlight-1-line-827">line 827</a>
 			</li>
 		</ul>
 	</dd>
@@ -1141,7 +1145,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="query-builder.js.html">query-builder.js</a>,
-				 <a href="query-builder.js.html#sunlight-1-line-791">line 791</a>
+				 <a href="query-builder.js.html#sunlight-1-line-811">line 811</a>
 			</li>
 		</ul>
 	</dd>
@@ -1332,7 +1336,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="query-builder.js.html">query-builder.js</a>,
-				 <a href="query-builder.js.html#sunlight-1-line-818">line 818</a>
+				 <a href="query-builder.js.html#sunlight-1-line-838">line 838</a>
 			</li>
 		</ul>
 	</dd>
@@ -1427,7 +1431,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="query-builder.js.html">query-builder.js</a>,
-				 <a href="query-builder.js.html#sunlight-1-line-334">line 334</a>
+				 <a href="query-builder.js.html#sunlight-1-line-343">line 343</a>
 			</li>
 		</ul>
 	</dd>
@@ -1574,7 +1578,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="query-builder.js.html">query-builder.js</a>,
-				 <a href="query-builder.js.html#sunlight-1-line-601">line 601</a>
+				 <a href="query-builder.js.html#sunlight-1-line-620">line 620</a>
 			</li>
 		</ul>
 	</dd>
@@ -1661,7 +1665,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="query-builder.js.html">query-builder.js</a>,
-				 <a href="query-builder.js.html#sunlight-1-line-700">line 700</a>
+				 <a href="query-builder.js.html#sunlight-1-line-719">line 719</a>
 			</li>
 		</ul>
 	</dd>
@@ -1748,7 +1752,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="query-builder.js.html">query-builder.js</a>,
-				 <a href="query-builder.js.html#sunlight-1-line-664">line 664</a>
+				 <a href="query-builder.js.html#sunlight-1-line-683">line 683</a>
 			</li>
 		</ul>
 	</dd>
@@ -1933,7 +1937,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="query-builder.js.html">query-builder.js</a>,
-				 <a href="query-builder.js.html#sunlight-1-line-460">line 460</a>
+				 <a href="query-builder.js.html#sunlight-1-line-469">line 469</a>
 			</li>
 		</ul>
 	</dd>
@@ -2143,7 +2147,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="query-builder.js.html">query-builder.js</a>,
-				 <a href="query-builder.js.html#sunlight-1-line-742">line 742</a>
+				 <a href="query-builder.js.html#sunlight-1-line-761">line 761</a>
 			</li>
 		</ul>
 	</dd>
@@ -2184,7 +2188,7 @@
         
             
 <dt>
-    <h4 class="name" id="join"><span class="type-signature"></span>join<span class="signature">(joinOn, <span class="optional">cond</span>, joinTo, <span class="optional">type</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="join"><span class="type-signature"></span>join<span class="signature">(table, cond, <span class="optional">type</span>)</span><span class="type-signature"></span></h4>
     
     
 </dt>
@@ -2230,7 +2234,7 @@
 
         <tr>
             
-                <td class="name"><code>joinOn</code></td>
+                <td class="name"><code>table</code></td>
             
 
             <td class="type">
@@ -2280,45 +2284,6 @@
             
                 <td class="attributes">
                 
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    '='
-                
-                </td>
-            
-
-            <td class="description last"><p>The join condition, eg. =,&lt;,&gt;,&lt;&gt;,!=,etc.</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>joinTo</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
 
                 
 
@@ -2332,7 +2297,7 @@
                 </td>
             
 
-            <td class="description last"><p>The value of the condition you are joining on, whether another table's field, or a literal value</p></td>
+            <td class="description last"><p>The join condition.</p></td>
         </tr>
 
 	
@@ -2408,7 +2373,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="query-builder.js.html">query-builder.js</a>,
-				 <a href="query-builder.js.html#sunlight-1-line-587">line 587</a>
+				 <a href="query-builder.js.html#sunlight-1-line-595">line 595</a>
 			</li>
 		</ul>
 	</dd>
@@ -2634,7 +2599,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="query-builder.js.html">query-builder.js</a>,
-				 <a href="query-builder.js.html#sunlight-1-line-409">line 409</a>
+				 <a href="query-builder.js.html#sunlight-1-line-418">line 418</a>
 			</li>
 		</ul>
 	</dd>
@@ -2813,7 +2778,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="query-builder.js.html">query-builder.js</a>,
-				 <a href="query-builder.js.html#sunlight-1-line-652">line 652</a>
+				 <a href="query-builder.js.html#sunlight-1-line-671">line 671</a>
 			</li>
 		</ul>
 	</dd>
@@ -3039,7 +3004,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="query-builder.js.html">query-builder.js</a>,
-				 <a href="query-builder.js.html#sunlight-1-line-422">line 422</a>
+				 <a href="query-builder.js.html#sunlight-1-line-431">line 431</a>
 			</li>
 		</ul>
 	</dd>
@@ -3230,7 +3195,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="query-builder.js.html">query-builder.js</a>,
-				 <a href="query-builder.js.html#sunlight-1-line-624">line 624</a>
+				 <a href="query-builder.js.html#sunlight-1-line-643">line 643</a>
 			</li>
 		</ul>
 	</dd>
@@ -3318,7 +3283,7 @@ prefixed with 'OR'</p>
 		<ul class="dummy">
 			<li>
 				<a href="query-builder.js.html">query-builder.js</a>,
-				 <a href="query-builder.js.html#sunlight-1-line-677">line 677</a>
+				 <a href="query-builder.js.html#sunlight-1-line-696">line 696</a>
 			</li>
 		</ul>
 	</dd>
@@ -3503,7 +3468,7 @@ prefixed with 'OR'</p>
 		<ul class="dummy">
 			<li>
 				<a href="query-builder.js.html">query-builder.js</a>,
-				 <a href="query-builder.js.html#sunlight-1-line-474">line 474</a>
+				 <a href="query-builder.js.html#sunlight-1-line-483">line 483</a>
 			</li>
 		</ul>
 	</dd>
@@ -3729,7 +3694,7 @@ prefixed with 'OR'</p>
 		<ul class="dummy">
 			<li>
 				<a href="query-builder.js.html">query-builder.js</a>,
-				 <a href="query-builder.js.html#sunlight-1-line-435">line 435</a>
+				 <a href="query-builder.js.html#sunlight-1-line-444">line 444</a>
 			</li>
 		</ul>
 	</dd>
@@ -3817,7 +3782,7 @@ prefixed with 'OR NOT'</p>
 		<ul class="dummy">
 			<li>
 				<a href="query-builder.js.html">query-builder.js</a>,
-				 <a href="query-builder.js.html#sunlight-1-line-689">line 689</a>
+				 <a href="query-builder.js.html#sunlight-1-line-708">line 708</a>
 			</li>
 		</ul>
 	</dd>
@@ -4043,7 +4008,7 @@ prefixed with 'OR NOT'</p>
 		<ul class="dummy">
 			<li>
 				<a href="query-builder.js.html">query-builder.js</a>,
-				 <a href="query-builder.js.html#sunlight-1-line-448">line 448</a>
+				 <a href="query-builder.js.html#sunlight-1-line-457">line 457</a>
 			</li>
 		</ul>
 	</dd>
@@ -4228,7 +4193,7 @@ prefixed with 'OR NOT'</p>
 		<ul class="dummy">
 			<li>
 				<a href="query-builder.js.html">query-builder.js</a>,
-				 <a href="query-builder.js.html#sunlight-1-line-500">line 500</a>
+				 <a href="query-builder.js.html#sunlight-1-line-509">line 509</a>
 			</li>
 		</ul>
 	</dd>
@@ -4387,7 +4352,7 @@ prefixed with 'OR NOT'</p>
 		<ul class="dummy">
 			<li>
 				<a href="query-builder.js.html">query-builder.js</a>,
-				 <a href="query-builder.js.html#sunlight-1-line-524">line 524</a>
+				 <a href="query-builder.js.html#sunlight-1-line-533">line 533</a>
 			</li>
 		</ul>
 	</dd>
@@ -4546,7 +4511,7 @@ prefixed with 'OR NOT'</p>
 		<ul class="dummy">
 			<li>
 				<a href="query-builder.js.html">query-builder.js</a>,
-				 <a href="query-builder.js.html#sunlight-1-line-548">line 548</a>
+				 <a href="query-builder.js.html#sunlight-1-line-557">line 557</a>
 			</li>
 		</ul>
 	</dd>
@@ -4685,7 +4650,7 @@ prefixed with 'OR NOT'</p>
 		<ul class="dummy">
 			<li>
 				<a href="query-builder.js.html">query-builder.js</a>,
-				 <a href="query-builder.js.html#sunlight-1-line-353">line 353</a>
+				 <a href="query-builder.js.html#sunlight-1-line-362">line 362</a>
 			</li>
 		</ul>
 	</dd>
@@ -4867,7 +4832,7 @@ prefixed with 'OR NOT'</p>
 		<ul class="dummy">
 			<li>
 				<a href="query-builder.js.html">query-builder.js</a>,
-				 <a href="query-builder.js.html#sunlight-1-line-560">line 560</a>
+				 <a href="query-builder.js.html#sunlight-1-line-569">line 569</a>
 			</li>
 		</ul>
 	</dd>
@@ -5077,7 +5042,7 @@ prefixed with 'OR NOT'</p>
 		<ul class="dummy">
 			<li>
 				<a href="query-builder.js.html">query-builder.js</a>,
-				 <a href="query-builder.js.html#sunlight-1-line-759">line 759</a>
+				 <a href="query-builder.js.html#sunlight-1-line-779">line 779</a>
 			</li>
 		</ul>
 	</dd>
@@ -5262,7 +5227,7 @@ prefixed with 'OR NOT'</p>
 		<ul class="dummy">
 			<li>
 				<a href="query-builder.js.html">query-builder.js</a>,
-				 <a href="query-builder.js.html#sunlight-1-line-488">line 488</a>
+				 <a href="query-builder.js.html#sunlight-1-line-497">line 497</a>
 			</li>
 		</ul>
 	</dd>
@@ -5421,7 +5386,7 @@ prefixed with 'OR NOT'</p>
 		<ul class="dummy">
 			<li>
 				<a href="query-builder.js.html">query-builder.js</a>,
-				 <a href="query-builder.js.html#sunlight-1-line-512">line 512</a>
+				 <a href="query-builder.js.html#sunlight-1-line-521">line 521</a>
 			</li>
 		</ul>
 	</dd>
@@ -5580,7 +5545,7 @@ prefixed with 'OR NOT'</p>
 		<ul class="dummy">
 			<li>
 				<a href="query-builder.js.html">query-builder.js</a>,
-				 <a href="query-builder.js.html#sunlight-1-line-536">line 536</a>
+				 <a href="query-builder.js.html#sunlight-1-line-545">line 545</a>
 			</li>
 		</ul>
 	</dd>
@@ -5644,7 +5609,7 @@ prefixed with 'OR NOT'</p>
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha9</a>
-		on Thu Oct 23rd 2014 using the <a
+		on Mon Oct 27th 2014 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a>.
 		</span>
 				</footer>
