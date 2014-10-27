@@ -26,29 +26,19 @@ module.exports = (function()  {
 					.from('create_test')
 					.groupBy('id')
 					.get(base.testCallback.bind(null, test));
-
-
 			},
 			'Basic select all get': function(test) {
 				base.qb.get('create_test', base.testCallback.bind(null, test));
-
-
 			},
 			'Basic select all with from': function(test) {
 				base.qb.from('create_test')
 					.get(base.testCallback.bind(null, test));
-
-
 			},
 			'Get with limit': function(test) {
 				base.qb.get('create_test', 2, base.testCallback.bind(null, test));
-
-
 			},
 			'Get with limit and offset': function(test) {
 				base.qb.get('create_test', 2, 1, base.testCallback.bind(null, test));
-
-
 			},
 			'Test get with having': function(test) {
 				base.qb.select('id')
@@ -57,8 +47,6 @@ module.exports = (function()  {
 					.having({'id >':1})
 					.having('id !=', 3)
 					.get(base.testCallback.bind(null, test));
-
-
 			},
 			"Test get with 'orHaving'": function(test) {
 				base.qb.select('id')
@@ -67,8 +55,6 @@ module.exports = (function()  {
 					.having({'id >':1})
 					.orHaving('id !=', 3)
 					.get(base.testCallback.bind(null, test));
-
-
 			}
 		},
 		// ! Select tests
@@ -88,22 +74,16 @@ module.exports = (function()  {
 				base.qb.from('create_test')
 					.orderBy('id, key')
 					.get(base.testCallback.bind(null, test));
-
-
 			},
 			'Select get': function(test) {
 				base.qb.select('id, key as k, val')
 					.get('create_test', 2, 1, base.testCallback.bind(null, test));
-
-
 			},
 			'Select from get': function(test) {
 				base.qb.select('id, key as k, val')
 					.from('create_test ct')
 					.where('id >', 1)
 					.get(base.testCallback.bind(null, test));
-
-
 			},
 			'Select from limit get': function(test) {
 				base.qb.select('id, key as k, val')
@@ -111,8 +91,6 @@ module.exports = (function()  {
 					.where('id >', 1)
 					.limit(3)
 					.get(base.testCallback.bind(null, test));
-
-
 			}
 		},
 		// ! Grouping tests
@@ -126,8 +104,6 @@ module.exports = (function()  {
 					.groupEnd()
 					.limit(2, 1)
 					.get(base.testCallback.bind(null, test));
-
-
 			},
 			'Using or grouping method': function(test) {
 				base.qb.select('id, key as k, val')
@@ -141,8 +117,6 @@ module.exports = (function()  {
 					.groupEnd()
 					.limit(2, 1)
 					.get(base.testCallback.bind(null, test));
-
-
 			},
 			'Using or not grouping method': function(test) {
 				base.qb.select('id, key as k, val')
@@ -156,8 +130,6 @@ module.exports = (function()  {
 					.groupEnd()
 					.limit(2, 1)
 					.get(base.testCallback.bind(null, test));
-
-
 			}
 		},
 		// ! Where in tests
@@ -166,32 +138,24 @@ module.exports = (function()  {
 				base.qb.from('create_test')
 					.whereIn('id', [0, 6, 56, 563, 341])
 					.get(base.testCallback.bind(null, test));
-
-
 			},
 			'Or Where in': function(test) {
 				base.qb.from('create_test')
 					.where('key', 'false')
 					.orWhereIn('id', [0, 6, 56, 563, 341])
 					.get(base.testCallback.bind(null, test));
-
-
 			},
 			'Where Not in': function(test) {
 				base.qb.from('create_test')
 					.where('key', 'false')
 					.whereNotIn('id', [0, 6, 56, 563, 341])
 					.get(base.testCallback.bind(null, test));
-
-
 			},
 			'Or Where Not in': function(test) {
 				base.qb.from('create_test')
 					.where('key', 'false')
 					.orWhereNotIn('id', [0, 6, 56, 563, 341])
 					.get(base.testCallback.bind(null, test));
-
-
 			}
 		},
 		// ! Query modifier testss
@@ -205,8 +169,6 @@ module.exports = (function()  {
 					.orderBy('k', "ASC")
 					.limit(5, 2)
 					.get(base.testCallback.bind(null, test));
-
-
 			},
 			'Group by': function(test) {
 				base.qb.select('id, key as k, val')
@@ -219,8 +181,6 @@ module.exports = (function()  {
 					.orderBy('k', "ASC")
 					.limit(5, 2)
 					.get(base.testCallback.bind(null, test));
-
-
 			},
 			'Or Where': function(test) {
 				base.qb.select('id, key as k, val')
@@ -229,62 +189,70 @@ module.exports = (function()  {
 					.orWhere('key >', 0)
 					.limit(2, 1)
 					.get(base.testCallback.bind(null, test));
-
-
 			},
 			'Like' : function(test) {
 				base.qb.from('create_test')
 					.like('key', 'og')
 					.get(base.testCallback.bind(null, test));
-
-
 			},
 			'Or Like': function(test) {
 				base.qb.from('create_test')
 					.like('key', 'og')
 					.orLike('key', 'val')
 					.get(base.testCallback.bind(null, test));
-
-
 			},
 			'Not Like': function(test) {
 				base.qb.from('create_test')
 					.like('key', 'og', 'before')
 					.notLike('key', 'val')
 					.get(base.testCallback.bind(null, test));
-
-
 			},
 			'Or Not Like': function(test) {
 				base.qb.from('create_test')
 					.like('key', 'og', 'before')
 					.orNotLike('key', 'val')
 					.get(base.testCallback.bind(null, test));
-
-
 			},
 			'Like Before': function(test) {
 				base.qb.from('create_test')
 					.like('key', 'og', 'before')
 					.get(base.testCallback.bind(null, test));
-
-
 			},
 			'Like After': function(test) {
 				base.qb.from('create_test')
 					.like('key', 'og', 'after')
 					.get(base.testCallback.bind(null, test));
-
-
-			}/*,
+			},
 			'Basic Join': function(test) {
 				base.qb.from('create_test ct')
-					.join('create_join cj', 'cj.id', '=', 'ct.id', 'left')
+					.join('create_join cj', 'cj.id=ct.id')
 					.get(base.testCallback.bind(null, test));
-			}*/
+			},
+			'Left Join': function(test) {
+				base.qb.from('create_test ct')
+					.join('create_join cj', 'cj.id=ct.id', 'left')
+					.get(base.testCallback.bind(null, test));
+			},
+			'InnerJoin': function(test) {
+				base.qb.from('create_test ct')
+					.join('create_join cj', 'cj.id=ct.id', 'inner')
+					.get(base.testCallback.bind(null, test));
+			}
 		},
 		'DB update tests' : {
-
+			/*'Test Insert': function(test) {
+				base.qb.set('id', 98)
+					.set('key', 84)
+					.set('val', 120)
+					.insert('create_test', base.testCallback.bind(null, test));
+			},
+			'Test Insert Object': function(test) {
+				base.qb.insert('create_test', {
+					id: 587,
+					key: 1,
+					val: 2
+				}, base.testCallback.bind(null, test));
+			}*/
 		},
 		'Compiled query tests' : {
 
