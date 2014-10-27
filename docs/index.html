@@ -104,9 +104,10 @@ query.select('foo')
     .from('bar')
     .where('x', 3)
     .orWhere('y', 2)
+    .join('baz', 'baz.boo = bar.foo', 'left')
     .orderBy('x')
     .limit(2, 3)
-    .get(function(err, result) {
+    .get(function(/* Adapter dependent arguments */) {
         // Database module result handling
     });</code></pre></article>
     </section>
