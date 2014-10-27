@@ -1,5 +1,30 @@
 -- sample data to test MySQL
 
+
+--
+-- Table structure for table `create_join`
+--
+
+DROP TABLE IF EXISTS `create_join` (
+  `id` int(10) NOT NULL,
+  `key` text,
+  `val` text
+);
+ALTER TABLE `create_join`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Table structure for table `create_test`
+--
+
+DROP TABLE IF EXISTS `create_test` (
+  `id` int(10) NOT NULL,
+  `key` text,
+  `val` text
+);
+ALTER TABLE `create_test`
+ ADD PRIMARY KEY (`id`);
+
 -- TABLE TEST
 DROP TABLE IF EXISTS TEST1;
 CREATE TABLE TEST1 (
