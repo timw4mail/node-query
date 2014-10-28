@@ -10,9 +10,13 @@ A node query builder for various SQL databases, based on CodeIgniter's query bui
 * mysql2
 * pg
 
+### Installation
+
+	npm install ci-node-query
+
 ### Basic use
 
-	var nodeQuery = require('node-query');
+	var nodeQuery = require('ci-node-query');
 	
 	var connection = ... // Database module connection 
 	
