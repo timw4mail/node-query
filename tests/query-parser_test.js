@@ -1,6 +1,7 @@
 'use strict';
 
 // Use the base driver as a mock for testing
+delete require.cache[require.resolve('../lib/driver')];
 var driver = require('../lib/driver');
 var	parser = require('../lib/query-parser')(driver);
 

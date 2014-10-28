@@ -21,6 +21,28 @@ var helperTests = {
 		});
 
 		test.done();
+	},
+	'isNaN': function(test) {
+		test.expect(2);
+		test.equal(helpers.type(0 / 0), 'nan');
+		test.deepEqual(helpers.isNaN(0 / 0), true);
+
+		test.done();
+	},
+	'isInfinity': function(test) {
+		test.expect(2);
+
+		test.equal(helpers.type(1/0), 'infinity');
+		test.deepEqual(helpers.isInfinite(1/0), true);
+		test.done();
+	},
+	'stringTrim': function(test) {
+		var orig = ['  x y ', 'z   ', ' q'];
+		var ret = ['x y', 'z', 'q'];
+
+		test.deepEqual(ret, orig.map(helpers.stringTrim));
+
+		test.done();
 	}
 };
 

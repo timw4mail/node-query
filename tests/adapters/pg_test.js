@@ -28,7 +28,6 @@ var qb = nodeQuery('pg', connection, adapterName);
 // Set up the test base
 testBase._setUp(qb, function(test, err, result) {
 	if (err != null) {
-		//throw new Error(err);
 		console.error('SQL syntax error', err);
 	}
 
@@ -38,7 +37,11 @@ testBase._setUp(qb, function(test, err, result) {
 
 
 tests["pg adapter with query builder"] = function(test) {
+	test.expect(1);
 	test.ok(testBase.qb);
+
+	// Close the db connection
+	connection.end();
 	test.done();
 };
 

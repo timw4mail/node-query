@@ -19,5 +19,14 @@ module.exports = {
 		});
 
 		test.done();
+	},
+	'Invalid driver type': function(test) {
+		test.expect(1);
+		test.throws(function() {
+			modules['node-query']('foo', {}, 'bar');
+		}, function(err) {
+			if (err instanceof Error) return true;
+		});
+		test.done();
 	}
 };

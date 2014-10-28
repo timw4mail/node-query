@@ -32,7 +32,11 @@ testBase._setUp(qb, function(test, err, rows) {
 
 // Export the final test object
 tests["mysql2 adapter with query builder"] = function(test) {
+	test.expect(1);
 	test.ok(testBase.qb);
+
+	// Close the db connection
+	connection.end();
 	test.done();
 };
 

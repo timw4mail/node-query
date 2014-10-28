@@ -1,6 +1,12 @@
 'use strict';
 
-module.exports = (function()  {
+var helpers = require('../lib/helpers');
+
+module.exports = (function QueryBuilderTestBase()  {
+
+	// That 'new' keyword is annoying
+	if ( ! (this instanceof QueryBuilderTestBase)) return new QueryBuilderTestBase();
+
 	var base = {};
 
 	/**
@@ -10,55 +16,55 @@ module.exports = (function()  {
 	 * @param {Function} callback - The test callback
 	 * @return void
 	 */
-	base._setUp = function(qb, callback) {
+	this._setUp = function(qb, callback) {
 		base.qb = qb;
 		base.testCallback = callback;
+
+		this.qb = base.qb;
 	};
 
 	/**
 	 * Generic query builder tests
 	 */
-	base.tests = {
-		setUp: function(callback) {
-			var sql = base.qb.driver.truncate('create_test');
-			base.qb.adapter.execute(sql, function(err, result) {
-				if (err) {
-					throw new Error(err);
-				}
-
-				callback();
-			});
-		},
+	this.tests = {
 		// ! Get tests
 		'Get tests' : {
 			'Get with function': function(test) {
+				test.expect(1);
 				base.qb.select('id, COUNT(id) as count')
 					.from('create_test')
 					.groupBy('id')
 					.get(base.testCallback.bind(this, test));
 			},
 			'Basic select all get': function(test) {
+				test.expect(1);
 				base.qb.get('create_test', base.testCallback.bind(this, test));
 			},
 			'Basic select all with from': function(test) {
+				test.expect(1);
 				base.qb.from('create_test')
 					.get(base.testCallback.bind(this, test));
 			},
 			'Get with limit': function(test) {
+				test.expect(1);
 				base.qb.get('create_test', 2, base.testCallback.bind(this, test));
 			},
 			'Get with limit and offset': function(test) {
+				test.expect(1);
 				base.qb.get('create_test', 2, 1, base.testCallback.bind(this, test));
 			},
 			'Test get with having': function(test) {
+				test.expect(1);
 				base.qb.select('id')
 					.from('create_test')
 					.groupBy('id')
 					.having({'id >':1})
 					.having('id !=', 3)
+					.having('id', 900)
 					.get(base.testCallback.bind(this, test));
 			},
 			"Test get with 'orHaving'": function(test) {
+				test.expect(1);
 				base.qb.select('id')
 					.from('create_test')
 					.groupBy('id')
@@ -70,32 +76,38 @@ module.exports = (function()  {
 		// ! Select tests
 		'Select tests' : {
 			'Select where get': function(test) {
+				test.expect(1);
 				base.qb.select(['id', 'key as k', 'val'])
 					.where('id >', 1)
 					.where('id <', 900)
 					.get('create_test', 2, 1, base.testCallback.bind(this, test));
 			},
 			'Select where get 2': function(test) {
+				test.expect(1);
 				base.qb.select('id, key as k, val')
 					.where('id !=', 1)
 					.get('create_test', 2, 1, base.testCallback.bind(this, test));
 			},
 			'Multi Order By': function(test) {
+				test.expect(1);
 				base.qb.from('create_test')
 					.orderBy('id, key')
 					.get(base.testCallback.bind(this, test));
 			},
 			'Select get': function(test) {
+				test.expect(1);
 				base.qb.select('id, key as k, val')
 					.get('create_test', 2, 1, base.testCallback.bind(this, test));
 			},
 			'Select from get': function(test) {
+				test.expect(1);
 				base.qb.select('id, key as k, val')
 					.from('create_test ct')
 					.where('id >', 1)
 					.get(base.testCallback.bind(this, test));
 			},
 			'Select from limit get': function(test) {
+				test.expect(1);
 				base.qb.select('id, key as k, val')
 					.from('create_test ct')
 					.where('id >', 1)
@@ -106,6 +118,7 @@ module.exports = (function()  {
 		// ! Grouping tests
 		'Grouping tests' : {
 			'Using grouping method': function(test) {
+				test.expect(1);
 				base.qb.select('id, key as k, val')
 					.from('create_test')
 					.groupStart()
@@ -115,7 +128,20 @@ module.exports = (function()  {
 					.limit(2, 1)
 					.get(base.testCallback.bind(this, test));
 			},
+			'Using where first grouping': function(test) {
+				test.expect(1);
+				base.qb.select('id, key as k, val')
+					.from('create_test')
+					.where('id !=', 5)
+					.groupStart()
+					.where('id >', 1)
+					.where('id <', 900)
+					.groupEnd()
+					.limit(2, 1)
+					.get(base.testCallback.bind(this, test));
+			},
 			'Using or grouping method': function(test) {
+				test.expect(1);
 				base.qb.select('id, key as k, val')
 					.from('create_test')
 					.groupStart()
@@ -129,6 +155,7 @@ module.exports = (function()  {
 					.get(base.testCallback.bind(this, test));
 			},
 			'Using or not grouping method': function(test) {
+				test.expect(1);
 				base.qb.select('id, key as k, val')
 					.from('create_test')
 					.groupStart()
@@ -145,23 +172,27 @@ module.exports = (function()  {
 		// ! Where in tests
 		'Where in tests' : {
 			'Where in': function(test) {
+				test.expect(1);
 				base.qb.from('create_test')
 					.whereIn('id', [0, 6, 56, 563, 341])
 					.get(base.testCallback.bind(this, test));
 			},
 			'Or Where in': function(test) {
+				test.expect(1);
 				base.qb.from('create_test')
 					.where('key', 'false')
 					.orWhereIn('id', [0, 6, 56, 563, 341])
 					.get(base.testCallback.bind(this, test));
 			},
 			'Where Not in': function(test) {
+				test.expect(1);
 				base.qb.from('create_test')
 					.where('key', 'false')
 					.whereNotIn('id', [0, 6, 56, 563, 341])
 					.get(base.testCallback.bind(this, test));
 			},
 			'Or Where Not in': function(test) {
+				test.expect(1);
 				base.qb.from('create_test')
 					.where('key', 'false')
 					.orWhereNotIn('id', [0, 6, 56, 563, 341])
@@ -171,6 +202,7 @@ module.exports = (function()  {
 		// ! Query modifier tests
 		'Query modifier tests': {
 			'Order By': function(test) {
+				test.expect(1);
 				base.qb.select('id, key as k, val')
 					.from('create_test')
 					.where('id >', 0)
@@ -181,6 +213,7 @@ module.exports = (function()  {
 					.get(base.testCallback.bind(this, test));
 			},
 			'Group by': function(test) {
+				test.expect(1);
 				base.qb.select('id, key as k, val')
 					.from('create_test')
 					.where('id >', 0)
@@ -193,6 +226,7 @@ module.exports = (function()  {
 					.get(base.testCallback.bind(this, test));
 			},
 			'Or Where': function(test) {
+				test.expect(1);
 				base.qb.select('id, key as k, val')
 					.from('create_test')
 					.where(' id ', 1)
@@ -201,49 +235,58 @@ module.exports = (function()  {
 					.get(base.testCallback.bind(this, test));
 			},
 			'Like' : function(test) {
+				test.expect(1);
 				base.qb.from('create_test')
 					.like('key', 'og')
 					.get(base.testCallback.bind(this, test));
 			},
 			'Or Like': function(test) {
+				test.expect(1);
 				base.qb.from('create_test')
 					.like('key', 'og')
 					.orLike('key', 'val')
 					.get(base.testCallback.bind(this, test));
 			},
 			'Not Like': function(test) {
+				test.expect(1);
 				base.qb.from('create_test')
 					.like('key', 'og', 'before')
 					.notLike('key', 'val')
 					.get(base.testCallback.bind(this, test));
 			},
 			'Or Not Like': function(test) {
+				test.expect(1);
 				base.qb.from('create_test')
 					.like('key', 'og', 'before')
 					.orNotLike('key', 'val')
 					.get(base.testCallback.bind(this, test));
 			},
 			'Like Before': function(test) {
+				test.expect(1);
 				base.qb.from('create_test')
 					.like('key', 'og', 'before')
 					.get(base.testCallback.bind(this, test));
 			},
 			'Like After': function(test) {
+				test.expect(1);
 				base.qb.from('create_test')
 					.like('key', 'og', 'after')
 					.get(base.testCallback.bind(this, test));
 			},
 			'Basic Join': function(test) {
+				test.expect(1);
 				base.qb.from('create_test ct')
 					.join('create_join cj', 'cj.id=ct.id')
 					.get(base.testCallback.bind(this, test));
 			},
 			'Left Join': function(test) {
+				test.expect(1);
 				base.qb.from('create_test ct')
 					.join('create_join cj', 'cj.id=ct.id', 'left')
 					.get(base.testCallback.bind(this, test));
 			},
 			'InnerJoin': function(test) {
+				test.expect(1);
 				base.qb.from('create_test ct')
 					.join('create_join cj', 'cj.id=ct.id', 'inner')
 					.get(base.testCallback.bind(this, test));
@@ -251,13 +294,28 @@ module.exports = (function()  {
 		},
 		// ! DB Update test
 		'DB update tests' : {
+			setUp: function(callback) {
+				var sql = base.qb.driver.truncate('create_test');
+				base.qb.adapter.execute(sql, function(err, result) {
+					if (err) {
+						throw new Error(err);
+					}
+
+					callback();
+				});
+			},
+			tearDown: function(callback) {
+				callback();
+			},
 			'Test Insert': function(test) {
+				test.expect(1);
 				base.qb.set('id', 98)
 					.set('key', 84)
 					.set('val', 120)
 					.insert('create_test', base.testCallback.bind(this, test));
 			},
 			'Test Insert Object': function(test) {
+				test.expect(1);
 				base.qb.insert('create_test', {
 					id: 587,
 					key: 1,
@@ -265,6 +323,7 @@ module.exports = (function()  {
 				}, base.testCallback.bind(this, test));
 			},
 			'Test Update': function(test) {
+				test.expect(1);
 				base.qb.where('id', 7)
 					.update('create_test', {
 						id: 7,
@@ -273,6 +332,7 @@ module.exports = (function()  {
 					}, base.testCallback.bind(this, test));
 			},
 			'Test set Array Update': function(test) {
+				test.expect(1);
 				var object = {
 					id: 22,
 					key: 'gogle',
@@ -284,6 +344,7 @@ module.exports = (function()  {
 					.update('create_test', base.testCallback.bind(this, test));
 			},
 			'Test where set update': function(test) {
+				test.expect(1);
 				base.qb.where('id', 36)
 					.set('id', 36)
 					.set('key', 'gogle')
@@ -291,14 +352,141 @@ module.exports = (function()  {
 					.update('create_test', base.testCallback.bind(this, test));
 			},
 			'Test delete': function(test) {
+				test.expect(1);
 				base.qb.delete('create_test', {id: 5}, base.testCallback.bind(this, test));
+			}/*,
+			'delete with where': function(test) {
+				test.expect(1);
+				base.qb.where('id', 5)
+					.delete('create_test', base.testCallback.bind(this, test));
+			}*/
+		},
+		// ! Get compiled tests
+		'Get compiled tests' : {
+			'select': function(test) {
+				test.expect(1);
+				var string = base.qb.select('id')
+					.from('create_test')
+					.getCompiledSelect(true);
+
+				test.equal(true, helpers.isString(string));
+
+				test.done();
+			},
+			'select from': function(test) {
+				test.expect(1);
+				var string = base.qb.select('id')
+					.getCompiledSelect('create_test', true);
+
+				test.equal(true, helpers.isString(string));
+
+				test.done();
+			},
+			'insert': function(test) {
+				test.expect(1);
+
+				var string = base.qb.set('id', 3)
+					.getCompiledInsert('create_test');
+
+				test.equal(true, helpers.isString(string));
+
+				test.done();
+			},
+			'update': function(test) {
+				test.expect(1);
+
+				var string = base.qb.set('id', 3)
+					.where('id', 5)
+					.getCompiledUpdate('create_test');
+
+				test.equal(true, helpers.isString(string));
+
+				test.done();
+			},
+			'delete': function(test) {
+				test.expect(1);
+
+				var string = base.qb.where('id', 5)
+					.getCompiledDelete('create_test');
+
+				test.equal(true, helpers.isString(string));
+
+				test.done();
 			}
 		},
-		// ! Compiled query tests
-		'Compiled query tests' : {
+		// ! Misc tests
+		'Misc tests' : {
+			'Get State': function(test) {
+				test.expect(1);
 
+				base.qb.select('foo')
+					.from('bar')
+					.where('baz', 'foobar');
+
+				var state = {
+					// Arrays/Maps
+					queryMap: [],
+					values: [],
+					whereValues: [],
+					setArrayKeys: [],
+					orderArray: [],
+					groupArray: [],
+					havingMap: [],
+					whereMap: {},
+
+					// Partials
+					selectString: '',
+					fromString: '',
+					setString: '',
+					orderString: '',
+					groupString: '',
+
+					// Other various values
+					limit: null,
+					offset: null
+				};
+
+				test.notDeepEqual(JSON.stringify(state), JSON.stringify(base.qb.getState()));
+				test.done();
+			},
+			'Reset State': function(test) {
+				test.expect(1);
+
+				base.qb.select('foo')
+					.from('bar')
+					.where('baz', 'foobar');
+
+				base.qb.resetQuery();
+
+				var state = {
+					// Arrays/Maps
+					queryMap: [],
+					values: [],
+					whereValues: [],
+					setArrayKeys: [],
+					orderArray: [],
+					groupArray: [],
+					havingMap: [],
+					whereMap: {},
+
+					// Partials
+					selectString: '',
+					fromString: '',
+					setString: '',
+					orderString: '',
+					groupString: '',
+
+					// Other various values
+					limit: null,
+					offset: null
+				};
+
+				test.deepEqual(state, base.qb.getState());
+
+				test.done();
+			}
 		}
 	};
 
-	return base;
+	return this;
 }());
