@@ -101,22 +101,6 @@ var d = {
 	},
 
 	/**
-	 * Sets the table prefix on the passed string
-	 *
-	 * @param {String} str
-	 * @return {String}
-	 * @private
-	 */
-	_prefix: function(str) {
-		if (str.startsWith(d.prefix))
-		{
-			return str;
-		}
-
-		return d.prefix + str;
-	},
-
-	/**
 	 * Set the limit clause
 
 	 * @param {String} sql
@@ -136,40 +120,12 @@ var d = {
 	},
 
 	/**
-	 * Prefixes a table if it is not already prefixed
-	 *
-	 * @param {String} table
-	 * @return {String}
-	 */
-	prefixTable: function(table) {
-		if (d.tablePrefix)
-		{
-			// Split identifier by period, will split into:
-			// database.schema.table OR
-			// schema.table OR
-			// database.table OR
-			// table
-			var idents = table.split('.', table);
-			var segments = idents.length;
-
-			// Add the database prefix
-			idents[segments - 1] = d._prefix(idents[segments - 1]);
-
-			table = idents.join('.');
-		}
-
-		return table;
-	},
-
-	/**
 	 * Quote database table name, and set prefix
 	 *
 	 * @param {String} table
 	 * @return {String}
 	 */
 	quoteTable: function(table) {
-		table = d.prefixTable(table);
-
 		// Quote after prefix
 		return d.quoteIdentifiers(table);
 	},

@@ -238,10 +238,6 @@ var QueryBuilder = function(driver, adapter) {
 			{
 				obj = args.$key;
 			}
-			else
-			{
-				throw new Error("Invalid arguments passed");
-			}
 
 			Object.keys(obj).forEach(function(k) {
 				// If a single value for the return
@@ -267,8 +263,6 @@ var QueryBuilder = function(driver, adapter) {
 			_p.mixedSet('whereValues', 'value', args.key, args.val);
 		},
 		where: function(key, val, conj) {
-			conj = conj || 'AND';
-
 			// Normalize key and value and insert into state.whereMap
 			_p.whereMixedSet(key, val);
 
@@ -300,6 +294,9 @@ var QueryBuilder = function(driver, adapter) {
 				}
 
 				_p.appendMap(conj, item, 'where');
+
+				// Clear the where Map
+				state.whereMap = {};
 			});
 		},
 		having: function(/*key, val, conj*/) {
@@ -326,6 +323,9 @@ var QueryBuilder = function(driver, adapter) {
 					string: item
 				});
 			});
+
+			// Clear the where Map
+			state.whereMap = {};
 		},
 		whereIn: function(/*key, val, inClause, conj*/) {
 			var args = getArgs('key:string, val:array, inClause:string, conj:string', arguments);
@@ -382,7 +382,7 @@ var QueryBuilder = function(driver, adapter) {
 				orderArray: [],
 				groupArray: [],
 				havingMap: [],
-				whereMap: [],
+				whereMap: {},
 
 				// Partials
 				selectString: '',
@@ -759,7 +759,7 @@ var QueryBuilder = function(driver, adapter) {
 	 * @return this
 	 */
 	this.groupStart = function() {
-		var conj = (state.queryMap.length &lt; 1) ? ' WHERE ' : ' ';
+		var conj = (state.queryMap.length &lt; 1) ? ' WHERE ' : ' AND ';
 		_p.appendMap(conj, '(', 'groupStart');
 
 		return this;
@@ -895,13 +895,14 @@ var QueryBuilder = function(driver, adapter) {
 	 * @param {Boolean} [reset=true] - Whether to reset the query builder so another query can be built
 	 * @return String
 	 */
-	this.getCompiledSelect = function(table, reset) {
-		if (table)
+	this.getCompiledSelect = function(/*table, reset*/) {
+		var args = getArgs('[table]:string, [reset]:boolean', arguments);
+		if (args.table)
 		{
-			this.from(table);
+			this.from(args.table);
 		}
 
-		return _p.getCompile('get', table, reset);
+		return _p.getCompile('get', args.table, args.reset);
 	};
 
 	/**

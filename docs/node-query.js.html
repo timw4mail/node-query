@@ -104,7 +104,7 @@ nodeQuery.init = function (driverType, connObject, connLib) {
 		}
 	});
 
-	return new qb(require(paths.driver), require(paths.adapter)(connObject));
+	return qb(require(paths.driver), require(paths.adapter)(connObject));
 };
 
 

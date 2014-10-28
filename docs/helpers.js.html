@@ -138,6 +138,11 @@ types.forEach(function (t) {
 	 * @return {Boolean}
 	 */
     h['is' + t] = function (o) {
+	    if (t.toLowerCase() === 'infinite')
+	    {
+		    t = 'infinity';
+	    }
+
         return h.type(o) === t.toLowerCase();
     };
 });
