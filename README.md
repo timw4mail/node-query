@@ -2,6 +2,8 @@
 
 A node query builder for various SQL databases, based on CodeIgniter's query builder.
 
+[![Build Status](https://travis-ci.org/timw4mail/node-query.svg?branch=master)](https://travis-ci.org/timw4mail/node-query)
+
 ### Basic use
 
 	var nodeQuery = require('node-query');
