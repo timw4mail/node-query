@@ -1,4 +1,4 @@
-#Node-query
+#CI-Node-query
 
 A node query builder for various SQL databases, based on CodeIgniter's query builder.
 
@@ -33,4 +33,10 @@ A node query builder for various SQL databases, based on CodeIgniter's query bui
 		.get(function(/* Adapter dependent arguments */) {
 			// Database module result handling
 		});
+		
+### Additional help
+
+* Generated documentation is in the docs/ folder 
+* `tests/query-builder-base.js`	contains a lot of usage examples
+* The `tests/adapters` folder contains examples of how to set up a connection for the appropriate database library
 
