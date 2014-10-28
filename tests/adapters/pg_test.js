@@ -32,7 +32,7 @@ testBase._setUp(qb, function(test, err, result) {
 		console.error('SQL syntax error', err);
 	}
 
-	test.ok(result, 'Valid result for generated query');
+	test.ok(result, 'pg: Valid result for generated query');
 	test.done();
 });
 

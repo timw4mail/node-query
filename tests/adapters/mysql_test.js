@@ -26,7 +26,7 @@ testBase._setUp(qb, function(test, err, rows) {
 		throw new Error(err);
 	}
 
-	test.ok(rows, 'Valid result for generated query');
+	test.ok(rows, 'mysql: Valid result for generated query');
 	test.done();
 });
 

@@ -1,6 +1,6 @@
 {
   "name": "ci-node-query",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A query builder for node based on the one in CodeIgniter",
   "author": "Timothy J Warren <tim@timshomepage.net>",
   "engines": {
@@ -15,11 +15,11 @@
   },
   "main": "lib/node-query.js",
   "dependencies": {
-    "async": "^0.9.0",
-    "getargs": ""
+    "getargs": "",
+    "es6-shim":""
   },
   "bundledDependencies": [
-	"async","getargs"
+	"es6-shim","getargs"
   ],
   "devDependencies": {
     "grunt": "^0.4.5",
