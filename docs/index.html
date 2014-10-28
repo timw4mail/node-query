@@ -92,14 +92,14 @@
 
 
     <section class="readme-section">
-        <article><h1>Node-query</h1><p>A node query builder for various SQL databases, based on CodeIgniter's query builder.</p>
+        <article><h1>CI-Node-query</h1><p>A node query builder for various SQL databases, based on CodeIgniter's query builder.</p>
 <p><a href="https://travis-ci.org/timw4mail/node-query"><img src="https://travis-ci.org/timw4mail/node-query.svg?branch=master" alt="Build Status"></a></p>
 <h3>Supported adapters</h3><ul>
 <li>mysql</li>
 <li>mysql2</li>
 <li>pg</li>
 </ul>
-<h3>Basic use</h3><pre class="prettyprint source"><code>var nodeQuery = require('node-query');
+<h3>Installation</h3><pre class="prettyprint source"><code>npm install ci-node-query</code></pre><h3>Basic use</h3><pre class="prettyprint source"><code>var nodeQuery = require('ci-node-query');
 
 var connection = ... // Database module connection 
 
@@ -115,7 +115,11 @@ query.select('foo')
     .limit(2, 3)
     .get(function(/* Adapter dependent arguments */) {
         // Database module result handling
-    });</code></pre></article>
+    });</code></pre><h3>Additional help</h3><ul>
+<li>Generated documentation is in the docs/ folder </li>
+<li><code>tests/query-builder-base.js</code>    contains a lot of usage examples</li>
+<li>The <code>tests/adapters</code> folder contains examples of how to set up a connection for the appropriate database library</li>
+</ul></article>
     </section>
 
 

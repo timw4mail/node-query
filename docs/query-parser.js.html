@@ -104,26 +104,6 @@ var filterMatches = function(array) {
 	return output;
 };
 
-var parseJoin = function(sql) {
-	var matches = {};
-	var output = {};
-
-	// Get clause components
-	matches['function'] = sql.match(matchPatterns['function']);
-	matches.identifiers = sql.match(matchPatterns.identifier);
-	matches.operators = sql.match(matchPatterns.operator);
-
-	// Get everything at once for ordering
-	matches.combined = sql.match(matchPatterns.combined);
-
-	// Flatten the matches to increase relevance
-	Object.keys(matches).forEach(function(key) {
-		output[key] = filterMatches(matches[key]);
-	});
-
-	return output;
-};
-
 // --------------------------------------------------------------------------
 
 /**
@@ -137,13 +117,39 @@ var QueryParser = function(driver) {
 	if ( ! (this instanceof QueryParser)) return new QueryParser(driver);
 
 	/**
+	 * Tokenize the sql into parts for additional processing
+	 *
+	 * @param {String} sql
+	 * @return {Object}
+	 */
+	this.parseJoin = function(sql) {
+		var matches = {};
+		var output = {};
+
+		// Get clause components
+		matches['function'] = sql.match(matchPatterns['function']);
+		matches.identifiers = sql.match(matchPatterns.identifier);
+		matches.operators = sql.match(matchPatterns.operator);
+
+		// Get everything at once for ordering
+		matches.combined = sql.match(matchPatterns.combined);
+
+		// Flatten the matches to increase relevance
+		Object.keys(matches).forEach(function(key) {
+			output[key] = filterMatches(matches[key]);
+		});
+
+		return output;
+	};
+
+	/**
 	 * Return the output of the parsing of the join condition
 	 *
 	 * @param {String} condition - The join condition to evalate
 	 * @return {String} - The parsed/escaped join condition
 	 */
 	this.compileJoin = function(condition) {
-		var parts = parseJoin(condition);
+		var parts = this.parseJoin(condition);
 		var count = parts.identifiers.length;
 		var i;
 
