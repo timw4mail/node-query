@@ -1,6 +1,6 @@
 {
   "name": "ci-node-query",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A query builder for node based on the one in CodeIgniter",
   "author": "Timothy J Warren <tim@timshomepage.net>",
   "engines": {
