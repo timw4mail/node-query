@@ -4,6 +4,12 @@ A node query builder for various SQL databases, based on CodeIgniter's query bui
 
 [![Build Status](https://travis-ci.org/timw4mail/node-query.svg?branch=master)](https://travis-ci.org/timw4mail/node-query)
 
+### Supported adapters
+	
+* mysql
+* mysql2
+* pg
+
 ### Basic use
 
 	var nodeQuery = require('node-query');

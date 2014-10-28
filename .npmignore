@@ -1,0 +1,5 @@
+build
+build/*
+coverage
+coverage/*
+tests/config.json
