@@ -262,7 +262,7 @@ var QueryBuilder = function(driver, adapter) {
 			_p.mixedSet('whereMap', 'both', args.key, args.val);
 			_p.mixedSet('whereValues', 'value', args.key, args.val);
 		},
-		where: function(key, val, conj) {
+		where: function(key, val, defaultConj) {
 			// Normalize key and value and insert into state.whereMap
 			_p.whereMixedSet(key, val);
 
@@ -280,7 +280,8 @@ var QueryBuilder = function(driver, adapter) {
 					lastItem = state.queryMap[state.queryMap.length - 1];
 
 				// Determine the correct conjunction
-				if (state.queryMap.length &lt; 1 || firstItem.conjunction.contains('JOIN'))
+				var conj = defaultConj;
+				if (state.queryMap.length === 0 || firstItem.conjunction.contains('JOIN'))
 				{
 					conj = " WHERE ";
 				}
@@ -355,6 +356,7 @@ var QueryBuilder = function(driver, adapter) {
 				vals = state.values.concat(state.whereValues);
 			}
 
+//console.log(state.queryMap);
 //console.log(sql);
 //console.log(vals);
 //console.log('------------------------');
@@ -856,7 +858,7 @@ var QueryBuilder = function(driver, adapter) {
 	 * @param {String} table - The table to insert into
 	 * @param {Array} data - The array of objects containing data rows to insert
 	 * @param {Function} callback - Callback for handling database response
-	 * @example query.insertBatch('foo',[{id:1,val:'bar'},{id:2,val:'baz'}], callbackFunction);S
+	 * @example query.insertBatch('foo',[{id:1,val:'bar'},{id:2,val:'baz'}], callbackFunction);
 	 * @return void
 	 */
 	this.insertBatch = function(/* table, data, callback */) {

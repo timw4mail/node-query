@@ -39,4 +39,5 @@ A node query builder for various SQL databases, based on CodeIgniter's query bui
 * Generated documentation is in the docs/ folder 
 * `tests/query-builder-base.js`	contains a lot of usage examples
 * The `tests/adapters` folder contains examples of how to set up a connection for the appropriate database library
+* The documentation generated for the latest dev build is also [Available](https://github.timshomepage.net/node-query/docs/)
 
