@@ -24,9 +24,7 @@ module.exports = {
 		test.expect(1);
 		test.throws(function() {
 			modules['node-query']('foo', {}, 'bar');
-		}, function(err) {
-			if (err instanceof Error) return true;
-		});
+		}, Error, "Bad driver throws exception");
 		test.done();
 	}
 };

@@ -322,6 +322,24 @@ module.exports = (function QueryBuilderTestBase()  {
 					val: 2
 				}, base.testCallback.bind(this, test));
 			},
+			'Test Insert Batch': function(test) {
+				test.expect(1);
+				var data = [{
+					id: 544,
+					key: 3,
+					val: 7
+				}, {
+					id: 89,
+					key: 34,
+					val: "10 o'clock"
+				}, {
+					id: 48,
+					key: 403,
+					val: 97
+				}];
+
+				base.qb.insertBatch('create_test', data, base.testCallback.bind(this, test));
+			},
 			'Test Update': function(test) {
 				test.expect(1);
 				base.qb.where('id', 7)
@@ -354,12 +372,12 @@ module.exports = (function QueryBuilderTestBase()  {
 			'Test delete': function(test) {
 				test.expect(1);
 				base.qb.delete('create_test', {id: 5}, base.testCallback.bind(this, test));
-			}/*,
+			},
 			'delete with where': function(test) {
 				test.expect(1);
 				base.qb.where('id', 5)
 					.delete('create_test', base.testCallback.bind(this, test));
-			}*/
+			}
 		},
 		// ! Get compiled tests
 		'Get compiled tests' : {
