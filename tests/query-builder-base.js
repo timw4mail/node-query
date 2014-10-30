@@ -377,6 +377,13 @@ module.exports = (function QueryBuilderTestBase()  {
 				test.expect(1);
 				base.qb.where('id', 5)
 					.delete('create_test', base.testCallback.bind(this, test));
+			},
+			'Delete multiple where values': function(test) {
+				test.expect(1);
+				base.qb.delete('create_test', {
+					id: 5,
+					key: 'gogle'
+				}, base.testCallback.bind(this, test));
 			}
 		},
 		// ! Get compiled tests
