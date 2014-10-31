@@ -50,7 +50,8 @@
   "peerDependencies": {
     "mysql": "",
     "mysql2": "",
-    "pg": ""
+    "pg": "",
+    "dblite": ""
   },
   "license": "MIT",
   "scripts": {
