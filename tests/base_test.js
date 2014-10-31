@@ -7,7 +7,11 @@ var modules = {
 	'node-query': require('../lib/node-query'),
 	'drivers/pg': require('../lib/drivers/pg'),
 	'drivers/mysql': require('../lib/drivers/mysql'),
-	adapter: require('../lib/adapter')
+	'drivers/sqlite': require('../lib/drivers/sqlite'),
+	'adapters/mysql': require('../lib/adapters/mysql'),
+	'adapters/mysql2': require('../lib/adapters/mysql2'),
+	'adapters/pg': require('../lib/adapters/pg'),
+	'adapters/dblite': require('../lib/adapters/dblite')
 };
 
 module.exports = {

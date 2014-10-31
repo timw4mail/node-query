@@ -20,5 +20,9 @@
 	"pg": {
 		"driver": "pg",
 		"conn": "postgres://test:test@localhost/test"
+	},
+	"dblite": {
+		"driver": "sqlite",
+		"conn": ":memory:"
 	}
 }
