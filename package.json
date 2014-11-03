@@ -1,6 +1,6 @@
 {
   "name": "ci-node-query",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "A query builder for node based on the one in CodeIgniter",
   "author": "Timothy J Warren <tim@timshomepage.net>",
   "engines": {
@@ -11,14 +11,15 @@
     "url": "https://github.com/timw4mail/node-query.git"
   },
   "keywords": [
-	"codeigniter",
-	"mysql2",
+    "codeigniter",
+    "mysql2",
     "mysql",
     "query builder",
     "pg",
     "postgres",
     "sqlite",
-    "dblite"
+    "dblite",
+    "sqlite3"
   ],
   "bugs": {
     "url": "https://github.com/timw4mail/node-query/issues"
@@ -45,7 +46,8 @@
     "mysql2": "^0.12.5",
     "node-firebird": "^0.2.3",
     "nodeunit": "^0.9.0",
-    "pg": "^3.6.2"
+    "pg": "^3.6.2",
+    "sqlite3": "^3.0.2"
   },
   "peerDependencies": {
     "mysql": "",
