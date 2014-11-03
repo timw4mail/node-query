@@ -9,6 +9,8 @@ A node query builder for various SQL databases, based on CodeIgniter's query bui
 * mysql
 * mysql2
 * pg
+* dblite
+* sqlite3
 
 ### Installation
 
@@ -21,7 +23,10 @@ A node query builder for various SQL databases, based on CodeIgniter's query bui
 	var connection = ... // Database module connection 
 	
 	// Three arguments: database type, database connection, database connection library
-	var query = nodeQuery('mysql', connection, 'mysql2');
+	var query = nodeQuery.init('mysql', connection, 'mysql2');
+	
+	// You can also retrieve the instance later
+	query = nodeQuery.getQuery();
 
 	query.select('foo')
 		.from('bar')

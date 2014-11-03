@@ -17,7 +17,7 @@ var connection = mysql.createConnection(config.conn);
 
 // Set up the query builder object
 var nodeQuery = require('../../lib/node-query');
-var qb = nodeQuery('mysql', connection, adapterName);
+var qb = nodeQuery.init('mysql', connection, adapterName);
 
 // Set up the test base
 testBase._setUp(qb, function(test, err, rows) {

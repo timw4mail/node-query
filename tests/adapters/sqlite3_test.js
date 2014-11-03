@@ -6,18 +6,18 @@ var testBase = require('../query-builder-base');
 var tests = testBase.tests;
 
 // Load the test config file
-var adapterName = 'dblite';
+var adapterName = 'sqlite3';
 var sqlite = null;
 var connection = null;
 
 // Set up the connection
 try {
-	sqlite = require(adapterName).withSQLite('3.8.6+');
-	connection = sqlite(':memory:');
+	sqlite = require(adapterName).verbose();
+	connection = new sqlite.Database(':memory:');
 } catch (e) {
 	// Export an empty testsuite if module not loaded
 	console.log(e);
-	console.log("Database adapter dblite not found");
+	console.log("Database adapter sqlite3 not found");
 	return {};
 }
 
@@ -28,27 +28,30 @@ if (connection)
 	var qb = nodeQuery.init('sqlite', connection, adapterName);
 
 	// Set up the sqlite database
-	var sql = 'CREATE TABLE IF NOT EXISTS "create_test" ("id" INTEGER PRIMARY KEY, "key" TEXT, "val" TEXT);' +
-	'CREATE TABLE IF NOT EXISTS "create_join" ("id" INTEGER PRIMARY KEY, "key" TEXT, "val" TEXT);';
-	connection.query(sql);
+	var sql = 'CREATE TABLE IF NOT EXISTS "create_test" ("id" INTEGER PRIMARY KEY, "key" TEXT, "val" TEXT);';
+	var sql2 = 'CREATE TABLE IF NOT EXISTS "create_join" ("id" INTEGER PRIMARY KEY, "key" TEXT, "val" TEXT);';
+	connection.serialize(function() {
+		connection.run(sql);
+		connection.run(sql2);
+	});
 
 	// Set up the test base
-	testBase._setUp(qb, function(test, err, rows) {
+	testBase._setUp(qb, function(test, err, result) {
 		if (err != null) {
 			test.done();
 			throw new Error(err);
 		}
 
 		// Insert/Update/Delete queries return undefined
-		if (rows === undefined) {
-			rows = {};
+		if (result === undefined) {
+			result = {};
 		}
 
-		test.ok(rows, 'dblite: Valid result for generated query');
+		test.ok(result, 'sqlite3: Valid result for generated query');
 		test.done();
 	});
 
-	tests["dblite adapter with query builder"] = function(test) {
+	tests["sqlite3 adapter with query builder"] = function(test) {
 		test.expect(1);
 		test.ok(testBase.qb);
 

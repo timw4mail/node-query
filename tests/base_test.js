@@ -27,7 +27,7 @@ module.exports = {
 	'Invalid driver type': function(test) {
 		test.expect(1);
 		test.throws(function() {
-			modules['node-query']('foo', {}, 'bar');
+			modules['node-query'].init('foo', {}, 'bar');
 		}, Error, "Bad driver throws exception");
 		test.done();
 	}

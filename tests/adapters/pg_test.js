@@ -22,7 +22,7 @@ connection.connect(function(err) {
 
 // Set up the query builder object
 var nodeQuery = require('../../lib/node-query');
-var qb = nodeQuery('pg', connection, adapterName);
+var qb = nodeQuery.init('pg', connection, adapterName);
 
 
 // Set up the test base
