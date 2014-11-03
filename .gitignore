@@ -2,3 +2,5 @@ build
 build/*
 coverage
 coverage/*
+npm-debug.log
+tests/FB_TEST_DB.FDB
