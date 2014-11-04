@@ -24,5 +24,14 @@
 	"dblite": {
 		"driver": "sqlite",
 		"conn": ":memory:"
+	},
+	"node-firebird": {
+		"driver": "firebird",
+		"conn": {
+			"host": "127.0.0.1",
+			"database": "/../FB_TEST_DB.FDB",
+			"user": "SYSDBA",
+			"password": "masterkey"
+		}
 	}
 }

@@ -310,8 +310,8 @@ module.exports = (function QueryBuilderTestBase()  {
 			'Test Insert': function(test) {
 				test.expect(1);
 				base.qb.set('id', 98)
-					.set('key', 84)
-					.set('val', 120)
+					.set('key', "84")
+					.set('val', new Buffer("120"))
 					.insert('create_test', base.testCallback.bind(this, test));
 			},
 			'Test Insert Object': function(test) {
@@ -319,7 +319,7 @@ module.exports = (function QueryBuilderTestBase()  {
 				base.qb.insert('create_test', {
 					id: 587,
 					key: 1,
-					val: 2
+					val: new Buffer('2')
 				}, base.testCallback.bind(this, test));
 			},
 			'Test Insert Batch': function(test) {
@@ -327,15 +327,15 @@ module.exports = (function QueryBuilderTestBase()  {
 				var data = [{
 					id: 544,
 					key: 3,
-					val: 7
+					val: new Buffer('7')
 				}, {
 					id: 89,
 					key: 34,
-					val: "10 o'clock"
+					val: new Buffer("10 o'clock")
 				}, {
 					id: 48,
 					key: 403,
-					val: 97
+					val: new Buffer('97')
 				}];
 
 				base.qb.insertBatch('create_test', data, base.testCallback.bind(this, test));
@@ -346,7 +346,7 @@ module.exports = (function QueryBuilderTestBase()  {
 					.update('create_test', {
 						id: 7,
 						key: 'gogle',
-						val: 'non-word'
+						val: new Buffer('non-word')
 					}, base.testCallback.bind(this, test));
 			},
 			'Test set Array Update': function(test) {
@@ -354,7 +354,7 @@ module.exports = (function QueryBuilderTestBase()  {
 				var object = {
 					id: 22,
 					key: 'gogle',
-					val: 'non-word'
+					val: new Buffer('non-word')
 				};
 
 				base.qb.set(object)
@@ -366,7 +366,7 @@ module.exports = (function QueryBuilderTestBase()  {
 				base.qb.where('id', 36)
 					.set('id', 36)
 					.set('key', 'gogle')
-					.set('val', 'non-word')
+					.set('val', new Buffer('non-word'))
 					.update('create_test', base.testCallback.bind(this, test));
 			},
 			'Test delete': function(test) {

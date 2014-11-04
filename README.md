@@ -11,6 +11,7 @@ A node query builder for various SQL databases, based on CodeIgniter's query bui
 * pg
 * dblite
 * sqlite3
+* node-firebird
 
 ### Installation
 
