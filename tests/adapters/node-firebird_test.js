@@ -9,6 +9,13 @@ var config = require('../config.json')[adapterName];
 config.conn.database = __dirname + config.conn.database;
 var nodeQuery = require('../../lib/node-query');
 
+// Skip on TravisCi
+if (process.env.CI)
+{
+	module.exports = {};
+	return;
+}
+
 // Set up the connection
 try {
 	var Firebird = require(adapterName);
@@ -24,7 +31,6 @@ try {
 			// Connect to the database
 			Firebird.attach(config.conn, function(err, db) {
 				if (err) {
-					throw new Error(err);
 					console.error(err);
 				}
 				conn = db;
