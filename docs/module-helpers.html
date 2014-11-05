@@ -190,7 +190,7 @@ function name, eg isNumber</p>
 		<ul class="dummy">
 			<li>
 				<a href="helpers.js.html">helpers.js</a>,
-				 <a href="helpers.js.html#sunlight-1-line-55">line 55</a>
+				 <a href="helpers.js.html#sunlight-1-line-106">line 106</a>
 			</li>
 		</ul>
 	</dd>
@@ -214,6 +214,173 @@ function name, eg isNumber</p>
         <h3 class="subsection-title">Methods</h3>
 
         <dl>
+            
+<dt>
+    <h4 class="name" id="arrayPluck"><span class="type-signature">&lt;static> </span>arrayPluck<span class="signature">(arr, key)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Get a list of values with a common key from an array of objects</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>arr</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The array of objects to search</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>key</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The key of the object to get</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+    
+    
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="helpers.js.html">helpers.js</a>,
+				 <a href="helpers.js.html#sunlight-1-line-57">line 57</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Array</span>
+
+
+	</dd>
+</dl>
+
+
+        
+    
+    
+</dd>
+
+        
             
 <dt>
     <h4 class="name" id="isScalar"><span class="type-signature">&lt;static> </span>isScalar<span class="signature">(obj)</span><span class="type-signature"> &rarr; {bool}</span></h4>
@@ -346,6 +513,180 @@ function name, eg isNumber</p>
 	<dd>
 		
 <span class="param-type">bool</span>
+
+
+	</dd>
+</dl>
+
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="regexInArray"><span class="type-signature">&lt;static> </span>regexInArray<span class="signature">(arr, pattern)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Determine if a value matching the passed regular expression is
+in the passed array</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>arr</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The array to search</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>pattern</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">RegExp</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The pattern to match</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+    
+    
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="helpers.js.html">helpers.js</a>,
+				 <a href="helpers.js.html#sunlight-1-line-80">line 80</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <ul>
+<li>If an array item matches the pattern</li>
+</ul>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Boolean</span>
 
 
 	</dd>
@@ -686,7 +1027,7 @@ function name, eg isNumber</p>
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha9</a>
-		on Tue Nov 4th 2014 using the <a
+		on Wed Nov 5th 2014 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a>.
 		</span>
 				</footer>
