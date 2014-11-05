@@ -70,6 +70,12 @@ try {
 		test.done();
 	};
 
+	testBase.tests['nodeQuery.getQuery = nodeQuery.init'] = function(test) {
+		test.expect(1);
+		test.deepEqual(qb, nodeQuery.getQuery(), "getQuery returns same object");
+		test.done();
+	};
+
 	testBase.tests["firebird adapter with query builder"] = function(test) {
 		test.expect(1);
 		test.ok(testBase.qb);

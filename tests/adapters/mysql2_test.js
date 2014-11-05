@@ -30,6 +30,12 @@ testBase._setUp(qb, function(test, err, rows) {
 	test.done();
 });
 
+tests['nodeQuery.getQuery = nodeQuery.init'] = function(test) {
+	test.expect(1);
+	test.deepEqual(qb, nodeQuery.getQuery(), "getQuery returns same object");
+	test.done();
+};
+
 // Export the final test object
 tests["mysql2 adapter with query builder"] = function(test) {
 	test.expect(1);

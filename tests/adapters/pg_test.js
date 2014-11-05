@@ -35,6 +35,11 @@ testBase._setUp(qb, function(test, err, result) {
 	test.done();
 });
 
+tests['nodeQuery.getQuery = nodeQuery.init'] = function(test) {
+	test.expect(1);
+	test.deepEqual(qb, nodeQuery.getQuery(), "getQuery returns same object");
+	test.done();
+};
 
 tests["pg adapter with query builder"] = function(test) {
 	test.expect(1);

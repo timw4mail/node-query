@@ -48,6 +48,12 @@ if (connection)
 		test.done();
 	});
 
+	tests['nodeQuery.getQuery = nodeQuery.init'] = function(test) {
+		test.expect(1);
+		test.deepEqual(qb, nodeQuery.getQuery(), "getQuery returns same object");
+		test.done();
+	};
+
 	tests["dblite adapter with query builder"] = function(test) {
 		test.expect(1);
 		test.ok(testBase.qb);

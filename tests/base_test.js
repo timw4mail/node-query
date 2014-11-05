@@ -24,10 +24,17 @@ module.exports = {
 
 		test.done();
 	},
+	'NodeQuery.getQuery with no instance': function(test) {
+		test.expect(1);
+		test.throws(function() {
+			nodeQuery.getQuery();
+		}, Error, "No query builder instance if none created");
+		test.done();
+	},
 	'Invalid driver type': function(test) {
 		test.expect(1);
 		test.throws(function() {
-			modules['node-query'].init('foo', {}, 'bar');
+			nodeQuery.init('foo', {}, 'bar');
 		}, Error, "Bad driver throws exception");
 		test.done();
 	}

@@ -290,6 +290,16 @@ module.exports = (function QueryBuilderTestBase()  {
 				base.qb.from('create_test ct')
 					.join('create_join cj', 'cj.id=ct.id', 'inner')
 					.get(base.testCallback.bind(this, test));
+			},
+			'Join with multiple where values': function(test) {
+				test.expect(1);
+				base.qb.from('create_test ct')
+					.join('create_join cj', 'cj.id=ct.id', 'inner')
+					.where({
+						'ct.id <': 3,
+						'ct.key': 'foo'
+					})
+					.get(base.testCallback.bind(this, test));
 			}
 		},
 		// ! DB Update test
