@@ -113,6 +113,36 @@ module.exports = (function QueryBuilderTestBase()  {
 					.where('id >', 1)
 					.limit(3)
 					.get(base.testCallback.bind(this, test));
+			},
+			'Select where IS NOT NULL': function(test) {
+				test.expect(1);
+				base.qb.select('id', 'key as k', 'val')
+					.from('create_test ct')
+					.whereIsNotNull('id')
+					.get(base.testCallback.bind(this, test));
+			},
+			'Select where IS NULL': function(test) {
+				test.expect(1);
+				base.qb.select('id', 'key as k', 'val')
+					.from('create_test ct')
+					.whereIsNull('id')
+					.get(base.testCallback.bind(this, test));
+			},
+			'Select where OR IS NOT NULL': function(test) {
+				test.expect(1);
+				base.qb.select('id', 'key as k', 'val')
+					.from('create_test ct')
+					.whereIsNull('id')
+					.orWhereIsNotNull('id')
+					.get(base.testCallback.bind(this, test));
+			},
+			'Select where OR IS NULL': function(test) {
+				test.expect(1);
+				base.qb.select('id', 'key as k', 'val')
+					.from('create_test ct')
+					.where('id', 3)
+					.orWhereIsNull('id')
+					.get(base.testCallback.bind(this, test));
 			}
 		},
 		// ! Grouping tests
