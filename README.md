@@ -23,8 +23,13 @@ A node query builder for various SQL databases, based on CodeIgniter's query bui
 	
 	var connection = ... // Database module connection 
 	
-	// Three arguments: database type, database connection, database connection library
+	// Three arguments: database type, database connection, database connection library 
 	var query = nodeQuery.init('mysql', connection, 'mysql2');
+	
+	// The third argument is optional if the database connection library has the same name as the adapter, eg..
+	nodeQuery.init('mysql', connection, 'mysql');
+	// Can be instead
+	nodeQuery.init('mysql', connection);
 	
 	// You can also retrieve the instance later
 	query = nodeQuery.getQuery();
