@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>DocStrap Source: node-query.js</title>
+	<title>DocStrap Source: state.js</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -72,69 +72,40 @@
 					
 
 
-		<h1 class="page-title">Source: node-query.js</h1>
+		<h1 class="page-title">Source: state.js</h1>
     
 <section>
 	<article>
 		<pre
-			class="sunlight-highlight-javascript linenums">"use strict";
+			class="sunlight-highlight-javascript linenums">'use strict';
 
-/** @module node-query */
-var NodeQuery = function() {
+/** @module State */
+module.exports = function State() {
+	return {
+		// Arrays/Maps
+		queryMap: [],
+		values: [],
+		whereValues: [],
+		setArrayKeys: [],
+		orderArray: [],
+		groupArray: [],
+		havingMap: [],
+		whereMap: {},
+		rawWhereValues: [],
 
-	var instance = null;
+		// Partials
+		selectString: '',
+		fromString: '',
+		setString: '',
+		orderString: '',
+		groupString: '',
 
-	/**
-	 * Create a query builder object
-	 *
-	 * @alias module:node-query
-	 * @param {String} drivername - The name of the database type, eg. mysql or pg
-	 * @param {Object} connObject - A connection object from the database library you are connecting with
-	 * @param {String} [connLib] - The name of the db connection library you are using, eg. mysql or mysql2. Optional if the same as drivername
-	 * @return {queryBuilder}
-	 */
-	this.init = function (driverType, connObject, connLib) {
-		connLib = connLib || driverType;
-
-		var fs = require('fs'),
-			qb = require('./query-builder');
-
-		var paths = {
-			driver: __dirname + '/drivers/' + driverType + '.js',
-			adapter: __dirname + '/adapters/' + connLib + '.js'
-		};
-
-		Object.keys(paths).forEach(function(type) {
-			if ( ! fs.existsSync(paths[type]))
-			{
-				console.log(paths[type]);
-				throw new Error('Selected ' + type + ' does not exist!');
-			}
-		});
-
-		instance = qb(require(paths.driver), require(paths.adapter)(connObject));
-
-		return instance;
+		// Other various values
+		limit: null,
+		offset: null
 	};
-
-	/**
-	 * Return an existing query builder instance
-	 *
-	 * @return {queryBuilder}
-	 */
-	this.getQuery = function () {
-		if ( ! instance) {
-			throw new Error("No Query Builder instance to return");
-		}
-
-		return instance;
-	};
-
 };
-
-
-
-module.exports = new NodeQuery();</pre>
+// End of module State</pre>
 	</article>
 </section>
 

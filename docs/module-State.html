@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>DocStrap Source: node-query.js</title>
+	<title>DocStrap Module: State</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -66,78 +66,95 @@
 	<div class="row-fluid">
 
 		
-			<div class="span12">
-				
+		<div class="span8">
+			
 				<div id="main">
 					
 
 
-		<h1 class="page-title">Source: node-query.js</h1>
-    
+	<h1 class="page-title">Module: State</h1>
 <section>
-	<article>
-		<pre
-			class="sunlight-highlight-javascript linenums">"use strict";
 
-/** @module node-query */
-var NodeQuery = function() {
+<header>
+    <h2>
+    State
+    </h2>
+    
+</header>
 
-	var instance = null;
+<article>
+    <div class="container-overview">
+    
 
-	/**
-	 * Create a query builder object
-	 *
-	 * @alias module:node-query
-	 * @param {String} drivername - The name of the database type, eg. mysql or pg
-	 * @param {Object} connObject - A connection object from the database library you are connecting with
-	 * @param {String} [connLib] - The name of the db connection library you are using, eg. mysql or mysql2. Optional if the same as drivername
-	 * @return {queryBuilder}
-	 */
-	this.init = function (driverType, connObject, connLib) {
-		connLib = connLib || driverType;
+    
+        
 
-		var fs = require('fs'),
-			qb = require('./query-builder');
+        
+<dl class="details">
+	
 
-		var paths = {
-			driver: __dirname + '/drivers/' + driverType + '.js',
-			adapter: __dirname + '/adapters/' + connLib + '.js'
-		};
+	
 
-		Object.keys(paths).forEach(function(type) {
-			if ( ! fs.existsSync(paths[type]))
-			{
-				console.log(paths[type]);
-				throw new Error('Selected ' + type + ' does not exist!');
-			}
-		});
+	
 
-		instance = qb(require(paths.driver), require(paths.adapter)(connObject));
+	
 
-		return instance;
-	};
+	
 
-	/**
-	 * Return an existing query builder instance
-	 *
-	 * @return {queryBuilder}
-	 */
-	this.getQuery = function () {
-		if ( ! instance) {
-			throw new Error("No Query Builder instance to return");
-		}
+	
 
-		return instance;
-	};
+	
 
-};
+	
+
+	
 
 
 
-module.exports = new NodeQuery();</pre>
-	</article>
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="state.js.html">state.js</a>,
+				 <a href="state.js.html#sunlight-1-line-3">line 3</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
 </section>
-
 
 
 
@@ -161,6 +178,10 @@ module.exports = new NodeQuery();</pre>
 				</footer>
 			</div>
 
+			
+			<div class="span3">
+				<div id="toc"></div>
+			</div>
 			
 			<br clear="both">
 		</div>

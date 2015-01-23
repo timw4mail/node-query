@@ -51,6 +51,10 @@
 							<a href="module-query-parser.html">query-parser</a>
 						</li>
 						
+						<li>
+							<a href="module-State.html">State</a>
+						</li>
+						
 
 					</ul>
 				</li>
@@ -77,14 +81,15 @@
 
 /** @module query-builder */
 var getArgs = require('getargs'),
-	helpers = require('./helpers');
+	helpers = require('./helpers'),
+	State = require('./state');
 
 /**
  * Variables controlling the sql building
  *
  * @private
  */
-var state = {};
+var state = new State();
 
 /*
  * SQL generation object
@@ -230,9 +235,16 @@ var QueryBuilder = function(driver, adapter) {
 
 			var obj = {};
 
-			if (helpers.isScalar(args.$key) &amp;&amp; !helpers.isUndefined(args.$val) &amp;&amp; !helpers.isNull(args.$val))
+
+			if (helpers.isScalar(args.$key) &amp;&amp; !helpers.isUndefined(args.$val))
 			{
+				// Convert key/val pair to a simple object
 				obj[args.$key] = args.$val;
+			}
+			else if (helpers.isScalar(args.$key) &amp;&amp; helpers.isUndefined(args.$val))
+			{
+				// If just a string for the key, and no value, create a simple object with duplicate key/val
+				obj[args.$key] = args.$key;
 			}
 			else
 			{
@@ -252,15 +264,17 @@ var QueryBuilder = function(driver, adapter) {
 				}
 			});
 
+
 			return state[args.$varName];
 		},
 		whereMixedSet: function(/*key, val*/) {
 			var args = getArgs('key:string|object, [val]', arguments);
 
 			state.whereMap = [];
+			state.rawWhereValues = [];
 
 			_p.mixedSet('whereMap', 'both', args.key, args.val);
-			_p.mixedSet('whereValues', 'value', args.key, args.val);
+			_p.mixedSet('rawWhereValues', 'value', args.key, args.val);
 		},
 		fixConjunction: function(conj) {
 			var lastItem = state.queryMap[state.queryMap.length - 1];
@@ -285,24 +299,16 @@ var QueryBuilder = function(driver, adapter) {
 			// Normalize key and value and insert into state.whereMap
 			_p.whereMixedSet(key, val);
 
-			Object.keys(state.whereMap).forEach(function(field) {
-				// Split each key by spaces, in case there
-				// is an operator such as >, &lt;, !=, etc.
-				var fieldArray = field.trim().split(' ').map(helpers.stringTrim);
+			// Parse the where condition to account for operators,
+			// functions, identifiers, and literal values
+			state = parser.parseWhere(driver, state);
 
-				var item = driver.quoteIdentifiers(fieldArray[0]);
-
-				// Simple key value, or an operator?
-				item += (fieldArray.length === 1 || fieldArray[1] === '') ? '=?' : " " + fieldArray[1] + " ?";
-
-				// Determine the correct conjunction
+			state.whereMap.forEach(function(clause) {
 				var conj = _p.fixConjunction(defaultConj);
-
-				_p.appendMap(conj, item, 'where');
-
-				// Clear the where Map
-				state.whereMap = {};
+				_p.appendMap(conj, clause, 'where');
 			});
+
+			state.whereMap = {};
 		},
 		whereNull: function(field, stmt, conj) {
 			field = driver.quoteIdentifiers(field);
@@ -318,20 +324,15 @@ var QueryBuilder = function(driver, adapter) {
 			// Normalize key/val and put in state.whereMap
 			_p.whereMixedSet(args.key, args.val);
 
-			Object.keys(state.whereMap).forEach(function(field) {
-				// Split each key by spaces, in case there
-				// is an operator such as >, &lt;, !=, etc.
-				var fieldArray = field.split(' ').map(helpers.stringTrim);
+			// Parse the having condition to account for operators,
+			// functions, identifiers, and literal values
+			state = parser.parseWhere(driver, state);
 
-				var item = driver.quoteIdentifiers(fieldArray[0]);
-
-				// Simple key value, or an operator?
-				item += (fieldArray.length === 1) ? '=?' : " " + fieldArray[1] + " ?";
-
+			state.whereMap.forEach(function(clause) {
 				// Put in the having map
 				state.havingMap.push({
 					conjunction: (state.havingMap.length > 0) ? " " + args.conj + " " : ' HAVING ',
-					string: item
+					string: clause
 				});
 			});
 
@@ -366,7 +367,7 @@ var QueryBuilder = function(driver, adapter) {
 				vals = state.values.concat(state.whereValues);
 			}
 
-//console.log(state.queryMap);
+//console.log(state);
 //console.log(sql);
 //console.log(vals);
 //console.log(callback);
@@ -389,28 +390,7 @@ var QueryBuilder = function(driver, adapter) {
 			return sql;
 		},
 		resetState: function() {
-			state = {
-				// Arrays/Maps
-				queryMap: [],
-				values: [],
-				whereValues: [],
-				setArrayKeys: [],
-				orderArray: [],
-				groupArray: [],
-				havingMap: [],
-				whereMap: {},
-
-				// Partials
-				selectString: '',
-				fromString: '',
-				setString: '',
-				orderString: '',
-				groupString: '',
-
-				// Other various values
-				limit: null,
-				offset: null
-			};
+			state = new State();
 		}
 	};
 
@@ -438,10 +418,14 @@ var QueryBuilder = function(driver, adapter) {
 		return state;
 	};
 
-	// ------------------------------------------------------------------------
-
-	// Set up state object
-	this.resetQuery();
+	/**
+	 * Closes the database connection for the current adapter
+	 *
+	 * @return void
+	 */
+	this.end = function() {
+		adapter.close();
+	};
 
 	// ------------------------------------------------------------------------
 	// ! Query Builder Methods
@@ -1041,7 +1025,7 @@ module.exports = QueryBuilder;</pre>
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha9</a>
-		on Mon Dec 1st 2014 using the <a
+		on Fri Jan 23rd 2015 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a>.
 		</span>
 				</footer>
