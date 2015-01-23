@@ -130,7 +130,8 @@ query.select('foo')
     .limit(2, 3)
     .get(function(/* Adapter dependent arguments */) {
         // Database module result handling
-    });</code></pre><h3>Additional help</h3><ul>
+    });</code></pre><h3>Security notes</h3><p>As of version 2, <code>where</code> and <code>having</code> type methods parse the values passed to look for function calls. While values passed are still passed as query parameters, take care to avoid passing these kinds of methods unfiltered input. SQL function arguments are not currently parsed, so they need to be properly escaped for the current database. </p>
+<h3>Additional help</h3><ul>
 <li>Generated documentation is in the docs/ folder </li>
 <li><code>tests/query-builder-base.js</code>    contains a lot of usage examples</li>
 <li>The <code>tests/adapters</code> folder contains examples of how to set up a connection for the appropriate database library</li>

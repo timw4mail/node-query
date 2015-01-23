@@ -70,12 +70,14 @@ var helperTests = {
 	'regexInArray': function(test) {
 		var orig = ['apple', ' string ', 6, 4, 7];
 
-		test.expect(4);
+		test.expect(6);
 
 		test.equal(false, helpers.regexInArray(orig, /\$/), 'Dollar sign is not in any of the array items');
 		test.equal(true, helpers.regexInArray(orig, /^ ?string/), "' string ' matches /^ ?string/");
 		test.equal(true, helpers.regexInArray(orig, /APPLE/i), "'apple' matches /APPLE/i");
 		test.equal(false, helpers.regexInArray(orig, /5/), 'None of the numbers in the array match /5/');
+		test.equal(false, helpers.regexInArray(5, /5/), 'First argument is not an array');
+		test.equal(false, helpers.regexInArray([], /.*/), 'Array is empty');
 
 		test.done();
 	}

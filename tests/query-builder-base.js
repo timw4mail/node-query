@@ -152,13 +152,6 @@ module.exports = (function QueryBuilderTestBase()  {
 					.where('id > 3')
 					.get(base.testCallback.bind(this, test));
 			},
-			/*'Select with function in WHERE clause': function(test) {
-				test.expect(1);
-				base.qb.select('id', 'key as k', 'val')
-					.from('create_test')
-					.where('val !=', 'CURRENT_TIMESTAMP()')
-					.get(base.testCallback.bind(this, test));
-			},*/
 			'Select with function and argument in WHERE clause': function(test) {
 				test.expect(1);
 				base.qb.select('id')

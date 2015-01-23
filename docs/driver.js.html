@@ -99,8 +99,6 @@ var d = {
 	 * @private
 	 */
 	_quote: function(str) {
-		//if (/[0-9]+|\'(.*?)\'/ig.test(str)) return str;
-
 		return (helpers.isString(str) &amp;&amp; ! (str.startsWith(d.identifierChar) || str.endsWith(d.identifierChar)))
 			? d.identifierChar + str + d.identifierChar
 			: str;
@@ -151,12 +149,6 @@ var d = {
 		{
 			return str.map(d.quoteIdentifiers);
 		}
-
-if ( ! helpers.isString(str))
-{
-	console.error(str);
-	return str;
-}
 
 		// Handle commas
 		if (str.contains(','))

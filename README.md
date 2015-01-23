@@ -45,6 +45,10 @@ A node query builder for various SQL databases, based on CodeIgniter's query bui
 			// Database module result handling
 		});
 		
+### Security notes
+As of version 2, `where` and `having` type methods parse the values passed to look for function calls. While values passed are still passed as query parameters, take care to avoid passing these kinds of methods unfiltered input. SQL function arguments are not currently parsed, so they need to be properly escaped for the current database. 
+
+		
 ### Additional help
 
 * Generated documentation is in the docs/ folder 
