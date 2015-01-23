@@ -39,9 +39,12 @@ tests['nodeQuery.getQuery = nodeQuery.init'] = function(test) {
 tests["mysql adapter with query builder"] = function(test) {
 	test.expect(1);
 	test.ok(testBase.qb);
-	test.done();
+
 	// Close the db connection
-	connection.end();
+	qb = null;
+	connection.destroy();
+
+	test.done();
 };
 
 // Export the final test object

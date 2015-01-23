@@ -1,6 +1,7 @@
 'use strict';
 
 var helpers = require('../lib/helpers');
+var State = require('../lib/state');
 
 module.exports = (function QueryBuilderTestBase()  {
 
@@ -142,6 +143,27 @@ module.exports = (function QueryBuilderTestBase()  {
 					.from('create_test ct')
 					.where('id', 3)
 					.orWhereIsNull('id')
+					.get(base.testCallback.bind(this, test));
+			},
+			'Select with string where value': function(test) {
+				test.expect(1);
+				base.qb.select('id','key as k', 'val')
+					.from('create_test ct')
+					.where('id > 3')
+					.get(base.testCallback.bind(this, test));
+			},
+			/*'Select with function in WHERE clause': function(test) {
+				test.expect(1);
+				base.qb.select('id', 'key as k', 'val')
+					.from('create_test')
+					.where('val !=', 'CURRENT_TIMESTAMP()')
+					.get(base.testCallback.bind(this, test));
+			},*/
+			'Select with function and argument in WHERE clause': function(test) {
+				test.expect(1);
+				base.qb.select('id')
+					.from('create_test')
+					.where('id', 'CEILING(SQRT(88))')
 					.get(base.testCallback.bind(this, test));
 			}
 		},
@@ -488,28 +510,7 @@ module.exports = (function QueryBuilderTestBase()  {
 					.from('bar')
 					.where('baz', 'foobar');
 
-				var state = {
-					// Arrays/Maps
-					queryMap: [],
-					values: [],
-					whereValues: [],
-					setArrayKeys: [],
-					orderArray: [],
-					groupArray: [],
-					havingMap: [],
-					whereMap: {},
-
-					// Partials
-					selectString: '',
-					fromString: '',
-					setString: '',
-					orderString: '',
-					groupString: '',
-
-					// Other various values
-					limit: null,
-					offset: null
-				};
+				var state = new State();
 
 				test.notDeepEqual(JSON.stringify(state), JSON.stringify(base.qb.getState()));
 				test.done();
@@ -523,28 +524,7 @@ module.exports = (function QueryBuilderTestBase()  {
 
 				base.qb.resetQuery();
 
-				var state = {
-					// Arrays/Maps
-					queryMap: [],
-					values: [],
-					whereValues: [],
-					setArrayKeys: [],
-					orderArray: [],
-					groupArray: [],
-					havingMap: [],
-					whereMap: {},
-
-					// Partials
-					selectString: '',
-					fromString: '',
-					setString: '',
-					orderString: '',
-					groupString: '',
-
-					// Other various values
-					limit: null,
-					offset: null
-				};
+				var state = new State();
 
 				test.deepEqual(state, base.qb.getState());
 

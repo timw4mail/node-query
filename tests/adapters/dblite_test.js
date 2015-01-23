@@ -54,6 +54,22 @@ if (connection)
 		test.done();
 	};
 
+	tests['Select tests']['Select with function and argument in WHERE clause'] = function(test) {
+		test.expect(1);
+		qb.select('id')
+			.from('create_test')
+			.where('id', 'ABS(-88)')
+			.get(function(err, rows) {
+				if (err != null) {
+					test.done();
+					throw new Error(err);
+				}
+
+				test.ok(rows, 'dblite: Valid result for generated query');
+				test.done();
+			});
+	};
+
 	tests["dblite adapter with query builder"] = function(test) {
 		test.expect(1);
 		test.ok(testBase.qb);
