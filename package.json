@@ -28,14 +28,16 @@
   },
   "main": "lib/node-query.js",
   "dependencies": {
-	"dblite": "^0.6.1",
     "getargs": "",
     "es6-shim": "",
     "mysql": "^2.5.2",
 	"mysql2": "^0.12.5",
-	"node-firebird": "^0.2.4",
 	"nodeunit": "^0.9.0",
-	"pg": "^3.6.2",
+	"pg": "^3.6.2"
+  },
+  "optionalDependencies": {
+	"dblite": "^0.6.1",
+	"node-firebird": "^0.2.4",
 	"sqlite3": "^3.0.2"
   },
   "devDependencies": {
@@ -52,13 +54,6 @@
 	"getargs",
     "es6-shim",
 	"dblite",
-    "grunt",
-    "grunt-cli",
-    "grunt-contrib-clean",
-    "grunt-contrib-nodeunit",
-    "grunt-istanbul",
-    "grunt-jsdoc",
-    "jsdoc",
     "mysql",
     "mysql2",
     "node-firebird",
