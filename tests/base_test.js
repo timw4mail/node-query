@@ -5,6 +5,7 @@ var modules = {
 	driver: require('../lib/driver'),
 	qb: require('../lib/query-builder'),
 	'node-query': require('../lib/node-query'),
+	'state': require('../lib/state'),
 	'drivers/pg': require('../lib/drivers/pg'),
 	'drivers/mysql': require('../lib/drivers/mysql'),
 	'drivers/sqlite': require('../lib/drivers/sqlite'),

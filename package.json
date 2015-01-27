@@ -1,6 +1,6 @@
 {
   "name": "ci-node-query",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A query builder for node based on the one in CodeIgniter",
   "author": "Timothy J Warren <tim@timshomepage.net>",
   "engines": {
@@ -36,27 +36,25 @@
     "getargs"
   ],
   "devDependencies": {
-    "dblite": "^0.6.1",
-    "grunt": "^0.4.5",
-    "grunt-cli": "",
-    "grunt-contrib-clean": "^0.6.0",
-    "grunt-contrib-nodeunit": "^0.4.1",
-    "grunt-istanbul": "^0.3.0",
-    "grunt-jsdoc": ">=0.6.1",
-    "jsdoc": "^3.3.0-alpha9",
-    "mysql": "^2.5.2",
-    "mysql2": "^0.12.5",
-    "node-firebird": "^0.2.4",
-    "nodeunit": "^0.9.0",
-    "pg": "^3.6.2",
-    "sqlite3": "^3.0.2"
+    "nodeunit": "^0.9.0"
   },
-  "peerDependencies": {
-    "mysql": "",
-    "mysql2": "",
-    "pg": "",
-    "dblite": ""
-  },
+  "bundledDependencies": [
+	"getargs",
+    "es6-shim",
+	"dblite",
+    "grunt",
+    "grunt-cli",
+    "grunt-contrib-clean",
+    "grunt-contrib-nodeunit",
+    "grunt-istanbul",
+    "grunt-jsdoc",
+    "jsdoc",
+    "mysql",
+    "mysql2",
+    "node-firebird",
+    "pg",
+    "sqlite3"
+  ],
   "license": "MIT",
   "scripts": {
     "test": "grunt tests"
