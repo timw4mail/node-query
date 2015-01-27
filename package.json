@@ -28,15 +28,25 @@
   },
   "main": "lib/node-query.js",
   "dependencies": {
+	"dblite": "^0.6.1",
     "getargs": "",
-    "es6-shim": ""
+    "es6-shim": "",
+    "mysql": "^2.5.2",
+	"mysql2": "^0.12.5",
+	"node-firebird": "^0.2.4",
+	"nodeunit": "^0.9.0",
+	"pg": "^3.6.2",
+	"sqlite3": "^3.0.2"
   },
-  "bundledDependencies": [
-    "es6-shim",
-    "getargs"
-  ],
   "devDependencies": {
-    "nodeunit": "^0.9.0"
+    "nodeunit": "^0.9.0",
+    "grunt": "^0.4.5",
+	"grunt-cli": "",
+	"grunt-contrib-clean": "^0.6.0",
+	"grunt-contrib-nodeunit": "^0.4.1",
+	"grunt-istanbul": "^0.3.0",
+	"grunt-jsdoc": ">=0.6.1",
+	"jsdoc": "^3.3.0-alpha9"
   },
   "bundledDependencies": [
 	"getargs",
