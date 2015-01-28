@@ -17,19 +17,18 @@ var _ = require('underscore'),
 /**
     @class
     @classdesc Underscore template helper.
-    @param {string} path - Templates directory.
+    @param {string} filepath - Templates directory.
  */
-exports.Template = function(path) {
-    this.path = path;
+exports.Template = function(filepath) {
+    this.path = filepath;
     this.layout = null;
     this.cache = {};
     // override default template tag settings
     this.settings = {
-        evaluate   : /<\?js([\s\S]+?)\?>/g,
+        evaluate: /<\?js([\s\S]+?)\?>/g,
         interpolate: /<\?js=([\s\S]+?)\?>/g,
-        escape     : /<\?js~([\s\S]+?)\?>/g
+        escape: /<\?js~([\s\S]+?)\?>/g
     };
-
 };
 
 /** Loads template from given file.

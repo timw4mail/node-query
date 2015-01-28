@@ -7,6 +7,7 @@
 'use strict';
 
 var _ = require('underscore');
+var util = require('util');
 
 var hasOwnProp = Object.prototype.hasOwnProperty;
 
@@ -14,6 +15,7 @@ var hasOwnProp = Object.prototype.hasOwnProperty;
  * Create an instance of the parser.
  * @classdesc A parser to interpret the key-value pairs entered on the command line.
  * @constructor
+ * @alias module:jsdoc/opts/argparser
  */
 var ArgParser = function() {
     this._options = [];
@@ -236,7 +238,6 @@ ArgParser.prototype.parse = function(args, defaults) {
 
         // like -t
         if (arg.charAt(0) === '-') {
-
             // like --template
             if (arg.charAt(1) === '-') {
                 name = longName = arg.slice(2);
@@ -248,7 +249,7 @@ ArgParser.prototype.parse = function(args, defaults) {
             }
 
             if (option === null) {
-                throw new Error( 'Unknown command line option found: ' + name );
+                throw new Error( util.format('Unknown command-line option "%s".', name) );
             }
 
             if (option.hasValue) {
@@ -256,7 +257,7 @@ ArgParser.prototype.parse = function(args, defaults) {
                 i++;
 
                 if (value === null || value.charAt(0) === '-') {
-                    throw new Error( 'Command line option requires a value: ' + name );
+                    throw new Error( util.format('The command-line option "%s" requires a value.', name) );
                 }
             }
             else {
