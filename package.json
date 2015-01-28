@@ -1,6 +1,6 @@
 {
   "name": "ci-node-query",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "description": "A query builder for node based on the one in CodeIgniter",
   "author": "Timothy J Warren <tim@timshomepage.net>",
   "engines": {
@@ -64,7 +64,7 @@
     "mysql",
     "mysql2",
     "node-firebird",
-    "pg",
+    "pg"
   ],
   "license": "MIT",
   "scripts": {
