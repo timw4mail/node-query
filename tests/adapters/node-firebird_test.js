@@ -10,7 +10,7 @@ config.conn.database = __dirname + config.conn.database;
 var nodeQuery = require('../../lib/node-query');
 
 // Skip on TravisCi
-if (process.env.CI)
+if (process.env.CI || process.env.JENKINS_HOME)
 {
 	module.exports = {};
 	return;
