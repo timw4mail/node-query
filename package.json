@@ -33,39 +33,30 @@
   },
   "main": "lib/node-query.js",
   "dependencies": {
-    "es6-shim": "^0.23.0",
+    "es6-shim": "*",
     "getargs": "",
-    "grunt-istanbul": "^0.4.0",
-    "jsdoc": "^3.3.0-beta1",
-    "mysql": "^2.5.4",
-    "mysql2": "^0.15.0",
-    "node-firebird": "^0.3.0",
-    "pg": "^4.2.0"
+    "grunt-istanbul": "*",
+    "jsdoc": "*",
+    "mysql": "^2.9.0",
+    "mysql2": "^0.15.8",
+    "node-firebird": "^0.7.0",
+    "pg": "^4.4.3"
   },
   "optionalDependencies": {
-    "dblite": "^0.6.1",
-    "node-firebird": "^0.2.4",
-    "pg": "^3.6.2"
+    "dblite": "*",
+    "node-firebird": "*",
+    "pg": "*"
   },
   "devDependencies": {
     "nodeunit": "^0.9.0",
-    "grunt": "^0.4.5",
+    "grunt": "",
     "grunt-cli": "",
     "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-nodeunit": "^0.4.1",
     "grunt-istanbul": "^0.4.0",
     "grunt-jsdoc": ">=0.6.1",
-    "jsdoc": "^3.3.0-alpha9"
+    "jsdoc": ""
   },
-  "bundledDependencies": [
-    "getargs",
-    "es6-shim",
-    "dblite",
-    "mysql",
-    "mysql2",
-    "node-firebird",
-    "pg"
-  ],
   "license": "MIT",
   "scripts": {
     "test": "grunt tests"

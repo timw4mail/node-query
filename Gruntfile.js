@@ -4,7 +4,7 @@ module.exports = function(grunt) {
 	// Project configuration
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
-		jsdoc: {
+		/*jsdoc: {
 			dist: {
 				src: ['lib/*.js', 'README.md'],
 				options: {
@@ -13,7 +13,7 @@ module.exports = function(grunt) {
 					destination: 'docs'
 				}
 			}
-		},
+		},*/
 		nodeunit: {
 			all: ['tests/**/*_test.js'],
 			options: {
@@ -22,11 +22,12 @@ module.exports = function(grunt) {
 		}
 	});
 
-	grunt.loadNpmTasks('grunt-jsdoc');
+	//grunt.loadNpmTasks('grunt-jsdoc');
 	grunt.loadNpmTasks('grunt-contrib-nodeunit');
 
 
-	grunt.registerTask('default', ['nodeunit','jsdoc']);
+	//grunt.registerTask('default', ['nodeunit','jsdoc']);
+	grunt.registerTask('default', 'nodeunit');
 	grunt.registerTask('tests', 'nodeunit');
-	grunt.registerTask('docs', 'jsdoc');
+	//grunt.registerTask('docs', 'jsdoc');
 };
