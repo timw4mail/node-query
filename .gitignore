@@ -3,4 +3,5 @@ build/*
 coverage
 coverage/*
 npm-debug.log
-tests/FB_TEST_DB.FDB
+tests/FB_TEST_DB.FD
+node_modules/*
