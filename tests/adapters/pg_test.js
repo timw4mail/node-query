@@ -27,7 +27,7 @@ var qb = nodeQuery.init('pg', connection);
 
 // Set up the test base
 testBase._setUp(qb, function(test, err, result) {
-	if (err != null) {
+	if (err) {
 		console.error('SQL syntax error', err);
 	}
 
