@@ -1,244 +1,2096 @@
-<!DOCTYPE html>
-
-<html lang="en">
+<html>
 <head>
-	<meta charset="utf-8">
-	<title>DocStrap Index</title>
-
-	<!--[if lt IE 9]>
-	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
-
-	<link type="text/css" rel="stylesheet" href="styles/site.cosmo.css">
-
+  <meta charset='utf-8' />
+  <title>  | Documentation</title>
+  <meta name='viewport' content='width=device-width,initial-scale=1'>
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Source+Code+Pro:400,500,700' rel='stylesheet' type='text/css'>
+  <link href='assets/bass.css' type='text/css' rel='stylesheet' />
+  <link href='assets/style.css' type='text/css' rel='stylesheet' />
+  <link href='assets/github.css' type='text/css' rel='stylesheet' />
 </head>
+<body class='documentation'>
+  <div class='container'>
+    <div class='clearfix md-mxn2'>
+      <div class='fixed md-show fix-3 overflow-auto max-height-100'>
+        <div class='py1 px2'>
+          <h3 class='mb0 no-anchor'></h3>
+          <div class='mb1'><code></code></div>
+          <input
+            placeholder='Filter'
+            id='filter-input'
+            class='col12 block field'
+            type='text' />
+          <div id='toc'>
+              <a
+                href='#NodeQuery'
+                class='block bold'>
+                NodeQuery
+              </a>
+              <a
+                href='#QueryParser'
+                class='block bold'>
+                QueryParser
+              </a>
+              <a
+                href='#State'
+                class='block bold'>
+                State
+              </a>
+              <a
+                href='#h'
+                class='block bold'>
+                h
+              </a>
+                <a
+                  href='#h.arrayPluck'
+                  class='regular block'>
+                  .arrayPluck
+                </a>
+                <a
+                  href='#h.isScalar'
+                  class='regular block'>
+                  .isScalar
+                </a>
+                <a
+                  href='#h.regexInArray'
+                  class='regular block'>
+                  .regexInArray
+                </a>
+                <a
+                  href='#h.stringTrim'
+                  class='regular block'>
+                  .stringTrim
+                </a>
+                <a
+                  href='#h.type'
+                  class='regular block'>
+                  .type
+                </a>
+              <a
+                href='#h'
+                class='block bold'>
+                h
+              </a>
+                <a
+                  href='#h.arrayPluck'
+                  class='regular block'>
+                  .arrayPluck
+                </a>
+                <a
+                  href='#h.isScalar'
+                  class='regular block'>
+                  .isScalar
+                </a>
+                <a
+                  href='#h.regexInArray'
+                  class='regular block'>
+                  .regexInArray
+                </a>
+                <a
+                  href='#h.stringTrim'
+                  class='regular block'>
+                  .stringTrim
+                </a>
+                <a
+                  href='#h.type'
+                  class='regular block'>
+                  .type
+                </a>
+              <a
+                href='#compileJoin'
+                class='block bold'>
+                compileJoin
+              </a>
+              <a
+                href='#delete'
+                class='block bold'>
+                delete
+              </a>
+              <a
+                href='#end'
+                class='block bold'>
+                end
+              </a>
+              <a
+                href='#from'
+                class='block bold'>
+                from
+              </a>
+              <a
+                href='#get'
+                class='block bold'>
+                get
+              </a>
+              <a
+                href='#getArgs'
+                class='block bold'>
+                getArgs
+              </a>
+              <a
+                href='#getCompiledDelete'
+                class='block bold'>
+                getCompiledDelete
+              </a>
+              <a
+                href='#getCompiledInsert'
+                class='block bold'>
+                getCompiledInsert
+              </a>
+              <a
+                href='#getCompiledSelect'
+                class='block bold'>
+                getCompiledSelect
+              </a>
+              <a
+                href='#getCompiledUpdate'
+                class='block bold'>
+                getCompiledUpdate
+              </a>
+              <a
+                href='#getQuery'
+                class='block bold'>
+                getQuery
+              </a>
+              <a
+                href='#groupBy'
+                class='block bold'>
+                groupBy
+              </a>
+              <a
+                href='#groupEnd'
+                class='block bold'>
+                groupEnd
+              </a>
+              <a
+                href='#groupStart'
+                class='block bold'>
+                groupStart
+              </a>
+              <a
+                href='#hasOperator'
+                class='block bold'>
+                hasOperator
+              </a>
+              <a
+                href='#having'
+                class='block bold'>
+                having
+              </a>
+              <a
+                href='#helpers'
+                class='block bold'>
+                helpers
+              </a>
+              <a
+                href='#init'
+                class='block bold'>
+                init
+              </a>
+              <a
+                href='#insert'
+                class='block bold'>
+                insert
+              </a>
+              <a
+                href='#insertBatch'
+                class='block bold'>
+                insertBatch
+              </a>
+              <a
+                href='#join'
+                class='block bold'>
+                join
+              </a>
+              <a
+                href='#like'
+                class='block bold'>
+                like
+              </a>
+              <a
+                href='#limit'
+                class='block bold'>
+                limit
+              </a>
+              <a
+                href='#notLike'
+                class='block bold'>
+                notLike
+              </a>
+              <a
+                href='#orGroupStart'
+                class='block bold'>
+                orGroupStart
+              </a>
+              <a
+                href='#orHaving'
+                class='block bold'>
+                orHaving
+              </a>
+              <a
+                href='#orLike'
+                class='block bold'>
+                orLike
+              </a>
+              <a
+                href='#orNotGroupStart'
+                class='block bold'>
+                orNotGroupStart
+              </a>
+              <a
+                href='#orNotLike'
+                class='block bold'>
+                orNotLike
+              </a>
+              <a
+                href='#orWhere'
+                class='block bold'>
+                orWhere
+              </a>
+              <a
+                href='#orWhereIn'
+                class='block bold'>
+                orWhereIn
+              </a>
+              <a
+                href='#orWhereIsNotNull'
+                class='block bold'>
+                orWhereIsNotNull
+              </a>
+              <a
+                href='#orWhereIsNull'
+                class='block bold'>
+                orWhereIsNull
+              </a>
+              <a
+                href='#orWhereNotIn'
+                class='block bold'>
+                orWhereNotIn
+              </a>
+              <a
+                href='#orderBy'
+                class='block bold'>
+                orderBy
+              </a>
+              <a
+                href='#parseJoin'
+                class='block bold'>
+                parseJoin
+              </a>
+              <a
+                href='#parseWhere'
+                class='block bold'>
+                parseWhere
+              </a>
+              <a
+                href='#resetQuery'
+                class='block bold'>
+                resetQuery
+              </a>
+              <a
+                href='#select'
+                class='block bold'>
+                select
+              </a>
+              <a
+                href='#set'
+                class='block bold'>
+                set
+              </a>
+              <a
+                href='#update'
+                class='block bold'>
+                update
+              </a>
+              <a
+                href='#where'
+                class='block bold'>
+                where
+              </a>
+              <a
+                href='#whereIn'
+                class='block bold'>
+                whereIn
+              </a>
+              <a
+                href='#whereIsNotNull'
+                class='block bold'>
+                whereIsNotNull
+              </a>
+              <a
+                href='#whereIsNull'
+                class='block bold'>
+                whereIsNull
+              </a>
+              <a
+                href='#whereNotIn'
+                class='block bold'>
+                whereNotIn
+              </a>
+          </div>
+        </div>
+      </div>
+      <div class='fix-margin-3'>
+        <div class='px2'>
+<div class='py1'><section class='py2 clearfix'>
+  <h2 id='NodeQuery' class='mt0'>
+    NodeQuery<span class='gray'></span>
+  </h2>
+  
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='QueryParser' class='mt0'>
+    QueryParser<span class='gray'>(Driver, driver)</span>
+  </h2>
+  
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li> <strong>Driver</strong>
+          :
+          <span class='force-inline'>
+            <p>The driver object for the database in use</p>
 
-<body>
-<div class="container-fluid">
-	<div class="navbar navbar-fixed-top navbar-inverse">
-		<div class="navbar-inner">
-			<a class="brand" href="index.html">DocStrap</a>
-			<ul class="nav">
-				
-				<li class="dropdown">
-					<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b
-						class="caret"></b></a>
+          </span>
+        </li>
+        <li> <strong>driver</strong>
+          :
+          <span class='force-inline'>
+            
+          </span>
+        </li>
+    </ul>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='State' class='mt0'>
+    State<span class='gray'></span>
+  </h2>
+  
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='h' class='mt0'>
+    h<span class='gray'>(o)</span>
+  </h2>
+  <p>Determine whether a variable is of the type specified in the
+function name, eg isNumber</p>
+<p>Types available are Null, Undefined, Object, Array, String, Number, Boolean, Function, RegExp, NaN and Infinite</p>
 
-					<ul class="dropdown-menu ">
-						
-						<li>
-							<a href="module-adapter.html">adapter</a>
-						</li>
-						
-						<li>
-							<a href="module-driver.html">driver</a>
-						</li>
-						
-						<li>
-							<a href="module-helpers.html">helpers</a>
-						</li>
-						
-						<li>
-							<a href="module-node-query.html">node-query</a>
-						</li>
-						
-						<li>
-							<a href="module-query-builder.html">query-builder</a>
-						</li>
-						
-						<li>
-							<a href="module-query-parser.html">query-parser</a>
-						</li>
-						
-						<li>
-							<a href="module-State.html">State</a>
-						</li>
-						
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code>mixed</code> <strong>o</strong>
+          :
+          <span class='force-inline'>
+            
+          </span>
+        </li>
+    </ul>
+      <h4>Returns</h4>
+      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code></code>
+      
+      <span class='force-inline'>
+        
+      </span>
+      <h4>Static members</h4>
+        <div class='collapsible' id='h.arrayPluck'>
+          <a href='#h.arrayPluck'>
+            <code>
+              .arrayPluck<span class='gray'>(arr, key)</span>
+            </code>
+            <span class='force-inline'>
+              <p>Get a list of values with a common key from an array of objects</p>
 
-					</ul>
-				</li>
-				
-			</ul>
-		</div>
-	</div>
+            </span>
+          </a>
+          <div class='collapser border px2 m2'>
+            <section class='py2 clearfix'>
+              <h2 id='h.arrayPluck' class='mt0'>
+                arrayPluck<span class='gray'>(arr, key)</span>
+              </h2>
+              <p>Get a list of values with a common key from an array of objects</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code> <strong>arr</strong>
+                      :
+                      <span class='force-inline'>
+                        <p>The array of objects to search</p>
+            
+                      </span>
+                    </li>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>key</strong>
+                      :
+                      <span class='force-inline'>
+                        <p>The key of the object to get</p>
+            
+                      </span>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code></code>
+                  
+                  <span class='force-inline'>
+                    
+                  </span>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='h.isScalar'>
+          <a href='#h.isScalar'>
+            <code>
+              .isScalar<span class='gray'>(obj)</span>
+            </code>
+            <span class='force-inline'>
+              <p>Determine whether an object is scalar</p>
 
-	<div class="row-fluid">
+            </span>
+          </a>
+          <div class='collapser border px2 m2'>
+            <section class='py2 clearfix'>
+              <h2 id='h.isScalar' class='mt0'>
+                isScalar<span class='gray'>(obj)</span>
+              </h2>
+              <p>Determine whether an object is scalar</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code>mixed</code> <strong>obj</strong>
+                      :
+                      <span class='force-inline'>
+                        
+                      </span>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code>bool</code></code>
+                  
+                  <span class='force-inline'>
+                    
+                  </span>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='h.regexInArray'>
+          <a href='#h.regexInArray'>
+            <code>
+              .regexInArray<span class='gray'>(arr, pattern)</span>
+            </code>
+            <span class='force-inline'>
+              <p>Determine if a value matching the passed regular expression is
+in the passed array</p>
 
-		
-		<div class="span8">
-			
-				<div id="main">
-					
+            </span>
+          </a>
+          <div class='collapser border px2 m2'>
+            <section class='py2 clearfix'>
+              <h2 id='h.regexInArray' class='mt0'>
+                regexInArray<span class='gray'>(arr, pattern)</span>
+              </h2>
+              <p>Determine if a value matching the passed regular expression is
+            in the passed array</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code> <strong>arr</strong>
+                      :
+                      <span class='force-inline'>
+                        <p>The array to search</p>
+            
+                      </span>
+                    </li>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp">RegExp</a></code> <strong>pattern</strong>
+                      :
+                      <span class='force-inline'>
+                        <p>The pattern to match</p>
+            
+                      </span>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code></code>
+                  :
+                  <span class='force-inline'>
+                    <p>If an array item matches the pattern</p>
+            
+                  </span>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='h.stringTrim'>
+          <a href='#h.stringTrim'>
+            <code>
+              .stringTrim<span class='gray'>(str)</span>
+            </code>
+            <span class='force-inline'>
+              <p>Wrap String.prototype.trim in a way that is easily mappable</p>
 
+            </span>
+          </a>
+          <div class='collapser border px2 m2'>
+            <section class='py2 clearfix'>
+              <h2 id='h.stringTrim' class='mt0'>
+                stringTrim<span class='gray'>(str)</span>
+              </h2>
+              <p>Wrap String.prototype.trim in a way that is easily mappable</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>str</strong>
+                      :
+                      <span class='force-inline'>
+                        <p>The string to trim</p>
+            
+                      </span>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code></code>
+                  :
+                  <span class='force-inline'>
+                    <p>The trimmed string</p>
+            
+                  </span>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='h.type'>
+          <a href='#h.type'>
+            <code>
+              .type<span class='gray'>(o)</span>
+            </code>
+            <span class='force-inline'>
+              <p>Get the type of the variable passed</p>
 
-	
-	<span class="page-title">Index</span>
-	
-	
+            </span>
+          </a>
+          <div class='collapser border px2 m2'>
+            <section class='py2 clearfix'>
+              <h2 id='h.type' class='mt0'>
+                type<span class='gray'>(o)</span>
+              </h2>
+              <p>Get the type of the variable passed</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code>mixed</code> <strong>o</strong>
+                      :
+                      <span class='force-inline'>
+                        
+                      </span>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code></code>
+                  
+                  <span class='force-inline'>
+                    
+                  </span>
+            </section>
+          </div>
+        </div>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='h' class='mt0'>
+    h<span class='gray'>(str)</span>
+  </h2>
+  
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li> <strong>str</strong>
+          :
+          <span class='force-inline'>
+            
+          </span>
+        </li>
+    </ul>
+      <h4>Static members</h4>
+        <div class='collapsible' id='h.arrayPluck'>
+          <a href='#h.arrayPluck'>
+            <code>
+              .arrayPluck<span class='gray'>(arr, key)</span>
+            </code>
+            <span class='force-inline'>
+              <p>Get a list of values with a common key from an array of objects</p>
 
+            </span>
+          </a>
+          <div class='collapser border px2 m2'>
+            <section class='py2 clearfix'>
+              <h2 id='h.arrayPluck' class='mt0'>
+                arrayPluck<span class='gray'>(arr, key)</span>
+              </h2>
+              <p>Get a list of values with a common key from an array of objects</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code> <strong>arr</strong>
+                      :
+                      <span class='force-inline'>
+                        <p>The array of objects to search</p>
+            
+                      </span>
+                    </li>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>key</strong>
+                      :
+                      <span class='force-inline'>
+                        <p>The key of the object to get</p>
+            
+                      </span>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code></code>
+                  
+                  <span class='force-inline'>
+                    
+                  </span>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='h.isScalar'>
+          <a href='#h.isScalar'>
+            <code>
+              .isScalar<span class='gray'>(obj)</span>
+            </code>
+            <span class='force-inline'>
+              <p>Determine whether an object is scalar</p>
 
+            </span>
+          </a>
+          <div class='collapser border px2 m2'>
+            <section class='py2 clearfix'>
+              <h2 id='h.isScalar' class='mt0'>
+                isScalar<span class='gray'>(obj)</span>
+              </h2>
+              <p>Determine whether an object is scalar</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code>mixed</code> <strong>obj</strong>
+                      :
+                      <span class='force-inline'>
+                        
+                      </span>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code>bool</code></code>
+                  
+                  <span class='force-inline'>
+                    
+                  </span>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='h.regexInArray'>
+          <a href='#h.regexInArray'>
+            <code>
+              .regexInArray<span class='gray'>(arr, pattern)</span>
+            </code>
+            <span class='force-inline'>
+              <p>Determine if a value matching the passed regular expression is
+in the passed array</p>
 
+            </span>
+          </a>
+          <div class='collapser border px2 m2'>
+            <section class='py2 clearfix'>
+              <h2 id='h.regexInArray' class='mt0'>
+                regexInArray<span class='gray'>(arr, pattern)</span>
+              </h2>
+              <p>Determine if a value matching the passed regular expression is
+            in the passed array</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code> <strong>arr</strong>
+                      :
+                      <span class='force-inline'>
+                        <p>The array to search</p>
+            
+                      </span>
+                    </li>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp">RegExp</a></code> <strong>pattern</strong>
+                      :
+                      <span class='force-inline'>
+                        <p>The pattern to match</p>
+            
+                      </span>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code></code>
+                  :
+                  <span class='force-inline'>
+                    <p>If an array item matches the pattern</p>
+            
+                  </span>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='h.stringTrim'>
+          <a href='#h.stringTrim'>
+            <code>
+              .stringTrim<span class='gray'>(str)</span>
+            </code>
+            <span class='force-inline'>
+              <p>Wrap String.prototype.trim in a way that is easily mappable</p>
 
+            </span>
+          </a>
+          <div class='collapser border px2 m2'>
+            <section class='py2 clearfix'>
+              <h2 id='h.stringTrim' class='mt0'>
+                stringTrim<span class='gray'>(str)</span>
+              </h2>
+              <p>Wrap String.prototype.trim in a way that is easily mappable</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>str</strong>
+                      :
+                      <span class='force-inline'>
+                        <p>The string to trim</p>
+            
+                      </span>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code></code>
+                  :
+                  <span class='force-inline'>
+                    <p>The trimmed string</p>
+            
+                  </span>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='h.type'>
+          <a href='#h.type'>
+            <code>
+              .type<span class='gray'>(o)</span>
+            </code>
+            <span class='force-inline'>
+              <p>Get the type of the variable passed</p>
 
+            </span>
+          </a>
+          <div class='collapser border px2 m2'>
+            <section class='py2 clearfix'>
+              <h2 id='h.type' class='mt0'>
+                type<span class='gray'>(o)</span>
+              </h2>
+              <p>Get the type of the variable passed</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code>mixed</code> <strong>o</strong>
+                      :
+                      <span class='force-inline'>
+                        
+                      </span>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code></code>
+                  
+                  <span class='force-inline'>
+                    
+                  </span>
+            </section>
+          </div>
+        </div>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='compileJoin' class='mt0'>
+    compileJoin<span class='gray'>(condition)</span>
+  </h2>
+  <p>Return the output of the parsing of the join condition</p>
 
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>condition</strong>
+          :
+          <span class='force-inline'>
+            <p>The join condition to evalate</p>
 
+          </span>
+        </li>
+    </ul>
+      <h4>Returns</h4>
+      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code></code>
+      :
+      <span class='force-inline'>
+        <p>The parsed/escaped join condition</p>
 
+      </span>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='delete' class='mt0'>
+    delete<span class='gray'>(table, [where], callback)</span>
+  </h2>
+  <p>Run the generated delete query</p>
 
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>table</strong>
+          :
+          <span class='force-inline'>
+            <p>The table to insert into</p>
 
+          </span>
+        </li>
+        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>]</code> <strong>where</strong>
+          :
+          <span class='force-inline'>
+            <p>Where clause for delete statement</p>
 
+          </span>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a></code> <strong>callback</strong>
+          :
+          <span class='force-inline'>
+            <p>Callback for handling response from the database</p>
 
-	
-	
+          </span>
+        </li>
+    </ul>
+      <h4>Returns</h4>
+      <code></code>
+      :
+      <span class='force-inline'>
+        <p>void</p>
 
+      </span>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='end' class='mt0'>
+    end<span class='gray'></span>
+  </h2>
+  <p>Closes the database connection for the current adapter</p>
 
+      <h4>Returns</h4>
+      <code></code>
+      :
+      <span class='force-inline'>
+        <p>void</p>
 
+      </span>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='from' class='mt0'>
+    from<span class='gray'>(tableName)</span>
+  </h2>
+  <p>Specify the database table to select from</p>
 
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>tableName</strong>
+          :
+          <span class='force-inline'>
+            <p>The table to use for the current query</p>
 
-    <section class="readme-section">
-        <article><h1>CI-Node-query</h1><p>A node query builder for various SQL databases, based on CodeIgniter's query builder.</p>
-<p><a href="https://travis-ci.org/timw4mail/node-query"><img src="https://travis-ci.org/timw4mail/node-query.svg?branch=master" alt="Build Status"></a></p>
-<h3>Supported adapters</h3><ul>
-<li>mysql</li>
-<li>mysql2</li>
-<li>pg</li>
-<li>dblite</li>
-<li>node-firebird</li>
-</ul>
-<h3>Installation</h3><pre class="prettyprint source"><code>npm install ci-node-query</code></pre><h3>Basic use</h3><pre class="prettyprint source"><code>var nodeQuery = require('ci-node-query');
+          </span>
+        </li>
+    </ul>
+      <h4>Returns</h4>
+      <code></code>
+      :
+      <span class='force-inline'>
+        <p>this</p>
 
-var connection = ... // Database module connection 
+      </span>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='get' class='mt0'>
+    get<span class='gray'>([table], [limit], [offset], callback)</span>
+  </h2>
+  <p>Get the results of the compiled query</p>
 
-// Three arguments: database type, database connection, database connection library 
-var query = nodeQuery.init('mysql', connection, 'mysql2');
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>]</code> <strong>table</strong>
+          :
+          <span class='force-inline'>
+            <p>The table to select from</p>
 
-// The third argument is optional if the database connection library has the same name as the adapter, eg..
-nodeQuery.init('mysql', connection, 'mysql');
-// Can be instead
-nodeQuery.init('mysql', connection);
+          </span>
+        </li>
+        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></code>]</code> <strong>limit</strong>
+          :
+          <span class='force-inline'>
+            <p>A limit for the query</p>
 
-// You can also retrieve the instance later
-query = nodeQuery.getQuery();
+          </span>
+        </li>
+        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></code>]</code> <strong>offset</strong>
+          :
+          <span class='force-inline'>
+            <p>An offset for the query</p>
 
-query.select('foo')
-    .from('bar')
-    .where('x', 3)
-    .orWhere({y: 2})
-    .join('baz', 'baz.boo = bar.foo', 'left')
-    .orderBy('x', 'DESC')
-    .limit(2, 3)
-    .get(function(/* Adapter dependent arguments */) {
-        // Database module result handling
-    });</code></pre><h3>Security notes</h3><p>As of version 2, <code>where</code> and <code>having</code> type methods parse the values passed to look for function calls. While values passed are still passed as query parameters, take care to avoid passing these kinds of methods unfiltered input. SQL function arguments are not currently parsed, so they need to be properly escaped for the current database. </p>
-<h3>Additional help</h3><ul>
-<li>Generated documentation is in the docs/ folder </li>
-<li><code>tests/query-builder-base.js</code>    contains a lot of usage examples</li>
-<li>The <code>tests/adapters</code> folder contains examples of how to set up a connection for the appropriate database library</li>
-<li>The documentation generated for the latest dev build is also <a href="https://github.timshomepage.net/node-query/docs/">Available</a></li>
-</ul></article>
-    </section>
+          </span>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a></code> <strong>callback</strong>
+          :
+          <span class='force-inline'>
+            <p>A callback for receiving the result</p>
 
+          </span>
+        </li>
+    </ul>
+      <h4>Returns</h4>
+      <code></code>
+      :
+      <span class='force-inline'>
+        <p>void</p>
 
+      </span>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='getArgs' class='mt0'>
+    getArgs<span class='gray'></span>
+  </h2>
+  
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='getCompiledDelete' class='mt0'>
+    getCompiledDelete<span class='gray'>(table, [reset])</span>
+  </h2>
+  <p>Return generated delete query SQL</p>
 
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>table</strong>
+          :
+          <span class='force-inline'>
+            <p>the name of the table to delete from</p>
 
+          </span>
+        </li>
+        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>]</code> <strong>reset</strong>
+            (default <code>true</code>)
+          :
+          <span class='force-inline'>
+            <p>Whether to reset the query builder so another query can be built</p>
 
+          </span>
+        </li>
+    </ul>
+      <h4>Returns</h4>
+      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code></code>
+      
+      <span class='force-inline'>
+        
+      </span>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='getCompiledInsert' class='mt0'>
+    getCompiledInsert<span class='gray'>(table, [reset])</span>
+  </h2>
+  <p>Return generated insert query SQL</p>
 
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>table</strong>
+          :
+          <span class='force-inline'>
+            <p>the name of the table to insert into</p>
 
-				</div>
+          </span>
+        </li>
+        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>]</code> <strong>reset</strong>
+            (default <code>true</code>)
+          :
+          <span class='force-inline'>
+            <p>Whether to reset the query builder so another query can be built</p>
 
-				<div class="clearfix"></div>
-				<footer>
-					
-					
-		<span class="copyright">
-		DocStrap Copyright © 2012-2014 The contributors to the JSDoc3 and DocStrap projects.
-		</span>
-					<br />
-					
-		<span class="jsdoc-message">
-		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-beta1</a>
-		on Wed Jan 28th 2015 using the <a
-			href="https://github.com/terryweiss/docstrap">DocStrap template</a>.
-		</span>
-				</footer>
-			</div>
+          </span>
+        </li>
+    </ul>
+      <h4>Returns</h4>
+      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code></code>
+      
+      <span class='force-inline'>
+        
+      </span>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='getCompiledSelect' class='mt0'>
+    getCompiledSelect<span class='gray'>([table], [reset])</span>
+  </h2>
+  <p>Return generated select query SQL</p>
 
-			
-			<div class="span3">
-				<div id="toc"></div>
-			</div>
-			
-			<br clear="both">
-		</div>
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>]</code> <strong>table</strong>
+          :
+          <span class='force-inline'>
+            <p>the name of the table to retrieve from</p>
 
-	</div>
-	<!--<script src="scripts/sunlight.js"></script>-->
-	<script src="scripts/docstrap.lib.js"></script>
-	<script src="scripts/bootstrap-dropdown.js"></script>
-	<script src="scripts/toc.js"></script>
+          </span>
+        </li>
+        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>]</code> <strong>reset</strong>
+            (default <code>true</code>)
+          :
+          <span class='force-inline'>
+            <p>Whether to reset the query builder so another query can be built</p>
 
-	<script>
-		$( function () {
-			$( "[id*='$']" ).each( function () {
-				var $this = $( this );
+          </span>
+        </li>
+    </ul>
+      <h4>Returns</h4>
+      <code></code>
+      :
+      <span class='force-inline'>
+        <p>String</p>
 
-				$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
-			} );
+      </span>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='getCompiledUpdate' class='mt0'>
+    getCompiledUpdate<span class='gray'>(table, [reset])</span>
+  </h2>
+  <p>Return generated update query SQL</p>
 
-			$( "#toc" ).toc( {
-				anchorName  : function ( i, heading, prefix ) {
-					return $( heading ).attr( "id" ) || ( prefix + i );
-				},
-				selectors   : "h1,h2,h3,h4",
-				showAndHide : false,
-				scrollTo    : "100px"
-			} );
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>table</strong>
+          :
+          <span class='force-inline'>
+            <p>the name of the table to update</p>
 
-			$( "#toc>ul" ).addClass( "nav nav-pills nav-stacked" );
-			$( "#main span[id^='toc']" ).addClass( "toc-shim" );
-			$( '.dropdown-toggle' ).dropdown();
-//			$( ".tutorial-section pre, .readme-section pre" ).addClass( "sunlight-highlight-javascript" ).addClass( "linenums" );
+          </span>
+        </li>
+        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>]</code> <strong>reset</strong>
+            (default <code>true</code>)
+          :
+          <span class='force-inline'>
+            <p>Whether to reset the query builder so another query can be built</p>
 
-			$( ".tutorial-section pre, .readme-section pre" ).each( function () {
-				var $this = $( this );
+          </span>
+        </li>
+    </ul>
+      <h4>Returns</h4>
+      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code></code>
+      
+      <span class='force-inline'>
+        
+      </span>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='getQuery' class='mt0'>
+    getQuery<span class='gray'></span>
+  </h2>
+  <p>Return an existing query builder instance</p>
 
-				var example = $this.find( "code" );
-				exampleText = example.html();
-				var lang = /{@lang (.*?)}/.exec( exampleText );
-				if ( lang && lang[1] ) {
-					exampleText = exampleText.replace( lang[0], "" );
-					example.html( exampleText );
-					lang = lang[1];
-				} else {
-					lang = "javascript";
-				}
+      <h4>Returns</h4>
+      <code><code>queryBuilder</code></code>
+      
+      <span class='force-inline'>
+        
+      </span>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='groupBy' class='mt0'>
+    groupBy<span class='gray'>(field)</span>
+  </h2>
+  <p>Group the results by the selected field(s)</p>
 
-				if ( lang ) {
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> or <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code> <strong>field</strong>
+          :
+          <span class='force-inline'>
+            
+          </span>
+        </li>
+    </ul>
+      <h4>Returns</h4>
+      <code></code>
+      :
+      <span class='force-inline'>
+        <p>this</p>
 
-					$this
-						.addClass( "sunlight-highlight-" + lang )
-						.addClass( "linenums" )
-						.html( example.html() );
+      </span>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='groupEnd' class='mt0'>
+    groupEnd<span class='gray'></span>
+  </h2>
+  <p>Ends a logical grouping started with one of the groupStart methods</p>
 
-				}
-			} );
+      <h4>Returns</h4>
+      <code></code>
+      :
+      <span class='force-inline'>
+        <p>this</p>
 
-			Sunlight.highlightAll( {
-				lineNumbers : true,
-				showMenu : true,
-				enableDoclinks : true
-			} );
-		} );
-	 </script>
+      </span>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='groupStart' class='mt0'>
+    groupStart<span class='gray'></span>
+  </h2>
+  <p>Adds an open paren to the current query for logical grouping</p>
 
+      <h4>Returns</h4>
+      <code></code>
+      :
+      <span class='force-inline'>
+        <p>this</p>
 
+      </span>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='hasOperator' class='mt0'>
+    hasOperator<span class='gray'>(string)</span>
+  </h2>
+  <p>Check if the string contains an operator, and if so, return the operator(s).
+If there are no matches, return null</p>
 
-	<!--Navigation and Symbol Display-->
-	
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>string</strong>
+          :
+          <span class='force-inline'>
+            <p>the string to check</p>
 
+          </span>
+        </li>
+    </ul>
+      <h4>Returns</h4>
+      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code> or </code>
+      
+      <span class='force-inline'>
+        
+      </span>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='having' class='mt0'>
+    having<span class='gray'>(key, [val])</span>
+  </h2>
+  <p>Add a &apos;having&apos; clause</p>
 
-	<!--Google Analytics-->
-	
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> or <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code> <strong>key</strong>
+          :
+          <span class='force-inline'>
+            <p>The name of the field and the comparision operator, or an object</p>
 
+          </span>
+        </li>
+        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> or <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></code>]</code> <strong>val</strong>
+          :
+          <span class='force-inline'>
+            <p>The value to compare if the value of key is a string</p>
+
+          </span>
+        </li>
+    </ul>
+      <h4>Returns</h4>
+      <code></code>
+      :
+      <span class='force-inline'>
+        <p>this</p>
+
+      </span>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='helpers' class='mt0'>
+    helpers<span class='gray'>(str)</span>
+  </h2>
+  
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li> <strong>str</strong>
+          :
+          <span class='force-inline'>
+            
+          </span>
+        </li>
+    </ul>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='init' class='mt0'>
+    init<span class='gray'>(drivername, driverType, connObject, [connLib])</span>
+  </h2>
+  <p>Create a query builder object</p>
+
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>drivername</strong>
+          :
+          <span class='force-inline'>
+            <p>The name of the database type, eg. mysql or pg</p>
+
+          </span>
+        </li>
+        <li> <strong>driverType</strong>
+          :
+          <span class='force-inline'>
+            
+          </span>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code> <strong>connObject</strong>
+          :
+          <span class='force-inline'>
+            <p>A connection object from the database library you are connecting with</p>
+
+          </span>
+        </li>
+        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>]</code> <strong>connLib</strong>
+          :
+          <span class='force-inline'>
+            <p>The name of the db connection library you are using, eg. mysql or mysql2. Optional if the same as drivername</p>
+
+          </span>
+        </li>
+    </ul>
+      <h4>Returns</h4>
+      <code><code>queryBuilder</code></code>
+      
+      <span class='force-inline'>
+        
+      </span>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='insert' class='mt0'>
+    insert<span class='gray'>(table, [data], callback)</span>
+  </h2>
+  <p>Run the generated insert query</p>
+
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>table</strong>
+          :
+          <span class='force-inline'>
+            <p>The table to insert into</p>
+
+          </span>
+        </li>
+        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>]</code> <strong>data</strong>
+          :
+          <span class='force-inline'>
+            <p>Data to insert, if not already added with the &apos;set&apos; method</p>
+
+          </span>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a></code> <strong>callback</strong>
+          :
+          <span class='force-inline'>
+            <p>Callback for handling response from the database</p>
+
+          </span>
+        </li>
+    </ul>
+      <h4>Returns</h4>
+      <code></code>
+      :
+      <span class='force-inline'>
+        <p>void</p>
+
+      </span>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='insertBatch' class='mt0'>
+    insertBatch<span class='gray'>(table, data, callback)</span>
+  </h2>
+  <p>Insert multiple sets of rows at a time</p>
+
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>table</strong>
+          :
+          <span class='force-inline'>
+            <p>The table to insert into</p>
+
+          </span>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code> <strong>data</strong>
+          :
+          <span class='force-inline'>
+            <p>The array of objects containing data rows to insert</p>
+
+          </span>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a></code> <strong>callback</strong>
+          :
+          <span class='force-inline'>
+            <p>Callback for handling database response</p>
+
+          </span>
+        </li>
+    </ul>
+      <h4>Returns</h4>
+      <code></code>
+      :
+      <span class='force-inline'>
+        <p>void</p>
+
+      </span>
+    <h4>Examples</h4>
+<pre class='overflow-auto'>query.insertBatch(<span class="hljs-string">'foo'</span>,[{id:<span class="hljs-number">1</span>,val:<span class="hljs-string">'bar'</span>},{id:<span class="hljs-number">2</span>,val:<span class="hljs-string">'baz'</span>}], callbackFunction);</pre>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='join' class='mt0'>
+    join<span class='gray'>(table, cond, [type])</span>
+  </h2>
+  <p>Add a join clause to the query</p>
+
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>table</strong>
+          :
+          <span class='force-inline'>
+            <p>The table you are joining</p>
+
+          </span>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>cond</strong>
+          :
+          <span class='force-inline'>
+            <p>The join condition.</p>
+
+          </span>
+        </li>
+        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>]</code> <strong>type</strong>
+            (default <code>&#x27;inner&#x27;</code>)
+          :
+          <span class='force-inline'>
+            <p>The type of join, which defaults to inner</p>
+
+          </span>
+        </li>
+    </ul>
+      <h4>Returns</h4>
+      <code></code>
+      :
+      <span class='force-inline'>
+        <p>this</p>
+
+      </span>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='like' class='mt0'>
+    like<span class='gray'>(field, val, [pos])</span>
+  </h2>
+  <p>Add a &apos;like/ and like&apos; clause to the query</p>
+
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>field</strong>
+          :
+          <span class='force-inline'>
+            <p>The name of the field  to compare to</p>
+
+          </span>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>val</strong>
+          :
+          <span class='force-inline'>
+            <p>The value to compare to</p>
+
+          </span>
+        </li>
+        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>]</code> <strong>pos</strong>
+            (default <code>both</code>)
+          :
+          <span class='force-inline'>
+            <p>The placement of the wildcard character(s): before, after, or both</p>
+
+          </span>
+        </li>
+    </ul>
+      <h4>Returns</h4>
+      <code></code>
+      :
+      <span class='force-inline'>
+        <p>this</p>
+
+      </span>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='limit' class='mt0'>
+    limit<span class='gray'>(limit, [offset])</span>
+  </h2>
+  <p>Put a limit on the query</p>
+
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></code> <strong>limit</strong>
+          :
+          <span class='force-inline'>
+            <p>The maximum number of rows to fetch</p>
+
+          </span>
+        </li>
+        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></code>]</code> <strong>offset</strong>
+          :
+          <span class='force-inline'>
+            <p>The row number to start from</p>
+
+          </span>
+        </li>
+    </ul>
+      <h4>Returns</h4>
+      <code></code>
+      :
+      <span class='force-inline'>
+        <p>this</p>
+
+      </span>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='notLike' class='mt0'>
+    notLike<span class='gray'>(field, val, [pos])</span>
+  </h2>
+  <p>Add a &apos;not like/ and not like&apos; clause to the query</p>
+
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>field</strong>
+          :
+          <span class='force-inline'>
+            <p>The name of the field  to compare to</p>
+
+          </span>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>val</strong>
+          :
+          <span class='force-inline'>
+            <p>The value to compare to</p>
+
+          </span>
+        </li>
+        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>]</code> <strong>pos</strong>
+            (default <code>both</code>)
+          :
+          <span class='force-inline'>
+            <p>The placement of the wildcard character(s): before, after, or both</p>
+
+          </span>
+        </li>
+    </ul>
+      <h4>Returns</h4>
+      <code></code>
+      :
+      <span class='force-inline'>
+        <p>this</p>
+
+      </span>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='orGroupStart' class='mt0'>
+    orGroupStart<span class='gray'></span>
+  </h2>
+  <p>Adds an open paren to the current query for logical grouping,
+prefixed with &apos;OR&apos;</p>
+
+      <h4>Returns</h4>
+      <code></code>
+      :
+      <span class='force-inline'>
+        <p>this</p>
+
+      </span>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='orHaving' class='mt0'>
+    orHaving<span class='gray'>(key, [val])</span>
+  </h2>
+  <p>Add an &apos;or having&apos; clause</p>
+
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> or <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code> <strong>key</strong>
+          :
+          <span class='force-inline'>
+            <p>The name of the field and the comparision operator, or an object</p>
+
+          </span>
+        </li>
+        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> or <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></code>]</code> <strong>val</strong>
+          :
+          <span class='force-inline'>
+            <p>The value to compare if the value of key is a string</p>
+
+          </span>
+        </li>
+    </ul>
+      <h4>Returns</h4>
+      <code></code>
+      :
+      <span class='force-inline'>
+        <p>this</p>
+
+      </span>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='orLike' class='mt0'>
+    orLike<span class='gray'>(field, val, [pos])</span>
+  </h2>
+  <p>Add an &apos;or like&apos; clause to the query</p>
+
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>field</strong>
+          :
+          <span class='force-inline'>
+            <p>The name of the field  to compare to</p>
+
+          </span>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>val</strong>
+          :
+          <span class='force-inline'>
+            <p>The value to compare to</p>
+
+          </span>
+        </li>
+        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>]</code> <strong>pos</strong>
+            (default <code>both</code>)
+          :
+          <span class='force-inline'>
+            <p>The placement of the wildcard character(s): before, after, or both</p>
+
+          </span>
+        </li>
+    </ul>
+      <h4>Returns</h4>
+      <code></code>
+      :
+      <span class='force-inline'>
+        <p>this</p>
+
+      </span>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='orNotGroupStart' class='mt0'>
+    orNotGroupStart<span class='gray'></span>
+  </h2>
+  <p>Adds an open paren to the current query for logical grouping,
+prefixed with &apos;OR NOT&apos;</p>
+
+      <h4>Returns</h4>
+      <code></code>
+      :
+      <span class='force-inline'>
+        <p>this</p>
+
+      </span>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='orNotLike' class='mt0'>
+    orNotLike<span class='gray'>(field, val, [pos])</span>
+  </h2>
+  <p>Add an &apos;or not like&apos; clause to the query</p>
+
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>field</strong>
+          :
+          <span class='force-inline'>
+            <p>The name of the field  to compare to</p>
+
+          </span>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>val</strong>
+          :
+          <span class='force-inline'>
+            <p>The value to compare to</p>
+
+          </span>
+        </li>
+        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>]</code> <strong>pos</strong>
+            (default <code>both</code>)
+          :
+          <span class='force-inline'>
+            <p>The placement of the wildcard character(s): before, after, or both</p>
+
+          </span>
+        </li>
+    </ul>
+      <h4>Returns</h4>
+      <code></code>
+      :
+      <span class='force-inline'>
+        <p>this</p>
+
+      </span>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='orWhere' class='mt0'>
+    orWhere<span class='gray'>(key, [val])</span>
+  </h2>
+  <p>Set a &apos;or where&apos; clause</p>
+
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> or <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code> <strong>key</strong>
+          :
+          <span class='force-inline'>
+            <p>The name of the field and the comparision operator, or an object</p>
+
+          </span>
+        </li>
+        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> or <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></code>]</code> <strong>val</strong>
+          :
+          <span class='force-inline'>
+            <p>The value to compare if the value of key is a string</p>
+
+          </span>
+        </li>
+    </ul>
+      <h4>Returns</h4>
+      <code></code>
+      :
+      <span class='force-inline'>
+        <p>this</p>
+
+      </span>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='orWhereIn' class='mt0'>
+    orWhereIn<span class='gray'>(key, val)</span>
+  </h2>
+  <p>Set a &apos;or where in&apos; clause</p>
+
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>key</strong>
+          :
+          <span class='force-inline'>
+            <p>the field to search</p>
+
+          </span>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code> <strong>val</strong>
+          :
+          <span class='force-inline'>
+            <p>the array of items to search in</p>
+
+          </span>
+        </li>
+    </ul>
+      <h4>Returns</h4>
+      <code></code>
+      :
+      <span class='force-inline'>
+        <p>this</p>
+
+      </span>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='orWhereIsNotNull' class='mt0'>
+    orWhereIsNotNull<span class='gray'>(field)</span>
+  </h2>
+  <p>Field is not null prefixed with &apos;OR&apos;</p>
+
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>field</strong>
+          :
+          <span class='force-inline'>
+            
+          </span>
+        </li>
+    </ul>
+      <h4>Returns</h4>
+      <code></code>
+      :
+      <span class='force-inline'>
+        <p>this</p>
+
+      </span>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='orWhereIsNull' class='mt0'>
+    orWhereIsNull<span class='gray'>(field)</span>
+  </h2>
+  <p>Field is null prefixed with &apos;OR&apos;</p>
+
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>field</strong>
+          :
+          <span class='force-inline'>
+            
+          </span>
+        </li>
+    </ul>
+      <h4>Returns</h4>
+      <code></code>
+      :
+      <span class='force-inline'>
+        <p>this</p>
+
+      </span>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='orWhereNotIn' class='mt0'>
+    orWhereNotIn<span class='gray'>(key, val)</span>
+  </h2>
+  <p>Set a &apos;or where not in&apos; clause</p>
+
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>key</strong>
+          :
+          <span class='force-inline'>
+            <p>the field to search</p>
+
+          </span>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code> <strong>val</strong>
+          :
+          <span class='force-inline'>
+            <p>the array of items to search in</p>
+
+          </span>
+        </li>
+    </ul>
+      <h4>Returns</h4>
+      <code></code>
+      :
+      <span class='force-inline'>
+        <p>this</p>
+
+      </span>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='orderBy' class='mt0'>
+    orderBy<span class='gray'>(field, [type])</span>
+  </h2>
+  <p>Order the results by the selected field(s)</p>
+
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>field</strong>
+          :
+          <span class='force-inline'>
+            <p>The field(s) to order by</p>
+
+          </span>
+        </li>
+        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>]</code> <strong>type</strong>
+            (default <code>&#x27;ASC&#x27;</code>)
+          :
+          <span class='force-inline'>
+            <p>The order direction, ASC or DESC</p>
+
+          </span>
+        </li>
+    </ul>
+      <h4>Returns</h4>
+      <code></code>
+      :
+      <span class='force-inline'>
+        <p>this</p>
+
+      </span>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='parseJoin' class='mt0'>
+    parseJoin<span class='gray'>(sql)</span>
+  </h2>
+  <p>Tokenize the sql into parts for additional processing</p>
+
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>sql</strong>
+          :
+          <span class='force-inline'>
+            
+          </span>
+        </li>
+    </ul>
+      <h4>Returns</h4>
+      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code></code>
+      
+      <span class='force-inline'>
+        
+      </span>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='parseWhere' class='mt0'>
+    parseWhere<span class='gray'>(driver, state)</span>
+  </h2>
+  <p>Parse a where clause to separate functions from values</p>
+
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code> <strong>driver</strong>
+          :
+          <span class='force-inline'>
+            
+          </span>
+        </li>
+        <li><code><a href="#State">State</a></code> <strong>state</strong>
+          :
+          <span class='force-inline'>
+            
+          </span>
+        </li>
+    </ul>
+      <h4>Returns</h4>
+      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code></code>
+      :
+      <span class='force-inline'>
+        <p>The parsed/escaped where condition</p>
+
+      </span>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='resetQuery' class='mt0'>
+    resetQuery<span class='gray'></span>
+  </h2>
+  <p>Reset the object state for a new query</p>
+
+      <h4>Returns</h4>
+      <code></code>
+      :
+      <span class='force-inline'>
+        <p>void</p>
+
+      </span>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='select' class='mt0'>
+    select<span class='gray'>(fields)</span>
+  </h2>
+  <p>Specify rows to select in the query</p>
+
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> or <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code> <strong>fields</strong>
+          :
+          <span class='force-inline'>
+            <p>The fields to select from the current table</p>
+
+          </span>
+        </li>
+    </ul>
+      <h4>Returns</h4>
+      <code></code>
+      :
+      <span class='force-inline'>
+        <p>this</p>
+
+      </span>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='set' class='mt0'>
+    set<span class='gray'>(key, [val])</span>
+  </h2>
+  <p>Set values for insertion or updating</p>
+
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> or <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code> <strong>key</strong>
+          :
+          <span class='force-inline'>
+            <p>The key or object to use</p>
+
+          </span>
+        </li>
+        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>]</code> <strong>val</strong>
+          :
+          <span class='force-inline'>
+            <p>The value if using a scalar key</p>
+
+          </span>
+        </li>
+    </ul>
+      <h4>Returns</h4>
+      <code></code>
+      :
+      <span class='force-inline'>
+        <p>this</p>
+
+      </span>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='update' class='mt0'>
+    update<span class='gray'>(table, [data], callback)</span>
+  </h2>
+  <p>Run the generated update query</p>
+
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>table</strong>
+          :
+          <span class='force-inline'>
+            <p>The table to insert into</p>
+
+          </span>
+        </li>
+        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>]</code> <strong>data</strong>
+          :
+          <span class='force-inline'>
+            <p>Data to insert, if not already added with the &apos;set&apos; method</p>
+
+          </span>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a></code> <strong>callback</strong>
+          :
+          <span class='force-inline'>
+            <p>Callback for handling response from the database</p>
+
+          </span>
+        </li>
+    </ul>
+      <h4>Returns</h4>
+      <code></code>
+      :
+      <span class='force-inline'>
+        <p>void</p>
+
+      </span>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='where' class='mt0'>
+    where<span class='gray'>(key, [val])</span>
+  </h2>
+  <p>Set a &apos;where&apos; clause</p>
+
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> or <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code> <strong>key</strong>
+          :
+          <span class='force-inline'>
+            <p>The name of the field and the comparision operator, or an object</p>
+
+          </span>
+        </li>
+        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> or <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></code>]</code> <strong>val</strong>
+          :
+          <span class='force-inline'>
+            <p>The value to compare if the value of key is a string</p>
+
+          </span>
+        </li>
+    </ul>
+      <h4>Returns</h4>
+      <code></code>
+      :
+      <span class='force-inline'>
+        <p>this</p>
+
+      </span>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='whereIn' class='mt0'>
+    whereIn<span class='gray'>(key, val)</span>
+  </h2>
+  <p>Set a &apos;where in&apos; clause</p>
+
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>key</strong>
+          :
+          <span class='force-inline'>
+            <p>the field to search</p>
+
+          </span>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code> <strong>val</strong>
+          :
+          <span class='force-inline'>
+            <p>the array of items to search in</p>
+
+          </span>
+        </li>
+    </ul>
+      <h4>Returns</h4>
+      <code></code>
+      :
+      <span class='force-inline'>
+        <p>this</p>
+
+      </span>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='whereIsNotNull' class='mt0'>
+    whereIsNotNull<span class='gray'>(field)</span>
+  </h2>
+  <p>Specify that a field IS NOT NULL</p>
+
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>field</strong>
+          :
+          <span class='force-inline'>
+            
+          </span>
+        </li>
+    </ul>
+      <h4>Returns</h4>
+      <code></code>
+      :
+      <span class='force-inline'>
+        <p>this</p>
+
+      </span>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='whereIsNull' class='mt0'>
+    whereIsNull<span class='gray'>(field)</span>
+  </h2>
+  <p>Select a field that is Null</p>
+
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>field</strong>
+          :
+          <span class='force-inline'>
+            <p>The name of the field that has a NULL value</p>
+
+          </span>
+        </li>
+    </ul>
+      <h4>Returns</h4>
+      <code></code>
+      :
+      <span class='force-inline'>
+        <p>this</p>
+
+      </span>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='whereNotIn' class='mt0'>
+    whereNotIn<span class='gray'>(key, val)</span>
+  </h2>
+  <p>Set a &apos;where not in&apos; clause</p>
+
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>key</strong>
+          :
+          <span class='force-inline'>
+            <p>the field to search</p>
+
+          </span>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code> <strong>val</strong>
+          :
+          <span class='force-inline'>
+            <p>the array of items to search in</p>
+
+          </span>
+        </li>
+    </ul>
+      <h4>Returns</h4>
+      <code></code>
+      :
+      <span class='force-inline'>
+        <p>this</p>
+
+      </span>
+</section>
+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src='assets/anchor.js'></script>
+  <script src='assets/site.js'></script>
 </body>
 </html>
