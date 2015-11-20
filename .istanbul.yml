@@ -1,9 +1,6 @@
 reporting:
     reports:
         - lcov
-        - clover
-        - text-summary
         - lcovonly
     report-config:
-        clover: {file: ../build/clover.xml}
-        lcovonly: {file: ../build/lcov.info}
+        lcovonly: {file: ../coverage/lcov.info}

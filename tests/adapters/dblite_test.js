@@ -12,7 +12,7 @@ var connection = null;
 
 // Set up the connection
 try {
-	sqlite = require(adapterName).withSQLite('3.8.6+');
+	sqlite = require(adapterName).withSQLite('3.7.11');
 	connection = sqlite(':memory:');
 } catch (e) {
 	// Export an empty testsuite if module not loaded
@@ -44,7 +44,7 @@ if (connection)
 			rows = {};
 		}
 
-		test.ok(rows, 'dblite: Valid result for generated query');
+		test.ok(rows, 'dblite: Invalid result for generated query');
 		test.done();
 	});
 

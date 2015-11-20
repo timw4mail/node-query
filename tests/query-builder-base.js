@@ -352,10 +352,6 @@ module.exports = (function QueryBuilderTestBase()  {
 			setUp: function(callback) {
 				var sql = base.qb.driver.truncate('create_test');
 				base.qb.adapter.execute(sql, function(err, result) {
-					if (err) {
-						throw new Error(err);
-					}
-
 					callback();
 				});
 			},

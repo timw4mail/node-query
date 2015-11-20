@@ -19,16 +19,7 @@ var connection = mysql2.createConnection(config.conn);
 var nodeQuery = require('../../lib/node-query');
 var qb = nodeQuery.init('mysql', connection, adapterName);
 
-// Set up the test base
-testBase._setUp(qb, function(test, err, rows) {
-	if (err != null) {
-		test.done();
-		throw new Error(err);
-	}
 
-	test.ok(rows, 'mysql2: Valid result for generated query');
-	test.done();
-});
 
 tests['nodeQuery.getQuery = nodeQuery.init'] = function(test) {
 	test.expect(1);
@@ -46,5 +37,15 @@ tests["mysql2 adapter with query builder"] = function(test) {
 	test.done();
 };
 
+// Set up the test base
+testBase._setUp(qb, function(test, err, rows) {
+	if (err != null) {
+		test.done();
+		throw new Error(err);
+	}
+
+	test.ok(rows, 'mysql2: Invalid result for generated query');
+	test.done();
+});
 
 module.exports = tests;

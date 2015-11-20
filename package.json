@@ -1,6 +1,6 @@
 {
   "name": "ci-node-query",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "A query builder for node based on the one in CodeIgniter",
   "author": "Timothy J Warren <tim@timshomepage.net>",
   "engines": {
@@ -33,9 +33,7 @@
   },
   "main": "lib/node-query.js",
   "dependencies": {
-    "es6-shim": "*",
     "getargs": "",
-    "grunt-istanbul": "*",
     "mysql": "^2.9.0",
     "mysql2": "^0.15.8",
     "node-firebird": "^0.7.0",
@@ -47,14 +45,14 @@
     "pg": "*"
   },
   "devDependencies": {
+    "documentation": "",
     "nodeunit": "",
-    "grunt": "",
-    "grunt-cli": "",
-    "grunt-contrib-clean": "^0.6.0",
-    "grunt-contrib-nodeunit": "^0.4.1",
-    "grunt-istanbul": "",
-    "grunt-jsdoc": ">=0.6.1",
-    "jsdoc": ""
+    "gulp": "",
+    "gulp-documentation": "",
+    "gulp-istanbul": "",
+    "gulp-nodeunit-runner": "",
+    "jsdoc": "",
+    "istanbul": ""
   },
   "license": "MIT",
   "scripts": {
