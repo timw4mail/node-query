@@ -1,7 +1,7 @@
 'use strict';
 
 var helpers = require('../lib/helpers');
-var State = require('../lib/state');
+var State = require('../lib/State');
 
 module.exports = (function QueryBuilderTestBase()  {
 

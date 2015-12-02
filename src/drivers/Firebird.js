@@ -1,17 +1,19 @@
 "use strict";
 
-var helpers = require('../helpers');
+import helpers from '../helpers';
+import Driver from '../DriverClass';
 
 /**
  * Driver for Firebird databases
  *
  * @module drivers/firebird
  */
-module.exports = (function() {
-	delete require.cache[require.resolve('../driver')];
-	var driver = require('../driver');
-
-	driver.hasTruncate = false;
+class Firebird extends Driver {
+	constructor() {
+		super({
+			hasTruncate: false
+		});
+	}
 
 	/**
 	 * Generate a limit clause for firebird, which uses the syntax closest to the SQL standard
@@ -21,16 +23,16 @@ module.exports = (function() {
 	 * @param {Number} offset
 	 * @return {String}
 	 */
-	driver.limit = function(origSql, limit, offset) {
-		var sql = 'FIRST ' + limit;
+	limit(origSql, limit, offset) {
+		let sql = `FIRST  ${limit}`;
 
 		if (helpers.isNumber(offset))
 		{
-			sql += ' SKIP ' + offset;
+			sql += ` SKIP  ${offset}`;
 		}
 
-		return origSql.replace(/SELECT/i, "SELECT " + sql);;
-	};
+		return origSql.replace(/SELECT/i, "SELECT " + sql);
+	}
 
 	/**
 	 * SQL to insert a group of rows
@@ -39,9 +41,9 @@ module.exports = (function() {
 	 * @param {Array} [data] - The array of object containing data to insert
 	 * @return {String}
 	 */
-	driver.insertBatch = function(table, data) {
+	insertBatch() {
 		throw new Error("Not Implemented");
-	};
+	}
+}
 
-	return driver;
-}());
+module.exports = new Firebird();

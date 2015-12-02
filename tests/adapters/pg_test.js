@@ -21,7 +21,7 @@ connection.connect(function(err) {
 });
 
 // Set up the query builder object
-var nodeQuery = require('../../lib/node-query');
+var nodeQuery = require('../../lib/NodeQuery');
 var qb = nodeQuery.init('pg', connection);
 
 

@@ -7,7 +7,7 @@ var testBase = require('../query-builder-base');
 var adapterName = 'node-firebird';
 var config = require('../config.json')[adapterName];
 config.conn.database = __dirname + config.conn.database;
-var nodeQuery = require('../../lib/node-query');
+var nodeQuery = require('../../lib/NodeQuery');
 
 // Skip on TravisCi
 if (process.env.CI || process.env.JENKINS_HOME)

@@ -16,7 +16,7 @@ var mysql2 = require(adapterName);
 var connection = mysql2.createConnection(config.conn);
 
 // Set up the query builder object
-var nodeQuery = require('../../lib/node-query');
+var nodeQuery = require('../../lib/NodeQuery');
 var qb = nodeQuery.init('mysql', connection, adapterName);
 
 

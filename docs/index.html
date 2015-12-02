@@ -22,14 +22,9 @@
             type='text' />
           <div id='toc'>
               <a
-                href='#NodeQuery'
+                href='#QueryBuilder'
                 class='block bold'>
-                NodeQuery
-              </a>
-              <a
-                href='#QueryParser'
-                class='block bold'>
-                QueryParser
+                QueryBuilder
               </a>
               <a
                 href='#State'
@@ -37,69 +32,59 @@
                 State
               </a>
               <a
-                href='#h'
+                href='#State'
                 class='block bold'>
-                h
+                State
               </a>
-                <a
-                  href='#h.arrayPluck'
-                  class='regular block'>
-                  .arrayPluck
-                </a>
-                <a
-                  href='#h.isScalar'
-                  class='regular block'>
-                  .isScalar
-                </a>
-                <a
-                  href='#h.regexInArray'
-                  class='regular block'>
-                  .regexInArray
-                </a>
-                <a
-                  href='#h.stringTrim'
-                  class='regular block'>
-                  .stringTrim
-                </a>
-                <a
-                  href='#h.type'
-                  class='regular block'>
-                  .type
-                </a>
               <a
-                href='#h'
+                href='#_appendMap'
                 class='block bold'>
-                h
+                _appendMap
+              </a>
+              <a
+                href='#helpers'
+                class='block bold'>
+                helpers
               </a>
                 <a
-                  href='#h.arrayPluck'
+                  href='#helpers.arrayPluck'
                   class='regular block'>
                   .arrayPluck
                 </a>
                 <a
-                  href='#h.isScalar'
+                  href='#helpers.isScalar'
                   class='regular block'>
                   .isScalar
                 </a>
                 <a
-                  href='#h.regexInArray'
+                  href='#helpers.regexInArray'
                   class='regular block'>
                   .regexInArray
                 </a>
                 <a
-                  href='#h.stringTrim'
+                  href='#helpers.stringTrim'
                   class='regular block'>
                   .stringTrim
                 </a>
                 <a
-                  href='#h.type'
+                  href='#helpers.type'
                   class='regular block'>
                   .type
+                </a>
+                <a
+                  href='#helpers.upperCaseFirst'
+                  class='regular block'>
+                  .upperCaseFirst
                 </a>
               <a
                 href='#compileJoin'
                 class='block bold'>
                 compileJoin
+              </a>
+              <a
+                href='#constructor'
+                class='block bold'>
+                constructor
               </a>
               <a
                 href='#delete'
@@ -112,6 +97,11 @@
                 end
               </a>
               <a
+                href='#filterMatches'
+                class='block bold'>
+                filterMatches
+              </a>
+              <a
                 href='#from'
                 class='block bold'>
                 from
@@ -120,11 +110,6 @@
                 href='#get'
                 class='block bold'>
                 get
-              </a>
-              <a
-                href='#getArgs'
-                class='block bold'>
-                getArgs
               </a>
               <a
                 href='#getCompiledDelete'
@@ -145,11 +130,6 @@
                 href='#getCompiledUpdate'
                 class='block bold'>
                 getCompiledUpdate
-              </a>
-              <a
-                href='#getQuery'
-                class='block bold'>
-                getQuery
               </a>
               <a
                 href='#groupBy'
@@ -175,16 +155,6 @@
                 href='#having'
                 class='block bold'>
                 having
-              </a>
-              <a
-                href='#helpers'
-                class='block bold'>
-                helpers
-              </a>
-              <a
-                href='#init'
-                class='block bold'>
-                init
               </a>
               <a
                 href='#insert'
@@ -332,14 +302,20 @@
       <div class='fix-margin-3'>
         <div class='px2'>
 <div class='py1'><section class='py2 clearfix'>
-  <h2 id='NodeQuery' class='mt0'>
-    NodeQuery<span class='gray'></span>
+  <h2 id='QueryBuilder' class='mt0'>
+    QueryBuilder<span class='gray'></span>
   </h2>
   
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='QueryParser' class='mt0'>
-    QueryParser<span class='gray'>(Driver, driver)</span>
+  <h2 id='State' class='mt0'>
+    State<span class='gray'></span>
+  </h2>
+  
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='State' class='mt0'>
+    State<span class='gray'>(Driver, driver)</span>
   </h2>
   
     <h4>Parameters</h4>
@@ -360,14 +336,42 @@
     </ul>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='State' class='mt0'>
-    State<span class='gray'></span>
+  <h2 id='_appendMap' class='mt0'>
+    _appendMap<span class='gray'>(conjunction, string, type)</span>
   </h2>
-  
+  <p>Append a clause to the query map</p>
+
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>conjunction</strong>
+          :
+          <span class='force-inline'>
+            
+          </span>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>string</strong>
+          :
+          <span class='force-inline'>
+            
+          </span>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>type</strong>
+          :
+          <span class='force-inline'>
+            
+          </span>
+        </li>
+    </ul>
+      <h4>Returns</h4>
+      <code><code>void</code></code>
+      
+      <span class='force-inline'>
+        
+      </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='h' class='mt0'>
-    h<span class='gray'>(o)</span>
+  <h2 id='helpers' class='mt0'>
+    helpers<span class='gray'>(o)</span>
   </h2>
   <p>Determine whether a variable is of the type specified in the
 function name, eg isNumber</p>
@@ -389,8 +393,8 @@ function name, eg isNumber</p>
         
       </span>
       <h4>Static members</h4>
-        <div class='collapsible' id='h.arrayPluck'>
-          <a href='#h.arrayPluck'>
+        <div class='collapsible' id='helpers.arrayPluck'>
+          <a href='#helpers.arrayPluck'>
             <code>
               .arrayPluck<span class='gray'>(arr, key)</span>
             </code>
@@ -401,7 +405,7 @@ function name, eg isNumber</p>
           </a>
           <div class='collapser border px2 m2'>
             <section class='py2 clearfix'>
-              <h2 id='h.arrayPluck' class='mt0'>
+              <h2 id='helpers.arrayPluck' class='mt0'>
                 arrayPluck<span class='gray'>(arr, key)</span>
               </h2>
               <p>Get a list of values with a common key from an array of objects</p>
@@ -432,8 +436,8 @@ function name, eg isNumber</p>
             </section>
           </div>
         </div>
-        <div class='collapsible' id='h.isScalar'>
-          <a href='#h.isScalar'>
+        <div class='collapsible' id='helpers.isScalar'>
+          <a href='#helpers.isScalar'>
             <code>
               .isScalar<span class='gray'>(obj)</span>
             </code>
@@ -444,7 +448,7 @@ function name, eg isNumber</p>
           </a>
           <div class='collapser border px2 m2'>
             <section class='py2 clearfix'>
-              <h2 id='h.isScalar' class='mt0'>
+              <h2 id='helpers.isScalar' class='mt0'>
                 isScalar<span class='gray'>(obj)</span>
               </h2>
               <p>Determine whether an object is scalar</p>
@@ -467,8 +471,8 @@ function name, eg isNumber</p>
             </section>
           </div>
         </div>
-        <div class='collapsible' id='h.regexInArray'>
-          <a href='#h.regexInArray'>
+        <div class='collapsible' id='helpers.regexInArray'>
+          <a href='#helpers.regexInArray'>
             <code>
               .regexInArray<span class='gray'>(arr, pattern)</span>
             </code>
@@ -480,7 +484,7 @@ in the passed array</p>
           </a>
           <div class='collapser border px2 m2'>
             <section class='py2 clearfix'>
-              <h2 id='h.regexInArray' class='mt0'>
+              <h2 id='helpers.regexInArray' class='mt0'>
                 regexInArray<span class='gray'>(arr, pattern)</span>
               </h2>
               <p>Determine if a value matching the passed regular expression is
@@ -513,8 +517,8 @@ in the passed array</p>
             </section>
           </div>
         </div>
-        <div class='collapsible' id='h.stringTrim'>
-          <a href='#h.stringTrim'>
+        <div class='collapsible' id='helpers.stringTrim'>
+          <a href='#helpers.stringTrim'>
             <code>
               .stringTrim<span class='gray'>(str)</span>
             </code>
@@ -525,7 +529,7 @@ in the passed array</p>
           </a>
           <div class='collapser border px2 m2'>
             <section class='py2 clearfix'>
-              <h2 id='h.stringTrim' class='mt0'>
+              <h2 id='helpers.stringTrim' class='mt0'>
                 stringTrim<span class='gray'>(str)</span>
               </h2>
               <p>Wrap String.prototype.trim in a way that is easily mappable</p>
@@ -550,8 +554,8 @@ in the passed array</p>
             </section>
           </div>
         </div>
-        <div class='collapsible' id='h.type'>
-          <a href='#h.type'>
+        <div class='collapsible' id='helpers.type'>
+          <a href='#helpers.type'>
             <code>
               .type<span class='gray'>(o)</span>
             </code>
@@ -562,7 +566,7 @@ in the passed array</p>
           </a>
           <div class='collapser border px2 m2'>
             <section class='py2 clearfix'>
-              <h2 id='h.type' class='mt0'>
+              <h2 id='helpers.type' class='mt0'>
                 type<span class='gray'>(o)</span>
               </h2>
               <p>Get the type of the variable passed</p>
@@ -585,203 +589,26 @@ in the passed array</p>
             </section>
           </div>
         </div>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='h' class='mt0'>
-    h<span class='gray'>(str)</span>
-  </h2>
-  
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li> <strong>str</strong>
-          :
-          <span class='force-inline'>
-            
-          </span>
-        </li>
-    </ul>
-      <h4>Static members</h4>
-        <div class='collapsible' id='h.arrayPluck'>
-          <a href='#h.arrayPluck'>
+        <div class='collapsible' id='helpers.upperCaseFirst'>
+          <a href='#helpers.upperCaseFirst'>
             <code>
-              .arrayPluck<span class='gray'>(arr, key)</span>
+              .upperCaseFirst<span class='gray'>(str)</span>
             </code>
             <span class='force-inline'>
-              <p>Get a list of values with a common key from an array of objects</p>
+              <p>Make the first letter of the string uppercase</p>
 
             </span>
           </a>
           <div class='collapser border px2 m2'>
             <section class='py2 clearfix'>
-              <h2 id='h.arrayPluck' class='mt0'>
-                arrayPluck<span class='gray'>(arr, key)</span>
+              <h2 id='helpers.upperCaseFirst' class='mt0'>
+                upperCaseFirst<span class='gray'>(str)</span>
               </h2>
-              <p>Get a list of values with a common key from an array of objects</p>
-            
-                <h4>Parameters</h4>
-                <ul class='suppress-p-margin'>
-                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code> <strong>arr</strong>
-                      :
-                      <span class='force-inline'>
-                        <p>The array of objects to search</p>
-            
-                      </span>
-                    </li>
-                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>key</strong>
-                      :
-                      <span class='force-inline'>
-                        <p>The key of the object to get</p>
-            
-                      </span>
-                    </li>
-                </ul>
-                  <h4>Returns</h4>
-                  <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code></code>
-                  
-                  <span class='force-inline'>
-                    
-                  </span>
-            </section>
-          </div>
-        </div>
-        <div class='collapsible' id='h.isScalar'>
-          <a href='#h.isScalar'>
-            <code>
-              .isScalar<span class='gray'>(obj)</span>
-            </code>
-            <span class='force-inline'>
-              <p>Determine whether an object is scalar</p>
-
-            </span>
-          </a>
-          <div class='collapser border px2 m2'>
-            <section class='py2 clearfix'>
-              <h2 id='h.isScalar' class='mt0'>
-                isScalar<span class='gray'>(obj)</span>
-              </h2>
-              <p>Determine whether an object is scalar</p>
-            
-                <h4>Parameters</h4>
-                <ul class='suppress-p-margin'>
-                    <li><code>mixed</code> <strong>obj</strong>
-                      :
-                      <span class='force-inline'>
-                        
-                      </span>
-                    </li>
-                </ul>
-                  <h4>Returns</h4>
-                  <code><code>bool</code></code>
-                  
-                  <span class='force-inline'>
-                    
-                  </span>
-            </section>
-          </div>
-        </div>
-        <div class='collapsible' id='h.regexInArray'>
-          <a href='#h.regexInArray'>
-            <code>
-              .regexInArray<span class='gray'>(arr, pattern)</span>
-            </code>
-            <span class='force-inline'>
-              <p>Determine if a value matching the passed regular expression is
-in the passed array</p>
-
-            </span>
-          </a>
-          <div class='collapser border px2 m2'>
-            <section class='py2 clearfix'>
-              <h2 id='h.regexInArray' class='mt0'>
-                regexInArray<span class='gray'>(arr, pattern)</span>
-              </h2>
-              <p>Determine if a value matching the passed regular expression is
-            in the passed array</p>
-            
-                <h4>Parameters</h4>
-                <ul class='suppress-p-margin'>
-                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code> <strong>arr</strong>
-                      :
-                      <span class='force-inline'>
-                        <p>The array to search</p>
-            
-                      </span>
-                    </li>
-                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp">RegExp</a></code> <strong>pattern</strong>
-                      :
-                      <span class='force-inline'>
-                        <p>The pattern to match</p>
-            
-                      </span>
-                    </li>
-                </ul>
-                  <h4>Returns</h4>
-                  <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code></code>
-                  :
-                  <span class='force-inline'>
-                    <p>If an array item matches the pattern</p>
-            
-                  </span>
-            </section>
-          </div>
-        </div>
-        <div class='collapsible' id='h.stringTrim'>
-          <a href='#h.stringTrim'>
-            <code>
-              .stringTrim<span class='gray'>(str)</span>
-            </code>
-            <span class='force-inline'>
-              <p>Wrap String.prototype.trim in a way that is easily mappable</p>
-
-            </span>
-          </a>
-          <div class='collapser border px2 m2'>
-            <section class='py2 clearfix'>
-              <h2 id='h.stringTrim' class='mt0'>
-                stringTrim<span class='gray'>(str)</span>
-              </h2>
-              <p>Wrap String.prototype.trim in a way that is easily mappable</p>
+              <p>Make the first letter of the string uppercase</p>
             
                 <h4>Parameters</h4>
                 <ul class='suppress-p-margin'>
                     <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>str</strong>
-                      :
-                      <span class='force-inline'>
-                        <p>The string to trim</p>
-            
-                      </span>
-                    </li>
-                </ul>
-                  <h4>Returns</h4>
-                  <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code></code>
-                  :
-                  <span class='force-inline'>
-                    <p>The trimmed string</p>
-            
-                  </span>
-            </section>
-          </div>
-        </div>
-        <div class='collapsible' id='h.type'>
-          <a href='#h.type'>
-            <code>
-              .type<span class='gray'>(o)</span>
-            </code>
-            <span class='force-inline'>
-              <p>Get the type of the variable passed</p>
-
-            </span>
-          </a>
-          <div class='collapser border px2 m2'>
-            <section class='py2 clearfix'>
-              <h2 id='h.type' class='mt0'>
-                type<span class='gray'>(o)</span>
-              </h2>
-              <p>Get the type of the variable passed</p>
-            
-                <h4>Parameters</h4>
-                <ul class='suppress-p-margin'>
-                    <li><code>mixed</code> <strong>o</strong>
                       :
                       <span class='force-inline'>
                         
@@ -823,6 +650,34 @@ in the passed array</p>
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='constructor' class='mt0'>
+    constructor<span class='gray'>(Driver, driver)</span>
+  </h2>
+  
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li> <strong>Driver</strong>
+          :
+          <span class='force-inline'>
+            <p>The driver object for the database in use</p>
+
+          </span>
+        </li>
+        <li> <strong>driver</strong>
+          :
+          <span class='force-inline'>
+            
+          </span>
+        </li>
+    </ul>
+      <h4>Returns</h4>
+      <code><code>void</code></code>
+      
+      <span class='force-inline'>
+        
+      </span>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
   <h2 id='delete' class='mt0'>
     delete<span class='gray'>(table, [where], callback)</span>
   </h2>
@@ -853,11 +708,10 @@ in the passed array</p>
         </li>
     </ul>
       <h4>Returns</h4>
-      <code></code>
-      :
+      <code><code>void</code></code>
+      
       <span class='force-inline'>
-        <p>void</p>
-
+        
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -867,11 +721,32 @@ in the passed array</p>
   <p>Closes the database connection for the current adapter</p>
 
       <h4>Returns</h4>
-      <code></code>
-      :
+      <code><code>void</code></code>
+      
       <span class='force-inline'>
-        <p>void</p>
+        
+      </span>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='filterMatches' class='mt0'>
+    filterMatches<span class='gray'>(array)</span>
+  </h2>
+  <p>Filter matched patterns</p>
 
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code> <strong>array</strong>
+          :
+          <span class='force-inline'>
+            
+          </span>
+        </li>
+    </ul>
+      <h4>Returns</h4>
+      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code> or </code>
+      
+      <span class='force-inline'>
+        
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -891,11 +766,10 @@ in the passed array</p>
         </li>
     </ul>
       <h4>Returns</h4>
-      <code></code>
-      :
+      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+      
       <span class='force-inline'>
-        <p>this</p>
-
+        
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -936,18 +810,11 @@ in the passed array</p>
         </li>
     </ul>
       <h4>Returns</h4>
-      <code></code>
-      :
+      <code><code>void</code></code>
+      
       <span class='force-inline'>
-        <p>void</p>
-
+        
       </span>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='getArgs' class='mt0'>
-    getArgs<span class='gray'></span>
-  </h2>
-  
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
   <h2 id='getCompiledDelete' class='mt0'>
@@ -1036,11 +903,10 @@ in the passed array</p>
         </li>
     </ul>
       <h4>Returns</h4>
-      <code></code>
-      :
+      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code></code>
+      
       <span class='force-inline'>
-        <p>String</p>
-
+        
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -1075,19 +941,6 @@ in the passed array</p>
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='getQuery' class='mt0'>
-    getQuery<span class='gray'></span>
-  </h2>
-  <p>Return an existing query builder instance</p>
-
-      <h4>Returns</h4>
-      <code><code>queryBuilder</code></code>
-      
-      <span class='force-inline'>
-        
-      </span>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
   <h2 id='groupBy' class='mt0'>
     groupBy<span class='gray'>(field)</span>
   </h2>
@@ -1103,11 +956,10 @@ in the passed array</p>
         </li>
     </ul>
       <h4>Returns</h4>
-      <code></code>
-      :
+      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+      
       <span class='force-inline'>
-        <p>this</p>
-
+        
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -1117,11 +969,10 @@ in the passed array</p>
   <p>Ends a logical grouping started with one of the groupStart methods</p>
 
       <h4>Returns</h4>
-      <code></code>
-      :
+      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+      
       <span class='force-inline'>
-        <p>this</p>
-
+        
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -1131,11 +982,10 @@ in the passed array</p>
   <p>Adds an open paren to the current query for logical grouping</p>
 
       <h4>Returns</h4>
-      <code></code>
-      :
+      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+      
       <span class='force-inline'>
-        <p>this</p>
-
+        
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -1186,66 +1036,7 @@ If there are no matches, return null</p>
         </li>
     </ul>
       <h4>Returns</h4>
-      <code></code>
-      :
-      <span class='force-inline'>
-        <p>this</p>
-
-      </span>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='helpers' class='mt0'>
-    helpers<span class='gray'>(str)</span>
-  </h2>
-  
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li> <strong>str</strong>
-          :
-          <span class='force-inline'>
-            
-          </span>
-        </li>
-    </ul>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='init' class='mt0'>
-    init<span class='gray'>(drivername, driverType, connObject, [connLib])</span>
-  </h2>
-  <p>Create a query builder object</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>drivername</strong>
-          :
-          <span class='force-inline'>
-            <p>The name of the database type, eg. mysql or pg</p>
-
-          </span>
-        </li>
-        <li> <strong>driverType</strong>
-          :
-          <span class='force-inline'>
-            
-          </span>
-        </li>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code> <strong>connObject</strong>
-          :
-          <span class='force-inline'>
-            <p>A connection object from the database library you are connecting with</p>
-
-          </span>
-        </li>
-        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>]</code> <strong>connLib</strong>
-          :
-          <span class='force-inline'>
-            <p>The name of the db connection library you are using, eg. mysql or mysql2. Optional if the same as drivername</p>
-
-          </span>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code>queryBuilder</code></code>
+      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
       
       <span class='force-inline'>
         
@@ -1282,11 +1073,10 @@ If there are no matches, return null</p>
         </li>
     </ul>
       <h4>Returns</h4>
-      <code></code>
-      :
+      <code><code>void</code></code>
+      
       <span class='force-inline'>
-        <p>void</p>
-
+        
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -1320,11 +1110,10 @@ If there are no matches, return null</p>
         </li>
     </ul>
       <h4>Returns</h4>
-      <code></code>
-      :
+      <code><code>void</code></code>
+      
       <span class='force-inline'>
-        <p>void</p>
-
+        
       </span>
     <h4>Examples</h4>
 <pre class='overflow-auto'>query.insertBatch(<span class="hljs-string">'foo'</span>,[{id:<span class="hljs-number">1</span>,val:<span class="hljs-string">'bar'</span>},{id:<span class="hljs-number">2</span>,val:<span class="hljs-string">'baz'</span>}], callbackFunction);</pre>
@@ -1361,11 +1150,10 @@ If there are no matches, return null</p>
         </li>
     </ul>
       <h4>Returns</h4>
-      <code></code>
-      :
+      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+      
       <span class='force-inline'>
-        <p>this</p>
-
+        
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -1400,11 +1188,10 @@ If there are no matches, return null</p>
         </li>
     </ul>
       <h4>Returns</h4>
-      <code></code>
-      :
+      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+      
       <span class='force-inline'>
-        <p>this</p>
-
+        
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -1431,11 +1218,10 @@ If there are no matches, return null</p>
         </li>
     </ul>
       <h4>Returns</h4>
-      <code></code>
-      :
+      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+      
       <span class='force-inline'>
-        <p>this</p>
-
+        
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -1470,11 +1256,10 @@ If there are no matches, return null</p>
         </li>
     </ul>
       <h4>Returns</h4>
-      <code></code>
-      :
+      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+      
       <span class='force-inline'>
-        <p>this</p>
-
+        
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -1485,11 +1270,10 @@ If there are no matches, return null</p>
 prefixed with &apos;OR&apos;</p>
 
       <h4>Returns</h4>
-      <code></code>
-      :
+      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+      
       <span class='force-inline'>
-        <p>this</p>
-
+        
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -1516,11 +1300,10 @@ prefixed with &apos;OR&apos;</p>
         </li>
     </ul>
       <h4>Returns</h4>
-      <code></code>
-      :
+      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+      
       <span class='force-inline'>
-        <p>this</p>
-
+        
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -1555,11 +1338,10 @@ prefixed with &apos;OR&apos;</p>
         </li>
     </ul>
       <h4>Returns</h4>
-      <code></code>
-      :
+      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+      
       <span class='force-inline'>
-        <p>this</p>
-
+        
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -1570,11 +1352,10 @@ prefixed with &apos;OR&apos;</p>
 prefixed with &apos;OR NOT&apos;</p>
 
       <h4>Returns</h4>
-      <code></code>
-      :
+      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+      
       <span class='force-inline'>
-        <p>this</p>
-
+        
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -1609,11 +1390,10 @@ prefixed with &apos;OR NOT&apos;</p>
         </li>
     </ul>
       <h4>Returns</h4>
-      <code></code>
-      :
+      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+      
       <span class='force-inline'>
-        <p>this</p>
-
+        
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -1640,11 +1420,10 @@ prefixed with &apos;OR NOT&apos;</p>
         </li>
     </ul>
       <h4>Returns</h4>
-      <code></code>
-      :
+      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+      
       <span class='force-inline'>
-        <p>this</p>
-
+        
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -1671,11 +1450,10 @@ prefixed with &apos;OR NOT&apos;</p>
         </li>
     </ul>
       <h4>Returns</h4>
-      <code></code>
-      :
+      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+      
       <span class='force-inline'>
-        <p>this</p>
-
+        
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -1694,11 +1472,10 @@ prefixed with &apos;OR NOT&apos;</p>
         </li>
     </ul>
       <h4>Returns</h4>
-      <code></code>
-      :
+      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+      
       <span class='force-inline'>
-        <p>this</p>
-
+        
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -1717,11 +1494,10 @@ prefixed with &apos;OR NOT&apos;</p>
         </li>
     </ul>
       <h4>Returns</h4>
-      <code></code>
-      :
+      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+      
       <span class='force-inline'>
-        <p>this</p>
-
+        
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -1748,11 +1524,10 @@ prefixed with &apos;OR NOT&apos;</p>
         </li>
     </ul>
       <h4>Returns</h4>
-      <code></code>
-      :
+      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+      
       <span class='force-inline'>
-        <p>this</p>
-
+        
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -1780,11 +1555,10 @@ prefixed with &apos;OR NOT&apos;</p>
         </li>
     </ul>
       <h4>Returns</h4>
-      <code></code>
-      :
+      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+      
       <span class='force-inline'>
-        <p>this</p>
-
+        
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -1817,7 +1591,7 @@ prefixed with &apos;OR NOT&apos;</p>
 
     <h4>Parameters</h4>
     <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code> <strong>driver</strong>
+        <li><code>Driver</code> <strong>driver</strong>
           :
           <span class='force-inline'>
             
@@ -1845,11 +1619,10 @@ prefixed with &apos;OR NOT&apos;</p>
   <p>Reset the object state for a new query</p>
 
       <h4>Returns</h4>
-      <code></code>
-      :
+      <code><code>void</code></code>
+      
       <span class='force-inline'>
-        <p>void</p>
-
+        
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -1869,11 +1642,10 @@ prefixed with &apos;OR NOT&apos;</p>
         </li>
     </ul>
       <h4>Returns</h4>
-      <code></code>
-      :
+      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+      
       <span class='force-inline'>
-        <p>this</p>
-
+        
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -1900,11 +1672,10 @@ prefixed with &apos;OR NOT&apos;</p>
         </li>
     </ul>
       <h4>Returns</h4>
-      <code></code>
-      :
+      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+      
       <span class='force-inline'>
-        <p>this</p>
-
+        
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -1938,11 +1709,10 @@ prefixed with &apos;OR NOT&apos;</p>
         </li>
     </ul>
       <h4>Returns</h4>
-      <code></code>
-      :
+      <code><code>void</code></code>
+      
       <span class='force-inline'>
-        <p>void</p>
-
+        
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -1969,11 +1739,10 @@ prefixed with &apos;OR NOT&apos;</p>
         </li>
     </ul>
       <h4>Returns</h4>
-      <code></code>
-      :
+      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+      
       <span class='force-inline'>
-        <p>this</p>
-
+        
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -2000,11 +1769,10 @@ prefixed with &apos;OR NOT&apos;</p>
         </li>
     </ul>
       <h4>Returns</h4>
-      <code></code>
-      :
+      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+      
       <span class='force-inline'>
-        <p>this</p>
-
+        
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -2023,11 +1791,10 @@ prefixed with &apos;OR NOT&apos;</p>
         </li>
     </ul>
       <h4>Returns</h4>
-      <code></code>
-      :
+      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+      
       <span class='force-inline'>
-        <p>this</p>
-
+        
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -2047,11 +1814,10 @@ prefixed with &apos;OR NOT&apos;</p>
         </li>
     </ul>
       <h4>Returns</h4>
-      <code></code>
-      :
+      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+      
       <span class='force-inline'>
-        <p>this</p>
-
+        
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -2078,11 +1844,10 @@ prefixed with &apos;OR NOT&apos;</p>
         </li>
     </ul>
       <h4>Returns</h4>
-      <code></code>
-      :
+      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+      
       <span class='force-inline'>
-        <p>this</p>
-
+        
       </span>
 </section>
 </div>

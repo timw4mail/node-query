@@ -1,8 +1,9 @@
 'use strict';
 
-/** @module adapter */
-module.exports = {
+import Adapter from '../Adapter';
 
+/** @module adapters/mysql */
+module.exports = class mysql extends Adapter {
 	/**
 	 * Run the sql query as a prepared statement
 	 *
@@ -11,7 +12,7 @@ module.exports = {
 	 * @param {Function} callback - Callback to run when a response is recieved
 	 * @return void
 	 */
-	execute: function(/*sql, params, callback*/) {
-		throw new Error("Correct adapter not defined for query execution");
+	execute(sql, params, callback) {
+		this.instance.query.apply(instance, arguments);
 	}
-};
+}

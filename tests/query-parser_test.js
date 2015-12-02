@@ -1,12 +1,14 @@
 'use strict';
 
 // Use the base driver as a mock for testing
-delete require.cache[require.resolve('../lib/driver')];
 var getArgs = require('getargs');
 var helpers = require('../lib/helpers');
-var driver = require('../lib/driver');
-var	parser = require('../lib/query-parser')(driver);
-var State = require('../lib/state');
+var driver = require('../lib/DriverBase');
+
+var p = require('../lib/QueryParser');
+var	parser = new p(driver);
+
+var State = require('../lib/State');
 
 // Simulate query builder state
 var state = new State();
@@ -63,7 +65,7 @@ var whereMock = function() {
 // ! Start Tests
 // -----------------------------------------------------------------------------
 
-module.exports = {
+var tests = {
 	'Has operator tests': {
 		'Has operator': function(test) {
 			var matches = parser.hasOperator('foo <> 2');
@@ -172,3 +174,5 @@ module.exports = {
 		}
 	}
 };
+
+module.exports = tests;

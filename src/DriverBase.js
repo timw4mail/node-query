@@ -1,6 +1,6 @@
 'use strict';
 
-var helpers = require('./helpers');
+import helpers from './helpers'
 
 /**
  * Base Database Driver

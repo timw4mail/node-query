@@ -18,13 +18,13 @@ try {
 	// Export an empty testsuite if module not loaded
 	console.log(e);
 	console.log("Database adapter dblite not found");
-	return {};
+	//return {};
 }
 
 if (connection)
 {
 	// Set up the query builder object
-	var nodeQuery = require('../../lib/node-query');
+	var nodeQuery = require('../../lib/NodeQuery');
 	var qb = nodeQuery.init('sqlite', connection, adapterName);
 
 	// Set up the sqlite database

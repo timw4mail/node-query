@@ -38,7 +38,10 @@
     "mysql2": "^0.15.8",
     "node-firebird": "^0.7.0",
     "pg": "^4.4.3",
-    "es6-shim": ""
+    "es6-shim": "",
+    "babel": "",
+    "babel-preset-es2015": "",
+    "babel-plugin-transform-es2015-modules-commonjs": ""
   },
   "optionalDependencies": {
     "dblite": "*",
@@ -49,14 +52,19 @@
     "documentation": "",
     "nodeunit": "",
     "gulp": "",
+    "gulp-babel": "",
+    "gulp-babel-istanbul": "",
+    "gulp-sourcemaps": "",
+    "gulp-concat": "",
     "gulp-documentation": "",
-    "gulp-istanbul": "",
     "gulp-nodeunit-runner": "",
-    "jsdoc": "",
+    "gulp-sloc": "",
+    "gulp-eslint": "",
+    "eslint": "",
     "istanbul": ""
   },
   "license": "MIT",
   "scripts": {
-    "test": "grunt tests"
+    "test": "gulp nodeunit"
   }
 }
