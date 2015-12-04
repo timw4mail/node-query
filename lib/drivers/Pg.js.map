@@ -1,1 +1,0 @@
-{"version":3,"sources":["Pg.js"],"names":[],"mappings":"AAAA,YAAY,CAAC;;;;;;;;;;;;;AASb,MAAM,CAAC,OAAO,GAAG,2BAAY,CAAC","file":"drivers/Pg.js","sourcesContent":["\"use strict\";\n\nimport Driver from '../DriverClass';\n\n/**\n * Driver for PostgreSQL databases\n *\n * @module drivers/pg\n */\nmodule.exports = new Driver();"],"sourceRoot":"/source/"}

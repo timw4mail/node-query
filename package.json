@@ -4,7 +4,7 @@
   "description": "A query builder for node based on the one in CodeIgniter",
   "author": "Timothy J Warren <tim@timshomepage.net>",
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=4.0.0"
   },
   "contributors": [
     {
@@ -38,10 +38,7 @@
     "mysql2": "^0.15.8",
     "node-firebird": "^0.7.0",
     "pg": "^4.4.3",
-    "es6-shim": "",
-    "babel": "",
-    "babel-preset-es2015": "",
-    "babel-plugin-transform-es2015-modules-commonjs": ""
+    "require-reload": "*"
   },
   "optionalDependencies": {
     "dblite": "*",
@@ -49,22 +46,21 @@
     "pg": "*"
   },
   "devDependencies": {
+    "chai": "",
     "documentation": "",
-    "nodeunit": "",
-    "gulp": "",
-    "gulp-babel": "",
-    "gulp-babel-istanbul": "",
-    "gulp-sourcemaps": "",
-    "gulp-concat": "",
-    "gulp-documentation": "",
-    "gulp-nodeunit-runner": "",
-    "gulp-sloc": "",
-    "gulp-eslint": "",
     "eslint": "",
-    "istanbul": ""
+    "gulp": "",
+    "gulp-documentation": "^2.1.0",
+    "gulp-eslint": "",
+    "gulp-istanbul": "^0.10.3",
+    "gulp-mocha": "^2.2.0",
+    "gulp-pipe": "^1.0.4",
+    "gulp-sloc": "",
+    "istanbul": "",
+    "mocha": ""
   },
   "license": "MIT",
   "scripts": {
-    "test": "gulp nodeunit"
+    "test": "gulp test"
   }
 }

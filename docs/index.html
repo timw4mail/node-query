@@ -32,16 +32,6 @@
                 State
               </a>
               <a
-                href='#State'
-                class='block bold'>
-                State
-              </a>
-              <a
-                href='#_appendMap'
-                class='block bold'>
-                _appendMap
-              </a>
-              <a
                 href='#helpers'
                 class='block bold'>
                 helpers
@@ -314,62 +304,6 @@
   
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='State' class='mt0'>
-    State<span class='gray'>(Driver, driver)</span>
-  </h2>
-  
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li> <strong>Driver</strong>
-          :
-          <span class='force-inline'>
-            <p>The driver object for the database in use</p>
-
-          </span>
-        </li>
-        <li> <strong>driver</strong>
-          :
-          <span class='force-inline'>
-            
-          </span>
-        </li>
-    </ul>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='_appendMap' class='mt0'>
-    _appendMap<span class='gray'>(conjunction, string, type)</span>
-  </h2>
-  <p>Append a clause to the query map</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>conjunction</strong>
-          :
-          <span class='force-inline'>
-            
-          </span>
-        </li>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>string</strong>
-          :
-          <span class='force-inline'>
-            
-          </span>
-        </li>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>type</strong>
-          :
-          <span class='force-inline'>
-            
-          </span>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code>void</code></code>
-      
-      <span class='force-inline'>
-        
-      </span>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
   <h2 id='helpers' class='mt0'>
     helpers<span class='gray'>(o)</span>
   </h2>
@@ -429,9 +363,10 @@ function name, eg isNumber</p>
                 </ul>
                   <h4>Returns</h4>
                   <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code></code>
-                  
+                  :
                   <span class='force-inline'>
-                    
+                    <p>The new array of plucked values</p>
+            
                   </span>
             </section>
           </div>
@@ -458,15 +393,17 @@ function name, eg isNumber</p>
                     <li><code>mixed</code> <strong>obj</strong>
                       :
                       <span class='force-inline'>
-                        
+                        <p>Object to test</p>
+            
                       </span>
                     </li>
                 </ul>
                   <h4>Returns</h4>
                   <code><code>bool</code></code>
-                  
+                  :
                   <span class='force-inline'>
-                    
+                    <p>Is object scalar</p>
+            
                   </span>
             </section>
           </div>
@@ -576,15 +513,17 @@ in the passed array</p>
                     <li><code>mixed</code> <strong>o</strong>
                       :
                       <span class='force-inline'>
-                        
+                        <p>Object to type check</p>
+            
                       </span>
                     </li>
                 </ul>
                   <h4>Returns</h4>
                   <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code></code>
-                  
+                  :
                   <span class='force-inline'>
-                    
+                    <p>Type of the object</p>
+            
                   </span>
             </section>
           </div>
@@ -611,15 +550,17 @@ in the passed array</p>
                     <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>str</strong>
                       :
                       <span class='force-inline'>
-                        
+                        <p>The string to modify</p>
+            
                       </span>
                     </li>
                 </ul>
                   <h4>Returns</h4>
                   <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code></code>
-                  
+                  :
                   <span class='force-inline'>
-                    
+                    <p>The modified string</p>
+            
                   </span>
             </section>
           </div>
@@ -651,22 +592,16 @@ in the passed array</p>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
   <h2 id='constructor' class='mt0'>
-    constructor<span class='gray'>(Driver, driver)</span>
+    constructor<span class='gray'>(driver)</span>
   </h2>
   
     <h4>Parameters</h4>
     <ul class='suppress-p-margin'>
-        <li> <strong>Driver</strong>
+        <li><code>Driver</code> <strong>driver</strong>
           :
           <span class='force-inline'>
             <p>The driver object for the database in use</p>
 
-          </span>
-        </li>
-        <li> <strong>driver</strong>
-          :
-          <span class='force-inline'>
-            
           </span>
         </li>
     </ul>
@@ -738,15 +673,17 @@ in the passed array</p>
         <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code> <strong>array</strong>
           :
           <span class='force-inline'>
-            
+            <p>Set of possible matches</p>
+
           </span>
         </li>
     </ul>
       <h4>Returns</h4>
       <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code> or </code>
-      
+      :
       <span class='force-inline'>
-        
+        <p>Filtered set of possible matches</p>
+
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -767,9 +704,10 @@ in the passed array</p>
     </ul>
       <h4>Returns</h4>
       <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      
+      :
       <span class='force-inline'>
-        
+        <p>The Query Builder object, for chaining</p>
+
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -842,9 +780,10 @@ in the passed array</p>
     </ul>
       <h4>Returns</h4>
       <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code></code>
-      
+      :
       <span class='force-inline'>
-        
+        <p>The compiled sql statement</p>
+
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -873,9 +812,10 @@ in the passed array</p>
     </ul>
       <h4>Returns</h4>
       <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code></code>
-      
+      :
       <span class='force-inline'>
-        
+        <p>The compiled sql statement</p>
+
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -904,9 +844,10 @@ in the passed array</p>
     </ul>
       <h4>Returns</h4>
       <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code></code>
-      
+      :
       <span class='force-inline'>
-        
+        <p>The compiled sql statement</p>
+
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -935,9 +876,10 @@ in the passed array</p>
     </ul>
       <h4>Returns</h4>
       <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code></code>
-      
+      :
       <span class='force-inline'>
-        
+        <p>The compiled sql statement</p>
+
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -951,15 +893,17 @@ in the passed array</p>
         <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> or <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code> <strong>field</strong>
           :
           <span class='force-inline'>
-            
+            <p>The name of the field to group by</p>
+
           </span>
         </li>
     </ul>
       <h4>Returns</h4>
       <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      
+      :
       <span class='force-inline'>
-        
+        <p>The Query Builder object, for chaining</p>
+
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -970,9 +914,10 @@ in the passed array</p>
 
       <h4>Returns</h4>
       <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      
+      :
       <span class='force-inline'>
-        
+        <p>The Query Builder object, for chaining</p>
+
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -983,9 +928,10 @@ in the passed array</p>
 
       <h4>Returns</h4>
       <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      
+      :
       <span class='force-inline'>
-        
+        <p>The Query Builder object, for chaining</p>
+
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -1007,9 +953,10 @@ If there are no matches, return null</p>
     </ul>
       <h4>Returns</h4>
       <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code> or </code>
-      
+      :
       <span class='force-inline'>
-        
+        <p>List of operators</p>
+
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -1037,9 +984,10 @@ If there are no matches, return null</p>
     </ul>
       <h4>Returns</h4>
       <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      
+      :
       <span class='force-inline'>
-        
+        <p>The Query Builder object, for chaining</p>
+
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -1151,9 +1099,10 @@ If there are no matches, return null</p>
     </ul>
       <h4>Returns</h4>
       <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      
+      :
       <span class='force-inline'>
-        
+        <p>The Query Builder object, for chaining</p>
+
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -1189,9 +1138,10 @@ If there are no matches, return null</p>
     </ul>
       <h4>Returns</h4>
       <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      
+      :
       <span class='force-inline'>
-        
+        <p>The Query Builder object, for chaining</p>
+
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -1219,9 +1169,10 @@ If there are no matches, return null</p>
     </ul>
       <h4>Returns</h4>
       <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      
+      :
       <span class='force-inline'>
-        
+        <p>The Query Builder object, for chaining</p>
+
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -1257,9 +1208,10 @@ If there are no matches, return null</p>
     </ul>
       <h4>Returns</h4>
       <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      
+      :
       <span class='force-inline'>
-        
+        <p>The Query Builder object, for chaining</p>
+
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -1271,9 +1223,10 @@ prefixed with &apos;OR&apos;</p>
 
       <h4>Returns</h4>
       <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      
+      :
       <span class='force-inline'>
-        
+        <p>The Query Builder object, for chaining</p>
+
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -1301,9 +1254,10 @@ prefixed with &apos;OR&apos;</p>
     </ul>
       <h4>Returns</h4>
       <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      
+      :
       <span class='force-inline'>
-        
+        <p>The Query Builder object, for chaining</p>
+
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -1339,9 +1293,10 @@ prefixed with &apos;OR&apos;</p>
     </ul>
       <h4>Returns</h4>
       <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      
+      :
       <span class='force-inline'>
-        
+        <p>The Query Builder object, for chaining</p>
+
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -1353,9 +1308,10 @@ prefixed with &apos;OR NOT&apos;</p>
 
       <h4>Returns</h4>
       <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      
+      :
       <span class='force-inline'>
-        
+        <p>The Query Builder object, for chaining</p>
+
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -1391,9 +1347,10 @@ prefixed with &apos;OR NOT&apos;</p>
     </ul>
       <h4>Returns</h4>
       <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      
+      :
       <span class='force-inline'>
-        
+        <p>The Query Builder object, for chaining</p>
+
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -1421,9 +1378,10 @@ prefixed with &apos;OR NOT&apos;</p>
     </ul>
       <h4>Returns</h4>
       <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      
+      :
       <span class='force-inline'>
-        
+        <p>The Query Builder object, for chaining</p>
+
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -1451,9 +1409,10 @@ prefixed with &apos;OR NOT&apos;</p>
     </ul>
       <h4>Returns</h4>
       <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      
+      :
       <span class='force-inline'>
-        
+        <p>The Query Builder object, for chaining</p>
+
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -1467,15 +1426,17 @@ prefixed with &apos;OR NOT&apos;</p>
         <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>field</strong>
           :
           <span class='force-inline'>
-            
+            <p>The name of the field</p>
+
           </span>
         </li>
     </ul>
       <h4>Returns</h4>
       <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      
+      :
       <span class='force-inline'>
-        
+        <p>The Query Builder object, for chaining</p>
+
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -1489,15 +1450,17 @@ prefixed with &apos;OR NOT&apos;</p>
         <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>field</strong>
           :
           <span class='force-inline'>
-            
+            <p>The name of the field</p>
+
           </span>
         </li>
     </ul>
       <h4>Returns</h4>
       <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      
+      :
       <span class='force-inline'>
-        
+        <p>The Query Builder object, for chaining</p>
+
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -1525,9 +1488,10 @@ prefixed with &apos;OR NOT&apos;</p>
     </ul>
       <h4>Returns</h4>
       <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      
+      :
       <span class='force-inline'>
-        
+        <p>The Query Builder object, for chaining</p>
+
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -1556,9 +1520,10 @@ prefixed with &apos;OR NOT&apos;</p>
     </ul>
       <h4>Returns</h4>
       <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      
+      :
       <span class='force-inline'>
-        
+        <p>The Query Builder object, for chaining</p>
+
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -1572,15 +1537,17 @@ prefixed with &apos;OR NOT&apos;</p>
         <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>sql</strong>
           :
           <span class='force-inline'>
-            
+            <p>Join sql to parse</p>
+
           </span>
         </li>
     </ul>
       <h4>Returns</h4>
       <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code></code>
-      
+      :
       <span class='force-inline'>
-        
+        <p>Join condition components</p>
+
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -1594,13 +1561,15 @@ prefixed with &apos;OR NOT&apos;</p>
         <li><code>Driver</code> <strong>driver</strong>
           :
           <span class='force-inline'>
-            
+            <p>The current db driver</p>
+
           </span>
         </li>
         <li><code><a href="#State">State</a></code> <strong>state</strong>
           :
           <span class='force-inline'>
-            
+            <p>Query Builder state object</p>
+
           </span>
         </li>
     </ul>
@@ -1643,9 +1612,10 @@ prefixed with &apos;OR NOT&apos;</p>
     </ul>
       <h4>Returns</h4>
       <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      
+      :
       <span class='force-inline'>
-        
+        <p>The Query Builder object, for chaining</p>
+
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -1673,9 +1643,10 @@ prefixed with &apos;OR NOT&apos;</p>
     </ul>
       <h4>Returns</h4>
       <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      
+      :
       <span class='force-inline'>
-        
+        <p>The Query Builder object, for chaining</p>
+
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -1740,9 +1711,10 @@ prefixed with &apos;OR NOT&apos;</p>
     </ul>
       <h4>Returns</h4>
       <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      
+      :
       <span class='force-inline'>
-        
+        <p>The Query Builder object, for chaining</p>
+
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -1770,9 +1742,10 @@ prefixed with &apos;OR NOT&apos;</p>
     </ul>
       <h4>Returns</h4>
       <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      
+      :
       <span class='force-inline'>
-        
+        <p>The Query Builder object, for chaining</p>
+
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -1786,15 +1759,17 @@ prefixed with &apos;OR NOT&apos;</p>
         <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>field</strong>
           :
           <span class='force-inline'>
-            
+            <p>The name so the field that is not to be null</p>
+
           </span>
         </li>
     </ul>
       <h4>Returns</h4>
       <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      
+      :
       <span class='force-inline'>
-        
+        <p>The Query Builder object, for chaining</p>
+
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -1815,9 +1790,10 @@ prefixed with &apos;OR NOT&apos;</p>
     </ul>
       <h4>Returns</h4>
       <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      
+      :
       <span class='force-inline'>
-        
+        <p>The Query Builder object, for chaining</p>
+
       </span>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
@@ -1845,9 +1821,10 @@ prefixed with &apos;OR NOT&apos;</p>
     </ul>
       <h4>Returns</h4>
       <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      
+      :
       <span class='force-inline'>
-        
+        <p>The Query Builder object, for chaining</p>
+
       </span>
 </section>
 </div>
