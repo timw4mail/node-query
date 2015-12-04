@@ -14,8 +14,8 @@ before_script:
   - psql -c 'DROP DATABASE IF EXISTS test;' -U postgres
   - psql -c 'create database test;' -U postgres
   - mysql -e 'create database IF NOT EXISTS test;'
-  - mysql -v -uroot test < ./tests/sql/mysql.sql
-  - psql test postgres -f ./tests/sql/pgsql.sql
+  - mysql -v -uroot test < ./test/sql/mysql.sql
+  - psql test postgres -f ./test/sql/pgsql.sql
 
 script: gulp
 
