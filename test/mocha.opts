@@ -1,0 +1,4 @@
+--ui tdd
+--bail
+--recursive
+--reporter nyan

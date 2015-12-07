@@ -2,7 +2,6 @@ language: node_js
 sudo: false
 
 node_js:
-  - "iojs"
   - "node"
   - "5.1"
   - "5.0"
@@ -18,7 +17,3 @@ before_script:
   - psql test postgres -f ./test/sql/pgsql.sql
 
 script: gulp
-
-matrix:
-  allow_failures:
-    - node_js: iojs

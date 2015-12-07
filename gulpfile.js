@@ -9,7 +9,10 @@ const documentation = require('gulp-documentation'),
 	sloc = require('gulp-sloc');
 
 const SRC_FILES = ['lib/**/*.js'];
-const TEST_FILES = ['test/**/*_test.js'];
+const TEST_FILES = [
+	'test/*_test.js',
+	'test/adapters/*_test.js'
+];
 
 const ESLINT_SETTINGS = {
 	"env": {
@@ -22,7 +25,9 @@ const ESLINT_SETTINGS = {
 		"no-constant-condition": [1],
 		"no-extra-semi": [1],
 		"no-func-assign": [1],
+		"no-obj-calls": [2],
 		"no-unexpected-multiline" : [2],
+		"no-unneeded-ternary": [2],
 		"radix": [2],
 		"no-with": [2],
 		"no-eval": [2],
@@ -42,7 +47,9 @@ const ESLINT_SETTINGS = {
 		"no-var": [2],
 		"valid-jsdoc": [1],
 		"strict": [2, "global"],
-		"callback-return": [1]
+		"callback-return": [1],
+		"object-shorthand": [1, "methods"],
+		"prefer-template": [1]
 	}
 };
 
@@ -55,7 +62,7 @@ gulp.task('lint', () => {
 });
 
 gulp.task('lint-tests', ['lint'], () => {
-	return pipe(gulp.src(TEST_FILES), [
+	return pipe(gulp.src(['test/**/*.js']), [
 		eslint(ESLINT_SETTINGS),
 		eslint.format(),
 		eslint.failAfterError()
@@ -81,7 +88,13 @@ gulp.task('mocha', ['lint-tests', 'sloc'], () => {
 			bail: true,
 			//reporter: 'dot',
 			//reporter: 'landing',
-		}));
+		}))
+		.once('error', () => {
+            process.exit(1);
+        })
+		.once('end', () => {
+            process.exit();
+        });
 });
 
 gulp.task('test', ['test-sloc', 'lint-tests'], function(cb) {
@@ -98,6 +111,12 @@ gulp.task('test', ['test-sloc', 'lint-tests'], function(cb) {
 				dir: './coverage',
 				reporters: ['lcov', 'lcovonly', 'html', 'text']
 			})
+				.once('error', () => {
+		            process.exit(1);
+		        })
+				.once('end', () => {
+		            process.exit();
+		        })
 		]);
 	});
 });

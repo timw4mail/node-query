@@ -5,7 +5,7 @@ let expect = require('chai').expect;
 // Use the base driver as a mock for testing
 let getArgs = require('getargs');
 let helpers = require('../lib/helpers');
-let driver = require('../lib/DriverBase');
+let driver = require('../lib/Driver');
 
 let p = require('../lib/QueryParser');
 let	parser = new p(driver);

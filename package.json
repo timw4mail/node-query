@@ -49,6 +49,7 @@
     "chai": "",
     "documentation": "",
     "eslint": "",
+    "glob": "^6.0.1",
     "gulp": "",
     "gulp-documentation": "^2.1.0",
     "gulp-eslint": "",
