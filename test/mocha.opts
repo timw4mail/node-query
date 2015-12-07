@@ -1,4 +1,7 @@
 --ui tdd
 --bail
 --recursive
---reporter nyan
+--reporter dot
+--slow 100
+--timeout 5000
+--check-leaks

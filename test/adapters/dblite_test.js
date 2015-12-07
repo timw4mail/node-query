@@ -75,7 +75,7 @@ if (connection) {
 			});
 		});
 		suiteTeardown(() => {
-			connection.close();
+			qb.end();
 		});
 	});
 }

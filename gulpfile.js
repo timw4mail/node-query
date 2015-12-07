@@ -86,6 +86,7 @@ gulp.task('mocha', ['lint-tests', 'sloc'], () => {
 		.pipe(mocha({
 			ui: 'tdd',
 			bail: true,
+			reporter: 'list'
 			//reporter: 'dot',
 			//reporter: 'landing',
 		}))
