@@ -33,6 +33,11 @@ suite('Firebird adapter tests', () => {
 				expect(nodeQuery.getQuery())
 					.to.be.deep.equal(qb);
 			});
+			test('insertBatch throws error', () => {
+				expect(() => {
+					qb.driver.insertBatch('create_test', []);
+				}).to.throw(Error, "Not Implemented");
+			});
 		});
 		suiteTeardown(() => {
 			db.detach();
