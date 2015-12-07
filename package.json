@@ -54,6 +54,7 @@
     "gulp-documentation": "^2.1.0",
     "gulp-eslint": "",
     "gulp-istanbul": "^0.10.3",
+    "gulp-jscs": "^3.0.2",
     "gulp-mocha": "^2.2.0",
     "gulp-pipe": "^1.0.4",
     "gulp-sloc": "",

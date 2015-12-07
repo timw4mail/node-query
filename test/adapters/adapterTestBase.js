@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 module.exports.tests = {
 	'Get tests': {
@@ -6,20 +6,20 @@ module.exports.tests = {
 			select: ['id, COUNT(id) as count'],
 			from: ['create_test'],
 			groupBy: ['id'],
-			get : []
+			get: [],
 		},
 		'Basic select all get': {
-			get: ['create_test']
+			get: ['create_test'],
 		},
 		'Basic select all with from': {
 			from: ['create_test'],
-			get: []
+			get: [],
 		},
 		'Get with limit': {
-			get: ['create_test', 2]
+			get: ['create_test', 2],
 		},
 		'Get with limit and offset': {
-			get: ['create_test', 2, 1]
+			get: ['create_test', 2, 1],
 		},
 		'Get with having': {
 			select: ['id'],
@@ -31,7 +31,7 @@ module.exports.tests = {
 				['id !=', 3],
 				['id', 900],
 			],
-			get: []
+			get: [],
 		},
 		'Get with orHaving': {
 			select: ['id'],
@@ -39,8 +39,8 @@ module.exports.tests = {
 			groupBy: ['id'],
 			having: [{'id >': 1}],
 			orHaving: ['id !=', 3],
-			get: []
-		}
+			get: [],
+		},
 	},
 	'Select tests': {
 		'Select where get': {
@@ -48,100 +48,100 @@ module.exports.tests = {
 			where: [
 				'multiple',
 				['id >', 1],
-				['id <', 900]
+				['id <', 900],
 			],
-			get: ['create_test', 2, 1]
+			get: ['create_test', 2, 1],
 		},
 		'Select where get 2': {
 			select: ['id, key as k, val'],
 			where: ['id !=', 1],
-			get: ['create_test', 2, 1]
+			get: ['create_test', 2, 1],
 		},
 		'Multi Order By': {
 			from: ['create_test'],
 			orderBy: ['id, key'],
-			get: []
+			get: [],
 		},
 		'Select get': {
 			select: ['id, key as k, val'],
-			get: ['create_test', 2, 1]
+			get: ['create_test', 2, 1],
 		},
 		'Select from get': {
 			select: ['id, key as k, val'],
 			from: ['create_test ct'],
 			where: ['id >', 1],
-			get: []
+			get: [],
 		},
 		'Select from limit get': {
 			select: ['id, key as k, val'],
 			from: ['create_test ct'],
 			where: ['id >', 1],
 			limit: [3],
-			get: []
+			get: [],
 		},
 		'Select where IS NOT NULL': {
 			select: ['id', 'key as k', 'val'],
 			from: ['create_test ct'],
 			whereIsNotNull: ['id'],
-			get: []
+			get: [],
 		},
 		'Select where IS NULL': {
 			select: ['id', 'key as k', 'val'],
 			from: ['create_test ct'],
 			whereIsNull: ['id'],
-			get: []
+			get: [],
 		},
 		'Select where OR IS NOT NULL': {
 			select: ['id', 'key as k', 'val'],
 			from: ['create_test ct'],
 			whereIsNull: ['id'],
 			orWhereIsNotNull: ['id'],
-			get: []
+			get: [],
 		},
 		'Select where OR IS NULL': {
 			select: ['id', 'key as k', 'val'],
 			from: ['create_test ct'],
 			where: ['id', 3],
 			orWhereIsNull: ['id'],
-			get: []
+			get: [],
 		},
 		'Select with string where value': {
 			select: ['id', 'key as k', 'val'],
 			from: ['create_test ct'],
 			where: ['id > 3'],
-			get: []
+			get: [],
 		},
 		'Select with function and argument in WHERE clause': {
 			select: ['id'],
 			from: ['create_test ct'],
 			where: ['id', 'CEILING(SQRT(88))'],
-			get: []
-		}
+			get: [],
+		},
 	},
 	'Where in tests': {
 		'Where in': {
 			from: ['create_test'],
 			whereIn: ['id', [0, 6, 56, 563, 341]],
-			get: []
+			get: [],
 		},
 		'Or Where in': {
 			from: ['create_test'],
 			where: ['key', 'false'],
 			orWhereIn: ['id', [0, 6, 56, 563, 341]],
-			get: []
+			get: [],
 		},
 		'Where Not in': {
 			from: ['create_test'],
 			where: ['key', 'false'],
 			whereNotIn: ['id', [0, 6, 56, 563, 341]],
-			get: []
+			get: [],
 		},
 		'Or Where Not in': {
 			from: ['create_test'],
 			where: ['key', 'false'],
 			orWhereNotIn: ['id', [0, 6, 56, 563, 341]],
-			get: []
-		}
+			get: [],
+		},
 	},
 	'Query modifier tests': {
 		'Order By': {
@@ -150,15 +150,15 @@ module.exports.tests = {
 			where: [
 				'multiple',
 				['id >', 0],
-				['id <', 9000]
+				['id <', 9000],
 			],
 			orderBy: [
 				'multiple',
 				['id', 'DESC'],
-				['k', "ASC"]
+				['k', 'ASC'],
 			],
 			limit: [5, 2],
-			get: []
+			get: [],
 		},
 		'Group By': {
 			select: ['id, key as k, val'],
@@ -166,20 +166,20 @@ module.exports.tests = {
 			where: [
 				'multiple',
 				['id >', 0],
-				['id <', 9000]
+				['id <', 9000],
 			],
 			groupBy: [
 				'multiple',
 				['k'],
-				[['id', 'val']]
+				[['id', 'val']],
 			],
 			orderBy: [
 				'multiple',
 				['id', 'DESC'],
-				['k', "ASC"]
+				['k', 'ASC'],
 			],
-			limit: [5,2],
-			get: []
+			limit: [5, 2],
+			get: [],
 		},
 		'Or Where': {
 			select: ['id, key as k, val'],
@@ -187,69 +187,69 @@ module.exports.tests = {
 			where: [' id ', 1],
 			orWhere: ['key > ', 0],
 			limit: [2, 1],
-			get: []
+			get: [],
 		},
-		'Like': {
+		Like: {
 			from: ['create_test'],
 			like: ['key', 'og'],
-			get: []
+			get: [],
 		},
 		'Or Like': {
 			from: ['create_test'],
 			like: ['key', 'og'],
 			orLike: ['key', 'val'],
-			get: []
+			get: [],
 		},
 		'Not Like': {
 			from: ['create_test'],
 			like: ['key', 'og', 'before'],
 			notLike: ['key', 'val'],
-			get: []
+			get: [],
 		},
 		'Or Not Like': {
 			from: ['create_test'],
 			like: ['key', 'og', 'before'],
 			orNotLike: ['key', 'val'],
-			get: []
+			get: [],
 		},
 		'Like Before': {
 			from: ['create_test'],
 			like: ['key', 'og', 'before'],
-			get: []
+			get: [],
 		},
 		'Like After': {
 			from: ['create_test'],
 			like: ['key', 'og', 'after'],
-			get: []
+			get: [],
 		},
 		'Basic Join': {
 			from: ['create_test ct'],
 			join: ['create_join cj', 'cj.id=ct.id'],
-			get: []
+			get: [],
 		},
 		'Left Join': {
 			from: ['create_test ct'],
 			join: ['create_join cj', 'cj.id=ct.id', 'left'],
-			get: []
+			get: [],
 		},
 		'Inner Join': {
 			from: ['create_test ct'],
 			join: ['create_join cj', 'cj.id=ct.id', 'inner'],
-			get: []
+			get: [],
 		},
 		'Join with multiple where values': {
 			from: ['create_test ct'],
 			join: ['create_join cj', 'cj.id=ct.id', 'inner'],
-			where: [{
-				'ct.id < ': 3,
-				'ct.key ': 'foo'
-			}],
-			get: []
-		}
-	}
+			where: [
+				{
+					'ct.id < ': 3,
+					'ct.key ': 'foo',
+				},
+			],
+			get: [],
+		},
+	},
 };
-
-
 
 let expect = require('chai').expect,
 	helpers = require('../../lib/helpers'),
@@ -296,8 +296,8 @@ module.exports.runner = (tests, qb, callback) => {
 		});
 		test('Test Insert', done => {
 			qb.set('id', 98)
-				.set('key', "84")
-				.set('val', new Buffer("120"))
+				.set('key', '84')
+				.set('val', new Buffer('120'))
 				.insert('create_test', (err, rows) => {
 					return callback(err, done);
 				});
@@ -306,7 +306,7 @@ module.exports.runner = (tests, qb, callback) => {
 			qb.insert('create_test', {
 				id: 587,
 				key: 1,
-				val: new Buffer('2')
+				val: new Buffer('2'),
 			}, (err, rows) => {
 				return callback(err, done);
 			});
@@ -316,7 +316,7 @@ module.exports.runner = (tests, qb, callback) => {
 				.update('create_test', {
 					id: 7,
 					key: 'gogle',
-					val: new Buffer('non-word')
+					val: new Buffer('non-word'),
 				}, (err, rows) => {
 					return callback(err, done);
 				});
@@ -325,7 +325,7 @@ module.exports.runner = (tests, qb, callback) => {
 			let object = {
 				id: 22,
 				key: 'gogle',
-				val: new Buffer('non-word')
+				val: new Buffer('non-word'),
 			};
 
 			qb.set(object)
@@ -357,7 +357,7 @@ module.exports.runner = (tests, qb, callback) => {
 		test('Delete multiple where values', done => {
 			qb.delete('create_test', {
 				id: 5,
-				key: 'gogle'
+				key: 'gogle',
 			}, (err, rows) => {
 				return callback(err, done);
 			});
@@ -474,6 +474,6 @@ module.exports.runner = (tests, qb, callback) => {
 			let state = new State();
 
 			expect(qb.getState()).to.be.deep.equal(state);
-		})
+		});
 	});
 };

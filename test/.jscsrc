@@ -1,0 +1,7 @@
+{
+	"preset": "airbnb",
+	"validateIndentation": null,
+	"requireLineFeedAtFileEnd": null,
+	"disallowSpaceAfterPrefixUnaryOperators": null,
+	"disallowMultipleVarDecl": null
+}

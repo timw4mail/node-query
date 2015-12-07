@@ -10,21 +10,33 @@ let helpers = require('../lib/helpers');
 suite('Helper Module Tests', () => {
 	suite('Type-checking methods', () => {
 		suite('Object wrappers are listed as their native type', () => {
-			test("Boolean Wrapper returns 'boolean' not 'object'", () => {
+			test('Boolean Wrapper returns \'boolean\' not \'object\'', () => {
 				let item = Boolean(true);
 				expect(helpers.type(item)).to.deep.equal('boolean');
 			});
-			test("Number Wrapper returns 'number' not 'object", () => {
+			test('Number Wrapper returns \'number\' not \'object\'', () => {
 				let item = Number(4867);
 				expect(helpers.type(item)).to.deep.equal('number');
 			});
-			test("String Wrapper returns 'string' not 'object'", () => {
-				let item = String("Foo");
+			test('String Wrapper returns \'string\' not \'object\'', () => {
+				let item = String('Foo');
 				expect(helpers.type(item)).to.deep.equal('string');
 			});
 		});
 		suite('is..Method methods exist', () => {
-			let types = ['Null','Undefined','Object','Array','String','Number','Boolean','Function','RegExp','NaN','Infinite'];
+			let types = [
+				'Null',
+				'Undefined',
+				'Object',
+				'Array',
+				'String',
+				'Number',
+				'Boolean',
+				'Function',
+				'RegExp',
+				'NaN',
+				'Infinite',
+			];
 
 			types.forEach(type => {
 				test(`is${type} method exists`, () => {
@@ -36,7 +48,7 @@ suite('Helper Module Tests', () => {
 			let trueCases = {
 				'Strings are scalar': 'foo',
 				'Booleans are scalar': true,
-				'Numbers are scalar': 545
+				'Numbers are scalar': 545,
 			};
 			Object.keys(trueCases).forEach(desc => {
 				test(desc, () => {
@@ -56,10 +68,10 @@ suite('Helper Module Tests', () => {
 		});
 		suite('isInfinity', () => {
 			test('The type of 1/0 is infinity', () => {
-				expect(helpers.type(1/0)).to.equal('infinity');
+				expect(helpers.type(1 / 0)).to.equal('infinity');
 			});
 			test('isInfinity is the same as isInfinite', () => {
-				expect(helpers.isInfinite(1/0)).to.be.true;
+				expect(helpers.isInfinite(1 / 0)).to.be.true;
 			});
 		});
 		suite('isNaN', () => {
@@ -81,18 +93,20 @@ suite('Helper Module Tests', () => {
 			});
 		});
 		suite('arrayPluck', () => {
-			let orig = [{
-				foo: 1
-			},{
-				foo: 2,
-				bar: 10
-			},{
-				foo: 3,
-				bar: 15
-			}];
+			let orig = [
+				{
+					foo: 1,
+				}, {
+					foo: 2,
+					bar: 10,
+				}, {
+					foo: 3,
+					bar: 15,
+				},
+			];
 
 			test('Finding members in all objects', () => {
-				expect(helpers.arrayPluck(orig, 'foo')).to.be.deep.equal([1,2,3]);
+				expect(helpers.arrayPluck(orig, 'foo')).to.be.deep.equal([1, 2, 3]);
 			});
 			test('Some members are missing in some objects', () => {
 				expect(helpers.arrayPluck(orig, 'bar')).to.be.deep.equal([10, 15]);
@@ -104,13 +118,15 @@ suite('Helper Module Tests', () => {
 		suite('regexInArray', () => {
 			let orig = ['apple', ' string ', 6, 4, 7];
 
-			let cases = [{
-				'Dollar sign is not in any of the array items': /\$/,
-				'None of the numbers in the array match /5/': /5/
-			},{
-				"' string ' matches /^ ?string/": /^ ?string/,
-				"'apple' matches /APPLE/i": /APPLE/i
-			}];
+			let cases = [
+				{
+					'Dollar sign is not in any of the array items': /\$/,
+					'None of the numbers in the array match /5/': /5/,
+				}, {
+					'\' string \' matches /^ ?string/': /^ ?string/,
+					'\'apple\' matches /APPLE/i': /APPLE/i,
+				},
+			];
 
 			[0, 1].forEach(i => {
 				let boolCase = cases[i];

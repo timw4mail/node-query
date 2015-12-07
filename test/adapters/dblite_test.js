@@ -18,9 +18,6 @@ try {
 	connection = sqlite(':memory:');
 } catch (e) {
 	// Export an empty testsuite if module not loaded
-	console.log(e);
-	console.log("Database adapter dblite not found");
-	//return {};
 }
 
 if (connection) {
@@ -28,13 +25,12 @@ if (connection) {
 	let nodeQuery = require('../../lib/NodeQuery');
 	let qb = nodeQuery.init('sqlite', connection, adapterName);
 
-
 	// Add a test for this adapter
 	tests['Select tests']['Select with function and argument in WHERE clause'] = {
-		'select': ['id'],
-		'from': ['create_test'],
-		'where': ['id', 'ABS(-88)'],
-		'get': []
+		select: ['id'],
+		from: ['create_test'],
+		where: ['id', 'ABS(-88)'],
+		get: [],
 	};
 
 	suite('Dblite adapter tests', () => {
@@ -54,19 +50,21 @@ if (connection) {
 					.to.be.deep.equal(qb);
 			});
 			test('Test Insert Batch', done => {
-				let data = [{
-					id: 544,
-					key: 3,
-					val: new Buffer('7')
-				}, {
-					id: 89,
-					key: 34,
-					val: new Buffer("10 o'clock")
-				}, {
-					id: 48,
-					key: 403,
-					val: new Buffer('97')
-				}];
+				let data = [
+					{
+						id: 544,
+						key: 3,
+						val: new Buffer('7'),
+					}, {
+						id: 89,
+						key: 34,
+						val: new Buffer('10 o\'clock'),
+					}, {
+						id: 48,
+						key: 403,
+						val: new Buffer('97'),
+					},
+				];
 
 				qb.insertBatch('create_test', data, (err, rows) => {
 					expect(err).is.not.ok;

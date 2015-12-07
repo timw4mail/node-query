@@ -36,19 +36,21 @@ suite('Pg adapter tests', () => {
 				.to.be.deep.equal(qb);
 		});
 		test('Test Insert Batch', done => {
-			let data = [{
-				id: 544,
-				key: 3,
-				val: new Buffer('7')
-			}, {
-				id: 89,
-				key: 34,
-				val: new Buffer("10 o'clock")
-			}, {
-				id: 48,
-				key: 403,
-				val: new Buffer('97')
-			}];
+			let data = [
+				{
+					id: 544,
+					key: 3,
+					val: new Buffer('7'),
+				}, {
+					id: 89,
+					key: 34,
+					val: new Buffer('10 o\'clock'),
+				}, {
+					id: 48,
+					key: 403,
+					val: new Buffer('97'),
+				},
+			];
 
 			qb.insertBatch('create_test', data, (err, rows) => {
 				expect(err).is.not.ok;

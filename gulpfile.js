@@ -4,6 +4,7 @@ const documentation = require('gulp-documentation'),
 	eslint = require('gulp-eslint'),
 	gulp = require('gulp'),
 	istanbul = require('gulp-istanbul'),
+	jscs = require('gulp-jscs'),
 	mocha = require('gulp-mocha'),
 	pipe = require('gulp-pipe'),
 	sloc = require('gulp-sloc');
@@ -54,18 +55,26 @@ const ESLINT_SETTINGS = {
 };
 
 gulp.task('lint', () => {
-	return pipe(gulp.src(SRC_FILES), [
+	pipe(gulp.src(SRC_FILES), [
 		eslint(ESLINT_SETTINGS),
 		eslint.format(),
 		eslint.failAfterError()
 	]);
+	pipe(gulp.src(SRC_FILES), [
+		jscs(),
+		jscs.reporter()
+	]);
 });
 
 gulp.task('lint-tests', ['lint'], () => {
-	return pipe(gulp.src(['test/**/*.js']), [
+	pipe(gulp.src(['test/**/*.js']), [
 		eslint(ESLINT_SETTINGS),
 		eslint.format(),
 		eslint.failAfterError()
+	]);
+	pipe(gulp.src(['test/**/*.js']), [
+		jscs(),
+		jscs.reporter()
 	]);
 });
 
@@ -86,9 +95,8 @@ gulp.task('mocha', ['lint-tests', 'sloc'], () => {
 		.pipe(mocha({
 			ui: 'tdd',
 			bail: true,
-			reporter: 'list'
-			//reporter: 'dot',
-			//reporter: 'landing',
+			reporter: 'list',
+			timeout: 5000
 		}))
 		.once('error', () => {
             process.exit(1);
