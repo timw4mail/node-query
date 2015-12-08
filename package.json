@@ -1,6 +1,6 @@
 {
   "name": "ci-node-query",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "A query builder for node based on the one in CodeIgniter",
   "author": "Timothy J Warren <tim@timshomepage.net>",
   "engines": {
@@ -31,7 +31,7 @@
   "bugs": {
     "url": "https://github.com/timw4mail/node-query/issues"
   },
-  "main": "lib/node-query.js",
+  "main": "lib/NodeQuery.js",
   "dependencies": {
     "getargs": "",
     "mysql": "^2.9.0",
