@@ -56,6 +56,6 @@ suite('Mysql adapter tests', () => {
 		});
 	});
 	suiteTeardown(() => {
-		connection.end();
+		qb.end();
 	});
 });

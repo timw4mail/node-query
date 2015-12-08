@@ -15,7 +15,7 @@ let config = reload(configFile)[adapterName];
 // Set up the connection
 let pg = reload(adapterName);
 let connection = new pg.Client(config.conn);
-connection.connect(function(err) {
+connection.connect(err => {
 	if (err) {
 		throw new Error(err);
 	}
@@ -59,6 +59,6 @@ suite('Pg adapter tests', () => {
 		});
 	});
 	suiteTeardown(() => {
-		connection.end();
+		qb.end();
 	});
 });

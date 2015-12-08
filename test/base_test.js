@@ -3,7 +3,8 @@
 let expect = require('chai').expect,
 	reload = require('require-reload')(require),
 	glob = require('glob'),
-	nodeQuery = reload('../lib/NodeQuery');
+	nodeQuery = reload('../lib/NodeQuery'),
+	Adapter = reload('../lib/Adapter');
 
 suite('Base tests', () => {
 	suite('Sanity check', () => {
@@ -31,5 +32,12 @@ suite('Base tests', () => {
 		expect(() => {
 			nodeQuery.init('foo', {}, 'bar');
 		}).to.throw(Error, 'Selected driver (Foo) does not exist!');
+	});
+
+	test('Invalid adapter', () => {
+		expect(() => {
+			let a = new Adapter();
+			a.execute();
+		}).to.throw(Error, 'Correct adapter not defined for query execution');
 	});
 });
