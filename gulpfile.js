@@ -57,7 +57,7 @@ const ESLINT_SETTINGS = {
 const MOCHA_OPTIONS = {
 	ui: 'tdd',
 	bail: true,
-	reporter: 'list',
+	reporter: 'dot',
 	timeout: 10000,
 };
 

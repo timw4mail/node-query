@@ -94,9 +94,5 @@ if (connection) {
 
 			expect(promise).to.be.fulfilled;
 		});
-
-		suiteTeardown(() => {
-			qb.end();
-		});
 	});
 }
