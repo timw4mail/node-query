@@ -89,9 +89,12 @@ gulp.task('sloc', () => gulp.src(SRC_FILES).pipe(sloc()));
 gulp.task('test-sloc', () => gulp.src(TEST_FILES).pipe(sloc()));
 
 gulp.task('docs', () => {
-	gulp.src(['lib/*.js'])
+	gulp.src(['lib/**/*.js'])
 		.pipe(documentation({format: 'html'}))
 		.pipe(gulp.dest('docs'));
+	gulp.src(['lib/*.js'])
+		.pipe(documentation({format: 'md'}))
+		.pipe(gulp.dest('.'));
 });
 
 gulp.task('mocha', ['lint-tests', 'sloc'], () => {

@@ -1,6 +1,6 @@
 #CI-Node-query
 
-A node query builder for various SQL databases, based on CodeIgniter's query builder.
+A node query builder for various SQL databases, based on [CodeIgniter](http://www.codeigniter.com/user_guide/database/query_builder.html)'s query builder.
 
 [![Build Status](https://jenkins.timshomepage.net/buildStatus/icon?job=node-query)](https://jenkins.timshomepage.net/job/node-query/)
 [![Build Status](https://travis-ci.org/timw4mail/node-query.svg?branch=master)](https://travis-ci.org/timw4mail/node-query)
@@ -13,12 +13,13 @@ A node query builder for various SQL databases, based on CodeIgniter's query bui
 * mysql2
 * pg
 * dblite
-* node-firebird
+* node-firebird (Not supported as of version 3.1.0, as the adapter is very difficult to test)
 
 ### Installation
 
 	npm install ci-node-query
-	[![NPM](https://nodei.co/npm/ci-node-query.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/ci-node-query/)
+
+[![NPM](https://nodei.co/npm/ci-node-query.png?downloads=true&downloadRank=true)](https://nodei.co/npm/ci-node-query/)
 
 ### Basic use
 
@@ -48,6 +49,20 @@ A node query builder for various SQL databases, based on CodeIgniter's query bui
 			// Database module result handling
 		});
 
+	// As of version 3.1.0, you can also get promises
+	var queryPromise = query.select('foo')
+		.from('bar')
+		.where('x', 3)
+		.orWhere({y: 2})
+		.join('baz', 'baz.boo = bar.foo', 'left')
+		.orderBy('x', 'DESC')
+		.limit(2, 3)
+		.get();
+
+	queryPromise.then(function(res) {
+		// Handle query results
+	});
+
 ### Security notes
 As of version 2, `where` and `having` type methods parse the values passed to look for function calls. While values passed are still passed as query parameters, take care to avoid passing these kinds of methods unfiltered input. SQL function arguments are not currently parsed, so they need to be properly escaped for the current database.
 
@@ -55,6 +70,7 @@ As of version 2, `where` and `having` type methods parse the values passed to lo
 ### Additional help
 
 * Generated documentation is in the docs/ folder
+* The API is documented in [API.md](./API.md)
 * `tests/query-builder-base.js`	contains a lot of usage examples
 * The `tests/adapters` folder contains examples of how to set up a connection for the appropriate database library
 * The documentation generated for the latest dev build is also [Available](https://github.timshomepage.net/node-query/docs/)
