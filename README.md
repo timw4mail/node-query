@@ -18,6 +18,7 @@ A node query builder for various SQL databases, based on CodeIgniter's query bui
 ### Installation
 
 	npm install ci-node-query
+	[![NPM](https://nodei.co/npm/ci-node-query.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/ci-node-query/)
 
 ### Basic use
 

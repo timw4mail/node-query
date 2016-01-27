@@ -6,7 +6,7 @@ let expect = require('chai').expect,
 	nodeQuery = reload('../lib/NodeQuery'),
 	Adapter = reload('../lib/Adapter');
 
-suite('Base tests', () => {
+suite('Base tests -', () => {
 	suite('Sanity check', () => {
 		let files = glob.sync(`${__dirname}/../lib/**/*.js`);
 		files.forEach(mod => {

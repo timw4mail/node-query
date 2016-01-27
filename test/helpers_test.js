@@ -7,8 +7,8 @@ let chai = require('chai'),
 
 let helpers = require('../lib/helpers');
 
-suite('Helper Module Tests', () => {
-	suite('Type-checking methods', () => {
+suite('Helper Module Tests -', () => {
+	suite('Type-checking methods -', () => {
 		suite('Object wrappers are listed as their native type', () => {
 			test('Boolean Wrapper returns \'boolean\' not \'object\'', () => {
 				let item = Boolean(true);
@@ -23,7 +23,7 @@ suite('Helper Module Tests', () => {
 				expect(helpers.type(item)).to.deep.equal('string');
 			});
 		});
-		suite('is..Method methods exist', () => {
+		suite('is..Method methods exist -', () => {
 			let types = [
 				'Null',
 				'Undefined',
@@ -44,7 +44,7 @@ suite('Helper Module Tests', () => {
 				});
 			});
 		});
-		suite('isScalar', () => {
+		suite('isScalar -', () => {
 			let trueCases = {
 				'Strings are scalar': 'foo',
 				'Booleans are scalar': true,
@@ -66,7 +66,7 @@ suite('Helper Module Tests', () => {
 				});
 			});
 		});
-		suite('isInfinity', () => {
+		suite('isInfinity -', () => {
 			test('The type of 1/0 is infinity', () => {
 				expect(helpers.type(1 / 0)).to.equal('infinity');
 			});
@@ -74,7 +74,7 @@ suite('Helper Module Tests', () => {
 				expect(helpers.isInfinite(1 / 0)).to.be.true;
 			});
 		});
-		suite('isNaN', () => {
+		suite('isNaN -', () => {
 			test('The type of 0 / 0 is NaN', () => {
 				expect(helpers.type(0 / 0)).to.equal('nan');
 			});
@@ -83,8 +83,8 @@ suite('Helper Module Tests', () => {
 			});
 		});
 	});
-	suite('Other helper methods', () => {
-		suite('stringTrim', () => {
+	suite('Other helper methods -', () => {
+		suite('stringTrim -', () => {
 			test('stringTrim method works as expected', () => {
 				let orig = ['  x y ', 'z   ', ' q'];
 				let ret = ['x y', 'z', 'q'];
@@ -92,7 +92,7 @@ suite('Helper Module Tests', () => {
 				expect(orig.map(helpers.stringTrim)).to.be.deep.equal(ret);
 			});
 		});
-		suite('arrayPluck', () => {
+		suite('arrayPluck -', () => {
 			let orig = [
 				{
 					foo: 1,
@@ -115,7 +115,7 @@ suite('Helper Module Tests', () => {
 				expect(helpers.arrayPluck([], 'apple')).to.be.deep.equal([]);
 			});
 		});
-		suite('regexInArray', () => {
+		suite('regexInArray -', () => {
 			let orig = ['apple', ' string ', 6, 4, 7];
 
 			let cases = [

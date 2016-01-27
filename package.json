@@ -1,11 +1,14 @@
 {
   "name": "ci-node-query",
-  "version": "3.0.1",
+  "version": "3.1.0",
   "description": "A query builder for node based on the one in CodeIgniter",
   "author": "Timothy J Warren <tim@timshomepage.net>",
   "engines": {
     "node": ">=4.0.0"
   },
+  "files": [
+    "lib/"
+  ],
   "contributors": [
     {
       "name": "Timothy J Warren",
@@ -33,32 +36,30 @@
   },
   "main": "lib/NodeQuery.js",
   "dependencies": {
-    "getargs": "",
-    "mysql": "^2.9.0",
-    "mysql2": "^0.15.8",
-    "node-firebird": "^0.7.0",
-    "pg": "^4.4.3",
-    "require-reload": "*"
-  },
-  "optionalDependencies": {
-    "dblite": "*",
-    "node-firebird": "*",
-    "pg": "*"
+    "bluebird": "^3.1.4",
+    "dblite": "~0.7.6",
+    "getargs": "~0.0.8",
+    "mysql": "~2.10.2",
+    "mysql2": "~0.15.8",
+    "node-firebird": "~0.7.2",
+    "pg": "~4.4.3",
+    "require-reload": "~0.2.2"
   },
   "devDependencies": {
-    "chai": "",
+    "chai": "~3.4.1",
+    "chai-as-promised": "^5.2.0",
     "documentation": "",
-    "eslint": "",
-    "glob": "^6.0.1",
-    "gulp": "",
-    "gulp-documentation": "^2.1.0",
-    "gulp-eslint": "",
+    "eslint": "~1.10.3",
+    "glob": "~6.0.4",
+    "gulp": "~3.9.0",
+    "gulp-documentation": "~2.1.0",
+    "gulp-eslint": "~1.1.1",
     "gulp-istanbul": "^0.10.3",
     "gulp-jscs": "^3.0.2",
     "gulp-mocha": "^2.2.0",
     "gulp-pipe": "^1.0.4",
-    "gulp-sloc": "",
-    "istanbul": "",
+    "gulp-sloc": "~1.0.4",
+    "istanbul": "~0.4.2",
     "mocha": ""
   },
   "license": "MIT",

@@ -54,6 +54,13 @@ const ESLINT_SETTINGS = {
 	}
 };
 
+const MOCHA_OPTIONS = {
+	ui: 'tdd',
+	bail: true,
+	reporter: 'list',
+	timeout: 10000,
+};
+
 gulp.task('lint', () => {
 	pipe(gulp.src(SRC_FILES), [
 		eslint(ESLINT_SETTINGS),
@@ -82,22 +89,14 @@ gulp.task('sloc', () => gulp.src(SRC_FILES).pipe(sloc()));
 gulp.task('test-sloc', () => gulp.src(TEST_FILES).pipe(sloc()));
 
 gulp.task('docs', () => {
-	gulp.src('./lib/QueryBuilder.js')
+	gulp.src(['lib/*.js'])
 		.pipe(documentation({format: 'html'}))
 		.pipe(gulp.dest('docs'));
-	/*gulp.src('./lib/QueryBuilder.js')
-		.pipe(documentation({format: 'md'}))
-		.pipe(gulp.dest('api-docs'));*/
 });
 
 gulp.task('mocha', ['lint-tests', 'sloc'], () => {
 	return gulp.src(TEST_FILES)
-		.pipe(mocha({
-			ui: 'tdd',
-			bail: true,
-			reporter: 'list',
-			timeout: 5000
-		}))
+		.pipe(mocha(MOCHA_OPTIONS))
 		.once('error', () => {
             process.exit(1);
         })
@@ -112,10 +111,7 @@ gulp.task('test', ['test-sloc', 'lint-tests'], function(cb) {
 		istanbul.hookRequire()
 	]).on('finish', () => {
 		pipe(gulp.src(TEST_FILES), [
-			mocha({
-				ui: 'tdd',
-				bail: true
-			}),
+			mocha(MOCHA_OPTIONS),
 			istanbul.writeReports({
 				dir: './coverage',
 				reporters: ['lcov', 'lcovonly', 'html', 'text']

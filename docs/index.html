@@ -1,3 +1,4 @@
+<!doctype html>
 <html>
 <head>
   <meta charset='utf-8' />
@@ -22,1810 +23,1942 @@
             type='text' />
           <div id='toc'>
               <a
+                href='#NodeQuery'
+                class='block bold'>
+                NodeQuery
+              </a>
+                <a
+                  href='#NodeQuery.getQuery'
+                  class='regular block'>
+                  #getQuery
+                </a>
+                <a
+                  href='#NodeQuery.init'
+                  class='regular block'>
+                  #init
+                </a>
+              <a
                 href='#QueryBuilder'
                 class='block bold'>
                 QueryBuilder
               </a>
-              <a
-                href='#State'
-                class='block bold'>
-                State
-              </a>
-              <a
-                href='#helpers'
-                class='block bold'>
-                helpers
-              </a>
                 <a
-                  href='#helpers.arrayPluck'
+                  href='#QueryBuilder.delete'
                   class='regular block'>
-                  .arrayPluck
+                  #delete
                 </a>
                 <a
-                  href='#helpers.isScalar'
+                  href='#QueryBuilder.end'
                   class='regular block'>
-                  .isScalar
+                  #end
                 </a>
                 <a
-                  href='#helpers.regexInArray'
+                  href='#QueryBuilder.from'
                   class='regular block'>
-                  .regexInArray
+                  #from
                 </a>
                 <a
-                  href='#helpers.stringTrim'
+                  href='#QueryBuilder.get'
                   class='regular block'>
-                  .stringTrim
+                  #get
                 </a>
                 <a
-                  href='#helpers.type'
+                  href='#QueryBuilder.getCompiledDelete'
                   class='regular block'>
-                  .type
+                  #getCompiledDelete
                 </a>
                 <a
-                  href='#helpers.upperCaseFirst'
+                  href='#QueryBuilder.getCompiledInsert'
                   class='regular block'>
-                  .upperCaseFirst
+                  #getCompiledInsert
                 </a>
-              <a
-                href='#compileJoin'
-                class='block bold'>
-                compileJoin
-              </a>
-              <a
-                href='#constructor'
-                class='block bold'>
-                constructor
-              </a>
-              <a
-                href='#delete'
-                class='block bold'>
-                delete
-              </a>
-              <a
-                href='#end'
-                class='block bold'>
-                end
-              </a>
-              <a
-                href='#filterMatches'
-                class='block bold'>
-                filterMatches
-              </a>
-              <a
-                href='#from'
-                class='block bold'>
-                from
-              </a>
-              <a
-                href='#get'
-                class='block bold'>
-                get
-              </a>
-              <a
-                href='#getCompiledDelete'
-                class='block bold'>
-                getCompiledDelete
-              </a>
-              <a
-                href='#getCompiledInsert'
-                class='block bold'>
-                getCompiledInsert
-              </a>
-              <a
-                href='#getCompiledSelect'
-                class='block bold'>
-                getCompiledSelect
-              </a>
-              <a
-                href='#getCompiledUpdate'
-                class='block bold'>
-                getCompiledUpdate
-              </a>
-              <a
-                href='#groupBy'
-                class='block bold'>
-                groupBy
-              </a>
-              <a
-                href='#groupEnd'
-                class='block bold'>
-                groupEnd
-              </a>
-              <a
-                href='#groupStart'
-                class='block bold'>
-                groupStart
-              </a>
-              <a
-                href='#hasOperator'
-                class='block bold'>
-                hasOperator
-              </a>
-              <a
-                href='#having'
-                class='block bold'>
-                having
-              </a>
-              <a
-                href='#insert'
-                class='block bold'>
-                insert
-              </a>
-              <a
-                href='#insertBatch'
-                class='block bold'>
-                insertBatch
-              </a>
-              <a
-                href='#join'
-                class='block bold'>
-                join
-              </a>
-              <a
-                href='#like'
-                class='block bold'>
-                like
-              </a>
-              <a
-                href='#limit'
-                class='block bold'>
-                limit
-              </a>
-              <a
-                href='#notLike'
-                class='block bold'>
-                notLike
-              </a>
-              <a
-                href='#orGroupStart'
-                class='block bold'>
-                orGroupStart
-              </a>
-              <a
-                href='#orHaving'
-                class='block bold'>
-                orHaving
-              </a>
-              <a
-                href='#orLike'
-                class='block bold'>
-                orLike
-              </a>
-              <a
-                href='#orNotGroupStart'
-                class='block bold'>
-                orNotGroupStart
-              </a>
-              <a
-                href='#orNotLike'
-                class='block bold'>
-                orNotLike
-              </a>
-              <a
-                href='#orWhere'
-                class='block bold'>
-                orWhere
-              </a>
-              <a
-                href='#orWhereIn'
-                class='block bold'>
-                orWhereIn
-              </a>
-              <a
-                href='#orWhereIsNotNull'
-                class='block bold'>
-                orWhereIsNotNull
-              </a>
-              <a
-                href='#orWhereIsNull'
-                class='block bold'>
-                orWhereIsNull
-              </a>
-              <a
-                href='#orWhereNotIn'
-                class='block bold'>
-                orWhereNotIn
-              </a>
-              <a
-                href='#orderBy'
-                class='block bold'>
-                orderBy
-              </a>
-              <a
-                href='#parseJoin'
-                class='block bold'>
-                parseJoin
-              </a>
-              <a
-                href='#parseWhere'
-                class='block bold'>
-                parseWhere
-              </a>
-              <a
-                href='#resetQuery'
-                class='block bold'>
-                resetQuery
-              </a>
-              <a
-                href='#select'
-                class='block bold'>
-                select
-              </a>
-              <a
-                href='#set'
-                class='block bold'>
-                set
-              </a>
-              <a
-                href='#update'
-                class='block bold'>
-                update
-              </a>
-              <a
-                href='#where'
-                class='block bold'>
-                where
-              </a>
-              <a
-                href='#whereIn'
-                class='block bold'>
-                whereIn
-              </a>
-              <a
-                href='#whereIsNotNull'
-                class='block bold'>
-                whereIsNotNull
-              </a>
-              <a
-                href='#whereIsNull'
-                class='block bold'>
-                whereIsNull
-              </a>
-              <a
-                href='#whereNotIn'
-                class='block bold'>
-                whereNotIn
-              </a>
+                <a
+                  href='#QueryBuilder.getCompiledSelect'
+                  class='regular block'>
+                  #getCompiledSelect
+                </a>
+                <a
+                  href='#QueryBuilder.getCompiledUpdate'
+                  class='regular block'>
+                  #getCompiledUpdate
+                </a>
+                <a
+                  href='#QueryBuilder.groupBy'
+                  class='regular block'>
+                  #groupBy
+                </a>
+                <a
+                  href='#QueryBuilder.groupEnd'
+                  class='regular block'>
+                  #groupEnd
+                </a>
+                <a
+                  href='#QueryBuilder.groupStart'
+                  class='regular block'>
+                  #groupStart
+                </a>
+                <a
+                  href='#QueryBuilder.having'
+                  class='regular block'>
+                  #having
+                </a>
+                <a
+                  href='#QueryBuilder.insert'
+                  class='regular block'>
+                  #insert
+                </a>
+                <a
+                  href='#QueryBuilder.insertBatch'
+                  class='regular block'>
+                  #insertBatch
+                </a>
+                <a
+                  href='#QueryBuilder.join'
+                  class='regular block'>
+                  #join
+                </a>
+                <a
+                  href='#QueryBuilder.like'
+                  class='regular block'>
+                  #like
+                </a>
+                <a
+                  href='#QueryBuilder.limit'
+                  class='regular block'>
+                  #limit
+                </a>
+                <a
+                  href='#QueryBuilder.notLike'
+                  class='regular block'>
+                  #notLike
+                </a>
+                <a
+                  href='#QueryBuilder.orGroupStart'
+                  class='regular block'>
+                  #orGroupStart
+                </a>
+                <a
+                  href='#QueryBuilder.orHaving'
+                  class='regular block'>
+                  #orHaving
+                </a>
+                <a
+                  href='#QueryBuilder.orLike'
+                  class='regular block'>
+                  #orLike
+                </a>
+                <a
+                  href='#QueryBuilder.orNotGroupStart'
+                  class='regular block'>
+                  #orNotGroupStart
+                </a>
+                <a
+                  href='#QueryBuilder.orNotLike'
+                  class='regular block'>
+                  #orNotLike
+                </a>
+                <a
+                  href='#QueryBuilder.orWhere'
+                  class='regular block'>
+                  #orWhere
+                </a>
+                <a
+                  href='#QueryBuilder.orWhereIn'
+                  class='regular block'>
+                  #orWhereIn
+                </a>
+                <a
+                  href='#QueryBuilder.orWhereIsNotNull'
+                  class='regular block'>
+                  #orWhereIsNotNull
+                </a>
+                <a
+                  href='#QueryBuilder.orWhereIsNull'
+                  class='regular block'>
+                  #orWhereIsNull
+                </a>
+                <a
+                  href='#QueryBuilder.orWhereNotIn'
+                  class='regular block'>
+                  #orWhereNotIn
+                </a>
+                <a
+                  href='#QueryBuilder.orderBy'
+                  class='regular block'>
+                  #orderBy
+                </a>
+                <a
+                  href='#QueryBuilder.resetQuery'
+                  class='regular block'>
+                  #resetQuery
+                </a>
+                <a
+                  href='#QueryBuilder.select'
+                  class='regular block'>
+                  #select
+                </a>
+                <a
+                  href='#QueryBuilder.set'
+                  class='regular block'>
+                  #set
+                </a>
+                <a
+                  href='#QueryBuilder.update'
+                  class='regular block'>
+                  #update
+                </a>
+                <a
+                  href='#QueryBuilder.where'
+                  class='regular block'>
+                  #where
+                </a>
+                <a
+                  href='#QueryBuilder.whereIn'
+                  class='regular block'>
+                  #whereIn
+                </a>
+                <a
+                  href='#QueryBuilder.whereIsNotNull'
+                  class='regular block'>
+                  #whereIsNotNull
+                </a>
+                <a
+                  href='#QueryBuilder.whereIsNull'
+                  class='regular block'>
+                  #whereIsNull
+                </a>
+                <a
+                  href='#QueryBuilder.whereNotIn'
+                  class='regular block'>
+                  #whereNotIn
+                </a>
           </div>
         </div>
       </div>
       <div class='fix-margin-3'>
         <div class='px2'>
 <div class='py1'><section class='py2 clearfix'>
+  <h2 id='NodeQuery' class='mt0'>
+    NodeQuery<span class='gray'></span>
+  </h2>
+  <p>Class for connection management</p>
+
+      <h4>Instance members</h4>
+        <div class='collapsible' id='NodeQuery.getQuery'>
+          <a href='#NodeQuery.getQuery'>
+            <code>
+              #getQuery<span class='gray'></span>
+            </code>
+            <div class='force-inline'>
+              <p>Return an existing query builder instance</p>
+
+            </div>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='NodeQuery.getQuery' class='mt0'>
+                getQuery<span class='gray'></span>
+              </h2>
+              <p>Return an existing query builder instance</p>
+            
+                  <h4>Returns</h4>
+                  <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>The Query Builder object</p>
+            
+                  </div>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='NodeQuery.init'>
+          <a href='#NodeQuery.init'>
+            <code>
+              #init<span class='gray'>(driverType, connObject, [connLib])</span>
+            </code>
+            <div class='force-inline'>
+              <p>Create a query builder object</p>
+
+            </div>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='NodeQuery.init' class='mt0'>
+                init<span class='gray'>(driverType, connObject, [connLib])</span>
+              </h2>
+              <p>Create a query builder object</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>driverType</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>The name of the database type, eg. mysql or pg</p>
+            
+                      </div>
+                    </li>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code> <strong>connObject</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>A connection object from the database library you are connecting with</p>
+            
+                      </div>
+                    </li>
+                    <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>]</code> <strong>connLib</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>The name of the db connection library you are using, eg. mysql or mysql2. Optional if the same as driverType</p>
+            
+                      </div>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>The Query Builder object</p>
+            
+                  </div>
+            </section>
+          </div>
+        </div>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
   <h2 id='QueryBuilder' class='mt0'>
-    QueryBuilder<span class='gray'></span>
+    QueryBuilder<span class='gray'>(Driver, Adapter)</span>
   </h2>
-  
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='State' class='mt0'>
-    State<span class='gray'></span>
-  </h2>
-  
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='helpers' class='mt0'>
-    helpers<span class='gray'>(o)</span>
-  </h2>
-  <p>Determine whether a variable is of the type specified in the
-function name, eg isNumber</p>
-<p>Types available are Null, Undefined, Object, Array, String, Number, Boolean, Function, RegExp, NaN and Infinite</p>
+  <p>Main object that builds SQL queries.</p>
 
     <h4>Parameters</h4>
     <ul class='suppress-p-margin'>
-        <li><code>mixed</code> <strong>o</strong>
+        <li><code>Driver</code> <strong>Driver</strong>
           :
-          <span class='force-inline'>
-            
-          </span>
+          <div class='force-inline'>
+            <p>The syntax driver for the database</p>
+
+          </div>
+        </li>
+        <li><code>Adapter</code> <strong>Adapter</strong>
+          :
+          <div class='force-inline'>
+            <p>The database module adapter for running queries</p>
+
+          </div>
         </li>
     </ul>
-      <h4>Returns</h4>
-      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code></code>
-      
-      <span class='force-inline'>
-        
-      </span>
-      <h4>Static members</h4>
-        <div class='collapsible' id='helpers.arrayPluck'>
-          <a href='#helpers.arrayPluck'>
+      <h4>Instance members</h4>
+        <div class='collapsible' id='QueryBuilder.delete'>
+          <a href='#QueryBuilder.delete'>
             <code>
-              .arrayPluck<span class='gray'>(arr, key)</span>
+              #delete<span class='gray'>(table, [where], [callback])</span>
             </code>
-            <span class='force-inline'>
-              <p>Get a list of values with a common key from an array of objects</p>
+            <div class='force-inline'>
+              <p>Run the generated delete query</p>
 
-            </span>
+            </div>
           </a>
-          <div class='collapser border px2 m2'>
+          <div class='collapser border px2'>
             <section class='py2 clearfix'>
-              <h2 id='helpers.arrayPluck' class='mt0'>
-                arrayPluck<span class='gray'>(arr, key)</span>
+              <h2 id='QueryBuilder.delete' class='mt0'>
+                delete<span class='gray'>(table, [where], [callback])</span>
               </h2>
-              <p>Get a list of values with a common key from an array of objects</p>
+              <p>Run the generated delete query</p>
             
                 <h4>Parameters</h4>
                 <ul class='suppress-p-margin'>
-                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code> <strong>arr</strong>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>table</strong>
                       :
-                      <span class='force-inline'>
-                        <p>The array of objects to search</p>
+                      <div class='force-inline'>
+                        <p>The table to insert into</p>
             
-                      </span>
+                      </div>
                     </li>
-                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>key</strong>
+                    <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>]</code> <strong>where</strong>
                       :
-                      <span class='force-inline'>
-                        <p>The key of the object to get</p>
+                      <div class='force-inline'>
+                        <p>Where clause for delete statement</p>
             
-                      </span>
+                      </div>
+                    </li>
+                    <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a></code>]</code> <strong>callback</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>Callback for handling response from the database</p>
+            
+                      </div>
                     </li>
                 </ul>
                   <h4>Returns</h4>
-                  <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code></code>
+                  <code><code>void</code> or <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></code></code>
                   :
-                  <span class='force-inline'>
-                    <p>The new array of plucked values</p>
+                  <div class='force-inline'>
+                    <p>If no callback is passed, a promise is returned</p>
             
-                  </span>
+                  </div>
             </section>
           </div>
         </div>
-        <div class='collapsible' id='helpers.isScalar'>
-          <a href='#helpers.isScalar'>
+        <div class='collapsible' id='QueryBuilder.end'>
+          <a href='#QueryBuilder.end'>
             <code>
-              .isScalar<span class='gray'>(obj)</span>
+              #end<span class='gray'></span>
             </code>
-            <span class='force-inline'>
-              <p>Determine whether an object is scalar</p>
+            <div class='force-inline'>
+              <p>Closes the database connection for the current adapter</p>
 
-            </span>
+            </div>
           </a>
-          <div class='collapser border px2 m2'>
+          <div class='collapser border px2'>
             <section class='py2 clearfix'>
-              <h2 id='helpers.isScalar' class='mt0'>
-                isScalar<span class='gray'>(obj)</span>
+              <h2 id='QueryBuilder.end' class='mt0'>
+                end<span class='gray'></span>
               </h2>
-              <p>Determine whether an object is scalar</p>
+              <p>Closes the database connection for the current adapter</p>
+            
+                  <h4>Returns</h4>
+                  <code><code>void</code></code>
+                  
+                  <div class='force-inline'>
+                    
+                  </div>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='QueryBuilder.from'>
+          <a href='#QueryBuilder.from'>
+            <code>
+              #from<span class='gray'>(tableName)</span>
+            </code>
+            <div class='force-inline'>
+              <p>Specify the database table to select from</p>
+
+            </div>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='QueryBuilder.from' class='mt0'>
+                from<span class='gray'>(tableName)</span>
+              </h2>
+              <p>Specify the database table to select from</p>
             
                 <h4>Parameters</h4>
                 <ul class='suppress-p-margin'>
-                    <li><code>mixed</code> <strong>obj</strong>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>tableName</strong>
                       :
-                      <span class='force-inline'>
-                        <p>Object to test</p>
+                      <div class='force-inline'>
+                        <p>The table to use for the current query</p>
             
-                      </span>
+                      </div>
                     </li>
                 </ul>
                   <h4>Returns</h4>
-                  <code><code>bool</code></code>
+                  <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
                   :
-                  <span class='force-inline'>
-                    <p>Is object scalar</p>
+                  <div class='force-inline'>
+                    <p>The Query Builder object, for chaining</p>
             
-                  </span>
+                  </div>
             </section>
           </div>
         </div>
-        <div class='collapsible' id='helpers.regexInArray'>
-          <a href='#helpers.regexInArray'>
+        <div class='collapsible' id='QueryBuilder.get'>
+          <a href='#QueryBuilder.get'>
             <code>
-              .regexInArray<span class='gray'>(arr, pattern)</span>
+              #get<span class='gray'>([table], [limit], [offset], [callback])</span>
             </code>
-            <span class='force-inline'>
-              <p>Determine if a value matching the passed regular expression is
-in the passed array</p>
+            <div class='force-inline'>
+              <p>Get the results of the compiled query</p>
 
-            </span>
+            </div>
           </a>
-          <div class='collapser border px2 m2'>
+          <div class='collapser border px2'>
             <section class='py2 clearfix'>
-              <h2 id='helpers.regexInArray' class='mt0'>
-                regexInArray<span class='gray'>(arr, pattern)</span>
+              <h2 id='QueryBuilder.get' class='mt0'>
+                get<span class='gray'>([table], [limit], [offset], [callback])</span>
               </h2>
-              <p>Determine if a value matching the passed regular expression is
-            in the passed array</p>
+              <p>Get the results of the compiled query</p>
             
                 <h4>Parameters</h4>
                 <ul class='suppress-p-margin'>
-                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code> <strong>arr</strong>
+                    <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>]</code> <strong>table</strong>
                       :
-                      <span class='force-inline'>
-                        <p>The array to search</p>
+                      <div class='force-inline'>
+                        <p>The table to select from</p>
             
-                      </span>
+                      </div>
                     </li>
-                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp">RegExp</a></code> <strong>pattern</strong>
+                    <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></code>]</code> <strong>limit</strong>
                       :
-                      <span class='force-inline'>
-                        <p>The pattern to match</p>
+                      <div class='force-inline'>
+                        <p>A limit for the query</p>
             
-                      </span>
+                      </div>
                     </li>
-                </ul>
-                  <h4>Returns</h4>
-                  <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code></code>
-                  :
-                  <span class='force-inline'>
-                    <p>If an array item matches the pattern</p>
-            
-                  </span>
-            </section>
-          </div>
-        </div>
-        <div class='collapsible' id='helpers.stringTrim'>
-          <a href='#helpers.stringTrim'>
-            <code>
-              .stringTrim<span class='gray'>(str)</span>
-            </code>
-            <span class='force-inline'>
-              <p>Wrap String.prototype.trim in a way that is easily mappable</p>
-
-            </span>
-          </a>
-          <div class='collapser border px2 m2'>
-            <section class='py2 clearfix'>
-              <h2 id='helpers.stringTrim' class='mt0'>
-                stringTrim<span class='gray'>(str)</span>
-              </h2>
-              <p>Wrap String.prototype.trim in a way that is easily mappable</p>
-            
-                <h4>Parameters</h4>
-                <ul class='suppress-p-margin'>
-                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>str</strong>
+                    <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></code>]</code> <strong>offset</strong>
                       :
-                      <span class='force-inline'>
-                        <p>The string to trim</p>
+                      <div class='force-inline'>
+                        <p>An offset for the query</p>
             
-                      </span>
+                      </div>
+                    </li>
+                    <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a></code>]</code> <strong>callback</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>A callback for receiving the result</p>
+            
+                      </div>
                     </li>
                 </ul>
                   <h4>Returns</h4>
-                  <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code></code>
+                  <code><code>void</code> or <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></code></code>
                   :
-                  <span class='force-inline'>
-                    <p>The trimmed string</p>
+                  <div class='force-inline'>
+                    <p>If no callback is passed, a promise is returned</p>
             
-                  </span>
+                  </div>
             </section>
           </div>
         </div>
-        <div class='collapsible' id='helpers.type'>
-          <a href='#helpers.type'>
+        <div class='collapsible' id='QueryBuilder.getCompiledDelete'>
+          <a href='#QueryBuilder.getCompiledDelete'>
             <code>
-              .type<span class='gray'>(o)</span>
+              #getCompiledDelete<span class='gray'>(table, [reset])</span>
             </code>
-            <span class='force-inline'>
-              <p>Get the type of the variable passed</p>
+            <div class='force-inline'>
+              <p>Return generated delete query SQL</p>
 
-            </span>
+            </div>
           </a>
-          <div class='collapser border px2 m2'>
+          <div class='collapser border px2'>
             <section class='py2 clearfix'>
-              <h2 id='helpers.type' class='mt0'>
-                type<span class='gray'>(o)</span>
+              <h2 id='QueryBuilder.getCompiledDelete' class='mt0'>
+                getCompiledDelete<span class='gray'>(table, [reset])</span>
               </h2>
-              <p>Get the type of the variable passed</p>
+              <p>Return generated delete query SQL</p>
             
                 <h4>Parameters</h4>
                 <ul class='suppress-p-margin'>
-                    <li><code>mixed</code> <strong>o</strong>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>table</strong>
                       :
-                      <span class='force-inline'>
-                        <p>Object to type check</p>
+                      <div class='force-inline'>
+                        <p>the name of the table to delete from</p>
             
-                      </span>
+                      </div>
                     </li>
-                </ul>
-                  <h4>Returns</h4>
-                  <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code></code>
-                  :
-                  <span class='force-inline'>
-                    <p>Type of the object</p>
-            
-                  </span>
-            </section>
-          </div>
-        </div>
-        <div class='collapsible' id='helpers.upperCaseFirst'>
-          <a href='#helpers.upperCaseFirst'>
-            <code>
-              .upperCaseFirst<span class='gray'>(str)</span>
-            </code>
-            <span class='force-inline'>
-              <p>Make the first letter of the string uppercase</p>
-
-            </span>
-          </a>
-          <div class='collapser border px2 m2'>
-            <section class='py2 clearfix'>
-              <h2 id='helpers.upperCaseFirst' class='mt0'>
-                upperCaseFirst<span class='gray'>(str)</span>
-              </h2>
-              <p>Make the first letter of the string uppercase</p>
-            
-                <h4>Parameters</h4>
-                <ul class='suppress-p-margin'>
-                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>str</strong>
+                    <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>]</code> <strong>reset</strong>
+                        (default <code>true</code>)
                       :
-                      <span class='force-inline'>
-                        <p>The string to modify</p>
+                      <div class='force-inline'>
+                        <p>Whether to reset the query builder so another query can be built</p>
             
-                      </span>
+                      </div>
                     </li>
                 </ul>
                   <h4>Returns</h4>
                   <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code></code>
                   :
-                  <span class='force-inline'>
-                    <p>The modified string</p>
+                  <div class='force-inline'>
+                    <p>The compiled sql statement</p>
             
-                  </span>
+                  </div>
             </section>
           </div>
         </div>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='compileJoin' class='mt0'>
-    compileJoin<span class='gray'>(condition)</span>
-  </h2>
-  <p>Return the output of the parsing of the join condition</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>condition</strong>
-          :
-          <span class='force-inline'>
-            <p>The join condition to evalate</p>
-
-          </span>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code></code>
-      :
-      <span class='force-inline'>
-        <p>The parsed/escaped join condition</p>
-
-      </span>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='constructor' class='mt0'>
-    constructor<span class='gray'>(driver)</span>
-  </h2>
-  
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code>Driver</code> <strong>driver</strong>
-          :
-          <span class='force-inline'>
-            <p>The driver object for the database in use</p>
-
-          </span>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code>void</code></code>
-      
-      <span class='force-inline'>
-        
-      </span>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='delete' class='mt0'>
-    delete<span class='gray'>(table, [where], callback)</span>
-  </h2>
-  <p>Run the generated delete query</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>table</strong>
-          :
-          <span class='force-inline'>
-            <p>The table to insert into</p>
-
-          </span>
-        </li>
-        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>]</code> <strong>where</strong>
-          :
-          <span class='force-inline'>
-            <p>Where clause for delete statement</p>
-
-          </span>
-        </li>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a></code> <strong>callback</strong>
-          :
-          <span class='force-inline'>
-            <p>Callback for handling response from the database</p>
-
-          </span>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code>void</code></code>
-      
-      <span class='force-inline'>
-        
-      </span>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='end' class='mt0'>
-    end<span class='gray'></span>
-  </h2>
-  <p>Closes the database connection for the current adapter</p>
-
-      <h4>Returns</h4>
-      <code><code>void</code></code>
-      
-      <span class='force-inline'>
-        
-      </span>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='filterMatches' class='mt0'>
-    filterMatches<span class='gray'>(array)</span>
-  </h2>
-  <p>Filter matched patterns</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code> <strong>array</strong>
-          :
-          <span class='force-inline'>
-            <p>Set of possible matches</p>
-
-          </span>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code> or </code>
-      :
-      <span class='force-inline'>
-        <p>Filtered set of possible matches</p>
-
-      </span>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='from' class='mt0'>
-    from<span class='gray'>(tableName)</span>
-  </h2>
-  <p>Specify the database table to select from</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>tableName</strong>
-          :
-          <span class='force-inline'>
-            <p>The table to use for the current query</p>
-
-          </span>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      :
-      <span class='force-inline'>
-        <p>The Query Builder object, for chaining</p>
-
-      </span>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='get' class='mt0'>
-    get<span class='gray'>([table], [limit], [offset], callback)</span>
-  </h2>
-  <p>Get the results of the compiled query</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>]</code> <strong>table</strong>
-          :
-          <span class='force-inline'>
-            <p>The table to select from</p>
-
-          </span>
-        </li>
-        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></code>]</code> <strong>limit</strong>
-          :
-          <span class='force-inline'>
-            <p>A limit for the query</p>
-
-          </span>
-        </li>
-        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></code>]</code> <strong>offset</strong>
-          :
-          <span class='force-inline'>
-            <p>An offset for the query</p>
-
-          </span>
-        </li>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a></code> <strong>callback</strong>
-          :
-          <span class='force-inline'>
-            <p>A callback for receiving the result</p>
-
-          </span>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code>void</code></code>
-      
-      <span class='force-inline'>
-        
-      </span>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='getCompiledDelete' class='mt0'>
-    getCompiledDelete<span class='gray'>(table, [reset])</span>
-  </h2>
-  <p>Return generated delete query SQL</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>table</strong>
-          :
-          <span class='force-inline'>
-            <p>the name of the table to delete from</p>
-
-          </span>
-        </li>
-        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>]</code> <strong>reset</strong>
-            (default <code>true</code>)
-          :
-          <span class='force-inline'>
-            <p>Whether to reset the query builder so another query can be built</p>
-
-          </span>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code></code>
-      :
-      <span class='force-inline'>
-        <p>The compiled sql statement</p>
-
-      </span>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='getCompiledInsert' class='mt0'>
-    getCompiledInsert<span class='gray'>(table, [reset])</span>
-  </h2>
-  <p>Return generated insert query SQL</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>table</strong>
-          :
-          <span class='force-inline'>
-            <p>the name of the table to insert into</p>
-
-          </span>
-        </li>
-        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>]</code> <strong>reset</strong>
-            (default <code>true</code>)
-          :
-          <span class='force-inline'>
-            <p>Whether to reset the query builder so another query can be built</p>
-
-          </span>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code></code>
-      :
-      <span class='force-inline'>
-        <p>The compiled sql statement</p>
-
-      </span>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='getCompiledSelect' class='mt0'>
-    getCompiledSelect<span class='gray'>([table], [reset])</span>
-  </h2>
-  <p>Return generated select query SQL</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>]</code> <strong>table</strong>
-          :
-          <span class='force-inline'>
-            <p>the name of the table to retrieve from</p>
-
-          </span>
-        </li>
-        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>]</code> <strong>reset</strong>
-            (default <code>true</code>)
-          :
-          <span class='force-inline'>
-            <p>Whether to reset the query builder so another query can be built</p>
-
-          </span>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code></code>
-      :
-      <span class='force-inline'>
-        <p>The compiled sql statement</p>
-
-      </span>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='getCompiledUpdate' class='mt0'>
-    getCompiledUpdate<span class='gray'>(table, [reset])</span>
-  </h2>
-  <p>Return generated update query SQL</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>table</strong>
-          :
-          <span class='force-inline'>
-            <p>the name of the table to update</p>
-
-          </span>
-        </li>
-        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>]</code> <strong>reset</strong>
-            (default <code>true</code>)
-          :
-          <span class='force-inline'>
-            <p>Whether to reset the query builder so another query can be built</p>
-
-          </span>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code></code>
-      :
-      <span class='force-inline'>
-        <p>The compiled sql statement</p>
-
-      </span>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='groupBy' class='mt0'>
-    groupBy<span class='gray'>(field)</span>
-  </h2>
-  <p>Group the results by the selected field(s)</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> or <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code> <strong>field</strong>
-          :
-          <span class='force-inline'>
-            <p>The name of the field to group by</p>
-
-          </span>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      :
-      <span class='force-inline'>
-        <p>The Query Builder object, for chaining</p>
-
-      </span>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='groupEnd' class='mt0'>
-    groupEnd<span class='gray'></span>
-  </h2>
-  <p>Ends a logical grouping started with one of the groupStart methods</p>
-
-      <h4>Returns</h4>
-      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      :
-      <span class='force-inline'>
-        <p>The Query Builder object, for chaining</p>
-
-      </span>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='groupStart' class='mt0'>
-    groupStart<span class='gray'></span>
-  </h2>
-  <p>Adds an open paren to the current query for logical grouping</p>
-
-      <h4>Returns</h4>
-      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      :
-      <span class='force-inline'>
-        <p>The Query Builder object, for chaining</p>
-
-      </span>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='hasOperator' class='mt0'>
-    hasOperator<span class='gray'>(string)</span>
-  </h2>
-  <p>Check if the string contains an operator, and if so, return the operator(s).
-If there are no matches, return null</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>string</strong>
-          :
-          <span class='force-inline'>
-            <p>the string to check</p>
-
-          </span>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code> or </code>
-      :
-      <span class='force-inline'>
-        <p>List of operators</p>
-
-      </span>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='having' class='mt0'>
-    having<span class='gray'>(key, [val])</span>
-  </h2>
-  <p>Add a &apos;having&apos; clause</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> or <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code> <strong>key</strong>
-          :
-          <span class='force-inline'>
-            <p>The name of the field and the comparision operator, or an object</p>
-
-          </span>
-        </li>
-        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> or <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></code>]</code> <strong>val</strong>
-          :
-          <span class='force-inline'>
-            <p>The value to compare if the value of key is a string</p>
-
-          </span>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      :
-      <span class='force-inline'>
-        <p>The Query Builder object, for chaining</p>
-
-      </span>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='insert' class='mt0'>
-    insert<span class='gray'>(table, [data], callback)</span>
-  </h2>
-  <p>Run the generated insert query</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>table</strong>
-          :
-          <span class='force-inline'>
-            <p>The table to insert into</p>
-
-          </span>
-        </li>
-        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>]</code> <strong>data</strong>
-          :
-          <span class='force-inline'>
-            <p>Data to insert, if not already added with the &apos;set&apos; method</p>
-
-          </span>
-        </li>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a></code> <strong>callback</strong>
-          :
-          <span class='force-inline'>
-            <p>Callback for handling response from the database</p>
-
-          </span>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code>void</code></code>
-      
-      <span class='force-inline'>
-        
-      </span>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='insertBatch' class='mt0'>
-    insertBatch<span class='gray'>(table, data, callback)</span>
-  </h2>
-  <p>Insert multiple sets of rows at a time</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>table</strong>
-          :
-          <span class='force-inline'>
-            <p>The table to insert into</p>
-
-          </span>
-        </li>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code> <strong>data</strong>
-          :
-          <span class='force-inline'>
-            <p>The array of objects containing data rows to insert</p>
-
-          </span>
-        </li>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a></code> <strong>callback</strong>
-          :
-          <span class='force-inline'>
-            <p>Callback for handling database response</p>
-
-          </span>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code>void</code></code>
-      
-      <span class='force-inline'>
-        
-      </span>
-    <h4>Examples</h4>
-<pre class='overflow-auto'>query.insertBatch(<span class="hljs-string">'foo'</span>,[{id:<span class="hljs-number">1</span>,val:<span class="hljs-string">'bar'</span>},{id:<span class="hljs-number">2</span>,val:<span class="hljs-string">'baz'</span>}], callbackFunction);</pre>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='join' class='mt0'>
-    join<span class='gray'>(table, cond, [type])</span>
-  </h2>
-  <p>Add a join clause to the query</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>table</strong>
-          :
-          <span class='force-inline'>
-            <p>The table you are joining</p>
-
-          </span>
-        </li>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>cond</strong>
-          :
-          <span class='force-inline'>
-            <p>The join condition.</p>
-
-          </span>
-        </li>
-        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>]</code> <strong>type</strong>
-            (default <code>&#x27;inner&#x27;</code>)
-          :
-          <span class='force-inline'>
-            <p>The type of join, which defaults to inner</p>
-
-          </span>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      :
-      <span class='force-inline'>
-        <p>The Query Builder object, for chaining</p>
-
-      </span>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='like' class='mt0'>
-    like<span class='gray'>(field, val, [pos])</span>
-  </h2>
-  <p>Add a &apos;like/ and like&apos; clause to the query</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>field</strong>
-          :
-          <span class='force-inline'>
-            <p>The name of the field  to compare to</p>
-
-          </span>
-        </li>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>val</strong>
-          :
-          <span class='force-inline'>
-            <p>The value to compare to</p>
-
-          </span>
-        </li>
-        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>]</code> <strong>pos</strong>
-            (default <code>both</code>)
-          :
-          <span class='force-inline'>
-            <p>The placement of the wildcard character(s): before, after, or both</p>
-
-          </span>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      :
-      <span class='force-inline'>
-        <p>The Query Builder object, for chaining</p>
-
-      </span>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='limit' class='mt0'>
-    limit<span class='gray'>(limit, [offset])</span>
-  </h2>
-  <p>Put a limit on the query</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></code> <strong>limit</strong>
-          :
-          <span class='force-inline'>
-            <p>The maximum number of rows to fetch</p>
-
-          </span>
-        </li>
-        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></code>]</code> <strong>offset</strong>
-          :
-          <span class='force-inline'>
-            <p>The row number to start from</p>
-
-          </span>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      :
-      <span class='force-inline'>
-        <p>The Query Builder object, for chaining</p>
-
-      </span>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='notLike' class='mt0'>
-    notLike<span class='gray'>(field, val, [pos])</span>
-  </h2>
-  <p>Add a &apos;not like/ and not like&apos; clause to the query</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>field</strong>
-          :
-          <span class='force-inline'>
-            <p>The name of the field  to compare to</p>
-
-          </span>
-        </li>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>val</strong>
-          :
-          <span class='force-inline'>
-            <p>The value to compare to</p>
-
-          </span>
-        </li>
-        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>]</code> <strong>pos</strong>
-            (default <code>both</code>)
-          :
-          <span class='force-inline'>
-            <p>The placement of the wildcard character(s): before, after, or both</p>
-
-          </span>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      :
-      <span class='force-inline'>
-        <p>The Query Builder object, for chaining</p>
-
-      </span>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='orGroupStart' class='mt0'>
-    orGroupStart<span class='gray'></span>
-  </h2>
-  <p>Adds an open paren to the current query for logical grouping,
+        <div class='collapsible' id='QueryBuilder.getCompiledInsert'>
+          <a href='#QueryBuilder.getCompiledInsert'>
+            <code>
+              #getCompiledInsert<span class='gray'>(table, [reset])</span>
+            </code>
+            <div class='force-inline'>
+              <p>Return generated insert query SQL</p>
+
+            </div>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='QueryBuilder.getCompiledInsert' class='mt0'>
+                getCompiledInsert<span class='gray'>(table, [reset])</span>
+              </h2>
+              <p>Return generated insert query SQL</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>table</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>the name of the table to insert into</p>
+            
+                      </div>
+                    </li>
+                    <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>]</code> <strong>reset</strong>
+                        (default <code>true</code>)
+                      :
+                      <div class='force-inline'>
+                        <p>Whether to reset the query builder so another query can be built</p>
+            
+                      </div>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>The compiled sql statement</p>
+            
+                  </div>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='QueryBuilder.getCompiledSelect'>
+          <a href='#QueryBuilder.getCompiledSelect'>
+            <code>
+              #getCompiledSelect<span class='gray'>([table], [reset])</span>
+            </code>
+            <div class='force-inline'>
+              <p>Return generated select query SQL</p>
+
+            </div>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='QueryBuilder.getCompiledSelect' class='mt0'>
+                getCompiledSelect<span class='gray'>([table], [reset])</span>
+              </h2>
+              <p>Return generated select query SQL</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>]</code> <strong>table</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>the name of the table to retrieve from</p>
+            
+                      </div>
+                    </li>
+                    <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>]</code> <strong>reset</strong>
+                        (default <code>true</code>)
+                      :
+                      <div class='force-inline'>
+                        <p>Whether to reset the query builder so another query can be built</p>
+            
+                      </div>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>The compiled sql statement</p>
+            
+                  </div>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='QueryBuilder.getCompiledUpdate'>
+          <a href='#QueryBuilder.getCompiledUpdate'>
+            <code>
+              #getCompiledUpdate<span class='gray'>(table, [reset])</span>
+            </code>
+            <div class='force-inline'>
+              <p>Return generated update query SQL</p>
+
+            </div>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='QueryBuilder.getCompiledUpdate' class='mt0'>
+                getCompiledUpdate<span class='gray'>(table, [reset])</span>
+              </h2>
+              <p>Return generated update query SQL</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>table</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>the name of the table to update</p>
+            
+                      </div>
+                    </li>
+                    <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>]</code> <strong>reset</strong>
+                        (default <code>true</code>)
+                      :
+                      <div class='force-inline'>
+                        <p>Whether to reset the query builder so another query can be built</p>
+            
+                      </div>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>The compiled sql statement</p>
+            
+                  </div>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='QueryBuilder.groupBy'>
+          <a href='#QueryBuilder.groupBy'>
+            <code>
+              #groupBy<span class='gray'>(field)</span>
+            </code>
+            <div class='force-inline'>
+              <p>Group the results by the selected field(s)</p>
+
+            </div>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='QueryBuilder.groupBy' class='mt0'>
+                groupBy<span class='gray'>(field)</span>
+              </h2>
+              <p>Group the results by the selected field(s)</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> or <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code> <strong>field</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>The name of the field to group by</p>
+            
+                      </div>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>The Query Builder object, for chaining</p>
+            
+                  </div>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='QueryBuilder.groupEnd'>
+          <a href='#QueryBuilder.groupEnd'>
+            <code>
+              #groupEnd<span class='gray'></span>
+            </code>
+            <div class='force-inline'>
+              <p>Ends a logical grouping started with one of the groupStart methods</p>
+
+            </div>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='QueryBuilder.groupEnd' class='mt0'>
+                groupEnd<span class='gray'></span>
+              </h2>
+              <p>Ends a logical grouping started with one of the groupStart methods</p>
+            
+                  <h4>Returns</h4>
+                  <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>The Query Builder object, for chaining</p>
+            
+                  </div>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='QueryBuilder.groupStart'>
+          <a href='#QueryBuilder.groupStart'>
+            <code>
+              #groupStart<span class='gray'></span>
+            </code>
+            <div class='force-inline'>
+              <p>Adds an open paren to the current query for logical grouping</p>
+
+            </div>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='QueryBuilder.groupStart' class='mt0'>
+                groupStart<span class='gray'></span>
+              </h2>
+              <p>Adds an open paren to the current query for logical grouping</p>
+            
+                  <h4>Returns</h4>
+                  <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>The Query Builder object, for chaining</p>
+            
+                  </div>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='QueryBuilder.having'>
+          <a href='#QueryBuilder.having'>
+            <code>
+              #having<span class='gray'>(key, [val])</span>
+            </code>
+            <div class='force-inline'>
+              <p>Add a &apos;having&apos; clause</p>
+
+            </div>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='QueryBuilder.having' class='mt0'>
+                having<span class='gray'>(key, [val])</span>
+              </h2>
+              <p>Add a &apos;having&apos; clause</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> or <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code> <strong>key</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>The name of the field and the comparision operator, or an object</p>
+            
+                      </div>
+                    </li>
+                    <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> or <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></code>]</code> <strong>val</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>The value to compare if the value of key is a string</p>
+            
+                      </div>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>The Query Builder object, for chaining</p>
+            
+                  </div>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='QueryBuilder.insert'>
+          <a href='#QueryBuilder.insert'>
+            <code>
+              #insert<span class='gray'>(table, [data], [callback])</span>
+            </code>
+            <div class='force-inline'>
+              <p>Run the generated insert query</p>
+
+            </div>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='QueryBuilder.insert' class='mt0'>
+                insert<span class='gray'>(table, [data], [callback])</span>
+              </h2>
+              <p>Run the generated insert query</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>table</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>The table to insert into</p>
+            
+                      </div>
+                    </li>
+                    <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>]</code> <strong>data</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>Data to insert, if not already added with the &apos;set&apos; method</p>
+            
+                      </div>
+                    </li>
+                    <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a></code>]</code> <strong>callback</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>Callback for handling response from the database</p>
+            
+                      </div>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code>void</code> or <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>If no callback is passed, a promise is returned</p>
+            
+                  </div>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='QueryBuilder.insertBatch'>
+          <a href='#QueryBuilder.insertBatch'>
+            <code>
+              #insertBatch<span class='gray'>(table, data, [callback])</span>
+            </code>
+            <div class='force-inline'>
+              <p>Insert multiple sets of rows at a time</p>
+
+            </div>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='QueryBuilder.insertBatch' class='mt0'>
+                insertBatch<span class='gray'>(table, data, [callback])</span>
+              </h2>
+              <p>Insert multiple sets of rows at a time</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>table</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>The table to insert into</p>
+            
+                      </div>
+                    </li>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code> <strong>data</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>The array of objects containing data rows to insert</p>
+            
+                      </div>
+                    </li>
+                    <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a></code>]</code> <strong>callback</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>Callback for handling database response</p>
+            
+                      </div>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code>void</code> or <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>If no callback is passed, a promise is returned</p>
+            
+                  </div>
+                <h4>Examples</h4>
+            <pre class='overflow-auto'>query.insertBatch(<span class="hljs-string">'foo'</span>,[{id:<span class="hljs-number">1</span>,val:<span class="hljs-string">'bar'</span>},{id:<span class="hljs-number">2</span>,val:<span class="hljs-string">'baz'</span>}], callbackFunction);</pre>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='QueryBuilder.join'>
+          <a href='#QueryBuilder.join'>
+            <code>
+              #join<span class='gray'>(table, cond, [type])</span>
+            </code>
+            <div class='force-inline'>
+              <p>Add a join clause to the query</p>
+
+            </div>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='QueryBuilder.join' class='mt0'>
+                join<span class='gray'>(table, cond, [type])</span>
+              </h2>
+              <p>Add a join clause to the query</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>table</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>The table you are joining</p>
+            
+                      </div>
+                    </li>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>cond</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>The join condition.</p>
+            
+                      </div>
+                    </li>
+                    <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>]</code> <strong>type</strong>
+                        (default <code>&#x27;inner&#x27;</code>)
+                      :
+                      <div class='force-inline'>
+                        <p>The type of join, which defaults to inner</p>
+            
+                      </div>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>The Query Builder object, for chaining</p>
+            
+                  </div>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='QueryBuilder.like'>
+          <a href='#QueryBuilder.like'>
+            <code>
+              #like<span class='gray'>(field, val, [pos])</span>
+            </code>
+            <div class='force-inline'>
+              <p>Add a &apos;like/ and like&apos; clause to the query</p>
+
+            </div>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='QueryBuilder.like' class='mt0'>
+                like<span class='gray'>(field, val, [pos])</span>
+              </h2>
+              <p>Add a &apos;like/ and like&apos; clause to the query</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>field</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>The name of the field  to compare to</p>
+            
+                      </div>
+                    </li>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>val</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>The value to compare to</p>
+            
+                      </div>
+                    </li>
+                    <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>]</code> <strong>pos</strong>
+                        (default <code>both</code>)
+                      :
+                      <div class='force-inline'>
+                        <p>The placement of the wildcard character(s): before, after, or both</p>
+            
+                      </div>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>The Query Builder object, for chaining</p>
+            
+                  </div>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='QueryBuilder.limit'>
+          <a href='#QueryBuilder.limit'>
+            <code>
+              #limit<span class='gray'>(limit, [offset])</span>
+            </code>
+            <div class='force-inline'>
+              <p>Put a limit on the query</p>
+
+            </div>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='QueryBuilder.limit' class='mt0'>
+                limit<span class='gray'>(limit, [offset])</span>
+              </h2>
+              <p>Put a limit on the query</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></code> <strong>limit</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>The maximum number of rows to fetch</p>
+            
+                      </div>
+                    </li>
+                    <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></code>]</code> <strong>offset</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>The row number to start from</p>
+            
+                      </div>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>The Query Builder object, for chaining</p>
+            
+                  </div>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='QueryBuilder.notLike'>
+          <a href='#QueryBuilder.notLike'>
+            <code>
+              #notLike<span class='gray'>(field, val, [pos])</span>
+            </code>
+            <div class='force-inline'>
+              <p>Add a &apos;not like/ and not like&apos; clause to the query</p>
+
+            </div>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='QueryBuilder.notLike' class='mt0'>
+                notLike<span class='gray'>(field, val, [pos])</span>
+              </h2>
+              <p>Add a &apos;not like/ and not like&apos; clause to the query</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>field</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>The name of the field  to compare to</p>
+            
+                      </div>
+                    </li>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>val</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>The value to compare to</p>
+            
+                      </div>
+                    </li>
+                    <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>]</code> <strong>pos</strong>
+                        (default <code>both</code>)
+                      :
+                      <div class='force-inline'>
+                        <p>The placement of the wildcard character(s): before, after, or both</p>
+            
+                      </div>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>The Query Builder object, for chaining</p>
+            
+                  </div>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='QueryBuilder.orGroupStart'>
+          <a href='#QueryBuilder.orGroupStart'>
+            <code>
+              #orGroupStart<span class='gray'></span>
+            </code>
+            <div class='force-inline'>
+              <p>Adds an open paren to the current query for logical grouping,
 prefixed with &apos;OR&apos;</p>
 
-      <h4>Returns</h4>
-      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      :
-      <span class='force-inline'>
-        <p>The Query Builder object, for chaining</p>
+            </div>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='QueryBuilder.orGroupStart' class='mt0'>
+                orGroupStart<span class='gray'></span>
+              </h2>
+              <p>Adds an open paren to the current query for logical grouping,
+            prefixed with &apos;OR&apos;</p>
+            
+                  <h4>Returns</h4>
+                  <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>The Query Builder object, for chaining</p>
+            
+                  </div>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='QueryBuilder.orHaving'>
+          <a href='#QueryBuilder.orHaving'>
+            <code>
+              #orHaving<span class='gray'>(key, [val])</span>
+            </code>
+            <div class='force-inline'>
+              <p>Add an &apos;or having&apos; clause</p>
 
-      </span>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='orHaving' class='mt0'>
-    orHaving<span class='gray'>(key, [val])</span>
-  </h2>
-  <p>Add an &apos;or having&apos; clause</p>
+            </div>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='QueryBuilder.orHaving' class='mt0'>
+                orHaving<span class='gray'>(key, [val])</span>
+              </h2>
+              <p>Add an &apos;or having&apos; clause</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> or <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code> <strong>key</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>The name of the field and the comparision operator, or an object</p>
+            
+                      </div>
+                    </li>
+                    <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> or <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></code>]</code> <strong>val</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>The value to compare if the value of key is a string</p>
+            
+                      </div>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>The Query Builder object, for chaining</p>
+            
+                  </div>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='QueryBuilder.orLike'>
+          <a href='#QueryBuilder.orLike'>
+            <code>
+              #orLike<span class='gray'>(field, val, [pos])</span>
+            </code>
+            <div class='force-inline'>
+              <p>Add an &apos;or like&apos; clause to the query</p>
 
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> or <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code> <strong>key</strong>
-          :
-          <span class='force-inline'>
-            <p>The name of the field and the comparision operator, or an object</p>
-
-          </span>
-        </li>
-        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> or <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></code>]</code> <strong>val</strong>
-          :
-          <span class='force-inline'>
-            <p>The value to compare if the value of key is a string</p>
-
-          </span>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      :
-      <span class='force-inline'>
-        <p>The Query Builder object, for chaining</p>
-
-      </span>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='orLike' class='mt0'>
-    orLike<span class='gray'>(field, val, [pos])</span>
-  </h2>
-  <p>Add an &apos;or like&apos; clause to the query</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>field</strong>
-          :
-          <span class='force-inline'>
-            <p>The name of the field  to compare to</p>
-
-          </span>
-        </li>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>val</strong>
-          :
-          <span class='force-inline'>
-            <p>The value to compare to</p>
-
-          </span>
-        </li>
-        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>]</code> <strong>pos</strong>
-            (default <code>both</code>)
-          :
-          <span class='force-inline'>
-            <p>The placement of the wildcard character(s): before, after, or both</p>
-
-          </span>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      :
-      <span class='force-inline'>
-        <p>The Query Builder object, for chaining</p>
-
-      </span>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='orNotGroupStart' class='mt0'>
-    orNotGroupStart<span class='gray'></span>
-  </h2>
-  <p>Adds an open paren to the current query for logical grouping,
+            </div>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='QueryBuilder.orLike' class='mt0'>
+                orLike<span class='gray'>(field, val, [pos])</span>
+              </h2>
+              <p>Add an &apos;or like&apos; clause to the query</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>field</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>The name of the field  to compare to</p>
+            
+                      </div>
+                    </li>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>val</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>The value to compare to</p>
+            
+                      </div>
+                    </li>
+                    <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>]</code> <strong>pos</strong>
+                        (default <code>both</code>)
+                      :
+                      <div class='force-inline'>
+                        <p>The placement of the wildcard character(s): before, after, or both</p>
+            
+                      </div>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>The Query Builder object, for chaining</p>
+            
+                  </div>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='QueryBuilder.orNotGroupStart'>
+          <a href='#QueryBuilder.orNotGroupStart'>
+            <code>
+              #orNotGroupStart<span class='gray'></span>
+            </code>
+            <div class='force-inline'>
+              <p>Adds an open paren to the current query for logical grouping,
 prefixed with &apos;OR NOT&apos;</p>
 
-      <h4>Returns</h4>
-      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      :
-      <span class='force-inline'>
-        <p>The Query Builder object, for chaining</p>
-
-      </span>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='orNotLike' class='mt0'>
-    orNotLike<span class='gray'>(field, val, [pos])</span>
-  </h2>
-  <p>Add an &apos;or not like&apos; clause to the query</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>field</strong>
-          :
-          <span class='force-inline'>
-            <p>The name of the field  to compare to</p>
-
-          </span>
-        </li>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>val</strong>
-          :
-          <span class='force-inline'>
-            <p>The value to compare to</p>
-
-          </span>
-        </li>
-        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>]</code> <strong>pos</strong>
-            (default <code>both</code>)
-          :
-          <span class='force-inline'>
-            <p>The placement of the wildcard character(s): before, after, or both</p>
-
-          </span>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      :
-      <span class='force-inline'>
-        <p>The Query Builder object, for chaining</p>
-
-      </span>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='orWhere' class='mt0'>
-    orWhere<span class='gray'>(key, [val])</span>
-  </h2>
-  <p>Set a &apos;or where&apos; clause</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> or <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code> <strong>key</strong>
-          :
-          <span class='force-inline'>
-            <p>The name of the field and the comparision operator, or an object</p>
-
-          </span>
-        </li>
-        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> or <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></code>]</code> <strong>val</strong>
-          :
-          <span class='force-inline'>
-            <p>The value to compare if the value of key is a string</p>
-
-          </span>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      :
-      <span class='force-inline'>
-        <p>The Query Builder object, for chaining</p>
-
-      </span>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='orWhereIn' class='mt0'>
-    orWhereIn<span class='gray'>(key, val)</span>
-  </h2>
-  <p>Set a &apos;or where in&apos; clause</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>key</strong>
-          :
-          <span class='force-inline'>
-            <p>the field to search</p>
-
-          </span>
-        </li>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code> <strong>val</strong>
-          :
-          <span class='force-inline'>
-            <p>the array of items to search in</p>
-
-          </span>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      :
-      <span class='force-inline'>
-        <p>The Query Builder object, for chaining</p>
-
-      </span>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='orWhereIsNotNull' class='mt0'>
-    orWhereIsNotNull<span class='gray'>(field)</span>
-  </h2>
-  <p>Field is not null prefixed with &apos;OR&apos;</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>field</strong>
-          :
-          <span class='force-inline'>
-            <p>The name of the field</p>
-
-          </span>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      :
-      <span class='force-inline'>
-        <p>The Query Builder object, for chaining</p>
-
-      </span>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='orWhereIsNull' class='mt0'>
-    orWhereIsNull<span class='gray'>(field)</span>
-  </h2>
-  <p>Field is null prefixed with &apos;OR&apos;</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>field</strong>
-          :
-          <span class='force-inline'>
-            <p>The name of the field</p>
-
-          </span>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      :
-      <span class='force-inline'>
-        <p>The Query Builder object, for chaining</p>
-
-      </span>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='orWhereNotIn' class='mt0'>
-    orWhereNotIn<span class='gray'>(key, val)</span>
-  </h2>
-  <p>Set a &apos;or where not in&apos; clause</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>key</strong>
-          :
-          <span class='force-inline'>
-            <p>the field to search</p>
-
-          </span>
-        </li>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code> <strong>val</strong>
-          :
-          <span class='force-inline'>
-            <p>the array of items to search in</p>
-
-          </span>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      :
-      <span class='force-inline'>
-        <p>The Query Builder object, for chaining</p>
-
-      </span>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='orderBy' class='mt0'>
-    orderBy<span class='gray'>(field, [type])</span>
-  </h2>
-  <p>Order the results by the selected field(s)</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>field</strong>
-          :
-          <span class='force-inline'>
-            <p>The field(s) to order by</p>
-
-          </span>
-        </li>
-        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>]</code> <strong>type</strong>
-            (default <code>&#x27;ASC&#x27;</code>)
-          :
-          <span class='force-inline'>
-            <p>The order direction, ASC or DESC</p>
-
-          </span>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      :
-      <span class='force-inline'>
-        <p>The Query Builder object, for chaining</p>
-
-      </span>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='parseJoin' class='mt0'>
-    parseJoin<span class='gray'>(sql)</span>
-  </h2>
-  <p>Tokenize the sql into parts for additional processing</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>sql</strong>
-          :
-          <span class='force-inline'>
-            <p>Join sql to parse</p>
-
-          </span>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code></code>
-      :
-      <span class='force-inline'>
-        <p>Join condition components</p>
-
-      </span>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='parseWhere' class='mt0'>
-    parseWhere<span class='gray'>(driver, state)</span>
-  </h2>
-  <p>Parse a where clause to separate functions from values</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code>Driver</code> <strong>driver</strong>
-          :
-          <span class='force-inline'>
-            <p>The current db driver</p>
-
-          </span>
-        </li>
-        <li><code><a href="#State">State</a></code> <strong>state</strong>
-          :
-          <span class='force-inline'>
-            <p>Query Builder state object</p>
-
-          </span>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code></code>
-      :
-      <span class='force-inline'>
-        <p>The parsed/escaped where condition</p>
-
-      </span>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='resetQuery' class='mt0'>
-    resetQuery<span class='gray'></span>
-  </h2>
-  <p>Reset the object state for a new query</p>
-
-      <h4>Returns</h4>
-      <code><code>void</code></code>
-      
-      <span class='force-inline'>
-        
-      </span>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='select' class='mt0'>
-    select<span class='gray'>(fields)</span>
-  </h2>
-  <p>Specify rows to select in the query</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> or <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code> <strong>fields</strong>
-          :
-          <span class='force-inline'>
-            <p>The fields to select from the current table</p>
-
-          </span>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      :
-      <span class='force-inline'>
-        <p>The Query Builder object, for chaining</p>
-
-      </span>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='set' class='mt0'>
-    set<span class='gray'>(key, [val])</span>
-  </h2>
-  <p>Set values for insertion or updating</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> or <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code> <strong>key</strong>
-          :
-          <span class='force-inline'>
-            <p>The key or object to use</p>
-
-          </span>
-        </li>
-        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>]</code> <strong>val</strong>
-          :
-          <span class='force-inline'>
-            <p>The value if using a scalar key</p>
-
-          </span>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      :
-      <span class='force-inline'>
-        <p>The Query Builder object, for chaining</p>
-
-      </span>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='update' class='mt0'>
-    update<span class='gray'>(table, [data], callback)</span>
-  </h2>
-  <p>Run the generated update query</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>table</strong>
-          :
-          <span class='force-inline'>
-            <p>The table to insert into</p>
-
-          </span>
-        </li>
-        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>]</code> <strong>data</strong>
-          :
-          <span class='force-inline'>
-            <p>Data to insert, if not already added with the &apos;set&apos; method</p>
-
-          </span>
-        </li>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a></code> <strong>callback</strong>
-          :
-          <span class='force-inline'>
-            <p>Callback for handling response from the database</p>
-
-          </span>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code>void</code></code>
-      
-      <span class='force-inline'>
-        
-      </span>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='where' class='mt0'>
-    where<span class='gray'>(key, [val])</span>
-  </h2>
-  <p>Set a &apos;where&apos; clause</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> or <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code> <strong>key</strong>
-          :
-          <span class='force-inline'>
-            <p>The name of the field and the comparision operator, or an object</p>
-
-          </span>
-        </li>
-        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> or <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></code>]</code> <strong>val</strong>
-          :
-          <span class='force-inline'>
-            <p>The value to compare if the value of key is a string</p>
-
-          </span>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      :
-      <span class='force-inline'>
-        <p>The Query Builder object, for chaining</p>
-
-      </span>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='whereIn' class='mt0'>
-    whereIn<span class='gray'>(key, val)</span>
-  </h2>
-  <p>Set a &apos;where in&apos; clause</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>key</strong>
-          :
-          <span class='force-inline'>
-            <p>the field to search</p>
-
-          </span>
-        </li>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code> <strong>val</strong>
-          :
-          <span class='force-inline'>
-            <p>the array of items to search in</p>
-
-          </span>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      :
-      <span class='force-inline'>
-        <p>The Query Builder object, for chaining</p>
-
-      </span>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='whereIsNotNull' class='mt0'>
-    whereIsNotNull<span class='gray'>(field)</span>
-  </h2>
-  <p>Specify that a field IS NOT NULL</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>field</strong>
-          :
-          <span class='force-inline'>
-            <p>The name so the field that is not to be null</p>
-
-          </span>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      :
-      <span class='force-inline'>
-        <p>The Query Builder object, for chaining</p>
-
-      </span>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='whereIsNull' class='mt0'>
-    whereIsNull<span class='gray'>(field)</span>
-  </h2>
-  <p>Select a field that is Null</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>field</strong>
-          :
-          <span class='force-inline'>
-            <p>The name of the field that has a NULL value</p>
-
-          </span>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      :
-      <span class='force-inline'>
-        <p>The Query Builder object, for chaining</p>
-
-      </span>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='whereNotIn' class='mt0'>
-    whereNotIn<span class='gray'>(key, val)</span>
-  </h2>
-  <p>Set a &apos;where not in&apos; clause</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>key</strong>
-          :
-          <span class='force-inline'>
-            <p>the field to search</p>
-
-          </span>
-        </li>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code> <strong>val</strong>
-          :
-          <span class='force-inline'>
-            <p>the array of items to search in</p>
-
-          </span>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-      :
-      <span class='force-inline'>
-        <p>The Query Builder object, for chaining</p>
-
-      </span>
+            </div>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='QueryBuilder.orNotGroupStart' class='mt0'>
+                orNotGroupStart<span class='gray'></span>
+              </h2>
+              <p>Adds an open paren to the current query for logical grouping,
+            prefixed with &apos;OR NOT&apos;</p>
+            
+                  <h4>Returns</h4>
+                  <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>The Query Builder object, for chaining</p>
+            
+                  </div>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='QueryBuilder.orNotLike'>
+          <a href='#QueryBuilder.orNotLike'>
+            <code>
+              #orNotLike<span class='gray'>(field, val, [pos])</span>
+            </code>
+            <div class='force-inline'>
+              <p>Add an &apos;or not like&apos; clause to the query</p>
+
+            </div>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='QueryBuilder.orNotLike' class='mt0'>
+                orNotLike<span class='gray'>(field, val, [pos])</span>
+              </h2>
+              <p>Add an &apos;or not like&apos; clause to the query</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>field</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>The name of the field  to compare to</p>
+            
+                      </div>
+                    </li>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>val</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>The value to compare to</p>
+            
+                      </div>
+                    </li>
+                    <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>]</code> <strong>pos</strong>
+                        (default <code>both</code>)
+                      :
+                      <div class='force-inline'>
+                        <p>The placement of the wildcard character(s): before, after, or both</p>
+            
+                      </div>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>The Query Builder object, for chaining</p>
+            
+                  </div>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='QueryBuilder.orWhere'>
+          <a href='#QueryBuilder.orWhere'>
+            <code>
+              #orWhere<span class='gray'>(key, [val])</span>
+            </code>
+            <div class='force-inline'>
+              <p>Set a &apos;or where&apos; clause</p>
+
+            </div>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='QueryBuilder.orWhere' class='mt0'>
+                orWhere<span class='gray'>(key, [val])</span>
+              </h2>
+              <p>Set a &apos;or where&apos; clause</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> or <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code> <strong>key</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>The name of the field and the comparision operator, or an object</p>
+            
+                      </div>
+                    </li>
+                    <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> or <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></code>]</code> <strong>val</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>The value to compare if the value of key is a string</p>
+            
+                      </div>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>The Query Builder object, for chaining</p>
+            
+                  </div>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='QueryBuilder.orWhereIn'>
+          <a href='#QueryBuilder.orWhereIn'>
+            <code>
+              #orWhereIn<span class='gray'>(key, val)</span>
+            </code>
+            <div class='force-inline'>
+              <p>Set a &apos;or where in&apos; clause</p>
+
+            </div>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='QueryBuilder.orWhereIn' class='mt0'>
+                orWhereIn<span class='gray'>(key, val)</span>
+              </h2>
+              <p>Set a &apos;or where in&apos; clause</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>key</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>the field to search</p>
+            
+                      </div>
+                    </li>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code> <strong>val</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>the array of items to search in</p>
+            
+                      </div>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>The Query Builder object, for chaining</p>
+            
+                  </div>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='QueryBuilder.orWhereIsNotNull'>
+          <a href='#QueryBuilder.orWhereIsNotNull'>
+            <code>
+              #orWhereIsNotNull<span class='gray'>(field)</span>
+            </code>
+            <div class='force-inline'>
+              <p>Field is not null prefixed with &apos;OR&apos;</p>
+
+            </div>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='QueryBuilder.orWhereIsNotNull' class='mt0'>
+                orWhereIsNotNull<span class='gray'>(field)</span>
+              </h2>
+              <p>Field is not null prefixed with &apos;OR&apos;</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>field</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>The name of the field</p>
+            
+                      </div>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>The Query Builder object, for chaining</p>
+            
+                  </div>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='QueryBuilder.orWhereIsNull'>
+          <a href='#QueryBuilder.orWhereIsNull'>
+            <code>
+              #orWhereIsNull<span class='gray'>(field)</span>
+            </code>
+            <div class='force-inline'>
+              <p>Field is null prefixed with &apos;OR&apos;</p>
+
+            </div>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='QueryBuilder.orWhereIsNull' class='mt0'>
+                orWhereIsNull<span class='gray'>(field)</span>
+              </h2>
+              <p>Field is null prefixed with &apos;OR&apos;</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>field</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>The name of the field</p>
+            
+                      </div>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>The Query Builder object, for chaining</p>
+            
+                  </div>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='QueryBuilder.orWhereNotIn'>
+          <a href='#QueryBuilder.orWhereNotIn'>
+            <code>
+              #orWhereNotIn<span class='gray'>(key, val)</span>
+            </code>
+            <div class='force-inline'>
+              <p>Set a &apos;or where not in&apos; clause</p>
+
+            </div>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='QueryBuilder.orWhereNotIn' class='mt0'>
+                orWhereNotIn<span class='gray'>(key, val)</span>
+              </h2>
+              <p>Set a &apos;or where not in&apos; clause</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>key</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>the field to search</p>
+            
+                      </div>
+                    </li>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code> <strong>val</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>the array of items to search in</p>
+            
+                      </div>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>The Query Builder object, for chaining</p>
+            
+                  </div>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='QueryBuilder.orderBy'>
+          <a href='#QueryBuilder.orderBy'>
+            <code>
+              #orderBy<span class='gray'>(field, [type])</span>
+            </code>
+            <div class='force-inline'>
+              <p>Order the results by the selected field(s)</p>
+
+            </div>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='QueryBuilder.orderBy' class='mt0'>
+                orderBy<span class='gray'>(field, [type])</span>
+              </h2>
+              <p>Order the results by the selected field(s)</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>field</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>The field(s) to order by</p>
+            
+                      </div>
+                    </li>
+                    <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>]</code> <strong>type</strong>
+                        (default <code>&#x27;ASC&#x27;</code>)
+                      :
+                      <div class='force-inline'>
+                        <p>The order direction, ASC or DESC</p>
+            
+                      </div>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>The Query Builder object, for chaining</p>
+            
+                  </div>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='QueryBuilder.resetQuery'>
+          <a href='#QueryBuilder.resetQuery'>
+            <code>
+              #resetQuery<span class='gray'></span>
+            </code>
+            <div class='force-inline'>
+              <p>Reset the object state for a new query</p>
+
+            </div>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='QueryBuilder.resetQuery' class='mt0'>
+                resetQuery<span class='gray'></span>
+              </h2>
+              <p>Reset the object state for a new query</p>
+            
+                  <h4>Returns</h4>
+                  <code><code>void</code></code>
+                  
+                  <div class='force-inline'>
+                    
+                  </div>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='QueryBuilder.select'>
+          <a href='#QueryBuilder.select'>
+            <code>
+              #select<span class='gray'>(fields)</span>
+            </code>
+            <div class='force-inline'>
+              <p>Specify rows to select in the query</p>
+
+            </div>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='QueryBuilder.select' class='mt0'>
+                select<span class='gray'>(fields)</span>
+              </h2>
+              <p>Specify rows to select in the query</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> or <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code> <strong>fields</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>The fields to select from the current table</p>
+            
+                      </div>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>The Query Builder object, for chaining</p>
+            
+                  </div>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='QueryBuilder.set'>
+          <a href='#QueryBuilder.set'>
+            <code>
+              #set<span class='gray'>(key, [val])</span>
+            </code>
+            <div class='force-inline'>
+              <p>Set values for insertion or updating</p>
+
+            </div>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='QueryBuilder.set' class='mt0'>
+                set<span class='gray'>(key, [val])</span>
+              </h2>
+              <p>Set values for insertion or updating</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> or <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code> <strong>key</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>The key or object to use</p>
+            
+                      </div>
+                    </li>
+                    <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>]</code> <strong>val</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>The value if using a scalar key</p>
+            
+                      </div>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>The Query Builder object, for chaining</p>
+            
+                  </div>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='QueryBuilder.update'>
+          <a href='#QueryBuilder.update'>
+            <code>
+              #update<span class='gray'>(table, [data], [callback])</span>
+            </code>
+            <div class='force-inline'>
+              <p>Run the generated update query</p>
+
+            </div>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='QueryBuilder.update' class='mt0'>
+                update<span class='gray'>(table, [data], [callback])</span>
+              </h2>
+              <p>Run the generated update query</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>table</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>The table to insert into</p>
+            
+                      </div>
+                    </li>
+                    <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>]</code> <strong>data</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>Data to insert, if not already added with the &apos;set&apos; method</p>
+            
+                      </div>
+                    </li>
+                    <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a></code>]</code> <strong>callback</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>Callback for handling response from the database</p>
+            
+                      </div>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code>void</code> or <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>If no callback is passed, a promise is returned</p>
+            
+                  </div>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='QueryBuilder.where'>
+          <a href='#QueryBuilder.where'>
+            <code>
+              #where<span class='gray'>(key, [val])</span>
+            </code>
+            <div class='force-inline'>
+              <p>Set a &apos;where&apos; clause</p>
+
+            </div>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='QueryBuilder.where' class='mt0'>
+                where<span class='gray'>(key, [val])</span>
+              </h2>
+              <p>Set a &apos;where&apos; clause</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> or <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code> <strong>key</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>The name of the field and the comparision operator, or an object</p>
+            
+                      </div>
+                    </li>
+                    <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> or <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></code>]</code> <strong>val</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>The value to compare if the value of key is a string</p>
+            
+                      </div>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>The Query Builder object, for chaining</p>
+            
+                  </div>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='QueryBuilder.whereIn'>
+          <a href='#QueryBuilder.whereIn'>
+            <code>
+              #whereIn<span class='gray'>(key, val)</span>
+            </code>
+            <div class='force-inline'>
+              <p>Set a &apos;where in&apos; clause</p>
+
+            </div>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='QueryBuilder.whereIn' class='mt0'>
+                whereIn<span class='gray'>(key, val)</span>
+              </h2>
+              <p>Set a &apos;where in&apos; clause</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>key</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>the field to search</p>
+            
+                      </div>
+                    </li>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code> <strong>val</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>the array of items to search in</p>
+            
+                      </div>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>The Query Builder object, for chaining</p>
+            
+                  </div>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='QueryBuilder.whereIsNotNull'>
+          <a href='#QueryBuilder.whereIsNotNull'>
+            <code>
+              #whereIsNotNull<span class='gray'>(field)</span>
+            </code>
+            <div class='force-inline'>
+              <p>Specify that a field IS NOT NULL</p>
+
+            </div>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='QueryBuilder.whereIsNotNull' class='mt0'>
+                whereIsNotNull<span class='gray'>(field)</span>
+              </h2>
+              <p>Specify that a field IS NOT NULL</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>field</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>The name so the field that is not to be null</p>
+            
+                      </div>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>The Query Builder object, for chaining</p>
+            
+                  </div>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='QueryBuilder.whereIsNull'>
+          <a href='#QueryBuilder.whereIsNull'>
+            <code>
+              #whereIsNull<span class='gray'>(field)</span>
+            </code>
+            <div class='force-inline'>
+              <p>Select a field that is Null</p>
+
+            </div>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='QueryBuilder.whereIsNull' class='mt0'>
+                whereIsNull<span class='gray'>(field)</span>
+              </h2>
+              <p>Select a field that is Null</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>field</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>The name of the field that has a NULL value</p>
+            
+                      </div>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>The Query Builder object, for chaining</p>
+            
+                  </div>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='QueryBuilder.whereNotIn'>
+          <a href='#QueryBuilder.whereNotIn'>
+            <code>
+              #whereNotIn<span class='gray'>(key, val)</span>
+            </code>
+            <div class='force-inline'>
+              <p>Set a &apos;where not in&apos; clause</p>
+
+            </div>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='QueryBuilder.whereNotIn' class='mt0'>
+                whereNotIn<span class='gray'>(key, val)</span>
+              </h2>
+              <p>Set a &apos;where not in&apos; clause</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>key</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>the field to search</p>
+            
+                      </div>
+                    </li>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code> <strong>val</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>the array of items to search in</p>
+            
+                      </div>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>The Query Builder object, for chaining</p>
+            
+                  </div>
+            </section>
+          </div>
+        </div>
 </section>
 </div>
         </div>
