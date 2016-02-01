@@ -1,4 +1,4 @@
-#CI-Node-query
+# CI-Node-query
 
 A node query builder for various SQL databases, based on [CodeIgniter](http://www.codeigniter.com/user_guide/database/query_builder.html)'s query builder.
 
@@ -22,46 +22,47 @@ A node query builder for various SQL databases, based on [CodeIgniter](http://ww
 [![NPM](https://nodei.co/npm/ci-node-query.png?downloads=true&downloadRank=true)](https://nodei.co/npm/ci-node-query/)
 
 ### Basic use
+```javascript
+var nodeQuery = require('ci-node-query');
 
-	var nodeQuery = require('ci-node-query');
+var connection = ... // Database module connection
 
-	var connection = ... // Database module connection
+// Three arguments: database type, database connection, database connection library
+var query = nodeQuery.init('mysql', connection, 'mysql2');
 
-	// Three arguments: database type, database connection, database connection library
-	var query = nodeQuery.init('mysql', connection, 'mysql2');
+// The third argument is optional if the database connection library has the same name as the adapter, eg..
+nodeQuery.init('mysql', connection, 'mysql');
+// Can be instead
+nodeQuery.init('mysql', connection);
 
-	// The third argument is optional if the database connection library has the same name as the adapter, eg..
-	nodeQuery.init('mysql', connection, 'mysql');
-	// Can be instead
-	nodeQuery.init('mysql', connection);
+// You can also retrieve the instance later
+query = nodeQuery.getQuery();
 
-	// You can also retrieve the instance later
-	query = nodeQuery.getQuery();
-
-	query.select('foo')
-		.from('bar')
-		.where('x', 3)
-		.orWhere({y: 2})
-		.join('baz', 'baz.boo = bar.foo', 'left')
-		.orderBy('x', 'DESC')
-		.limit(2, 3)
-		.get(function(/* Adapter dependent arguments */) {
-			// Database module result handling
-		});
-
-	// As of version 3.1.0, you can also get promises
-	var queryPromise = query.select('foo')
-		.from('bar')
-		.where('x', 3)
-		.orWhere({y: 2})
-		.join('baz', 'baz.boo = bar.foo', 'left')
-		.orderBy('x', 'DESC')
-		.limit(2, 3)
-		.get();
-
-	queryPromise.then(function(res) {
-		// Handle query results
+query.select('foo')
+	.from('bar')
+	.where('x', 3)
+	.orWhere({y: 2})
+	.join('baz', 'baz.boo = bar.foo', 'left')
+	.orderBy('x', 'DESC')
+	.limit(2, 3)
+	.get(function(/* Adapter dependent arguments */) {
+		// Database module result handling
 	});
+
+// As of version 3.1.0, you can also get promises
+var queryPromise = query.select('foo')
+	.from('bar')
+	.where('x', 3)
+	.orWhere({y: 2})
+	.join('baz', 'baz.boo = bar.foo', 'left')
+	.orderBy('x', 'DESC')
+	.limit(2, 3)
+	.get();
+
+queryPromise.then(function(res) {
+	// Handle query results
+});
+```
 
 ### Security notes
 As of version 2, `where` and `having` type methods parse the values passed to look for function calls. While values passed are still passed as query parameters, take care to avoid passing these kinds of methods unfiltered input. SQL function arguments are not currently parsed, so they need to be properly escaped for the current database.
