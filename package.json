@@ -17,7 +17,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/timw4mail/node-query.git"
+    "url": "https://git.timshomepage.net/timw4mail/node-query.git"
   },
   "keywords": [
     "codeigniter",
@@ -32,7 +32,7 @@
     "node-firebird"
   ],
   "bugs": {
-    "url": "https://github.com/timw4mail/node-query/issues"
+    "url": "https://git.timshomepage.net/timw4mail/node-query/issues"
   },
   "main": "lib/NodeQuery.js",
   "dependencies": {
@@ -43,7 +43,8 @@
     "mysql2": "~0.15.8",
     "node-firebird": "~0.7.2",
     "pg": "~4.4.3",
-    "require-reload": "~0.2.2"
+    "require-reload": "~0.2.2",
+    "xregexp": "^3.0.0"
   },
   "devDependencies": {
     "chai": "~3.4.1",
