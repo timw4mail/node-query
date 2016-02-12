@@ -369,7 +369,6 @@ Returns **QueryBuilder** The Query Builder object, for chaining
 ## query
 
 Manually make an sql query
-Returns a promise if no callback is provided
 
 **Parameters**
 
@@ -490,21 +489,3 @@ Set a 'where not in' clause
 -   `values` **Array** the array of items to search in
 
 Returns **QueryBuilder** The Query Builder object, for chaining
-
-# promisify
-
-Function to convert a callback function into a promise
-
-**Parameters**
-
--   `fn` **Function** the callback function to convert
-
-**Examples**
-
-```javascript
-promisify(fs.readFile)('hello.txt', 'utf8')
-.then(console.log)
-.catch(console.error)
-```
-
-Returns **Promise** the new promise
