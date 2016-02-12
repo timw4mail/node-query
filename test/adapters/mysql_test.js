@@ -24,29 +24,32 @@ let connection = mysql.createConnection(config.conn);
 let nodeQuery = reload('../../lib/NodeQuery');
 let qb = nodeQuery.init('mysql', connection);
 
-suite('Mysql adapter tests -', () => {
-	require('./mysql-base')(qb, nodeQuery, expect, testRunner, promiseTestRunner);
+qb.query(qb.driver.truncate('create_test')).then(() => {
+	suite('Mysql adapter tests -', () => {
 
-	test('Test Insert Batch', done => {
-		let data = [
-			{
-				id: 544,
-				key: 3,
-				val: new Buffer('7'),
-			}, {
-				id: 89,
-				key: 34,
-				val: new Buffer('10 o\'clock'),
-			}, {
-				id: 48,
-				key: 403,
-				val: new Buffer('97'),
-			},
-		];
+		require('./mysql-base')(qb, nodeQuery, expect, testRunner, promiseTestRunner);
 
-		qb.insertBatch('create_test', data, (err, rows) => {
-			expect(err).is.not.ok;
-			return done();
+		test('Test Insert Batch', done => {
+			let data = [
+				{
+					id: 544,
+					key: 3,
+					val: new Buffer('7'),
+				}, {
+					id: 89,
+					key: 34,
+					val: new Buffer('10 o\'clock'),
+				}, {
+					id: 48,
+					key: 403,
+					val: new Buffer('97'),
+				},
+			];
+
+			qb.insertBatch('create_test', data, (err, rows) => {
+				expect(err).is.not.ok;
+				return done();
+			});
 		});
 	});
 });

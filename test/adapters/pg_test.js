@@ -17,17 +17,15 @@ let config = reload(configFile)[adapterName];
 // Set up the connection
 let pg = reload(adapterName);
 let connection = new pg.Client(config.conn);
-connection.connect(err => {
-	if (err) {
-		throw new Error(err);
-	}
-});
 
 // Set up the query builder object
 let nodeQuery = reload('../../lib/NodeQuery');
 let qb = nodeQuery.init('pg', connection);
 
 suite('Pg adapter tests -', () => {
+	suiteSetup(done => {
+		return connection.connect(done);
+	});
 	test('nodeQuery.getQuery = nodeQuery.init', () => {
 		expect(nodeQuery.getQuery())
 			.to.be.deep.equal(qb);

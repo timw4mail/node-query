@@ -7,6 +7,9 @@ A node query builder for various SQL databases, based on [CodeIgniter](http://ww
 [![Code Climate](https://codeclimate.com/github/timw4mail/node-query/badges/gpa.svg)](https://codeclimate.com/github/timw4mail/node-query)
 [![Test Coverage](https://codeclimate.com/github/timw4mail/node-query/badges/coverage.svg)](https://codeclimate.com/github/timw4mail/node-query/coverage)
 
+### Features
+* Callback and Promise API for making database calls.
+
 ### Supported adapters
 
 * mysql
@@ -72,7 +75,6 @@ As of version 2, `where` and `having` type methods parse the values passed to lo
 
 * Generated documentation is in the docs/ folder
 * The API is documented in [API.md](./API.md)
-* `tests/query-builder-base.js`	contains a lot of usage examples
 * The `tests/adapters` folder contains examples of how to set up a connection for the appropriate database library
 * The documentation generated for the latest dev build is also [Available](https://github.timshomepage.net/node-query/docs/)
 

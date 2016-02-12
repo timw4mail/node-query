@@ -4,6 +4,7 @@
 const path = require('path');
 const reload = require('require-reload')(require);
 const testBase = reload('../base');
+const promisify = require('../../lib/promisify');
 const expect = reload('chai').expect;
 const testRunner = testBase.testRunner;
 const promiseTestRunner = testBase.promiseTestRunner;
@@ -22,19 +23,11 @@ if (process.env.CI || process.env.JENKINS_HOME) {
 	return;
 }
 
-suite('Firebird adapter tests -', () => {
-	// Set up the query builder object
-	suiteSetup('Database connection', connected => {
-		Firebird.attach(config.conn, (err, db) => {
-			qb = nodeQuery.init('firebird', db, adapterName);
-			return connected(err);
-		});
-	});
-	testRunner(qb, (err, done) => {
-		expect(err).is.not.ok;
-		done();
-	});
-	suite('Adapter-specific tests', () => {
+// Promisifying the connection seems to be the only way to get
+// this test suite to run consistently.
+promisify(Firebird.attach)(config.conn).then(db => {
+	qb = nodeQuery.init('firebird', db, adapterName);
+	suite('Firebird adapter tests -', () => {
 		test('nodeQuery.getQuery = nodeQuery.init', () => {
 			expect(nodeQuery.getQuery())
 				.to.be.deep.equal(qb);
@@ -44,8 +37,23 @@ suite('Firebird adapter tests -', () => {
 				qb.driver.insertBatch('create_test', []);
 			}).to.throw(Error, "Not Implemented");
 		});
+		/*---------------------------------------------------------------------------
+		Callback Tests
+		---------------------------------------------------------------------------*/
+		testRunner(qb, (err, done) => {
+			expect(err).is.not.ok;
+			done();
+		});
+		/*---------------------------------------------------------------------------
+		Promise Tests
+		---------------------------------------------------------------------------*/
+		/*qb.adapter.execute(qb.driver.truncate('create_test')).then(() => {
+			promiseTestRunner(qb);
+		});*/
+		suiteTeardown(() => {
+			qb.end();
+		});
 	});
-	suiteTeardown(() => {
-		qb.end();
-	});
+}).catch(err => {
+	throw new Error(err);
 });

@@ -42,7 +42,7 @@ let mixedSet = function mixedSet(/* $letName, $valType, $key, [$val] */) {
 	return state[args.$letName];
 };
 
-let whereMock = function() {
+let whereMock = function () {
 	let args = getArgs('key:string|object, [val]', arguments);
 
 	state.whereMap = [];
