@@ -23,16 +23,6 @@
             type='text' />
           <div id='toc'>
               <a
-                href='#Firebird'
-                class='block bold'>
-                Firebird
-              </a>
-              <a
-                href='#Mysql'
-                class='block bold'>
-                Mysql
-              </a>
-              <a
                 href='#NodeQuery'
                 class='block bold'>
                 NodeQuery
@@ -47,11 +37,6 @@
                   class='regular block'>
                   #init
                 </a>
-              <a
-                href='#Pg'
-                class='block bold'>
-                Pg
-              </a>
               <a
                 href='#QueryBuilder'
                 class='block bold'>
@@ -203,6 +188,11 @@
                   #orderBy
                 </a>
                 <a
+                  href='#QueryBuilder.query'
+                  class='regular block'>
+                  #query
+                </a>
+                <a
                   href='#QueryBuilder.resetQuery'
                   class='regular block'>
                   #resetQuery
@@ -248,64 +238,9 @@
                   #whereNotIn
                 </a>
               <a
-                href='#Sqlite'
+                href='#promisify'
                 class='block bold'>
-                Sqlite
-              </a>
-              <a
-                href='#close'
-                class='block bold'>
-                close
-              </a>
-              <a
-                href='#close'
-                class='block bold'>
-                close
-              </a>
-              <a
-                href='#execute'
-                class='block bold'>
-                execute
-              </a>
-              <a
-                href='#execute'
-                class='block bold'>
-                execute
-              </a>
-              <a
-                href='#execute'
-                class='block bold'>
-                execute
-              </a>
-              <a
-                href='#execute'
-                class='block bold'>
-                execute
-              </a>
-              <a
-                href='#execute'
-                class='block bold'>
-                execute
-              </a>
-              <a
-                href='#insertBatch'
-                class='block bold'>
-                insertBatch
-              </a>
-              <a
-                href='#insertBatch'
-                class='block bold'>
-                insertBatch
-              </a>
-              <a
-                href='#limit'
-                class='block bold'>
-                limit
-              </a>
-              <a
-                href='#limit'
-                class='block bold'>
-                limit
+                promisify
               </a>
           </div>
         </div>
@@ -313,20 +248,6 @@
       <div class='fix-margin-3'>
         <div class='px2'>
 <div class='py1'><section class='py2 clearfix'>
-  <h2 id='Firebird' class='mt0'>
-    Firebird<span class='gray'></span>
-  </h2>
-  <p>Driver for Firebird databases</p>
-
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='Mysql' class='mt0'>
-    Mysql<span class='gray'></span>
-  </h2>
-  <p>Driver for MySQL databases</p>
-
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
   <h2 id='NodeQuery' class='mt0'>
     NodeQuery<span class='gray'></span>
   </h2>
@@ -411,13 +332,6 @@
             </section>
           </div>
         </div>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='Pg' class='mt0'>
-    Pg<span class='gray'></span>
-  </h2>
-  <p>Driver for PostgreSQL databases</p>
-
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
   <h2 id='QueryBuilder' class='mt0'>
@@ -1696,6 +1610,59 @@ prefixed with &apos;OR NOT&apos;</p>
             </section>
           </div>
         </div>
+        <div class='collapsible' id='QueryBuilder.query'>
+          <a href='#QueryBuilder.query'>
+            <code>
+              #query<span class='gray'>(sql, [params], [callback])</span>
+            </code>
+            <div class='force-inline'>
+              <p>Manually make an sql query
+Returns a promise if no callback is provided</p>
+
+            </div>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='QueryBuilder.query' class='mt0'>
+                query<span class='gray'>(sql, [params], [callback])</span>
+              </h2>
+              <p>Manually make an sql query
+            Returns a promise if no callback is provided</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> <strong>sql</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>The sql to execute</p>
+            
+                      </div>
+                    </li>
+                    <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a></code>]</code> <strong>params</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>The query parameters</p>
+            
+                      </div>
+                    </li>
+                    <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">function</a></code>]</code> <strong>callback</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>Optional callback</p>
+            
+                      </div>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code>void</code> or <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>Returns a promise if no callback is supplied</p>
+            
+                  </div>
+            </section>
+          </div>
+        </div>
         <div class='collapsible' id='QueryBuilder.resetQuery'>
           <a href='#QueryBuilder.resetQuery'>
             <code>
@@ -2066,352 +2033,32 @@ prefixed with &apos;OR NOT&apos;</p>
         </div>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='Sqlite' class='mt0'>
-    Sqlite<span class='gray'></span>
+  <h2 id='promisify' class='mt0'>
+    promisify<span class='gray'>(fn)</span>
   </h2>
-  <p>Driver for Sqlite databases</p>
-
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='close' class='mt0'>
-    close<span class='gray'></span>
-  </h2>
-  <p>Close the current database connection</p>
-
-      <h4>Returns</h4>
-      <code><code>void</code></code>
-      
-      <div class='force-inline'>
-        
-      </div>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='close' class='mt0'>
-    close<span class='gray'></span>
-  </h2>
-  <p>Close the current database connection</p>
-
-      <h4>Returns</h4>
-      <code><code>void</code></code>
-      
-      <div class='force-inline'>
-        
-      </div>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='execute' class='mt0'>
-    execute<span class='gray'>(sql, params, [callback])</span>
-  </h2>
-  <p>Run the sql query as a prepared statement</p>
+  <p>Function to convert a callback function into a promise</p>
 
     <h4>Parameters</h4>
     <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>sql</strong>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a></code> <strong>fn</strong>
           :
           <div class='force-inline'>
-            <p>The sql with placeholders</p>
-
-          </div>
-        </li>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code> <strong>params</strong>
-          :
-          <div class='force-inline'>
-            <p>The values to insert into the query</p>
-
-          </div>
-        </li>
-        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a></code>]</code> <strong>callback</strong>
-          :
-          <div class='force-inline'>
-            <p>Callback to run when a response is recieved</p>
+            <p>the callback function to convert</p>
 
           </div>
         </li>
     </ul>
       <h4>Returns</h4>
-      <code><code>void</code> or <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></code></code>
+      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></code></code>
       :
       <div class='force-inline'>
-        <p>Returns a promise if no callback is provided</p>
+        <p>the new promise</p>
 
       </div>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='execute' class='mt0'>
-    execute<span class='gray'>(sql, params, [callback])</span>
-  </h2>
-  <p>Run the sql query as a prepared statement</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>sql</strong>
-          :
-          <div class='force-inline'>
-            <p>The sql with placeholders</p>
-
-          </div>
-        </li>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code> <strong>params</strong>
-          :
-          <div class='force-inline'>
-            <p>The values to insert into the query</p>
-
-          </div>
-        </li>
-        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a></code>]</code> <strong>callback</strong>
-          :
-          <div class='force-inline'>
-            <p>Callback to run when a response is recieved</p>
-
-          </div>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code>void</code> or <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></code></code>
-      :
-      <div class='force-inline'>
-        <p>Returns a promise if no callback is provided</p>
-
-      </div>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='execute' class='mt0'>
-    execute<span class='gray'>(sql, params, [callback])</span>
-  </h2>
-  <p>Run the sql query as a prepared statement</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>sql</strong>
-          :
-          <div class='force-inline'>
-            <p>The sql with placeholders</p>
-
-          </div>
-        </li>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code> <strong>params</strong>
-          :
-          <div class='force-inline'>
-            <p>The values to insert into the query</p>
-
-          </div>
-        </li>
-        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a></code>]</code> <strong>callback</strong>
-          :
-          <div class='force-inline'>
-            <p>Callback to run when a response is recieved</p>
-
-          </div>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code>void</code> or <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></code></code>
-      :
-      <div class='force-inline'>
-        <p>Returns a promise if no callback is provided</p>
-
-      </div>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='execute' class='mt0'>
-    execute<span class='gray'>(sql, params, [callback])</span>
-  </h2>
-  <p>Run the sql query as a prepared statement</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>sql</strong>
-          :
-          <div class='force-inline'>
-            <p>The sql with placeholders</p>
-
-          </div>
-        </li>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code> <strong>params</strong>
-          :
-          <div class='force-inline'>
-            <p>The values to insert into the query</p>
-
-          </div>
-        </li>
-        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a></code>]</code> <strong>callback</strong>
-          :
-          <div class='force-inline'>
-            <p>Callback to run when a response is recieved</p>
-
-          </div>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code>void</code> or <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></code></code>
-      :
-      <div class='force-inline'>
-        <p>Returns a promise if no callback is provided</p>
-
-      </div>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='execute' class='mt0'>
-    execute<span class='gray'>(sql, params, [callback])</span>
-  </h2>
-  <p>Run the sql query as a prepared statement</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>sql</strong>
-          :
-          <div class='force-inline'>
-            <p>The sql with placeholders</p>
-
-          </div>
-        </li>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code> <strong>params</strong>
-          :
-          <div class='force-inline'>
-            <p>The values to insert into the query</p>
-
-          </div>
-        </li>
-        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a></code>]</code> <strong>callback</strong>
-          :
-          <div class='force-inline'>
-            <p>Callback to run when a response is recieved</p>
-
-          </div>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code>void</code> or <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></code></code>
-      :
-      <div class='force-inline'>
-        <p>Returns a promise if no callback is provided</p>
-
-      </div>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='insertBatch' class='mt0'>
-    insertBatch<span class='gray'>(table, [data])</span>
-  </h2>
-  <p>SQL to insert a group of rows
-Override default to have better compatibility</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>table</strong>
-          :
-          <div class='force-inline'>
-            <p>The table to insert to</p>
-
-          </div>
-        </li>
-        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code>]</code> <strong>data</strong>
-          :
-          <div class='force-inline'>
-            <p>The array of object containing data to insert</p>
-
-          </div>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code></code>
-      :
-      <div class='force-inline'>
-        <p>The generated sql statement</p>
-
-      </div>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='insertBatch' class='mt0'>
-    insertBatch<span class='gray'></span>
-  </h2>
-  <p>SQL to insert a group of rows</p>
-
-      <h4>Returns</h4>
-      <code><code>void</code></code>
-      
-      <div class='force-inline'>
-        
-      </div>
-    <h4>Throws</h4>
-    <ul>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error">Error</a></code>: <div class='force-inline'></div></li>
-    </ul>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='limit' class='mt0'>
-    limit<span class='gray'>(origSql, limit, offset)</span>
-  </h2>
-  <p>Set the limit clause</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>origSql</strong>
-          :
-          <div class='force-inline'>
-            <p>SQL statement to modify</p>
-
-          </div>
-        </li>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></code> <strong>limit</strong>
-          :
-          <div class='force-inline'>
-            <p>Maximum number of rows to fetch</p>
-
-          </div>
-        </li>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></code> or  <strong>offset</strong>
-          :
-          <div class='force-inline'>
-            <p>Number of rows to skip</p>
-
-          </div>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code></code>
-      :
-      <div class='force-inline'>
-        <p>Modified SQL statement</p>
-
-      </div>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='limit' class='mt0'>
-    limit<span class='gray'>(sql, limit, offset)</span>
-  </h2>
-  <p>Set the limit clause</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>sql</strong>
-          :
-          <div class='force-inline'>
-            <p>SQL statement to modify</p>
-
-          </div>
-        </li>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></code> <strong>limit</strong>
-          :
-          <div class='force-inline'>
-            <p>Maximum number of rows to fetch</p>
-
-          </div>
-        </li>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></code> or  <strong>offset</strong>
-          :
-          <div class='force-inline'>
-            <p>Number of rows to skip</p>
-
-          </div>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code></code>
-      :
-      <div class='force-inline'>
-        <p>Modified SQL statement</p>
-
-      </div>
+    <h4>Examples</h4>
+<pre class='overflow-auto'>promisify(fs.readFile)(<span class="hljs-string">'hello.txt'</span>, <span class="hljs-string">'utf8'</span>)
+.then(<span class="hljs-built_in">console</span>.log)
+.catch(<span class="hljs-built_in">console</span>.error)</pre>
 </section>
 </div>
         </div>
