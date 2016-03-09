@@ -15,7 +15,8 @@ let State = require('../lib/State');
 let state = new State();
 
 let mixedSet = function mixedSet(/* $letName, $valType, $key, [$val] */) {
-	let args = getArgs('$letName:string, $valType:string, $key:object|string|number, [$val]', arguments);
+	const argPattern = '$letName:string, $valType:string, $key:object|string|number, [$val]';
+	let args = getArgs(argPattern, arguments);
 
 	let obj = {};
 

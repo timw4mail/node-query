@@ -1,6 +1,6 @@
 'use strict';
 
-const configFile = (process.env.CI) ? '../config-travis.json' : '../config.json';
+const configFile = (process.env.TRAVIS) ? '../config-travis.json' : '../config.json';
 
 // Load the test base
 const reload = require('require-reload')(require);

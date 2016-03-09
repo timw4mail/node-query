@@ -1,5 +1,6 @@
 'use strict';
 
+// jscs:disable
 // Load the test base
 const chai = require('chai');
 const chaiAsPromised = require('chai-as-promised');

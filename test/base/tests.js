@@ -1,5 +1,6 @@
 'use strict';
 
+// jscs:disable
 module.exports = {
 	'Get tests -': {
 		'Get with function': {

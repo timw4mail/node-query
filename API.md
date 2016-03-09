@@ -15,8 +15,10 @@ Create a query builder object
 **Parameters**
 
 -   `driverType` **String** The name of the database type, eg. mysql or pg
--   `connObject` **Object** A connection object from the database library you are connecting with
--   `connLib` **[String]** The name of the db connection library you are using, eg. mysql or mysql2. Optional if the same as driverType
+-   `connObject` **Object** A connection object from the database library
+    you are connecting with
+-   `connLib` **[String]** The name of the db connection library you are
+    using, eg. mysql or mysql2. Optional if the same as driverType
 
 Returns **QueryBuilder** The Query Builder object
 
