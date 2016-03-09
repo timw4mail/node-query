@@ -117,7 +117,7 @@ gulp.task('test', ['test-sloc', 'lint-tests'], function(cb) {
 			mocha(MOCHA_OPTIONS),
 			istanbul.writeReports({
 				dir: './coverage',
-				reporters: ['lcov', 'lcovonly', 'html', 'text']
+				reporters: ['clover', 'lcov', 'lcovonly', 'html', 'text']
 			})
 				.once('error', () => {
 		            process.exit(1);
