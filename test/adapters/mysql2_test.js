@@ -26,7 +26,44 @@ let qb = nodeQuery.init('mysql', connection, adapterName);
 qb.query(qb.driver.truncate('create_test')).then(() => {
 	suite('Mysql2 adapter tests -', () => {
 
-		require('./mysql-base')(qb, nodeQuery, expect, testRunner, promiseTestRunner);
+		test('nodeQuery.getQuery = nodeQuery.init', () => {
+			expect(nodeQuery.getQuery())
+				.to.be.deep.equal(qb);
+		});
+
+		/*---------------------------------------------------------------------------
+		Callback Tests
+		---------------------------------------------------------------------------*/
+		testRunner(qb, (err, done) => {
+			expect(err).is.not.ok;
+			done();
+		});
+		test('Callback - Select with function and argument in WHERE clause', done => {
+			qb.select('id')
+				.from('create_test')
+				.where('id', 'CEILING(SQRT(88))')
+				.get((err, rows) => {
+					expect(err).is.not.ok;
+					return done();
+				});
+		});
+
+		/*---------------------------------------------------------------------------
+		Promise Tests
+		---------------------------------------------------------------------------*/
+		promiseTestRunner(qb);
+		test('Promise - Select with function and argument in WHERE clause', () => {
+			let promise = qb.select('id')
+				.from('create_test')
+				.where('id', 'CEILING(SQRT(88))')
+				.get();
+
+			expect(promise).to.be.fulfilled;
+		});
+
+		suiteTeardown(() => {
+			qb.end();
+		});
 
 		test('Test Insert Batch', done => {
 			let data = [
