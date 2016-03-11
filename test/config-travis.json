@@ -10,7 +10,7 @@
 	},
 	"pg": {
 		"driver": "pg",
-		"conn": "postgres://postgres@localhost/test"
+		"connection": "postgres://postgres@localhost/test"
 	},
 	"pg-object": {
 		"driver": "pg",
@@ -23,6 +23,6 @@
 	},
 	"dblite": {
 		"driver": "sqlite",
-		"conn": ":memory:"
+		"connection": ":memory:"
 	}
 }
