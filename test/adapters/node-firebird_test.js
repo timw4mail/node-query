@@ -10,6 +10,11 @@
 	const testRunner = testBase.testRunner;
 	const promiseTestRunner = testBase.promiseTestRunner;
 
+	// Skip on CI
+	if (process.env.CI || process.env.TRAVIS) {
+		return;
+	}
+
 	// Load the test config file
 	let adapterName = 'node-firebird';
 	let Firebird = reload(adapterName);
@@ -18,11 +23,6 @@
 	let nodeQuery = reload('../../lib/NodeQuery')(config);
 
 	let qb = nodeQuery.getQuery();
-
-	// Skip on TravisCi
-	if (process.env.CI) {
-		return;
-	}
 
 	suite('Firebird adapter tests -', () => {
 		test('nodeQuery.getQuery = nodeQuery.init', () => {
