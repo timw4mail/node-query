@@ -6,9 +6,9 @@ const configFile = (process.env.TRAVIS) ? '../config-travis.json' : '../config.j
 const reload = require('require-reload')(require);
 reload.emptyCache();
 const testBase = reload('../base');
-const expect =  testBase.expect,
-	promiseTestRunner = testBase.promiseTestRunner,
-	testRunner = testBase.testRunner;
+const expect =  testBase.expect;
+const promiseTestRunner = testBase.promiseTestRunner;
+const testRunner = testBase.testRunner;
 
 let getArgs = reload('getargs');
 
@@ -16,13 +16,9 @@ let getArgs = reload('getargs');
 let adapterName = 'mysql2';
 let config = reload(configFile)[adapterName];
 
-// Set up the connection
-let mysql2 = reload(adapterName);
-let connection = mysql2.createConnection(config.conn);
-
 // Set up the query builder object
-let nodeQuery = reload('../../lib/NodeQuery');
-let qb = nodeQuery.init('mysql', connection, adapterName);
+let nodeQuery = reload('../../lib/NodeQuery')(config);
+let qb = nodeQuery.getQuery();
 qb.query(qb.driver.truncate('create_test')).then(() => {
 	suite('Mysql2 adapter tests -', () => {
 

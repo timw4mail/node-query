@@ -14,48 +14,43 @@
 	let adapterName = 'node-firebird';
 	let Firebird = reload(adapterName);
 	const config = reload('../config.json')[adapterName];
-	config.conn.database = path.join(__dirname, config.conn.database);
-	let nodeQuery = reload('../../lib/NodeQuery');
+	config.connection.database = path.join(__dirname, config.connection.database);
+	let nodeQuery = reload('../../lib/NodeQuery')(config);
 
-	let qb = null;
+	let qb = nodeQuery.getQuery();
 
 	// Skip on TravisCi
 	if (process.env.CI) {
 		return;
 	}
 
-	// Promisifying the connection seems to be the only way to get
-	// this test suite to run consistently.
-	promisify(Firebird.attach)(config.conn).then(db => {
-		qb = nodeQuery.init('firebird', db, adapterName);
-		suite('Firebird adapter tests -', () => {
-			test('nodeQuery.getQuery = nodeQuery.init', () => {
-				expect(nodeQuery.getQuery())
-					.to.be.deep.equal(qb);
-			});
-			test('insertBatch throws error', () => {
-				expect(() => {
-					qb.driver.insertBatch('create_test', []);
-				}).to.throw(Error, 'Not Implemented');
-			});
-			/*---------------------------------------------------------------------------
-			Callback Tests
-			---------------------------------------------------------------------------*/
-			testRunner(qb, (err, done) => {
-				expect(err).is.not.ok;
-				done();
-			});
-			/*---------------------------------------------------------------------------
-			Promise Tests
-			---------------------------------------------------------------------------*/
-			/*qb.adapter.execute(qb.driver.truncate('create_test')).then(() => {
-				promiseTestRunner(qb);
-			});*/
-			suiteTeardown(() => {
-				qb.end();
-			});
+	suite('Firebird adapter tests -', () => {
+		test('nodeQuery.getQuery = nodeQuery.init', () => {
+			expect(nodeQuery.getQuery())
+				.to.be.deep.equal(qb);
 		});
-	}).catch(err => {
-		throw new Error(err);
+		test('insertBatch throws error', () => {
+			expect(() => {
+				qb.driver.insertBatch('create_test', []);
+			}).to.throw(Error, 'Not Implemented');
+		});
+
+		//---------------------------------------------------------------------------
+		// Callback Tests
+		//---------------------------------------------------------------------------
+		testRunner(qb, (err, done) => {
+			expect(err).is.not.ok;
+			done();
+		});
+
+		//---------------------------------------------------------------------------
+		// Promise Tests
+		//---------------------------------------------------------------------------
+		qb.adapter.execute(qb.driver.truncate('create_test')).then(() => {
+			promiseTestRunner(qb);
+		});
+		suiteTeardown(() => {
+			qb.end();
+		});
 	});
 })();

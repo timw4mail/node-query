@@ -2,6 +2,18 @@
 
 Class for connection management
 
+**Parameters**
+
+-   `config`  
+
+## constructor
+
+Constructor
+
+**Parameters**
+
+-   `config` **object** connection paramaters
+
 ## getQuery
 
 Return an existing query builder instance

@@ -1,16 +1,7 @@
 {
-	"mysql": {
-		"driver": "mysql",
-		"conn": {
-			"host": "localhost",
-			"user": "test",
-			"password": "",
-			"database": "test"
-		}
-	},
 	"mysql2": {
 		"driver": "mysql",
-		"conn": {
+		"connection": {
 			"host": "localhost",
 			"user": "test",
 			"password": "",
@@ -19,15 +10,24 @@
 	},
 	"pg": {
 		"driver": "pg",
-		"conn": "postgres://test:test@localhost/test"
+		"connection": "postgres://test:test@localhost/test"
+	},
+	"pg-object": {
+		"driver": "pg",
+		"connection": {
+			"host": "localhost",
+			"user": "test",
+			"password": "test",
+			"database": "test"
+		}
 	},
 	"dblite": {
 		"driver": "sqlite",
-		"conn": ":memory:"
+		"connection": ":memory:"
 	},
 	"node-firebird": {
 		"driver": "firebird",
-		"conn": {
+		"connection": {
 			"host": "127.0.0.1",
 			"database": "/../FB_TEST_DB.FDB",
 			"user": "SYSDBA",

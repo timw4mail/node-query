@@ -1,16 +1,7 @@
 {
 	"mysql": {
 		"driver": "mysql",
-		"conn": {
-			"host": "localhost",
-			"user": "root",
-			"password": "",
-			"database": "test"
-		}
-	},
-	"mysql2": {
-		"driver": "mysql",
-		"conn": {
+		"connection": {
 			"host": "localhost",
 			"user": "root",
 			"password": "",
@@ -20,6 +11,15 @@
 	"pg": {
 		"driver": "pg",
 		"conn": "postgres://postgres@localhost/test"
+	},
+	"pg-object": {
+		"driver": "pg",
+		"connection": {
+			"host": "localhost",
+			"user": "postgres",
+			"password": "",
+			"database": "test"
+		}
 	},
 	"dblite": {
 		"driver": "sqlite",

@@ -3,7 +3,7 @@
 let expect = require('chai').expect,
 	reload = require('require-reload')(require),
 	glob = require('glob'),
-	nodeQuery = reload('../lib/NodeQuery'),
+	nodeQuery = reload('../lib/NodeQuery')(),
 	Adapter = reload('../lib/Adapter');
 
 suite('Base tests -', () => {
