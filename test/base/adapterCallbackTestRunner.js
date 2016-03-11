@@ -46,12 +46,7 @@ module.exports = function testRunner(qb, callback) {
 		});
 	});
 	suite('DB update tests -', () => {
-		setup(done => {
-			let sql = qb.driver.truncate('create_test');
-			qb.adapter.execute(sql, (err, res) => {
-				done();
-			});
-		});
+		suiteSetup(() => qb.truncate('create_test'));
 		test('Callback - Test Insert', done => {
 			qb.set('id', 98)
 				.set('key', '84')
@@ -184,32 +179,32 @@ module.exports = function testRunner(qb, callback) {
 				.from('create_test')
 				.getCompiledSelect(true);
 
-			expect(helpers.isString(sql)).to.be.true;
+			return expect(helpers.isString(sql)).to.be.true;
 		});
 		test('select from', () => {
 			let sql = qb.select('id')
 				.getCompiledSelect('create_test', true);
 
-			expect(helpers.isString(sql)).to.be.true;
+			return expect(helpers.isString(sql)).to.be.true;
 		});
 		test('insert', () => {
 			let sql = qb.set('id', 3)
 				.getCompiledInsert('create_test');
 
-			expect(helpers.isString(sql)).to.be.true;
+			return expect(helpers.isString(sql)).to.be.true;
 		});
 		test('update', () => {
 			let sql = qb.set('id', 3)
 				.where('id', 5)
 				.getCompiledUpdate('create_test');
 
-			expect(helpers.isString(sql)).to.be.true;
+			return expect(helpers.isString(sql)).to.be.true;
 		});
 		test('delete', () => {
 			let sql = qb.where('id', 5)
 				.getCompiledDelete('create_test');
 
-			expect(helpers.isString(sql)).to.be.true;
+			return expect(helpers.isString(sql)).to.be.true;
 		});
 	});
 	suite('Misc tests -', () => {

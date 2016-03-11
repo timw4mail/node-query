@@ -15,9 +15,6 @@
 	"pg-object": {
 		"driver": "pg",
 		"connection": {
-			"host": "localhost",
-			"user": "test",
-			"password": "test",
 			"database": "test"
 		}
 	},

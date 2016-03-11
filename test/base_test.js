@@ -30,7 +30,9 @@ suite('Base tests -', () => {
 
 	test('Invalid driver type', () => {
 		expect(() => {
-			nodeQuery.init('foo', {}, 'bar');
+			reload('../lib/NodeQuery')({
+				driver: 'Foo',
+			});
 		}).to.throw(Error, 'Selected driver (Foo) does not exist!');
 	});
 

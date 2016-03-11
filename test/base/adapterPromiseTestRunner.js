@@ -40,7 +40,7 @@ module.exports = function promiseTestRunner(qb) {
 					});
 
 					let promise = results.pop();
-					expect(promise).to.be.fulfilled;
+					return expect(promise).to.be.fulfilled;
 				});
 			});
 		});
@@ -48,7 +48,7 @@ module.exports = function promiseTestRunner(qb) {
 	suite('DB update tests -', () => {
 		suiteSetup(done => {
 			let sql = qb.driver.truncate('create_test');
-			qb.adapter.execute(sql).then(res => {
+			qb.query(sql).then(res => {
 				return done();
 			}).catch(err => {
 				return done(err);
@@ -60,7 +60,7 @@ module.exports = function promiseTestRunner(qb) {
 				.set('val', new Buffer('120'))
 				.insert('create_test');
 
-			expect(promise).to.be.fulfilled;
+			return expect(promise).to.be.fulfilled;
 		});
 		test('Promise - Test Insert Object', () => {
 			let promise = qb.insert('create_test', {
@@ -69,7 +69,7 @@ module.exports = function promiseTestRunner(qb) {
 				val: new Buffer('2'),
 			});
 
-			expect(promise).to.be.fulfilled;
+			return expect(promise).to.be.fulfilled;
 		});
 		test('Promise - Test Update', () => {
 			let promise = qb.where('id', 7)
@@ -79,7 +79,7 @@ module.exports = function promiseTestRunner(qb) {
 					val: new Buffer('non-word'),
 				});
 
-			expect(promise).to.be.fulfilled;
+			return expect(promise).to.be.fulfilled;
 		});
 		test('Promise - Test set Array Update', () => {
 			let object = {
@@ -92,7 +92,7 @@ module.exports = function promiseTestRunner(qb) {
 				.where('id', 22)
 				.update('create_test');
 
-			expect(promise).to.be.fulfilled;
+			return expect(promise).to.be.fulfilled;
 		});
 		test('Promise - Test where set update', () => {
 			let promise = qb.where('id', 36)
@@ -101,17 +101,17 @@ module.exports = function promiseTestRunner(qb) {
 				.set('val', new Buffer('non-word'))
 				.update('create_test');
 
-			expect(promise).to.be.fulfilled;
+			return expect(promise).to.be.fulfilled;
 		});
 		test('Promise - Test delete', () => {
 			let promise = qb.delete('create_test', {id: 5});
-			expect(promise).to.be.fulfilled;
+			return expect(promise).to.be.fulfilled;
 		});
 		test('Promise - Delete with where', () => {
 			let promise = qb.where('id', 5)
 				.delete('create_test');
 
-			expect(promise).to.be.fulfilled;
+			return expect(promise).to.be.fulfilled;
 		});
 		test('Promise - Delete multiple where values', () => {
 			let promise = qb.delete('create_test', {
@@ -119,7 +119,7 @@ module.exports = function promiseTestRunner(qb) {
 				key: 'gogle',
 			});
 
-			expect(promise).to.be.fulfilled;
+			return expect(promise).to.be.fulfilled;
 		});
 	});
 	suite('Grouping tests -', () => {
@@ -133,7 +133,7 @@ module.exports = function promiseTestRunner(qb) {
 				.limit(2, 1)
 				.get();
 
-			expect(promise).to.be.fulfilled;
+			return expect(promise).to.be.fulfilled;
 		});
 		test('Promise - Using where first grouping', () => {
 			let promise = qb.select('id, key as k, val')
@@ -146,7 +146,7 @@ module.exports = function promiseTestRunner(qb) {
 				.limit(2, 1)
 				.get();
 
-			expect(promise).to.be.fulfilled;
+			return expect(promise).to.be.fulfilled;
 		});
 		test('Promise - Using or grouping method', () => {
 			let promise = qb.select('id, key as k, val')
@@ -161,7 +161,7 @@ module.exports = function promiseTestRunner(qb) {
 				.limit(2, 1)
 				.get();
 
-			expect(promise).to.be.fulfilled;
+			return expect(promise).to.be.fulfilled;
 		});
 		test('Promise - Using or not grouping method', () => {
 			let promise = qb.select('id, key as k, val')
@@ -176,7 +176,7 @@ module.exports = function promiseTestRunner(qb) {
 				.limit(2, 1)
 				.get();
 
-			expect(promise).to.be.fulfilled;
+			return expect(promise).to.be.fulfilled;
 		});
 	});
 };

@@ -78,4 +78,29 @@ CREATE TABLE IF NOT EXISTS "create_join" ("id" INTEGER PRIMARY KEY, "key" TEXT, 
 
 		expect(promise).to.be.fulfilled;
 	});
+	test('Promise - Test Insert Batch', () => {
+		let data = [
+			{
+				id: 544,
+				key: 3,
+				val: new Buffer('7'),
+			}, {
+				id: 89,
+				key: 34,
+				val: new Buffer('10 o\'clock'),
+			}, {
+				id: 48,
+				key: 403,
+				val: new Buffer('97'),
+			},
+		];
+
+		let promise = qb.query(qb.driver.truncate('create_test')).then(
+			() => qb.insertBatch('create_test', data)
+		);
+		expect(promise).to.be.fulfilled;
+	});
+	suiteTeardown(() => {
+		qb.end();
+	});
 });

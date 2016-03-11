@@ -10,8 +10,6 @@ const expect =  testBase.expect;
 const promiseTestRunner = testBase.promiseTestRunner;
 const testRunner = testBase.testRunner;
 
-let getArgs = reload('getargs');
-
 // Load the test config file
 let adapterName = 'mysql2';
 let config = reload(configFile)[adapterName];
@@ -19,69 +17,89 @@ let config = reload(configFile)[adapterName];
 // Set up the query builder object
 let nodeQuery = reload('../../lib/NodeQuery')(config);
 let qb = nodeQuery.getQuery();
-qb.query(qb.driver.truncate('create_test')).then(() => {
-	suite('Mysql2 adapter tests -', () => {
 
-		test('nodeQuery.getQuery = nodeQuery.init', () => {
-			expect(nodeQuery.getQuery())
-				.to.be.deep.equal(qb);
-		});
+suite('Mysql2 adapter tests -', () => {
 
-		/*---------------------------------------------------------------------------
-		Callback Tests
-		---------------------------------------------------------------------------*/
-		testRunner(qb, (err, done) => {
-			expect(err).is.not.ok;
-			done();
-		});
-		test('Callback - Select with function and argument in WHERE clause', done => {
-			qb.select('id')
-				.from('create_test')
-				.where('id', 'CEILING(SQRT(88))')
-				.get((err, rows) => {
-					expect(err).is.not.ok;
-					return done();
-				});
-		});
+	suiteSetup(() => qb.truncate('create_test'));
 
-		/*---------------------------------------------------------------------------
-		Promise Tests
-		---------------------------------------------------------------------------*/
-		promiseTestRunner(qb);
-		test('Promise - Select with function and argument in WHERE clause', () => {
-			let promise = qb.select('id')
-				.from('create_test')
-				.where('id', 'CEILING(SQRT(88))')
-				.get();
+	test('nodeQuery.getQuery = nodeQuery.init', () => {
+		expect(nodeQuery.getQuery())
+			.to.be.deep.equal(qb);
+	});
 
-			expect(promise).to.be.fulfilled;
-		});
-
-		suiteTeardown(() => {
-			qb.end();
-		});
-
-		test('Test Insert Batch', done => {
-			let data = [
-				{
-					id: 5441,
-					key: 3,
-					val: new Buffer('7'),
-				}, {
-					id: 891,
-					key: 34,
-					val: new Buffer('10 o\'clock'),
-				}, {
-					id: 481,
-					key: 403,
-					val: new Buffer('97'),
-				},
-			];
-
-			qb.insertBatch('create_test', data, (err, rows) => {
+	//--------------------------------------------------------------------------
+	// Callback Tests
+	//--------------------------------------------------------------------------
+	testRunner(qb, (err, done) => {
+		expect(err).is.not.ok;
+		return done(err);
+	});
+	test('Callback - Select with function and argument in WHERE clause', done => {
+		qb.select('id')
+			.from('create_test')
+			.where('id', 'CEILING(SQRT(88))')
+			.get((err, rows) => {
 				expect(err).is.not.ok;
 				return done();
 			});
+	});
+	test('Callback - Test Insert Batch', done => {
+		let data = [
+			{
+				id: 5441,
+				key: 3,
+				val: new Buffer('7'),
+			}, {
+				id: 891,
+				key: 34,
+				val: new Buffer('10 o\'clock'),
+			}, {
+				id: 481,
+				key: 403,
+				val: new Buffer('97'),
+			},
+		];
+
+		qb.insertBatch('create_test', data, (err, res) => {
+			expect(err).is.not.ok;
+			return done(err);
 		});
+	});
+
+	//---------------------------------------------------------------------------
+	// Promise Tests
+	//---------------------------------------------------------------------------
+	promiseTestRunner(qb);
+	test('Promise - Select with function and argument in WHERE clause', () => {
+		let promise = qb.select('id')
+			.from('create_test')
+			.where('id', 'CEILING(SQRT(88))')
+			.get();
+
+		return expect(promise).to.be.fulfilled;
+	});
+
+	test('Test Insert Batch', () => {
+		let data = [
+			{
+				id: 5442,
+				key: 4,
+				val: new Buffer('7'),
+			}, {
+				id: 892,
+				key: 35,
+				val: new Buffer('10 o\'clock'),
+			}, {
+				id: 482,
+				key: 404,
+				val: 97,
+			},
+		];
+
+		return expect(qb.insertBatch('create_test', data)).to.be.fulfilled;
+	});
+
+	suiteTeardown(() => {
+		qb.end();
 	});
 });

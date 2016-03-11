@@ -37,11 +37,6 @@
                   class='regular block'>
                   #getQuery
                 </a>
-                <a
-                  href='#NodeQuery.init'
-                  class='regular block'>
-                  #init
-                </a>
               <a
                 href='#QueryBuilder'
                 class='block bold'>
@@ -213,6 +208,11 @@
                   #set
                 </a>
                 <a
+                  href='#QueryBuilder.truncate'
+                  class='regular block'>
+                  #truncate
+                </a>
+                <a
                   href='#QueryBuilder.update'
                   class='regular block'>
                   #update
@@ -310,59 +310,6 @@
               </h2>
               <p>Return an existing query builder instance</p>
             
-                  <h4>Returns</h4>
-                  <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
-                  :
-                  <div class='force-inline'>
-                    <p>The Query Builder object</p>
-            
-                  </div>
-            </section>
-          </div>
-        </div>
-        <div class='collapsible' id='NodeQuery.init'>
-          <a href='#NodeQuery.init'>
-            <code>
-              #init<span class='gray'>(driverType, connObject, [connLib])</span>
-            </code>
-            <div class='force-inline'>
-              <p>Create a query builder object</p>
-
-            </div>
-          </a>
-          <div class='collapser border px2'>
-            <section class='py2 clearfix'>
-              <h2 id='NodeQuery.init' class='mt0'>
-                init<span class='gray'>(driverType, connObject, [connLib])</span>
-              </h2>
-              <p>Create a query builder object</p>
-            
-                <h4>Parameters</h4>
-                <ul class='suppress-p-margin'>
-                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>driverType</strong>
-                      :
-                      <div class='force-inline'>
-                        <p>The name of the database type, eg. mysql or pg</p>
-            
-                      </div>
-                    </li>
-                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code> <strong>connObject</strong>
-                      :
-                      <div class='force-inline'>
-                        <p>A connection object from the database library
-            you are connecting with</p>
-            
-                      </div>
-                    </li>
-                    <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>]</code> <strong>connLib</strong>
-                      :
-                      <div class='force-inline'>
-                        <p>The name of the db connection library you are
-            using, eg. mysql or mysql2. Optional if the same as driverType</p>
-            
-                      </div>
-                    </li>
-                </ul>
                   <h4>Returns</h4>
                   <code><code><a href="#QueryBuilder">QueryBuilder</a></code></code>
                   :
@@ -1810,6 +1757,50 @@ prefixed with &apos;OR NOT&apos;</p>
                   </div>
                 <h4>Examples</h4>
             <pre class='overflow-auto'>query.set(<span class="hljs-string">'foo'</span>, <span class="hljs-string">'bar'</span>); <span class="hljs-comment">// Set a key, value pair</span></pre><pre class='overflow-auto'>query.set({foo:<span class="hljs-string">'bar'</span>}); <span class="hljs-comment">// Set with an object</span></pre>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='QueryBuilder.truncate'>
+          <a href='#QueryBuilder.truncate'>
+            <code>
+              #truncate<span class='gray'>(table, [callback])</span>
+            </code>
+            <div class='force-inline'>
+              <p>Empties the selected database table</p>
+
+            </div>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='QueryBuilder.truncate' class='mt0'>
+                truncate<span class='gray'>(table, [callback])</span>
+              </h2>
+              <p>Empties the selected database table</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> <strong>table</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>the name of the table to truncate</p>
+            
+                      </div>
+                    </li>
+                    <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">function</a></code>]</code> <strong>callback</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>Optional callback</p>
+            
+                      </div>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code>void</code> or <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>Returns a promise if no callback is supplied</p>
+            
+                  </div>
             </section>
           </div>
         </div>

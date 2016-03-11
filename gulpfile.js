@@ -62,11 +62,11 @@ gulp.task('mocha', ['lint-tests', 'sloc'], () => {
 	return gulp.src(TEST_FILES)
 		.pipe(mocha(MOCHA_OPTIONS))
 		.once('error', () => {
-            process.exit(1);
-        })
+			process.exit(1);
+		})
 		.once('end', () => {
-            process.exit();
-        });
+			process.exit();
+	});
 });
 
 gulp.task('test', ['test-sloc', 'lint-tests'], function(cb) {
@@ -78,14 +78,8 @@ gulp.task('test', ['test-sloc', 'lint-tests'], function(cb) {
 			mocha(MOCHA_OPTIONS),
 			istanbul.writeReports({
 				dir: './coverage',
-				reporters: ['clover', 'lcov', 'lcovonly', 'html', 'text']
-			})
-				.once('error', () => {
-		            process.exit(1);
-		        })
-				.once('end', () => {
-		            process.exit();
-		        })
+				reporters: ['clover', 'lcov', 'lcovonly', 'html', 'text'],
+			}),
 		]);
 	});
 });

@@ -20,20 +20,6 @@ Return an existing query builder instance
 
 Returns **QueryBuilder** The Query Builder object
 
-## init
-
-Create a query builder object
-
-**Parameters**
-
--   `driverType` **String** The name of the database type, eg. mysql or pg
--   `connObject` **Object** A connection object from the database library
-    you are connecting with
--   `connLib` **[String]** The name of the db connection library you are
-    using, eg. mysql or mysql2. Optional if the same as driverType
-
-Returns **QueryBuilder** The Query Builder object
-
 # QueryBuilder
 
 Main object that builds SQL queries.
@@ -438,6 +424,17 @@ query.set({foo:'bar'}); // Set with an object
 ```
 
 Returns **QueryBuilder** The Query Builder object, for chaining
+
+## truncate
+
+Empties the selected database table
+
+**Parameters**
+
+-   `table` **string** the name of the table to truncate
+-   `callback` **[function]** Optional callback
+
+Returns **void or Promise** Returns a promise if no callback is supplied
 
 ## update
 

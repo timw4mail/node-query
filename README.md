@@ -10,13 +10,11 @@ A node query builder for various SQL databases, based on [CodeIgniter](http://ww
 ### Features
 * Callback and Promise API for making database calls.
 
-### Supported adapters
+### Supported databases
 
-* mysql
-* mysql2
-* pg
-* dblite
-* node-firebird (Not supported as of version 3.1.0, as the adapter is very difficult to test)
+* Mysql (via `mysql2`)
+* PostgreSQL (via `pg`)
+* Sqlite (via `dblite`)
 
 ### Installation
 
@@ -26,20 +24,20 @@ A node query builder for various SQL databases, based on [CodeIgniter](http://ww
 
 ### Basic use
 ```javascript
-var nodeQuery = require('ci-node-query');
 
-var connection = ... // Database module connection
+// Set the database connection details
+const nodeQuery = require('ci-node-query')({
+"driver": "mysql",
+	"connection": {
+		"host": "localhost",
+		"user": "test",
+		"password": "",
+		"database": "test"
+	}
+});
 
-// Three arguments: database type, database connection, database connection library
-var query = nodeQuery.init('mysql', connection, 'mysql2');
-
-// The third argument is optional if the database connection library has the same name as the adapter, eg..
-nodeQuery.init('mysql', connection, 'mysql');
-// Can be instead
-nodeQuery.init('mysql', connection);
-
-// You can also retrieve the instance later
-query = nodeQuery.getQuery();
+// Get the query builder
+const query = nodeQuery.getQuery();
 
 query.select('foo')
 	.from('bar')
