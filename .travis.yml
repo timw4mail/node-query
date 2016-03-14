@@ -1,6 +1,10 @@
 language: node_js
 sudo: false
 
+services:
+  - mysql
+  - postgresql
+
 node_js:
   - "node"
   - "5"
