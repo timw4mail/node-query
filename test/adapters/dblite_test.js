@@ -3,6 +3,7 @@
 // Load the test base
 const reload = require('require-reload')(require);
 reload.emptyCache();
+const fs = require('fs');
 const testBase = reload('../base');
 const expect =  testBase.expect;
 const promiseTestRunner = testBase.promiseTestRunner;
@@ -20,10 +21,13 @@ let qb = nodeQuery.getQuery();
 suite('Dblite adapter tests -', () => {
 	suiteSetup(done => {
 		// Set up the sqlite database
-		let sql = `CREATE TABLE IF NOT EXISTS "create_test" ("id" INTEGER PRIMARY KEY, "key" TEXT, "val" TEXT);
-CREATE TABLE IF NOT EXISTS "create_join" ("id" INTEGER PRIMARY KEY, "key" TEXT, "val" TEXT);`;
+		fs.readFile(`${__dirname}/../sql/sqlite.sql`, 'utf8', (err, data) => {
+			if (err) {
+				return done(err);
+			}
 
-		qb.query(sql, () => done());
+			qb.query(data, () => done());
+		});
 	});
 
 	/*---------------------------------------------------------------------------
