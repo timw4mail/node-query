@@ -15,6 +15,7 @@
 	"pg-object": {
 		"driver": "pg",
 		"connection": {
+			"password": "",
 			"database": "test"
 		}
 	},
