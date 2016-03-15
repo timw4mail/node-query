@@ -4,7 +4,7 @@ Class for connection management
 
 **Parameters**
 
--   `config`  
+-   `config` **object** connection parameters
 
 ## constructor
 
@@ -12,7 +12,28 @@ Constructor
 
 **Parameters**
 
--   `config` **object** connection paramaters
+-   `config` **object** connection parameters
+
+**Examples**
+
+```javascript
+let nodeQuery = require('ci-node-query')({
+	driver: 'mysql',
+	connection: {
+		host: 'localhost',
+		user: 'root',
+		password: '',
+		database: 'mysql'
+	}
+});
+```
+
+```javascript
+let nodeQuery = require('ci-node-query')({
+	driver: 'sqlite',
+	connection: ':memory:'
+});
+```
 
 ## getQuery
 
@@ -368,7 +389,7 @@ Returns **QueryBuilder** The Query Builder object, for chaining
 
 ## query
 
-Manually make an sql query
+Run an arbitrary sql query. Run as a prepared statement.
 
 **Parameters**
 
@@ -500,3 +521,24 @@ Set a 'where not in' clause
 -   `values` **Array** the array of items to search in
 
 Returns **QueryBuilder** The Query Builder object, for chaining
+
+# Result
+
+Query result object
+
+**Parameters**
+
+-   `rows` **Array** the data rows of the result
+-   `columns` **Array** the column names in the result
+
+## columnCount
+
+Get the number of columns returned by the query
+
+Returns **Number** the number of columns in the result
+
+## rowCount
+
+Get the number of rows returned by the query
+
+Returns **Number** the number of rows in the result

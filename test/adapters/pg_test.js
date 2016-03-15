@@ -37,9 +37,12 @@ suite('Pg adapter tests -', () => {
 	//--------------------------------------------------------------------------
 	// Callback Tests
 	//--------------------------------------------------------------------------
-	testRunner(qb, (err, done) => {
+	testRunner(qb, (err, result, done) => {
 		expect(err).is.not.ok;
-		return done(err);
+		expect(result.rows).is.an('array');
+		expect(result.rowCount()).to.not.be.undefined;
+		expect(result.columnCount()).to.not.be.undefined;
+		done();
 	});
 	test('Callback - Select with function and argument in WHERE clause', done => {
 		qb.select('id')

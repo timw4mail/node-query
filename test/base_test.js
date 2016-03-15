@@ -42,4 +42,11 @@ suite('Base tests -', () => {
 			a.execute();
 		}).to.throw(Error, 'Correct adapter not defined for query execution');
 	});
+
+	test('Invalid adapter - missing transformResult', () => {
+		expect(() => {
+			let a = new Adapter();
+			a.transformResult([]);
+		}).to.throw(Error, 'Result transformer method not defined for current adapter');
+	});
 });

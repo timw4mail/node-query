@@ -34,8 +34,12 @@ suite('Dblite adapter tests -', () => {
 	Callback Tests
 	---------------------------------------------------------------------------*/
 
-	testRunner(qb, (err, done) => {
+	testRunner(qb, (err, result, done) => {
 		expect(err).is.not.ok;
+		expect(result.rows).is.an('array');
+		expect(result.columns).is.an('array');
+		expect(result.rowCount()).to.not.be.undefined;
+		expect(result.columnCount()).to.not.be.undefined;
 		done();
 	});
 	test('Callback - Select with function and argument in WHERE clause', done => {
@@ -64,7 +68,7 @@ suite('Dblite adapter tests -', () => {
 			},
 		];
 
-		qb.insertBatch('create_test', data, (err, rows) => {
+		qb.insertBatch('create_test', data, err => {
 			expect(err).is.not.ok;
 			return done();
 		});

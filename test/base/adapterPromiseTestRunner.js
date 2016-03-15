@@ -48,11 +48,8 @@ module.exports = function promiseTestRunner(qb) {
 	suite('DB update tests -', () => {
 		suiteSetup(done => {
 			let sql = qb.driver.truncate('create_test');
-			qb.query(sql).then(res => {
-				return done();
-			}).catch(err => {
-				return done(err);
-			});
+			qb.query(sql).then(res => done())
+				.catch(err => done(err));
 		});
 		test('Promise - Test Insert', () => {
 			let promise = qb.set('id', 98)

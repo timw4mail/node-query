@@ -242,6 +242,21 @@
                   class='regular block'>
                   #whereNotIn
                 </a>
+              <a
+                href='#Result'
+                class='block bold'>
+                Result
+              </a>
+                <a
+                  href='#Result.columnCount'
+                  class='regular block'>
+                  #columnCount
+                </a>
+                <a
+                  href='#Result.rowCount'
+                  class='regular block'>
+                  #rowCount
+                </a>
           </div>
         </div>
       </div>
@@ -255,10 +270,11 @@
 
     <h4>Parameters</h4>
     <ul class='suppress-p-margin'>
-        <li> <strong>config</strong>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code> <strong>config</strong>
           :
           <div class='force-inline'>
-            
+            <p>connection parameters</p>
+
           </div>
         </li>
     </ul>
@@ -285,11 +301,24 @@
                     <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code> <strong>config</strong>
                       :
                       <div class='force-inline'>
-                        <p>connection paramaters</p>
+                        <p>connection parameters</p>
             
                       </div>
                     </li>
                 </ul>
+                <h4>Examples</h4>
+            <pre class='overflow-auto'><span class="hljs-keyword">let</span> nodeQuery = <span class="hljs-built_in">require</span>(<span class="hljs-string">'ci-node-query'</span>)({
+            	driver: <span class="hljs-string">'mysql'</span>,
+            	connection: {
+            		host: <span class="hljs-string">'localhost'</span>,
+            		user: <span class="hljs-string">'root'</span>,
+            		password: <span class="hljs-string">''</span>,
+            		database: <span class="hljs-string">'mysql'</span>
+            	}
+            });</pre><pre class='overflow-auto'><span class="hljs-keyword">let</span> nodeQuery = <span class="hljs-built_in">require</span>(<span class="hljs-string">'ci-node-query'</span>)({
+            	driver: <span class="hljs-string">'sqlite'</span>,
+            	connection: <span class="hljs-string">':memory:'</span>
+            });</pre>
             </section>
           </div>
         </div>
@@ -1604,7 +1633,7 @@ prefixed with &apos;OR NOT&apos;</p>
               #query<span class='gray'>(sql, [params], [callback])</span>
             </code>
             <div class='force-inline'>
-              <p>Manually make an sql query</p>
+              <p>Run an arbitrary sql query. Run as a prepared statement.</p>
 
             </div>
           </a>
@@ -1613,7 +1642,7 @@ prefixed with &apos;OR NOT&apos;</p>
               <h2 id='QueryBuilder.query' class='mt0'>
                 query<span class='gray'>(sql, [params], [callback])</span>
               </h2>
-              <p>Manually make an sql query</p>
+              <p>Run an arbitrary sql query. Run as a prepared statement.</p>
             
                 <h4>Parameters</h4>
                 <ul class='suppress-p-margin'>
@@ -2056,6 +2085,85 @@ prefixed with &apos;OR NOT&apos;</p>
                   :
                   <div class='force-inline'>
                     <p>The Query Builder object, for chaining</p>
+            
+                  </div>
+            </section>
+          </div>
+        </div>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='Result' class='mt0'>
+    Result<span class='gray'>(rows, columns)</span>
+  </h2>
+  <p>Query result object</p>
+
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code> <strong>rows</strong>
+          :
+          <div class='force-inline'>
+            <p>the data rows of the result</p>
+
+          </div>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code> <strong>columns</strong>
+          :
+          <div class='force-inline'>
+            <p>the column names in the result</p>
+
+          </div>
+        </li>
+    </ul>
+      <h4>Instance members</h4>
+        <div class='collapsible' id='Result.columnCount'>
+          <a href='#Result.columnCount'>
+            <code>
+              #columnCount<span class='gray'></span>
+            </code>
+            <div class='force-inline'>
+              <p>Get the number of columns returned by the query</p>
+
+            </div>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='Result.columnCount' class='mt0'>
+                columnCount<span class='gray'></span>
+              </h2>
+              <p>Get the number of columns returned by the query</p>
+            
+                  <h4>Returns</h4>
+                  <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>the number of columns in the result</p>
+            
+                  </div>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='Result.rowCount'>
+          <a href='#Result.rowCount'>
+            <code>
+              #rowCount<span class='gray'></span>
+            </code>
+            <div class='force-inline'>
+              <p>Get the number of rows returned by the query</p>
+
+            </div>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='Result.rowCount' class='mt0'>
+                rowCount<span class='gray'></span>
+              </h2>
+              <p>Get the number of rows returned by the query</p>
+            
+                  <h4>Returns</h4>
+                  <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>the number of rows in the result</p>
             
                   </div>
             </section>
