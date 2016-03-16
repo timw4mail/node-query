@@ -11,8 +11,7 @@ const testRunner = testBase.testRunner;
 let tests = reload('../base/tests');
 
 // Load the test config file
-const configFile = (process.env.TRAVIS) ? '../config-travis.json' : '../config.json';
-const config = reload(configFile);
+const config = testBase.config;
 
 // Set up the query builder object
 let nodeQuery = require('../../lib/NodeQuery')(config.dblite);

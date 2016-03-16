@@ -1,7 +1,5 @@
 'use strict';
 
-const configFile = (process.env.TRAVIS) ? '../config-travis.json' : '../config.json';
-
 // Load the test base
 const reload = require('require-reload')(require);
 reload.emptyCache();
@@ -11,8 +9,8 @@ const promiseTestRunner = testBase.promiseTestRunner;
 const testRunner = testBase.testRunner;
 
 // Load the test config file
-let adapterName = 'mysql2';
-let config = reload(configFile)[adapterName];
+// let adapterName = 'mysql2';
+const config = testBase.config[adapterName];
 
 // Set up the query builder object
 let nodeQuery = reload('../../lib/NodeQuery')(config);

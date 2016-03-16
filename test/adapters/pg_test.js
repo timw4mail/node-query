@@ -1,7 +1,5 @@
 'use strict';
 
-let configFile = (process.env.CI) ? '../config-travis.json' : '../config.json';
-
 // Load the test base
 const reload = require('require-reload')(require);
 reload.emptyCache();
@@ -12,8 +10,8 @@ const testRunner = testBase.testRunner;
 
 // Load the test config file
 let adapterName = 'pg';
-let allConfig = reload(configFile);
-let config = allConfig[adapterName];
+const allConfig = testBase.config;
+const config = allConfig[adapterName];
 
 // Set up the query builder object
 let nodeQuery = reload('../../lib/NodeQuery')(config);

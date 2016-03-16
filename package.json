@@ -61,6 +61,8 @@
   },
   "license": "MIT",
   "scripts": {
+    "predocs": "documentation build -f md -o API.md lib/*.js",
+    "docs": "documentation build -f html -o docs lib/*.js",
     "test": "gulp test"
   }
 }

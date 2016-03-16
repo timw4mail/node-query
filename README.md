@@ -3,9 +3,6 @@
 A node query builder for various SQL databases, based on [CodeIgniter](http://www.codeigniter.com/user_guide/database/query_builder.html)'s query builder.
 
 [![Build Status](https://jenkins.timshomepage.net/buildStatus/icon?job=node-query)](https://jenkins.timshomepage.net/job/node-query/)
-[![Build Status](https://travis-ci.org/timw4mail/node-query.svg?branch=master)](https://travis-ci.org/timw4mail/node-query)
-[![Code Climate](https://codeclimate.com/github/timw4mail/node-query/badges/gpa.svg)](https://codeclimate.com/github/timw4mail/node-query)
-[![Test Coverage](https://codeclimate.com/github/timw4mail/node-query/badges/coverage.svg)](https://codeclimate.com/github/timw4mail/node-query/coverage)
 
 ### Features
 * Callback and Promise API for making database calls.
