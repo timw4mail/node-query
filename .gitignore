@@ -3,3 +3,4 @@ coverage
 npm-debug.log
 node_modules/*
 .sonar/*
+test/config.json

@@ -9,7 +9,7 @@ const promiseTestRunner = testBase.promiseTestRunner;
 const testRunner = testBase.testRunner;
 
 // Load the test config file
-// let adapterName = 'mysql2';
+let adapterName = 'mysql2';
 const config = testBase.config[adapterName];
 
 // Set up the query builder object
