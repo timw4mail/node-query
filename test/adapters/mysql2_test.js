@@ -18,7 +18,7 @@ let qb = nodeQuery.getQuery();
 
 suite('Mysql2 adapter tests -', () => {
 
-	suiteSetup(() => qb.truncate('create_test'));
+	suiteSetup(done => qb.truncate('create_test').then(() => done()));
 
 	test('nodeQuery.getQuery = nodeQuery.init', () => {
 		expect(nodeQuery.getQuery())
