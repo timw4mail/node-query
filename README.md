@@ -19,6 +19,8 @@ A node query builder for various SQL databases, based on [CodeIgniter](http://ww
 
 [![NPM](https://nodei.co/npm/ci-node-query.png?downloads=true&downloadRank=true)](https://nodei.co/npm/ci-node-query/)
 
+(Versions 3.x and below work differently. Their documentation is [here](https://git.timshomepage.net/timw4mail/node-query/tree/v3#README))
+
 ### Basic use
 ```javascript
 
@@ -72,13 +74,13 @@ As of version 4, all adapters return a standard result object, which looks simil
         columnName1: value1,
         columnName2: value2,
     }],
-    
+
     columns: ['column1', 'column2'],
 }
 ```
 
-In addition to the rows, and columns properties, 
-the result object has two methods, `rowCount` and `columnCount`. 
+In addition to the rows, and columns properties,
+the result object has two methods, `rowCount` and `columnCount`.
 These methods return the number of rows and columns columns in the current result.
 
 
