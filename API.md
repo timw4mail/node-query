@@ -2,23 +2,42 @@
 
 Class for connection management
 
-## getQuery
+**Parameters**
 
-Return an existing query builder instance
+-   `config` **object** connection parameters
 
-Returns **QueryBuilder** The Query Builder object
+## constructor
 
-## init
-
-Create a query builder object
+Constructor
 
 **Parameters**
 
--   `driverType` **String** The name of the database type, eg. mysql or pg
--   `connObject` **Object** A connection object from the database library
-    you are connecting with
--   `connLib` **[String]** The name of the db connection library you are
-    using, eg. mysql or mysql2. Optional if the same as driverType
+-   `config` **object** connection parameters
+
+**Examples**
+
+```javascript
+let nodeQuery = require('ci-node-query')({
+	driver: 'mysql',
+	connection: {
+		host: 'localhost',
+		user: 'root',
+		password: '',
+		database: 'mysql'
+	}
+});
+```
+
+```javascript
+let nodeQuery = require('ci-node-query')({
+	driver: 'sqlite',
+	connection: ':memory:'
+});
+```
+
+## getQuery
+
+Return an existing query builder instance
 
 Returns **QueryBuilder** The Query Builder object
 
@@ -370,7 +389,7 @@ Returns **QueryBuilder** The Query Builder object, for chaining
 
 ## query
 
-Manually make an sql query
+Run an arbitrary sql query. Run as a prepared statement.
 
 **Parameters**
 
@@ -426,6 +445,17 @@ query.set({foo:'bar'}); // Set with an object
 ```
 
 Returns **QueryBuilder** The Query Builder object, for chaining
+
+## truncate
+
+Empties the selected database table
+
+**Parameters**
+
+-   `table` **string** the name of the table to truncate
+-   `callback` **[function]** Optional callback
+
+Returns **void or Promise** Returns a promise if no callback is supplied
 
 ## update
 
@@ -491,3 +521,24 @@ Set a 'where not in' clause
 -   `values` **Array** the array of items to search in
 
 Returns **QueryBuilder** The Query Builder object, for chaining
+
+# Result
+
+Query result object
+
+**Parameters**
+
+-   `rows` **Array** the data rows of the result
+-   `columns` **Array** the column names in the result
+
+## columnCount
+
+Get the number of columns returned by the query
+
+Returns **Number** the number of columns in the result
+
+## rowCount
+
+Get the number of rows returned by the query
+
+Returns **Number** the number of rows in the result

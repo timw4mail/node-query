@@ -1,6 +1,6 @@
 build/*
 coverage
-coverage/*
 npm-debug.log
-tests/FB_TEST_DB.FD
 node_modules/*
+.sonar/*
+test/config.json

@@ -3,7 +3,7 @@
 let expect = require('chai').expect,
 	reload = require('require-reload')(require),
 	glob = require('glob'),
-	nodeQuery = reload('../lib/NodeQuery'),
+	nodeQuery = reload('../lib/NodeQuery')(),
 	Adapter = reload('../lib/Adapter');
 
 suite('Base tests -', () => {
@@ -30,7 +30,9 @@ suite('Base tests -', () => {
 
 	test('Invalid driver type', () => {
 		expect(() => {
-			nodeQuery.init('foo', {}, 'bar');
+			reload('../lib/NodeQuery')({
+				driver: 'Foo',
+			});
 		}).to.throw(Error, 'Selected driver (Foo) does not exist!');
 	});
 
@@ -39,5 +41,12 @@ suite('Base tests -', () => {
 			let a = new Adapter();
 			a.execute();
 		}).to.throw(Error, 'Correct adapter not defined for query execution');
+	});
+
+	test('Invalid adapter - missing transformResult', () => {
+		expect(() => {
+			let a = new Adapter();
+			a.transformResult([]);
+		}).to.throw(Error, 'Result transformer method not defined for current adapter');
 	});
 });

@@ -1,6 +1,0 @@
-reporting:
-    reports:
-        - lcov
-        - lcovonly
-    report-config:
-        lcovonly: {file: ../coverage/lcov.info}

@@ -3,20 +3,15 @@
 A node query builder for various SQL databases, based on [CodeIgniter](http://www.codeigniter.com/user_guide/database/query_builder.html)'s query builder.
 
 [![Build Status](https://jenkins.timshomepage.net/buildStatus/icon?job=node-query)](https://jenkins.timshomepage.net/job/node-query/)
-[![Build Status](https://travis-ci.org/timw4mail/node-query.svg?branch=master)](https://travis-ci.org/timw4mail/node-query)
-[![Code Climate](https://codeclimate.com/github/timw4mail/node-query/badges/gpa.svg)](https://codeclimate.com/github/timw4mail/node-query)
-[![Test Coverage](https://codeclimate.com/github/timw4mail/node-query/badges/coverage.svg)](https://codeclimate.com/github/timw4mail/node-query/coverage)
 
 ### Features
 * Callback and Promise API for making database calls.
 
-### Supported adapters
+### Supported databases
 
-* mysql
-* mysql2
-* pg
-* dblite
-* node-firebird (Not supported as of version 3.1.0, as the adapter is very difficult to test)
+* Mysql (via `mysql2`)
+* PostgreSQL (via `pg`)
+* Sqlite (via `dblite`)
 
 ### Installation
 
@@ -24,22 +19,24 @@ A node query builder for various SQL databases, based on [CodeIgniter](http://ww
 
 [![NPM](https://nodei.co/npm/ci-node-query.png?downloads=true&downloadRank=true)](https://nodei.co/npm/ci-node-query/)
 
+(Versions 3.x and below work differently. Their documentation is [here](https://git.timshomepage.net/timw4mail/node-query/tree/v3#README))
+
 ### Basic use
 ```javascript
-var nodeQuery = require('ci-node-query');
 
-var connection = ... // Database module connection
+// Set the database connection details
+const nodeQuery = require('ci-node-query')({
+"driver": "mysql",
+	"connection": {
+		"host": "localhost",
+		"user": "test",
+		"password": "",
+		"database": "test"
+	}
+});
 
-// Three arguments: database type, database connection, database connection library
-var query = nodeQuery.init('mysql', connection, 'mysql2');
-
-// The third argument is optional if the database connection library has the same name as the adapter, eg..
-nodeQuery.init('mysql', connection, 'mysql');
-// Can be instead
-nodeQuery.init('mysql', connection);
-
-// You can also retrieve the instance later
-query = nodeQuery.getQuery();
+// Get the query builder
+const query = nodeQuery.getQuery();
 
 query.select('foo')
 	.from('bar')
@@ -48,8 +45,8 @@ query.select('foo')
 	.join('baz', 'baz.boo = bar.foo', 'left')
 	.orderBy('x', 'DESC')
 	.limit(2, 3)
-	.get(function(/* Adapter dependent arguments */) {
-		// Database module result handling
+	.get(function(err, result) {
+		// Handle Results Here
 	});
 
 // As of version 3.1.0, you can also get promises
@@ -66,6 +63,26 @@ queryPromise.then(function(res) {
 	// Handle query results
 });
 ```
+
+### Result object
+As of version 4, all adapters return a standard result object, which looks similar to this:
+
+```javascript
+// Result object
+{
+    rows: [{
+        columnName1: value1,
+        columnName2: value2,
+    }],
+
+    columns: ['column1', 'column2'],
+}
+```
+
+In addition to the rows, and columns properties,
+the result object has two methods, `rowCount` and `columnCount`.
+These methods return the number of rows and columns columns in the current result.
+
 
 ### Security notes
 As of version 2, `where` and `having` type methods parse the values passed to look for function calls. While values passed are still passed as query parameters, take care to avoid passing these kinds of methods unfiltered input. SQL function arguments are not currently parsed, so they need to be properly escaped for the current database.

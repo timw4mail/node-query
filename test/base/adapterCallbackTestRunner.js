@@ -23,9 +23,7 @@ module.exports = function testRunner(qb, callback) {
 					let methodNames = Object.keys(methodObj);
 					let lastMethodIndex = methodNames[methodNames.length - 1];
 
-					methodObj[lastMethodIndex].push((err, rows) => {
-						callback(err, done);
-					});
+					methodObj[lastMethodIndex].push((err, rows) => callback(err, rows, done));
 
 					methodNames.forEach(name => {
 						let args = methodObj[name],
@@ -46,18 +44,13 @@ module.exports = function testRunner(qb, callback) {
 		});
 	});
 	suite('DB update tests -', () => {
-		setup(done => {
-			let sql = qb.driver.truncate('create_test');
-			qb.adapter.execute(sql, (err, res) => {
-				done();
-			});
-		});
+		suiteSetup(() => qb.truncate('create_test'));
 		test('Callback - Test Insert', done => {
 			qb.set('id', 98)
 				.set('key', '84')
 				.set('val', new Buffer('120'))
 				.insert('create_test', (err, rows) => {
-					return callback(err, done);
+					return callback(err, rows, done);
 				});
 		});
 		test('Callback - Test Insert Object', done => {
@@ -66,7 +59,7 @@ module.exports = function testRunner(qb, callback) {
 				key: 1,
 				val: new Buffer('2'),
 			}, (err, rows) => {
-				return callback(err, done);
+				return callback(err, rows, done);
 			});
 		});
 		test('Callback - Test Update', done => {
@@ -76,7 +69,7 @@ module.exports = function testRunner(qb, callback) {
 					key: 'gogle',
 					val: new Buffer('non-word'),
 				}, (err, rows) => {
-					return callback(err, done);
+					return callback(err, rows, done);
 				});
 		});
 		test('Callback - Test set Array Update', done => {
@@ -89,7 +82,7 @@ module.exports = function testRunner(qb, callback) {
 			qb.set(object)
 				.where('id', 22)
 				.update('create_test', (err, rows) => {
-					return callback(err, done);
+					return callback(err, rows, done);
 				});
 		});
 		test('Callback - Test where set update', done => {
@@ -98,18 +91,18 @@ module.exports = function testRunner(qb, callback) {
 				.set('key', 'gogle')
 				.set('val', new Buffer('non-word'))
 				.update('create_test', (err, rows) => {
-					return callback(err, done);
+					return callback(err, rows, done);
 				});
 		});
 		test('Callback - Test delete', done => {
 			qb.delete('create_test', {id: 5}, (err, rows) => {
-				return callback(err, done);
+				return callback(err, rows, done);
 			});
 		});
 		test('Callback - Delete with where', done => {
 			qb.where('id', 5)
 				.delete('create_test', (err, rows) => {
-					return callback(err, done);
+					return callback(err, rows, done);
 				});
 		});
 		test('Callback - Delete multiple where values', done => {
@@ -117,7 +110,7 @@ module.exports = function testRunner(qb, callback) {
 				id: 5,
 				key: 'gogle',
 			}, (err, rows) => {
-				return callback(err, done);
+				return callback(err, rows, done);
 			});
 		});
 	});
@@ -131,7 +124,7 @@ module.exports = function testRunner(qb, callback) {
 				.groupEnd()
 				.limit(2, 1)
 				.get((err, rows) => {
-					return callback(err, done);
+					return callback(err, rows, done);
 				});
 		});
 		test('Callback - Using where first grouping', done => {
@@ -144,7 +137,7 @@ module.exports = function testRunner(qb, callback) {
 				.groupEnd()
 				.limit(2, 1)
 				.get((err, rows) => {
-					return callback(err, done);
+					return callback(err, rows, done);
 				});
 		});
 		test('Callback - Using or grouping method', done => {
@@ -159,7 +152,7 @@ module.exports = function testRunner(qb, callback) {
 				.groupEnd()
 				.limit(2, 1)
 				.get((err, rows) => {
-					return callback(err, done);
+					return callback(err, rows, done);
 				});
 		});
 		test('Callback - Using or not grouping method', done => {
@@ -174,7 +167,7 @@ module.exports = function testRunner(qb, callback) {
 				.groupEnd()
 				.limit(2, 1)
 				.get((err, rows) => {
-					return callback(err, done);
+					return callback(err, rows, done);
 				});
 		});
 	});
@@ -184,32 +177,32 @@ module.exports = function testRunner(qb, callback) {
 				.from('create_test')
 				.getCompiledSelect(true);
 
-			expect(helpers.isString(sql)).to.be.true;
+			return expect(helpers.isString(sql)).to.be.true;
 		});
 		test('select from', () => {
 			let sql = qb.select('id')
 				.getCompiledSelect('create_test', true);
 
-			expect(helpers.isString(sql)).to.be.true;
+			return expect(helpers.isString(sql)).to.be.true;
 		});
 		test('insert', () => {
 			let sql = qb.set('id', 3)
 				.getCompiledInsert('create_test');
 
-			expect(helpers.isString(sql)).to.be.true;
+			return expect(helpers.isString(sql)).to.be.true;
 		});
 		test('update', () => {
 			let sql = qb.set('id', 3)
 				.where('id', 5)
 				.getCompiledUpdate('create_test');
 
-			expect(helpers.isString(sql)).to.be.true;
+			return expect(helpers.isString(sql)).to.be.true;
 		});
 		test('delete', () => {
 			let sql = qb.where('id', 5)
 				.getCompiledDelete('create_test');
 
-			expect(helpers.isString(sql)).to.be.true;
+			return expect(helpers.isString(sql)).to.be.true;
 		});
 	});
 	suite('Misc tests -', () => {

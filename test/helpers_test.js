@@ -148,5 +148,11 @@ suite('Helper Module Tests -', () => {
 				expect(helpers.regexInArray([], /.*/)).to.be.false;
 			});
 		});
+		suite('upperCaseFirst -', () => {
+			test('Capitalizes only the first letter of the string', () => {
+				expect(helpers.upperCaseFirst('foobar')).to.equal('Foobar');
+				expect(helpers.upperCaseFirst('FOOBAR')).to.equal('FOOBAR');
+			});
+		});
 	});
 });
