@@ -48,21 +48,24 @@
     "documentation": "",
     "eslint": "^2.4.0",
     "glob": "~6.0.4",
-    "gulp": "~3.9.0",
-    "gulp-documentation": "^2.2.0",
-    "gulp-eslint": "^2.0.0",
-    "gulp-istanbul": "^0.10.3",
-    "gulp-jscs": "^3.0.2",
-    "gulp-mocha": "^2.2.0",
-    "gulp-pipe": "^1.0.4",
-    "gulp-sloc": "~1.0.4",
+    "globstar": "^1.0.0",
     "istanbul": "~0.4.2",
-    "mocha": "^2.4.5"
+    "jscs": "^2.11.0",
+    "mocha": "^2.4.5",
+    "npm-run-all": "^1.6.0",
+    "nsp": "^2.2.1"
   },
   "license": "MIT",
   "scripts": {
-    "predocs": "documentation build -f md -o API.md lib/*.js",
-    "docs": "documentation build -f html -o docs lib/*.js",
-    "test": "gulp test"
+    "audit": "nsp check",
+    "build": "npm-run-all --parallel lint:src lint:tests docs coverage",
+    "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha",
+    "default": "npm-run-all --parallel audit lint:src lint:tests && npm run test",
+    "predocs": "globstar -- documentation build -f md -o API.md \"lib/*.js\"",
+    "docs": "globstar -- documentation build -f html -o docs \"lib/*.js\"",
+    "lint": "npm-run-all lint:tests lint:src",
+    "lint:src": "jscs ./lib && eslint ./lib",
+    "lint:tests": "jscs ./test && eslint ./test",
+    "test": "mocha -R dot"
   }
 }

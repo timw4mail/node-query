@@ -1,0 +1,9 @@
+reporting:
+    print: summary
+    reports:
+        - lcov
+        - lcovonly
+        - clover
+        - html
+        - text
+    dir: ./coverage
