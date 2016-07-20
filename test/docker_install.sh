@@ -9,4 +9,4 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 set -xe
 
 # Replace test config with docker config file
-mv "$DIR/config-ci.json $DIR/config.json"
+mv "$DIR/config-ci.json" "$DIR/config.json"

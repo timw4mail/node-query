@@ -19,6 +19,14 @@ let qb = nodeQuery.getQuery();
 let qb2 = null;
 
 suite('Pg adapter tests -', () => {
+	suiteSetup(done => {
+		qb.truncate('create_join').then(() => {
+			qb.truncate('create_test').then(() => {
+				done();
+			});
+		});
+	});
+
 	test('nodeQuery.getQuery = nodeQuery.init', () => {
 		expect(nodeQuery.getQuery())
 			.to.be.deep.equal(qb);
