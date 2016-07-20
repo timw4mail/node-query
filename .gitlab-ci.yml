@@ -1,6 +1,7 @@
 before_script:
     # Install dependencies
     - bash test/docker_install.sh > /dev/null
+    - npm install
 
 services:
   - mysql:latest
