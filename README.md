@@ -50,7 +50,7 @@ query.select('foo')
 	});
 
 // As of version 3.1.0, you can also get promises
-var queryPromise = query.select('foo')
+const queryPromise = query.select('foo')
 	.from('bar')
 	.where('x', 3)
 	.orWhere({y: 2})
@@ -93,5 +93,5 @@ As of version 2, `where` and `having` type methods parse the values passed to lo
 * Generated documentation is in the docs/ folder
 * The API is documented in [API.md](./API.md)
 * The `tests/adapters` folder contains examples of how to set up a connection for the appropriate database library
-* The documentation generated for the latest dev build is also [Available](https://github.timshomepage.net/node-query/docs/)
+* The documentation generated for the latest dev build is also [Available](https://github.timshomepage.net/node-query/docs/index.html)
 

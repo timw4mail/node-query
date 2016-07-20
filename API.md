@@ -1,10 +1,63 @@
+# limit
+
+Set the limit clause
+
+**Parameters**
+
+-   `sql` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** SQL statement to modify
+-   `limit` **[Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** Maximum number of rows to fetch
+-   `offset` **\[[Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)]** Number of rows to skip
+
+Returns **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** Modified SQL statement
+
+# quoteTable
+
+Quote database table name, and set prefix
+
+**Parameters**
+
+-   `table` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** Table name to quote
+
+Returns **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** Quoted table name
+
+# quoteIdentifiers
+
+Use the driver's escape character to quote identifiers
+
+**Parameters**
+
+-   `str` **([String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array))** String or array of strings to quote identifiers
+
+Returns **([String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array))** Quoted identifier(s)
+
+# truncate
+
+Generate SQL to truncate the passed table
+
+**Parameters**
+
+-   `table` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** Table to truncate
+
+Returns **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** Truncation SQL
+
+# insertBatch
+
+Generate SQL to insert a group of rows
+
+**Parameters**
+
+-   `table` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The table to insert to
+-   `data` **\[[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)]** The array of object containing data to insert
+
+Returns **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** Query and data to insert
+
 # NodeQuery
 
 Class for connection management
 
 **Parameters**
 
--   `config` **object** connection parameters
+-   `config` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** connection parameters
 
 ## constructor
 
@@ -12,7 +65,7 @@ Constructor
 
 **Parameters**
 
--   `config` **object** connection parameters
+-   `config` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** connection parameters
 
 **Examples**
 
@@ -39,9 +92,11 @@ let nodeQuery = require('ci-node-query')({
 
 Return an existing query builder instance
 
-Returns **QueryBuilder** The Query Builder object
+Returns **[QueryBuilder](#querybuilder)** The Query Builder object
 
 # QueryBuilder
+
+**Extends QueryBuilderBase**
 
 Main object that builds SQL queries.
 
@@ -50,17 +105,34 @@ Main object that builds SQL queries.
 -   `Driver` **Driver** The syntax driver for the database
 -   `Adapter` **Adapter** The database module adapter for running queries
 
-## delete
+## query
 
-Run the generated delete query
+Run an arbitrary sql query. Run as a prepared statement.
 
 **Parameters**
 
--   `table` **String** The table to insert into
--   `where` **[Object]** Where clause for delete statement
--   `callback` **[Function]** Callback for handling response from the database
+-   `sql` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The sql to execute
+-   `params` **\[[array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)]** The query parameters
+-   `callback` **\[[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)]** Optional callback
 
-Returns **void or Promise** If no callback is passed, a promise is returned
+Returns **(void | [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise))** Returns a promise if no callback is supplied
+
+## resetQuery
+
+Reset the object state for a new query
+
+Returns **void** 
+
+## truncate
+
+Empties the selected database table
+
+**Parameters**
+
+-   `table` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** the name of the table to truncate
+-   `callback` **\[[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)]** Optional callback
+
+Returns **(void | [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise))** Returns a promise if no callback is supplied
 
 ## end
 
@@ -68,13 +140,33 @@ Closes the database connection for the current adapter
 
 Returns **void** 
 
+## select
+
+Specify rows to select in the query
+
+**Parameters**
+
+-   `fields` **([String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array))** The fields to select from the current table
+
+**Examples**
+
+```javascript
+query.select('foo, bar'); // Select multiple fields with a string
+```
+
+```javascript
+query.select(['foo', 'bar']); // Select multiple fileds with an array
+```
+
+Returns **[QueryBuilder](#querybuilder)** The Query Builder object, for chaining
+
 ## from
 
 Specify the database table to select from
 
 **Parameters**
 
--   `tableName` **String** The table to use for the current query
+-   `tableName` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The table to use for the current query
 
 **Examples**
 
@@ -86,7 +178,274 @@ query.from('tableName');
 query.from('tableName t'); // Select the table with an alias
 ```
 
-Returns **QueryBuilder** The Query Builder object, for chaining
+Returns **[QueryBuilder](#querybuilder)** The Query Builder object, for chaining
+
+## like
+
+Add a 'like/ and like' clause to the query
+
+**Parameters**
+
+-   `field` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The name of the field  to compare to
+-   `val` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The value to compare to
+-   `pos` **\[[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)]** The placement of the wildcard character(s): before, after, or both (optional, default `both`)
+
+Returns **[QueryBuilder](#querybuilder)** The Query Builder object, for chaining
+
+## notLike
+
+Add a 'not like/ and not like' clause to the query
+
+**Parameters**
+
+-   `field` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The name of the field  to compare to
+-   `val` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The value to compare to
+-   `pos` **\[[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)]** The placement of the wildcard character(s): before, after, or both (optional, default `both`)
+
+Returns **[QueryBuilder](#querybuilder)** The Query Builder object, for chaining
+
+## orLike
+
+Add an 'or like' clause to the query
+
+**Parameters**
+
+-   `field` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The name of the field  to compare to
+-   `val` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The value to compare to
+-   `pos` **\[[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)]** The placement of the wildcard character(s): before, after, or both (optional, default `both`)
+
+Returns **[QueryBuilder](#querybuilder)** The Query Builder object, for chaining
+
+## orNotLike
+
+Add an 'or not like' clause to the query
+
+**Parameters**
+
+-   `field` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The name of the field  to compare to
+-   `val` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The value to compare to
+-   `pos` **\[[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)]** The placement of the wildcard character(s): before, after, or both (optional, default `both`)
+
+Returns **[QueryBuilder](#querybuilder)** The Query Builder object, for chaining
+
+## having
+
+Add a 'having' clause
+
+**Parameters**
+
+-   `key` **([String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))** The name of the field and the comparision operator, or an object
+-   `val` **\[([String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number))]** The value to compare if the value of key is a string
+
+Returns **[QueryBuilder](#querybuilder)** The Query Builder object, for chaining
+
+## orHaving
+
+Add an 'or having' clause
+
+**Parameters**
+
+-   `key` **([String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))** The name of the field and the comparision operator, or an object
+-   `val` **\[([String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number))]** The value to compare if the value of key is a string
+
+Returns **[QueryBuilder](#querybuilder)** The Query Builder object, for chaining
+
+## where
+
+Set a 'where' clause
+
+**Parameters**
+
+-   `key` **([String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))** The name of the field and the comparision operator, or an object
+-   `val` **\[([String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number))]** The value to compare if the value of key is a string
+
+Returns **[QueryBuilder](#querybuilder)** The Query Builder object, for chaining
+
+## orWhere
+
+Set a 'or where' clause
+
+**Parameters**
+
+-   `key` **([String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))** The name of the field and the comparision operator, or an object
+-   `val` **\[([String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number))]** The value to compare if the value of key is a string
+
+Returns **[QueryBuilder](#querybuilder)** The Query Builder object, for chaining
+
+## whereIsNull
+
+Select a field that is Null
+
+**Parameters**
+
+-   `field` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The name of the field that has a NULL value
+
+Returns **[QueryBuilder](#querybuilder)** The Query Builder object, for chaining
+
+## whereIsNotNull
+
+Specify that a field IS NOT NULL
+
+**Parameters**
+
+-   `field` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The name so the field that is not to be null
+
+Returns **[QueryBuilder](#querybuilder)** The Query Builder object, for chaining
+
+## orWhereIsNull
+
+Field is null prefixed with 'OR'
+
+**Parameters**
+
+-   `field` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The name of the field
+
+Returns **[QueryBuilder](#querybuilder)** The Query Builder object, for chaining
+
+## orWhereIsNotNull
+
+Field is not null prefixed with 'OR'
+
+**Parameters**
+
+-   `field` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The name of the field
+
+Returns **[QueryBuilder](#querybuilder)** The Query Builder object, for chaining
+
+## whereIn
+
+Set a 'where in' clause
+
+**Parameters**
+
+-   `key` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** the field to search
+-   `values` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** the array of items to search in
+
+Returns **[QueryBuilder](#querybuilder)** The Query Builder object, for chaining
+
+## orWhereIn
+
+Set a 'or where in' clause
+
+**Parameters**
+
+-   `key` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** the field to search
+-   `values` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** the array of items to search in
+
+Returns **[QueryBuilder](#querybuilder)** The Query Builder object, for chaining
+
+## whereNotIn
+
+Set a 'where not in' clause
+
+**Parameters**
+
+-   `key` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** the field to search
+-   `values` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** the array of items to search in
+
+Returns **[QueryBuilder](#querybuilder)** The Query Builder object, for chaining
+
+## orWhereNotIn
+
+Set a 'or where not in' clause
+
+**Parameters**
+
+-   `key` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** the field to search
+-   `values` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** the array of items to search in
+
+Returns **[QueryBuilder](#querybuilder)** The Query Builder object, for chaining
+
+## set
+
+Set values for insertion or updating
+
+**Parameters**
+
+-   `key` **([String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))** The key or object to use
+-   `val` **\[[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)]** The value if using a scalar key
+
+**Examples**
+
+```javascript
+query.set('foo', 'bar'); // Set a key, value pair
+```
+
+```javascript
+query.set({foo:'bar'}); // Set with an object
+```
+
+Returns **[QueryBuilder](#querybuilder)** The Query Builder object, for chaining
+
+## join
+
+Add a join clause to the query
+
+**Parameters**
+
+-   `table` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The table you are joining
+-   `cond` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The join condition.
+-   `type` **\[[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)]** The type of join, which defaults to inner (optional, default `'inner'`)
+
+Returns **[QueryBuilder](#querybuilder)** The Query Builder object, for chaining
+
+## groupBy
+
+Group the results by the selected field(s)
+
+**Parameters**
+
+-   `field` **([String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array))** The name of the field to group by
+
+Returns **[QueryBuilder](#querybuilder)** The Query Builder object, for chaining
+
+## orderBy
+
+Order the results by the selected field(s)
+
+**Parameters**
+
+-   `field` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The field(s) to order by
+-   `type` **\[[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)]** The order direction, ASC or DESC (optional, default `'ASC'`)
+
+Returns **[QueryBuilder](#querybuilder)** The Query Builder object, for chaining
+
+## limit
+
+Put a limit on the query
+
+**Parameters**
+
+-   `limit` **[Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** The maximum number of rows to fetch
+-   `offset` **\[[Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)]** The row number to start from
+
+Returns **[QueryBuilder](#querybuilder)** The Query Builder object, for chaining
+
+## groupStart
+
+Adds an open paren to the current query for logical grouping
+
+Returns **[QueryBuilder](#querybuilder)** The Query Builder object, for chaining
+
+## orGroupStart
+
+Adds an open paren to the current query for logical grouping,
+prefixed with 'OR'
+
+Returns **[QueryBuilder](#querybuilder)** The Query Builder object, for chaining
+
+## orNotGroupStart
+
+Adds an open paren to the current query for logical grouping,
+prefixed with 'OR NOT'
+
+Returns **[QueryBuilder](#querybuilder)** The Query Builder object, for chaining
+
+## groupEnd
+
+Ends a logical grouping started with one of the groupStart methods
+
+Returns **[QueryBuilder](#querybuilder)** The Query Builder object, for chaining
 
 ## get
 
@@ -94,10 +453,10 @@ Get the results of the compiled query
 
 **Parameters**
 
--   `table` **[String]** The table to select from
--   `limit` **[Number]** A limit for the query
--   `offset` **[Number]** An offset for the query
--   `callback` **[Function]** A callback for receiving the result
+-   `table` **\[[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)]** The table to select from
+-   `limit` **\[[Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)]** A limit for the query
+-   `offset` **\[[Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)]** An offset for the query
+-   `callback` **\[[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)]** A callback for receiving the result
 
 **Examples**
 
@@ -113,84 +472,7 @@ query.get('table_name', 5, callback); // Get 5 rows from the table
 query.get(callback); // Get the results of a query generated with other methods
 ```
 
-Returns **void or Promise** If no callback is passed, a promise is returned
-
-## getCompiledDelete
-
-Return generated delete query SQL
-
-**Parameters**
-
--   `table` **String** the name of the table to delete from
--   `reset` **[Boolean]** Whether to reset the query builder so another query can be built (optional, default `true`)
-
-Returns **String** The compiled sql statement
-
-## getCompiledInsert
-
-Return generated insert query SQL
-
-**Parameters**
-
--   `table` **String** the name of the table to insert into
--   `reset` **[Boolean]** Whether to reset the query builder so another query can be built (optional, default `true`)
-
-Returns **String** The compiled sql statement
-
-## getCompiledSelect
-
-Return generated select query SQL
-
-**Parameters**
-
--   `table` **[String]** the name of the table to retrieve from
--   `reset` **[Boolean]** Whether to reset the query builder so another query can be built (optional, default `true`)
-
-Returns **String** The compiled sql statement
-
-## getCompiledUpdate
-
-Return generated update query SQL
-
-**Parameters**
-
--   `table` **String** the name of the table to update
--   `reset` **[Boolean]** Whether to reset the query builder so another query can be built (optional, default `true`)
-
-Returns **String** The compiled sql statement
-
-## groupBy
-
-Group the results by the selected field(s)
-
-**Parameters**
-
--   `field` **String or Array** The name of the field to group by
-
-Returns **QueryBuilder** The Query Builder object, for chaining
-
-## groupEnd
-
-Ends a logical grouping started with one of the groupStart methods
-
-Returns **QueryBuilder** The Query Builder object, for chaining
-
-## groupStart
-
-Adds an open paren to the current query for logical grouping
-
-Returns **QueryBuilder** The Query Builder object, for chaining
-
-## having
-
-Add a 'having' clause
-
-**Parameters**
-
--   `key` **String or Object** The name of the field and the comparision operator, or an object
--   `val` **[String or Number]** The value to compare if the value of key is a string
-
-Returns **QueryBuilder** The Query Builder object, for chaining
+Returns **(void | [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise))** If no callback is passed, a promise is returned
 
 ## insert
 
@@ -198,11 +480,11 @@ Run the generated insert query
 
 **Parameters**
 
--   `table` **String** The table to insert into
--   `data` **[Object]** Data to insert, if not already added with the 'set' method
--   `callback` **[Function]** Callback for handling response from the database
+-   `table` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The table to insert into
+-   `data` **\[[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)]** Data to insert, if not already added with the 'set' method
+-   `callback` **\[[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)]** Callback for handling response from the database
 
-Returns **void or Promise** If no callback is passed, a promise is returned
+Returns **(void | [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise))** If no callback is passed, a promise is returned
 
 ## insertBatch
 
@@ -210,9 +492,9 @@ Insert multiple sets of rows at a time
 
 **Parameters**
 
--   `table` **String** The table to insert into
--   `data` **Array** The array of objects containing data rows to insert
--   `callback` **[Function]** Callback for handling database response
+-   `table` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The table to insert into
+-   `data` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** The array of objects containing data rows to insert
+-   `callback` **\[[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)]** Callback for handling database response
 
 **Examples**
 
@@ -225,237 +507,7 @@ query.insertBatch('foo',[{id:1,val:'bar'},{id:2,val:'baz'}])
 .then(promiseCallback);
 ```
 
-Returns **void or Promise** If no callback is passed, a promise is returned
-
-## join
-
-Add a join clause to the query
-
-**Parameters**
-
--   `table` **String** The table you are joining
--   `cond` **String** The join condition.
--   `type` **[String]** The type of join, which defaults to inner (optional, default `'inner'`)
-
-Returns **QueryBuilder** The Query Builder object, for chaining
-
-## like
-
-Add a 'like/ and like' clause to the query
-
-**Parameters**
-
--   `field` **String** The name of the field  to compare to
--   `val` **String** The value to compare to
--   `pos` **[String]** The placement of the wildcard character(s): before, after, or both (optional, default `both`)
-
-Returns **QueryBuilder** The Query Builder object, for chaining
-
-## limit
-
-Put a limit on the query
-
-**Parameters**
-
--   `limit` **Number** The maximum number of rows to fetch
--   `offset` **[Number]** The row number to start from
-
-Returns **QueryBuilder** The Query Builder object, for chaining
-
-## notLike
-
-Add a 'not like/ and not like' clause to the query
-
-**Parameters**
-
--   `field` **String** The name of the field  to compare to
--   `val` **String** The value to compare to
--   `pos` **[String]** The placement of the wildcard character(s): before, after, or both (optional, default `both`)
-
-Returns **QueryBuilder** The Query Builder object, for chaining
-
-## orGroupStart
-
-Adds an open paren to the current query for logical grouping,
-prefixed with 'OR'
-
-Returns **QueryBuilder** The Query Builder object, for chaining
-
-## orHaving
-
-Add an 'or having' clause
-
-**Parameters**
-
--   `key` **String or Object** The name of the field and the comparision operator, or an object
--   `val` **[String or Number]** The value to compare if the value of key is a string
-
-Returns **QueryBuilder** The Query Builder object, for chaining
-
-## orLike
-
-Add an 'or like' clause to the query
-
-**Parameters**
-
--   `field` **String** The name of the field  to compare to
--   `val` **String** The value to compare to
--   `pos` **[String]** The placement of the wildcard character(s): before, after, or both (optional, default `both`)
-
-Returns **QueryBuilder** The Query Builder object, for chaining
-
-## orNotGroupStart
-
-Adds an open paren to the current query for logical grouping,
-prefixed with 'OR NOT'
-
-Returns **QueryBuilder** The Query Builder object, for chaining
-
-## orNotLike
-
-Add an 'or not like' clause to the query
-
-**Parameters**
-
--   `field` **String** The name of the field  to compare to
--   `val` **String** The value to compare to
--   `pos` **[String]** The placement of the wildcard character(s): before, after, or both (optional, default `both`)
-
-Returns **QueryBuilder** The Query Builder object, for chaining
-
-## orWhere
-
-Set a 'or where' clause
-
-**Parameters**
-
--   `key` **String or Object** The name of the field and the comparision operator, or an object
--   `val` **[String or Number]** The value to compare if the value of key is a string
-
-Returns **QueryBuilder** The Query Builder object, for chaining
-
-## orWhereIn
-
-Set a 'or where in' clause
-
-**Parameters**
-
--   `key` **String** the field to search
--   `values` **Array** the array of items to search in
-
-Returns **QueryBuilder** The Query Builder object, for chaining
-
-## orWhereIsNotNull
-
-Field is not null prefixed with 'OR'
-
-**Parameters**
-
--   `field` **String** The name of the field
-
-Returns **QueryBuilder** The Query Builder object, for chaining
-
-## orWhereIsNull
-
-Field is null prefixed with 'OR'
-
-**Parameters**
-
--   `field` **String** The name of the field
-
-Returns **QueryBuilder** The Query Builder object, for chaining
-
-## orWhereNotIn
-
-Set a 'or where not in' clause
-
-**Parameters**
-
--   `key` **String** the field to search
--   `values` **Array** the array of items to search in
-
-Returns **QueryBuilder** The Query Builder object, for chaining
-
-## orderBy
-
-Order the results by the selected field(s)
-
-**Parameters**
-
--   `field` **String** The field(s) to order by
--   `type` **[String]** The order direction, ASC or DESC (optional, default `'ASC'`)
-
-Returns **QueryBuilder** The Query Builder object, for chaining
-
-## query
-
-Run an arbitrary sql query. Run as a prepared statement.
-
-**Parameters**
-
--   `sql` **string** The sql to execute
--   `params` **[array]** The query parameters
--   `callback` **[function]** Optional callback
-
-Returns **void or Promise** Returns a promise if no callback is supplied
-
-## resetQuery
-
-Reset the object state for a new query
-
-Returns **void** 
-
-## select
-
-Specify rows to select in the query
-
-**Parameters**
-
--   `fields` **String or Array** The fields to select from the current table
-
-**Examples**
-
-```javascript
-query.select('foo, bar'); // Select multiple fields with a string
-```
-
-```javascript
-query.select(['foo', 'bar']); // Select multiple fileds with an array
-```
-
-Returns **QueryBuilder** The Query Builder object, for chaining
-
-## set
-
-Set values for insertion or updating
-
-**Parameters**
-
--   `key` **String or Object** The key or object to use
--   `val` **[String]** The value if using a scalar key
-
-**Examples**
-
-```javascript
-query.set('foo', 'bar'); // Set a key, value pair
-```
-
-```javascript
-query.set({foo:'bar'}); // Set with an object
-```
-
-Returns **QueryBuilder** The Query Builder object, for chaining
-
-## truncate
-
-Empties the selected database table
-
-**Parameters**
-
--   `table` **string** the name of the table to truncate
--   `callback` **[function]** Optional callback
-
-Returns **void or Promise** Returns a promise if no callback is supplied
+Returns **(void | [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise))** If no callback is passed, a promise is returned
 
 ## update
 
@@ -463,64 +515,67 @@ Run the generated update query
 
 **Parameters**
 
--   `table` **String** The table to insert into
--   `data` **[Object]** Data to insert, if not already added with the 'set' method
--   `callback` **[Function]** Callback for handling response from the database
+-   `table` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The table to insert into
+-   `data` **\[[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)]** Data to insert, if not already added with the 'set' method
+-   `callback` **\[[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)]** Callback for handling response from the database
 
-Returns **void or Promise** If no callback is passed, a promise is returned
+Returns **(void | [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise))** If no callback is passed, a promise is returned
 
-## where
+## delete
 
-Set a 'where' clause
-
-**Parameters**
-
--   `key` **String or Object** The name of the field and the comparision operator, or an object
--   `val` **[String or Number]** The value to compare if the value of key is a string
-
-Returns **QueryBuilder** The Query Builder object, for chaining
-
-## whereIn
-
-Set a 'where in' clause
+Run the generated delete query
 
 **Parameters**
 
--   `key` **String** the field to search
--   `values` **Array** the array of items to search in
+-   `table` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The table to insert into
+-   `where` **\[[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)]** Where clause for delete statement
+-   `callback` **\[[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)]** Callback for handling response from the database
 
-Returns **QueryBuilder** The Query Builder object, for chaining
+Returns **(void | [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise))** If no callback is passed, a promise is returned
 
-## whereIsNotNull
+## getCompiledSelect
 
-Specify that a field IS NOT NULL
-
-**Parameters**
-
--   `field` **String** The name so the field that is not to be null
-
-Returns **QueryBuilder** The Query Builder object, for chaining
-
-## whereIsNull
-
-Select a field that is Null
+Return generated select query SQL
 
 **Parameters**
 
--   `field` **String** The name of the field that has a NULL value
+-   `table` **\[[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)]** the name of the table to retrieve from
+-   `reset` **\[[Boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)]** Whether to reset the query builder so another query can be built (optional, default `true`)
 
-Returns **QueryBuilder** The Query Builder object, for chaining
+Returns **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The compiled sql statement
 
-## whereNotIn
+## getCompiledInsert
 
-Set a 'where not in' clause
+Return generated insert query SQL
 
 **Parameters**
 
--   `key` **String** the field to search
--   `values` **Array** the array of items to search in
+-   `table` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** the name of the table to insert into
+-   `reset` **\[[Boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)]** Whether to reset the query builder so another query can be built (optional, default `true`)
 
-Returns **QueryBuilder** The Query Builder object, for chaining
+Returns **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The compiled sql statement
+
+## getCompiledUpdate
+
+Return generated update query SQL
+
+**Parameters**
+
+-   `table` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** the name of the table to update
+-   `reset` **\[[Boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)]** Whether to reset the query builder so another query can be built (optional, default `true`)
+
+Returns **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The compiled sql statement
+
+## getCompiledDelete
+
+Return generated delete query SQL
+
+**Parameters**
+
+-   `table` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** the name of the table to delete from
+-   `reset` **\[[Boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)]** Whether to reset the query builder so another query can be built (optional, default `true`)
+
+Returns **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The compiled sql statement
 
 # Result
 
@@ -528,17 +583,17 @@ Query result object
 
 **Parameters**
 
--   `rows` **Array** the data rows of the result
--   `columns` **Array** the column names in the result
-
-## columnCount
-
-Get the number of columns returned by the query
-
-Returns **Number** the number of columns in the result
+-   `rows` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** the data rows of the result
+-   `columns` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** the column names in the result
 
 ## rowCount
 
 Get the number of rows returned by the query
 
-Returns **Number** the number of rows in the result
+Returns **[Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** the number of rows in the result
+
+## columnCount
+
+Get the number of columns returned by the query
+
+Returns **[Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** the number of columns in the result
