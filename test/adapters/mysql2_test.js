@@ -17,8 +17,6 @@ let nodeQuery = reload('../../lib/NodeQuery')(config);
 let qb = nodeQuery.getQuery();
 
 suite('Mysql2 adapter tests -', () => {
-	suiteSetup(done => qb.truncate('create_test').then(() => done()));
-
 	test('nodeQuery.getQuery = nodeQuery.init', () => {
 		expect(nodeQuery.getQuery())
 			.to.be.deep.equal(qb);
