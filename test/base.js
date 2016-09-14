@@ -12,5 +12,5 @@ module.exports = {
 	expect: chai.expect,
 	tests: require('./base/tests'),
 	testRunner: require('./base/adapterCallbackTestRunner'),
-	promiseTestRunner: require('./base/adapterPromiseTestRunner'),
+	promiseTestRunner: require('./base/adapterPromiseTestRunner')
 };

@@ -1,6 +1,6 @@
 {
   "name": "ci-node-query",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "A query builder for node based on the one in CodeIgniter",
   "author": "Timothy J Warren <tim@timshomepage.net>",
   "engines": {
@@ -21,13 +21,14 @@
   },
   "keywords": [
     "codeigniter",
-    "mysql2",
+    "mariadb",
+    "mysql",
     "query builder",
-    "pg",
     "postgres",
-    "sqlite3",
+    "postgresql",
+    "sql",
     "sqlite",
-    "dblite"
+    "sqlite3"
   ],
   "bugs": {
     "url": "https://git.timshomepage.net/timw4mail/node-query/issues"
@@ -38,7 +39,7 @@
     "getargs": "~0.0.8",
     "glob": "^7.0.3",
     "mysql2": "^1.0.0-rc.1",
-    "pg": "^4.5.1",
+    "pg": "^6.0.0",
     "require-reload": "~0.2.2",
     "xregexp": "^3.0.0"
   },
@@ -46,13 +47,13 @@
     "chai": "^3.5.0",
     "chai-as-promised": "^5.2.0",
     "documentation": "",
-    "eslint": "^2.4.0",
+    "eslint": "^3.5.0",
     "glob": "~6.0.4",
     "globstar": "^1.0.0",
+    "happiness": "^5.5.0",
     "istanbul": "~0.4.2",
-    "jscs": "^2.11.0",
-    "mocha": "^2.4.5",
-    "npm-run-all": "^1.6.0",
+    "mocha": "^3.0.0",
+    "npm-run-all": "^3.0.0",
     "nsp": "^2.2.1"
   },
   "license": "MIT",
@@ -63,9 +64,12 @@
     "default": "npm-run-all --parallel audit lint:src lint:tests && npm run test",
     "predocs": "globstar -- documentation build -f md -o API.md \"lib/*.js\"",
     "docs": "globstar -- documentation build -f html -o docs \"lib/*.js\"",
-    "lint": "npm-run-all lint:tests lint:src",
-    "lint:src": "jscs ./lib && eslint ./lib",
-    "lint:tests": "jscs ./test && eslint ./test",
+    "happy": "happiness \"lib/**/*.js\" \"test/**/*.js\"",
+    "happy:src": "happiness \"lib/**/*.js\"",
+    "happy:tests": "happiness \"test/**/*.js\"",
+    "lint": "npm-run-all lint:tests lint:src && happy",
+    "lint:src": "eslint ./lib",
+    "lint:tests": "eslint ./test",
     "test": "mocha -R dot"
   }
 }

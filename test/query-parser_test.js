@@ -1,20 +1,21 @@
+/* eslint-env node, mocha */
 'use strict';
-let expect = require('chai').expect;
+const expect = require('chai').expect;
 
 // Use the base driver as a mock for testing
-let getArgs = require('getargs');
-let helpers = require('../lib/helpers');
-let driver = require('../lib/Driver');
+const getArgs = require('getargs');
+const helpers = require('../lib/helpers');
+const driver = require('../lib/Driver');
 
-let P = require('../lib/QueryParser');
+const P = require('../lib/QueryParser');
 let	parser = new P(driver);
 
-let State = require('../lib/State');
+const State = require('../lib/State');
 
 // Simulate query builder state
 let state = new State();
 
-let mixedSet = function mixedSet(/* $letName, $valType, $key, [$val] */) {
+let mixedSet = function mixedSet (/* $letName, $valType, $key, [$val] */) {
 	const argPattern = '$letName:string, $valType:string, $key:object|string|number, [$val]';
 	let args = getArgs(argPattern, arguments);
 
@@ -86,7 +87,7 @@ suite('Query Parser Tests', () => {
 		});
 		test('Has function key/val object', () => {
 			whereMock({
-				'time <': 'SUM(FOO(BAR(\'x\')))',
+				'time <': 'SUM(FOO(BAR(\'x\')))'
 			});
 			parser.parseWhere(driver, state);
 			expect(state.whereMap)
@@ -94,7 +95,7 @@ suite('Query Parser Tests', () => {
 		});
 		test('Has literal value', () => {
 			whereMock({
-				foo: 3,
+				foo: 3
 			});
 			parser.parseWhere(driver, state);
 			expect(state.whereMap)
@@ -105,7 +106,7 @@ suite('Query Parser Tests', () => {
 		test('Has multiple literal values', () => {
 			whereMock({
 				foo: 3,
-				bar: 5,
+				bar: 5
 			});
 			parser.parseWhere(driver, state);
 			expect(state.whereMap)
@@ -119,20 +120,20 @@ suite('Query Parser Tests', () => {
 			{
 				desc: 'Simple equals condition',
 				join: 'table1.field1=table2.field2',
-				expected: ['table1.field1', '=', 'table2.field2'],
+				expected: ['table1.field1', '=', 'table2.field2']
 			}, {
 				desc: 'Db.table.field condition',
 				join: 'db1.table1.field1!=db2.table2.field2',
-				expected: ['db1.table1.field1', '!=', 'db2.table2.field2'],
+				expected: ['db1.table1.field1', '!=', 'db2.table2.field2']
 			}, {
 				desc: 'Underscore in identifier',
 				join: 'table_1.field1 = tab_le2.field_2',
-				expected: ['table_1.field1', '=', 'tab_le2.field_2'],
+				expected: ['table_1.field1', '=', 'tab_le2.field_2']
 			}, {
 				desc: 'Function in condition',
 				join: 'table1.field1 > SUM(3+6)',
-				expected: ['table1.field1', '>', 'SUM(3+6)'],
-			},
+				expected: ['table1.field1', '>', 'SUM(3+6)']
+			}
 		];
 
 		data.forEach(datum => {
@@ -147,20 +148,20 @@ suite('Query Parser Tests', () => {
 			{
 				desc: 'Simple equals condition',
 				clause: 'table1.field1=table2.field2',
-				expected: '"table1"."field1" = "table2"."field2"',
+				expected: '"table1"."field1" = "table2"."field2"'
 			}, {
 				desc: 'Db.table.field condition',
 				clause: 'db1.table1.field1!=db2.table2.field2',
-				expected: '"db1"."table1"."field1" != "db2"."table2"."field2"',
+				expected: '"db1"."table1"."field1" != "db2"."table2"."field2"'
 			}, {
 				desc: 'Underscore in identifier',
 				clause: 'table_1.field1 = tab_le2.field_2',
-				expected: '"table_1"."field1" = "tab_le2"."field_2"',
+				expected: '"table_1"."field1" = "tab_le2"."field_2"'
 			}, {
 				desc: 'Function in condition',
 				clause: 'table1.field1 > SUM(3+6)',
-				expected: '"table1"."field1" > SUM(3+6)',
-			},
+				expected: '"table1"."field1" > SUM(3+6)'
+			}
 		];
 
 		data.forEach(datum => {

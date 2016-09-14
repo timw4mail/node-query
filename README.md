@@ -95,3 +95,5 @@ As of version 2, `where` and `having` type methods parse the values passed to lo
 * The `tests/adapters` folder contains examples of how to set up a connection for the appropriate database library
 * The documentation generated for the latest dev build is also [Available](https://github.timshomepage.net/node-query/docs/index.html)
 
+[![js-happiness-style](https://cdn.rawgit.com/JedWatson/happiness/master/badge.svg)](https://github.com/JedWatson/happiness)
+

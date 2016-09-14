@@ -1,6 +1,6 @@
+/* eslint-env node, mocha */
 'use strict';
 
-// jscs:disable
 // Load the test base
 const chai = require('chai');
 const chaiAsPromised = require('chai-as-promised');
@@ -10,31 +10,30 @@ const expect = chai.expect;
 const reload = require('require-reload')(require);
 let tests = reload('../base/tests');
 
-let helpers = reload('../../lib/helpers'),
-	State = reload('../../lib/State');
+const helpers = reload('../../lib/helpers');
+const State = reload('../../lib/State');
 
-module.exports = function testRunner(qb, callback) {
+module.exports = function testRunner (qb, callback) {
 	Object.keys(tests).forEach(suiteName => {
 		suite(suiteName, () => {
 			let currentSuite = tests[suiteName];
 			Object.keys(currentSuite).forEach(testDesc => {
 				test(`Callback - ${testDesc}`, done => {
-					let methodObj = currentSuite[testDesc];
-					let methodNames = Object.keys(methodObj);
-					let lastMethodIndex = methodNames[methodNames.length - 1];
+					const methodObj = currentSuite[testDesc];
+					const methodNames = Object.keys(methodObj);
+					const lastMethodIndex = methodNames[methodNames.length - 1];
 
 					methodObj[lastMethodIndex].push((err, rows) => callback(err, rows, done));
 
 					methodNames.forEach(name => {
-						let args = methodObj[name],
-							method = qb[name];
+						const args = methodObj[name];
+						const method = qb[name];
 
 						if (args[0] === 'multiple') {
 							args.shift();
 							args.forEach(argSet => {
 								method.apply(qb, argSet);
 							});
-
 						} else {
 							method.apply(qb, args);
 						}
@@ -57,7 +56,7 @@ module.exports = function testRunner(qb, callback) {
 			qb.insert('create_test', {
 				id: 587,
 				key: 1,
-				val: new Buffer('2'),
+				val: new Buffer('2')
 			}, (err, rows) => {
 				return callback(err, rows, done);
 			});
@@ -67,7 +66,7 @@ module.exports = function testRunner(qb, callback) {
 				.update('create_test', {
 					id: 7,
 					key: 'gogle',
-					val: new Buffer('non-word'),
+					val: new Buffer('non-word')
 				}, (err, rows) => {
 					return callback(err, rows, done);
 				});
@@ -76,7 +75,7 @@ module.exports = function testRunner(qb, callback) {
 			let object = {
 				id: 22,
 				key: 'gogle',
-				val: new Buffer('non-word'),
+				val: new Buffer('non-word')
 			};
 
 			qb.set(object)
@@ -108,7 +107,7 @@ module.exports = function testRunner(qb, callback) {
 		test('Callback - Delete multiple where values', done => {
 			qb.delete('create_test', {
 				id: 5,
-				key: 'gogle',
+				key: 'gogle'
 			}, (err, rows) => {
 				return callback(err, rows, done);
 			});

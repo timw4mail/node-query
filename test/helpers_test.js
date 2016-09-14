@@ -1,9 +1,9 @@
+/* eslint-env node, mocha */
 'use strict';
 
-let chai = require('chai'),
-	assert = chai.assert,
-	expect = chai.expect,
-	should = chai.should();
+const chai = require('chai');
+const assert = chai.assert;
+const expect = chai.expect;
 
 let helpers = require('../lib/helpers');
 
@@ -35,7 +35,7 @@ suite('Helper Module Tests -', () => {
 				'Function',
 				'RegExp',
 				'NaN',
-				'Infinite',
+				'Infinite'
 			];
 
 			types.forEach(type => {
@@ -48,7 +48,7 @@ suite('Helper Module Tests -', () => {
 			let trueCases = {
 				'Strings are scalar': 'foo',
 				'Booleans are scalar': true,
-				'Numbers are scalar': 545,
+				'Numbers are scalar': 545
 			};
 			Object.keys(trueCases).forEach(desc => {
 				test(desc, () => {
@@ -58,7 +58,7 @@ suite('Helper Module Tests -', () => {
 
 			let falseCases = {
 				'Arrays are not scalar': [],
-				'Objects are not scalar': [],
+				'Objects are not scalar': []
 			};
 			Object.keys(falseCases).forEach(desc => {
 				test(desc, () => {
@@ -95,14 +95,14 @@ suite('Helper Module Tests -', () => {
 		suite('arrayPluck -', () => {
 			let orig = [
 				{
-					foo: 1,
+					foo: 1
 				}, {
 					foo: 2,
-					bar: 10,
+					bar: 10
 				}, {
 					foo: 3,
-					bar: 15,
-				},
+					bar: 15
+				}
 			];
 
 			test('Finding members in all objects', () => {
@@ -121,11 +121,11 @@ suite('Helper Module Tests -', () => {
 			let cases = [
 				{
 					'Dollar sign is not in any of the array items': /\$/,
-					'None of the numbers in the array match /5/': /5/,
+					'None of the numbers in the array match /5/': /5/
 				}, {
 					'\' string \' matches /^ ?string/': /^ ?string/,
-					'\'apple\' matches /APPLE/i': /APPLE/i,
-				},
+					'\'apple\' matches /APPLE/i': /APPLE/i
+				}
 			];
 
 			[0, 1].forEach(i => {

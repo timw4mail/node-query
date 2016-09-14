@@ -1,6 +1,6 @@
+/* eslint-env node, mocha */
 'use strict';
 
-// jscs:disable
 // Load the test base
 const chai = require('chai');
 const chaiAsPromised = require('chai-as-promised');
@@ -8,32 +8,27 @@ chai.use(chaiAsPromised);
 const expect = chai.expect;
 
 const reload = require('require-reload')(require);
-let tests = reload('../base/tests');
+const tests = reload('../base/tests');
 
-let helpers = reload('../../lib/helpers'),
-	State = reload('../../lib/State');
-
-module.exports = function promiseTestRunner(qb) {
+module.exports = function promiseTestRunner (qb) {
 	Object.keys(tests).forEach(suiteName => {
 		suite(suiteName, () => {
 			let currentSuite = tests[suiteName];
 			Object.keys(currentSuite).forEach(testDesc => {
 				test(`Promise - ${testDesc}`, () => {
-					let methodObj = currentSuite[testDesc];
-					let methodNames = Object.keys(methodObj);
-					let lastMethodIndex = methodNames[methodNames.length - 1];
+					const methodObj = currentSuite[testDesc];
+					const methodNames = Object.keys(methodObj);
 					let results = [];
 
 					methodNames.forEach(name => {
-						let args = methodObj[name],
-							method = qb[name];
+						const args = methodObj[name];
+						const method = qb[name];
 
 						if (args[0] === 'multiple') {
 							args.shift();
 							args.forEach(argSet => {
 								results.push(method.apply(qb, argSet));
 							});
-
 						} else {
 							results.push(method.apply(qb, args));
 						}
@@ -63,7 +58,7 @@ module.exports = function promiseTestRunner(qb) {
 			let promise = qb.insert('create_test', {
 				id: 587,
 				key: 1,
-				val: new Buffer('2'),
+				val: new Buffer('2')
 			});
 
 			return expect(promise).to.be.fulfilled;
@@ -73,7 +68,7 @@ module.exports = function promiseTestRunner(qb) {
 				.update('create_test', {
 					id: 7,
 					key: 'gogle',
-					val: new Buffer('non-word'),
+					val: new Buffer('non-word')
 				});
 
 			return expect(promise).to.be.fulfilled;
@@ -82,7 +77,7 @@ module.exports = function promiseTestRunner(qb) {
 			let object = {
 				id: 22,
 				key: 'gogle',
-				val: new Buffer('non-word'),
+				val: new Buffer('non-word')
 			};
 
 			let promise = qb.set(object)
@@ -113,7 +108,7 @@ module.exports = function promiseTestRunner(qb) {
 		test('Promise - Delete multiple where values', () => {
 			let promise = qb.delete('create_test', {
 				id: 5,
-				key: 'gogle',
+				key: 'gogle'
 			});
 
 			return expect(promise).to.be.fulfilled;

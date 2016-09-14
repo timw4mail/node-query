@@ -1,3 +1,4 @@
+/* eslint-env node, mocha */
 'use strict';
 
 // Load the test base
@@ -5,10 +6,10 @@ const reload = require('require-reload')(require);
 reload.emptyCache();
 const fs = require('fs');
 const testBase = reload('../base');
-const expect =  testBase.expect;
+const expect = testBase.expect;
 const promiseTestRunner = testBase.promiseTestRunner;
 const testRunner = testBase.testRunner;
-let tests = reload('../base/tests');
+// let tests = reload('../base/tests');
 
 // Load the test config file
 const config = testBase.config;
@@ -29,9 +30,9 @@ suite('Dblite adapter tests -', () => {
 		});
 	});
 
-	/*---------------------------------------------------------------------------
-	Callback Tests
-	---------------------------------------------------------------------------*/
+	// ---------------------------------------------------------------------------
+	// Callback Tests
+	// ---------------------------------------------------------------------------
 
 	testRunner(qb, (err, result, done) => {
 		expect(err).is.not.ok;
@@ -55,16 +56,16 @@ suite('Dblite adapter tests -', () => {
 			{
 				id: 544,
 				key: 3,
-				val: new Buffer('7'),
+				val: new Buffer('7')
 			}, {
 				id: 89,
 				key: 34,
-				val: new Buffer('10 o\'clock'),
+				val: new Buffer('10 o\'clock')
 			}, {
 				id: 48,
 				key: 403,
-				val: new Buffer('97'),
-			},
+				val: new Buffer('97')
+			}
 		];
 
 		qb.insertBatch('create_test', data, err => {
@@ -73,9 +74,9 @@ suite('Dblite adapter tests -', () => {
 		});
 	});
 
-	/*---------------------------------------------------------------------------
-	Promise Tests
-	---------------------------------------------------------------------------*/
+	// ---------------------------------------------------------------------------
+	// Promise Tests
+	// ---------------------------------------------------------------------------
 	promiseTestRunner(qb);
 	test('Promise - Select with function and argument in WHERE clause', () => {
 		let promise = qb.select('id')
@@ -90,16 +91,16 @@ suite('Dblite adapter tests -', () => {
 			{
 				id: 544,
 				key: 3,
-				val: new Buffer('7'),
+				val: new Buffer('7')
 			}, {
 				id: 89,
 				key: 34,
-				val: new Buffer('10 o\'clock'),
+				val: new Buffer('10 o\'clock')
 			}, {
 				id: 48,
 				key: 403,
-				val: new Buffer('97'),
-			},
+				val: new Buffer('97')
+			}
 		];
 
 		let promise = qb.query(qb.driver.truncate('create_test')).then(
