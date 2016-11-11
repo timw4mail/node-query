@@ -1,10 +1,10 @@
 {
   "name": "ci-node-query",
-  "version": "4.0.1",
+  "version": "5.0.0",
   "description": "A query builder for node based on the one in CodeIgniter",
   "author": "Timothy J Warren <tim@timshomepage.net>",
   "engines": {
-    "node": ">=4.0.0"
+    "node": ">=6.0.0"
   },
   "files": [
     "lib/"
@@ -39,18 +39,18 @@
     "getargs": "~0.0.8",
     "glob": "^7.0.3",
     "mysql2": "^1.0.0-rc.1",
+    "node-firebird": "^0.7.5",
     "pg": "^6.0.0",
     "require-reload": "~0.2.2",
     "xregexp": "^3.0.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "chai-as-promised": "^5.2.0",
-    "documentation": "",
+    "chai-as-promised": "^6.0.0",
+    "documentation": "^3.0.4",
     "eslint": "^3.5.0",
-    "glob": "~6.0.4",
     "globstar": "^1.0.0",
-    "happiness": "^5.5.0",
+    "happiness": "^7.1.2",
     "istanbul": "~0.4.2",
     "mocha": "^3.0.0",
     "npm-run-all": "^3.0.0",

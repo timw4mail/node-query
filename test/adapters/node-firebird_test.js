@@ -5,10 +5,8 @@
 	const path = require('path');
 	const reload = require('require-reload')(require);
 	const testBase = reload('../base');
-	const promisify = require('../../lib/promisify');
 	const expect = reload('chai').expect;
-	const testRunner = testBase.testRunner;
-	const promiseTestRunner = testBase.promiseTestRunner;
+	const testRunner = testBase.promiseTestRunner;
 
 	// Skip on CI
 	if (process.env.CI || process.env.TRAVIS) {
@@ -35,20 +33,8 @@
 			}).to.throw(Error, 'Not Implemented');
 		});
 
-		//---------------------------------------------------------------------------
-		// Callback Tests
-		//---------------------------------------------------------------------------
-		testRunner(qb, (err, done) => {
-			expect(err).is.not.ok;
-			done();
-		});
+		testRunner(qb);
 
-		//---------------------------------------------------------------------------
-		// Promise Tests
-		//---------------------------------------------------------------------------
-		qb.adapter.execute(qb.driver.truncate('create_test')).then(() => {
-			promiseTestRunner(qb);
-		});
 		suiteTeardown(() => {
 			qb.end();
 		});

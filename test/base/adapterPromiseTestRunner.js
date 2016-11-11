@@ -49,7 +49,7 @@ module.exports = function promiseTestRunner (qb) {
 		test('Promise - Test Insert', () => {
 			let promise = qb.set('id', 98)
 				.set('key', '84')
-				.set('val', new Buffer('120'))
+				.set('val', Buffer.from('120'))
 				.insert('create_test');
 
 			return expect(promise).to.be.fulfilled;
@@ -58,7 +58,7 @@ module.exports = function promiseTestRunner (qb) {
 			let promise = qb.insert('create_test', {
 				id: 587,
 				key: 1,
-				val: new Buffer('2')
+				val: Buffer.from('2')
 			});
 
 			return expect(promise).to.be.fulfilled;
@@ -68,7 +68,7 @@ module.exports = function promiseTestRunner (qb) {
 				.update('create_test', {
 					id: 7,
 					key: 'gogle',
-					val: new Buffer('non-word')
+					val: Buffer.from('non-word')
 				});
 
 			return expect(promise).to.be.fulfilled;
@@ -77,7 +77,7 @@ module.exports = function promiseTestRunner (qb) {
 			let object = {
 				id: 22,
 				key: 'gogle',
-				val: new Buffer('non-word')
+				val: Buffer.from('non-word')
 			};
 
 			let promise = qb.set(object)
@@ -90,7 +90,7 @@ module.exports = function promiseTestRunner (qb) {
 			let promise = qb.where('id', 36)
 				.set('id', 36)
 				.set('key', 'gogle')
-				.set('val', new Buffer('non-word'))
+				.set('val', Buffer.from('non-word'))
 				.update('create_test');
 
 			return expect(promise).to.be.fulfilled;
