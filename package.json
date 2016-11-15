@@ -70,6 +70,6 @@
     "lint": "npm-run-all lint:tests lint:src && happy",
     "lint:src": "eslint ./lib",
     "lint:tests": "eslint ./test",
-    "test": "mocha -R dot"
+    "test": "mocha -R spec"
   }
 }

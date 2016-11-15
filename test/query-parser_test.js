@@ -3,7 +3,6 @@
 const expect = require('chai').expect;
 
 // Use the base driver as a mock for testing
-const getArgs = require('getargs');
 const helpers = require('../lib/helpers');
 const driver = require('../lib/Driver');
 
@@ -15,43 +14,38 @@ const State = require('../lib/State');
 // Simulate query builder state
 let state = new State();
 
-let mixedSet = function mixedSet (/* $letName, $valType, $key, [$val] */) {
-	const argPattern = '$letName:string, $valType:string, $key:object|string|number, [$val]';
-	let args = getArgs(argPattern, arguments);
+let mixedSet = function mixedSet(letName, valType, key, val) {
+    let obj = {};
 
-	let obj = {};
+    if (helpers.isScalar(key) && !helpers.isUndefined(val)) {
+        // Convert key/val pair to a simple object
+        obj[key] = val;
+    } else if (helpers.isScalar(key) && helpers.isUndefined(val)) {
+        // If just a string for the key, and no value, create a simple object with duplicate key/val
+        obj[key] = key;
+    } else {
+        obj = key;
+    }
 
-	if (helpers.isScalar(args.$key) && !helpers.isUndefined(args.$val)) {
-		// Convert key/val pair to a simple object
-		obj[args.$key] = args.$val;
-	} else if (helpers.isScalar(args.$key) && helpers.isUndefined(args.$val)) {
-		// If just a string for the key, and no value, create a simple object with duplicate key/val
-		obj[args.$key] = args.$key;
-	} else {
-		obj = args.$key;
-	}
+    Object.keys(obj).forEach(k => {
+        // If a single value for the return
+        if (['key', 'value'].indexOf(valType) !== -1) {
+            let pushVal = (valType === 'key') ? k : obj[k];
+            state[letName].push(pushVal);
+        } else {
+            state[letName][k] = obj[k];
+        }
+    });
 
-	Object.keys(obj).forEach(k => {
-		// If a single value for the return
-		if (['key', 'value'].indexOf(args.$valType) !== -1) {
-			let pushVal = (args.$valType === 'key') ? k : obj[k];
-			state[args.$letName].push(pushVal);
-		} else {
-			state[args.$letName][k] = obj[k];
-		}
-	});
-
-	return state[args.$letName];
+    return state[letName];
 };
 
-let whereMock = function () {
-	let args = getArgs('key:string|object, [val]', arguments);
-
+let whereMock = function (key, val) {
 	state.whereMap = [];
 	state.whereValues = [];
 
-	mixedSet('rawWhereValues', 'value', args.key, args.val);
-	mixedSet('whereMap', 'both', args.key, args.val);
+	mixedSet('rawWhereValues', 'value', key, val);
+	mixedSet('whereMap', 'both', key, val);
 };
 
 // -----------------------------------------------------------------------------
