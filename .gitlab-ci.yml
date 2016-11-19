@@ -22,14 +22,6 @@ cache:
   paths:
   - node_modules/
 
-test:4:
-  image: node:4
-  script: npm run test
-
-test:5:
-  image: node:5
-  script: npm run test
-
 test:6:
   image: node:6
   script: npm run test

@@ -48,7 +48,7 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-as-promised": "^6.0.0",
-    "documentation": "^3.0.4",
+    "documentation": "latest",
     "eslint": "^3.5.0",
     "globstar": "^1.0.0",
     "happiness": "^7.1.2",
