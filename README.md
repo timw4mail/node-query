@@ -9,6 +9,7 @@ A node query builder for various SQL databases, based on [CodeIgniter](http://ww
 
 ### Supported databases
 
+* Firebird (via `node-firebird`)
 * Mysql (via `mysql2`)
 * PostgreSQL (via `pg`)
 * Sqlite (via `dblite`)
@@ -38,18 +39,8 @@ const nodeQuery = require('ci-node-query')({
 // Get the query builder
 const query = nodeQuery.getQuery();
 
-query.select('foo')
-	.from('bar')
-	.where('x', 3)
-	.orWhere({y: 2})
-	.join('baz', 'baz.boo = bar.foo', 'left')
-	.orderBy('x', 'DESC')
-	.limit(2, 3)
-	.get(function(err, result) {
-		// Handle Results Here
-	});
-
 // As of version 3.1.0, you can also get promises
+// Version 5.0.0 removes all callback interfaces
 const queryPromise = query.select('foo')
 	.from('bar')
 	.where('x', 3)

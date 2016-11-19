@@ -61,10 +61,9 @@ Run an arbitrary sql query. Run as a prepared statement.
 **Parameters**
 
 -   `sql` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The sql to execute
--   `params` **\[[array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)]** The query parameters
--   `callback` **\[[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)]** Optional callback
+-   `params` **\[[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)]** The query parameters
 
-Returns **(void | [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise))** Returns a promise if no callback is supplied
+Returns **[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)** Promise with result of query
 
 ## resetQuery
 
@@ -79,7 +78,6 @@ Empties the selected database table
 **Parameters**
 
 -   `table` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** the name of the table to truncate
--   `callback` **\[[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)]** Optional callback
 
 Returns **(void | [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise))** Returns a promise if no callback is supplied
 
@@ -405,7 +403,6 @@ Get the results of the compiled query
 -   `table` **\[[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)]** The table to select from
 -   `limit` **\[[Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)]** A limit for the query
 -   `offset` **\[[Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)]** An offset for the query
--   `callback` **\[[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)]** A callback for receiving the result
 
 **Examples**
 
@@ -414,11 +411,11 @@ query.get('table_name').then(promiseCallback); // Get all the rows in the table
 ```
 
 ```javascript
-query.get('table_name', 5, callback); // Get 5 rows from the table
+query.get('table_name', 5); // Get 5 rows from the table
 ```
 
 ```javascript
-query.get(callback); // Get the results of a query generated with other methods
+query.get(); // Get the results of a query generated with other methods
 ```
 
 Returns **(void | [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise))** If no callback is passed, a promise is returned
@@ -431,9 +428,8 @@ Run the generated insert query
 
 -   `table` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The table to insert into
 -   `data` **\[[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)]** Data to insert, if not already added with the 'set' method
--   `callback` **\[[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)]** Callback for handling response from the database
 
-Returns **(void | [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise))** If no callback is passed, a promise is returned
+Returns **[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)** If no callback is passed, a promise is returned
 
 ## insertBatch
 
@@ -443,20 +439,15 @@ Insert multiple sets of rows at a time
 
 -   `table` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The table to insert into
 -   `data` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** The array of objects containing data rows to insert
--   `callback` **\[[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)]** Callback for handling database response
 
 **Examples**
-
-```javascript
-query.insertBatch('foo',[{id:1,val:'bar'},{id:2,val:'baz'}], callbackFunction);
-```
 
 ```javascript
 query.insertBatch('foo',[{id:1,val:'bar'},{id:2,val:'baz'}])
 .then(promiseCallback);
 ```
 
-Returns **(void | [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise))** If no callback is passed, a promise is returned
+Returns **[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)** If no callback is passed, a promise is returned
 
 ## update
 
@@ -466,9 +457,8 @@ Run the generated update query
 
 -   `table` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The table to insert into
 -   `data` **\[[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)]** Data to insert, if not already added with the 'set' method
--   `callback` **\[[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)]** Callback for handling response from the database
 
-Returns **(void | [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise))** If no callback is passed, a promise is returned
+Returns **[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)** If no callback is passed, a promise is returned
 
 ## delete
 
@@ -478,9 +468,8 @@ Run the generated delete query
 
 -   `table` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The table to insert into
 -   `where` **\[[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)]** Where clause for delete statement
--   `callback` **\[[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)]** Callback for handling response from the database
 
-Returns **(void | [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise))** If no callback is passed, a promise is returned
+Returns **[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)** If no callback is passed, a promise is returned
 
 ## getCompiledSelect
 

@@ -364,9 +364,11 @@
 
   
   <div class='clearfix'>
+    
     <h3 class='fl m0' id='nodequery'>
       NodeQuery
     </h3>
+    
     
   </div>
   
@@ -464,19 +466,19 @@
     
       
       <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">let</span> nodeQuery = <span class="hljs-built_in">require</span>(<span class="hljs-string">'ci-node-query'</span>)({
-	driver: <span class="hljs-string">'mysql'</span>,
-	connection: {
-		host: <span class="hljs-string">'localhost'</span>,
-		user: <span class="hljs-string">'root'</span>,
-		password: <span class="hljs-string">''</span>,
-		database: <span class="hljs-string">'mysql'</span>
+	<span class="hljs-attr">driver</span>: <span class="hljs-string">'mysql'</span>,
+	<span class="hljs-attr">connection</span>: {
+		<span class="hljs-attr">host</span>: <span class="hljs-string">'localhost'</span>,
+		<span class="hljs-attr">user</span>: <span class="hljs-string">'root'</span>,
+		<span class="hljs-attr">password</span>: <span class="hljs-string">''</span>,
+		<span class="hljs-attr">database</span>: <span class="hljs-string">'mysql'</span>
 	}
 });</pre>
     
       
       <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">let</span> nodeQuery = <span class="hljs-built_in">require</span>(<span class="hljs-string">'ci-node-query'</span>)({
-	driver: <span class="hljs-string">'sqlite'</span>,
-	connection: <span class="hljs-string">':memory:'</span>
+	<span class="hljs-attr">driver</span>: <span class="hljs-string">'sqlite'</span>,
+	<span class="hljs-attr">connection</span>: <span class="hljs-string">':memory:'</span>
 });</pre>
     
   
@@ -558,9 +560,11 @@
 
   
   <div class='clearfix'>
+    
     <h3 class='fl m0' id='querybuilder'>
       QueryBuilder
     </h3>
+    
     
   </div>
   
@@ -626,7 +630,7 @@
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>query(sql, [params], [callback])</span>
+            <span class='code strong strong truncate'>query(sql, [params])</span>
         </div>
       </div>
       <div class="clearfix display-none toggle-target">
@@ -637,7 +641,7 @@
   <p>Run an arbitrary sql query. Run as a prepared statement.</p>
 
 
-  <div class='pre p1 fill-light mt0'>query(sql: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, params: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a>], callback: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">function</a>]): (void | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>)</div>
+  <div class='pre p1 fill-light mt0'>query(sql: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, params: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>]): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></div>
 
   
 
@@ -661,15 +665,7 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>params</span> <code class='quiet'>([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a>])</code> The query parameters
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>callback</span> <code class='quiet'>([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">function</a>])</code> Optional callback
+            <span class='code bold'>params</span> <code class='quiet'>([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>])</code> The query parameters
 
           </div>
           
@@ -683,8 +679,8 @@
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>(void | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>)</code>:
-        Returns a promise if no callback is supplied
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></code>:
+        Promise with result of query
 
       
     
@@ -738,6 +734,7 @@
       <div class='py1 quiet mt1 prose-big'>Returns</div>
       <code>void</code>:
         
+
       
     
   
@@ -760,7 +757,7 @@
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>truncate(table, [callback])</span>
+            <span class='code strong strong truncate'>truncate(table)</span>
         </div>
       </div>
       <div class="clearfix display-none toggle-target">
@@ -771,7 +768,7 @@
   <p>Empties the selected database table</p>
 
 
-  <div class='pre p1 fill-light mt0'>truncate(table: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, callback: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">function</a>]): (void | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>)</div>
+  <div class='pre p1 fill-light mt0'>truncate(table: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): (void | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>)</div>
 
   
 
@@ -788,14 +785,6 @@
         <div class='space-bottom0'>
           <div>
             <span class='code bold'>table</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code> the name of the table to truncate
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>callback</span> <code class='quiet'>([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">function</a>])</code> Optional callback
 
           </div>
           
@@ -864,6 +853,7 @@
       <div class='py1 quiet mt1 prose-big'>Returns</div>
       <code>void</code>:
         
+
       
     
   
@@ -1044,7 +1034,7 @@
 
   
 
-  <p>Add a &#x27;like/ and like&#x27; clause to the query</p>
+  <p>Add a 'like/ and like' clause to the query</p>
 
 
   <div class='pre p1 fill-light mt0'>like(field: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, val: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, pos: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>]): <a href="#querybuilder">QueryBuilder</a></div>
@@ -1128,7 +1118,7 @@
 
   
 
-  <p>Add a &#x27;not like/ and not like&#x27; clause to the query</p>
+  <p>Add a 'not like/ and not like' clause to the query</p>
 
 
   <div class='pre p1 fill-light mt0'>notLike(field: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, val: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, pos: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>]): <a href="#querybuilder">QueryBuilder</a></div>
@@ -1212,7 +1202,7 @@
 
   
 
-  <p>Add an &#x27;or like&#x27; clause to the query</p>
+  <p>Add an 'or like' clause to the query</p>
 
 
   <div class='pre p1 fill-light mt0'>orLike(field: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, val: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, pos: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>]): <a href="#querybuilder">QueryBuilder</a></div>
@@ -1296,7 +1286,7 @@
 
   
 
-  <p>Add an &#x27;or not like&#x27; clause to the query</p>
+  <p>Add an 'or not like' clause to the query</p>
 
 
   <div class='pre p1 fill-light mt0'>orNotLike(field: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, val: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, pos: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>]): <a href="#querybuilder">QueryBuilder</a></div>
@@ -1380,7 +1370,7 @@
 
   
 
-  <p>Add a &#x27;having&#x27; clause</p>
+  <p>Add a 'having' clause</p>
 
 
   <div class='pre p1 fill-light mt0'>having(key: (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>), val: [(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>)]): <a href="#querybuilder">QueryBuilder</a></div>
@@ -1454,7 +1444,7 @@
 
   
 
-  <p>Add an &#x27;or having&#x27; clause</p>
+  <p>Add an 'or having' clause</p>
 
 
   <div class='pre p1 fill-light mt0'>orHaving(key: (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>), val: [(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>)]): <a href="#querybuilder">QueryBuilder</a></div>
@@ -1528,7 +1518,7 @@
 
   
 
-  <p>Set a &#x27;where&#x27; clause</p>
+  <p>Set a 'where' clause</p>
 
 
   <div class='pre p1 fill-light mt0'>where(key: (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>), val: [(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>)]): <a href="#querybuilder">QueryBuilder</a></div>
@@ -1602,7 +1592,7 @@
 
   
 
-  <p>Set a &#x27;or where&#x27; clause</p>
+  <p>Set a 'or where' clause</p>
 
 
   <div class='pre p1 fill-light mt0'>orWhere(key: (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>), val: [(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>)]): <a href="#querybuilder">QueryBuilder</a></div>
@@ -1808,7 +1798,7 @@
 
   
 
-  <p>Field is null prefixed with &#x27;OR&#x27;</p>
+  <p>Field is null prefixed with 'OR'</p>
 
 
   <div class='pre p1 fill-light mt0'>orWhereIsNull(field: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): <a href="#querybuilder">QueryBuilder</a></div>
@@ -1874,7 +1864,7 @@
 
   
 
-  <p>Field is not null prefixed with &#x27;OR&#x27;</p>
+  <p>Field is not null prefixed with 'OR'</p>
 
 
   <div class='pre p1 fill-light mt0'>orWhereIsNotNull(field: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): <a href="#querybuilder">QueryBuilder</a></div>
@@ -1940,7 +1930,7 @@
 
   
 
-  <p>Set a &#x27;where in&#x27; clause</p>
+  <p>Set a 'where in' clause</p>
 
 
   <div class='pre p1 fill-light mt0'>whereIn(key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, values: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>): <a href="#querybuilder">QueryBuilder</a></div>
@@ -2014,7 +2004,7 @@
 
   
 
-  <p>Set a &#x27;or where in&#x27; clause</p>
+  <p>Set a 'or where in' clause</p>
 
 
   <div class='pre p1 fill-light mt0'>orWhereIn(key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, values: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>): <a href="#querybuilder">QueryBuilder</a></div>
@@ -2088,7 +2078,7 @@
 
   
 
-  <p>Set a &#x27;where not in&#x27; clause</p>
+  <p>Set a 'where not in' clause</p>
 
 
   <div class='pre p1 fill-light mt0'>whereNotIn(key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, values: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>): <a href="#querybuilder">QueryBuilder</a></div>
@@ -2162,7 +2152,7 @@
 
   
 
-  <p>Set a &#x27;or where not in&#x27; clause</p>
+  <p>Set a 'or where not in' clause</p>
 
 
   <div class='pre p1 fill-light mt0'>orWhereNotIn(key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, values: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>): <a href="#querybuilder">QueryBuilder</a></div>
@@ -2293,7 +2283,7 @@
       <pre class='p1 overflow-auto round fill-light'>query.set(<span class="hljs-string">'foo'</span>, <span class="hljs-string">'bar'</span>); <span class="hljs-comment">// Set a key, value pair</span></pre>
     
       
-      <pre class='p1 overflow-auto round fill-light'>query.set({foo:<span class="hljs-string">'bar'</span>}); <span class="hljs-comment">// Set with an object</span></pre>
+      <pre class='p1 overflow-auto round fill-light'>query.set({<span class="hljs-attr">foo</span>:<span class="hljs-string">'bar'</span>}); <span class="hljs-comment">// Set with an object</span></pre>
     
   
 
@@ -2673,7 +2663,7 @@
   
 
   <p>Adds an open paren to the current query for logical grouping,
-prefixed with &#x27;OR&#x27;</p>
+prefixed with 'OR'</p>
 
 
   <div class='pre p1 fill-light mt0'>orGroupStart(): <a href="#querybuilder">QueryBuilder</a></div>
@@ -2727,7 +2717,7 @@ prefixed with &#x27;OR&#x27;</p>
   
 
   <p>Adds an open paren to the current query for logical grouping,
-prefixed with &#x27;OR NOT&#x27;</p>
+prefixed with 'OR NOT'</p>
 
 
   <div class='pre p1 fill-light mt0'>orNotGroupStart(): <a href="#querybuilder">QueryBuilder</a></div>
@@ -2825,7 +2815,7 @@ prefixed with &#x27;OR NOT&#x27;</p>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>get([table], [limit], [offset], [callback])</span>
+            <span class='code strong strong truncate'>get([table], [limit], [offset])</span>
         </div>
       </div>
       <div class="clearfix display-none toggle-target">
@@ -2836,7 +2826,7 @@ prefixed with &#x27;OR NOT&#x27;</p>
   <p>Get the results of the compiled query</p>
 
 
-  <div class='pre p1 fill-light mt0'>get(table: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>], limit: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>], offset: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>], callback: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>]): (void | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>)</div>
+  <div class='pre p1 fill-light mt0'>get(table: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>], limit: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>], offset: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>]): (void | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>)</div>
 
   
 
@@ -2874,14 +2864,6 @@ prefixed with &#x27;OR NOT&#x27;</p>
           
         </div>
       
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>callback</span> <code class='quiet'>([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>])</code> A callback for receiving the result
-
-          </div>
-          
-        </div>
-      
     </div>
   
 
@@ -2906,10 +2888,10 @@ prefixed with &#x27;OR NOT&#x27;</p>
       <pre class='p1 overflow-auto round fill-light'>query.get(<span class="hljs-string">'table_name'</span>).then(promiseCallback); <span class="hljs-comment">// Get all the rows in the table</span></pre>
     
       
-      <pre class='p1 overflow-auto round fill-light'>query.get(<span class="hljs-string">'table_name'</span>, <span class="hljs-number">5</span>, callback); <span class="hljs-comment">// Get 5 rows from the table</span></pre>
+      <pre class='p1 overflow-auto round fill-light'>query.get(<span class="hljs-string">'table_name'</span>, <span class="hljs-number">5</span>); <span class="hljs-comment">// Get 5 rows from the table</span></pre>
     
       
-      <pre class='p1 overflow-auto round fill-light'>query.get(callback); <span class="hljs-comment">// Get the results of a query generated with other methods</span></pre>
+      <pre class='p1 overflow-auto round fill-light'>query.get(); <span class="hljs-comment">// Get the results of a query generated with other methods</span></pre>
     
   
 
@@ -2927,7 +2909,7 @@ prefixed with &#x27;OR NOT&#x27;</p>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>insert(table, [data], [callback])</span>
+            <span class='code strong strong truncate'>insert(table, [data])</span>
         </div>
       </div>
       <div class="clearfix display-none toggle-target">
@@ -2938,7 +2920,7 @@ prefixed with &#x27;OR NOT&#x27;</p>
   <p>Run the generated insert query</p>
 
 
-  <div class='pre p1 fill-light mt0'>insert(table: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, data: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>], callback: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>]): (void | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>)</div>
+  <div class='pre p1 fill-light mt0'>insert(table: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, data: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>]): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></div>
 
   
 
@@ -2962,15 +2944,7 @@ prefixed with &#x27;OR NOT&#x27;</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>data</span> <code class='quiet'>([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>])</code> Data to insert, if not already added with the &#x27;set&#x27; method
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>callback</span> <code class='quiet'>([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>])</code> Callback for handling response from the database
+            <span class='code bold'>data</span> <code class='quiet'>([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>])</code> Data to insert, if not already added with the 'set' method
 
           </div>
           
@@ -2984,7 +2958,7 @@ prefixed with &#x27;OR NOT&#x27;</p>
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>(void | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>)</code>:
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></code>:
         If no callback is passed, a promise is returned
 
       
@@ -3009,7 +2983,7 @@ prefixed with &#x27;OR NOT&#x27;</p>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>insertBatch(table, data, [callback])</span>
+            <span class='code strong strong truncate'>insertBatch(table, data)</span>
         </div>
       </div>
       <div class="clearfix display-none toggle-target">
@@ -3020,7 +2994,7 @@ prefixed with &#x27;OR NOT&#x27;</p>
   <p>Insert multiple sets of rows at a time</p>
 
 
-  <div class='pre p1 fill-light mt0'>insertBatch(table: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, data: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>, callback: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>]): (void | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>)</div>
+  <div class='pre p1 fill-light mt0'>insertBatch(table: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, data: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></div>
 
   
 
@@ -3050,14 +3024,6 @@ prefixed with &#x27;OR NOT&#x27;</p>
           
         </div>
       
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>callback</span> <code class='quiet'>([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>])</code> Callback for handling database response
-
-          </div>
-          
-        </div>
-      
     </div>
   
 
@@ -3066,7 +3032,7 @@ prefixed with &#x27;OR NOT&#x27;</p>
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>(void | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>)</code>:
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></code>:
         If no callback is passed, a promise is returned
 
       
@@ -3079,10 +3045,7 @@ prefixed with &#x27;OR NOT&#x27;</p>
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>query.insertBatch(<span class="hljs-string">'foo'</span>,[{id:<span class="hljs-number">1</span>,val:<span class="hljs-string">'bar'</span>},{id:<span class="hljs-number">2</span>,val:<span class="hljs-string">'baz'</span>}], callbackFunction);</pre>
-    
-      
-      <pre class='p1 overflow-auto round fill-light'>query.insertBatch(<span class="hljs-string">'foo'</span>,[{id:<span class="hljs-number">1</span>,val:<span class="hljs-string">'bar'</span>},{id:<span class="hljs-number">2</span>,val:<span class="hljs-string">'baz'</span>}])
+      <pre class='p1 overflow-auto round fill-light'>query.insertBatch(<span class="hljs-string">'foo'</span>,[{<span class="hljs-attr">id</span>:<span class="hljs-number">1</span>,<span class="hljs-attr">val</span>:<span class="hljs-string">'bar'</span>},{<span class="hljs-attr">id</span>:<span class="hljs-number">2</span>,<span class="hljs-attr">val</span>:<span class="hljs-string">'baz'</span>}])
 .then(promiseCallback);</pre>
     
   
@@ -3101,7 +3064,7 @@ prefixed with &#x27;OR NOT&#x27;</p>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>update(table, [data], [callback])</span>
+            <span class='code strong strong truncate'>update(table, [data])</span>
         </div>
       </div>
       <div class="clearfix display-none toggle-target">
@@ -3112,7 +3075,7 @@ prefixed with &#x27;OR NOT&#x27;</p>
   <p>Run the generated update query</p>
 
 
-  <div class='pre p1 fill-light mt0'>update(table: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, data: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>], callback: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>]): (void | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>)</div>
+  <div class='pre p1 fill-light mt0'>update(table: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, data: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>]): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></div>
 
   
 
@@ -3136,15 +3099,7 @@ prefixed with &#x27;OR NOT&#x27;</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>data</span> <code class='quiet'>([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>])</code> Data to insert, if not already added with the &#x27;set&#x27; method
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>callback</span> <code class='quiet'>([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>])</code> Callback for handling response from the database
+            <span class='code bold'>data</span> <code class='quiet'>([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>])</code> Data to insert, if not already added with the 'set' method
 
           </div>
           
@@ -3158,7 +3113,7 @@ prefixed with &#x27;OR NOT&#x27;</p>
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>(void | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>)</code>:
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></code>:
         If no callback is passed, a promise is returned
 
       
@@ -3183,7 +3138,7 @@ prefixed with &#x27;OR NOT&#x27;</p>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>delete(table, [where], [callback])</span>
+            <span class='code strong strong truncate'>delete(table, [where])</span>
         </div>
       </div>
       <div class="clearfix display-none toggle-target">
@@ -3194,7 +3149,7 @@ prefixed with &#x27;OR NOT&#x27;</p>
   <p>Run the generated delete query</p>
 
 
-  <div class='pre p1 fill-light mt0'>delete(table: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, where: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>], callback: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>]): (void | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>)</div>
+  <div class='pre p1 fill-light mt0'>delete(table: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, where: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>]): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></div>
 
   
 
@@ -3224,14 +3179,6 @@ prefixed with &#x27;OR NOT&#x27;</p>
           
         </div>
       
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>callback</span> <code class='quiet'>([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>])</code> Callback for handling response from the database
-
-          </div>
-          
-        </div>
-      
     </div>
   
 
@@ -3240,7 +3187,7 @@ prefixed with &#x27;OR NOT&#x27;</p>
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>(void | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>)</code>:
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></code>:
         If no callback is passed, a promise is returned
 
       
@@ -3579,9 +3526,11 @@ prefixed with &#x27;OR NOT&#x27;</p>
 
   
   <div class='clearfix'>
+    
     <h3 class='fl m0' id='result'>
       Result
     </h3>
+    
     
   </div>
   
