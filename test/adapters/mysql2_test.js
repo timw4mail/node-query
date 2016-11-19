@@ -22,21 +22,6 @@ suite('Mysql2 adapter tests -', () => {
 			.to.be.deep.equal(qb);
 	});
 
-	// --------------------------------------------------------------------------
-	// Callback Tests
-	// --------------------------------------------------------------------------
-	/* testRunner(qb, (err, result, done) => {
-		expect(err).is.not.ok;
-		expect(result.rows).is.an('array');
-		expect(result.columns).is.an('array');
-		expect(result.rowCount()).to.not.be.undefined;
-		expect(result.columnCount()).to.not.be.undefined;
-		done();
-	}); */
-
-	// ---------------------------------------------------------------------------
-	// Promise Tests
-	// ---------------------------------------------------------------------------
 	testRunner(qb);
 	test('Promise - Select with function and argument in WHERE clause', () => {
 		let promise = qb.select('id')
@@ -70,7 +55,7 @@ suite('Mysql2 adapter tests -', () => {
 		return expect(qb.insertBatch('create_test', data)).to.be.fulfilled;
 	});
 
-	suiteTeardown(() => {
+	/* suiteTeardown(() => {
 		qb.end();
-	});
+	}); */
 });

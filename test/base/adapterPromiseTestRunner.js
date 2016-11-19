@@ -15,7 +15,7 @@ module.exports = function promiseTestRunner (qb) {
 		suite(suiteName, () => {
 			let currentSuite = tests[suiteName];
 			Object.keys(currentSuite).forEach(testDesc => {
-				test(testDesc, () => {
+				test(testDesc, done => {
 					const methodObj = currentSuite[testDesc];
 					const methodNames = Object.keys(methodObj);
 					let results = [];
@@ -35,7 +35,12 @@ module.exports = function promiseTestRunner (qb) {
 					});
 
 					let promise = results.pop();
-					return expect(promise).to.be.fulfilled;
+					promise.then(result => {
+						expect(result.rows).is.an('array');
+						expect(result.rowCount()).to.not.be.undefined;
+						expect(result.columnCount()).to.not.be.undefined;
+						return done();
+					}).catch(e => done(e));
 				});
 			});
 		});

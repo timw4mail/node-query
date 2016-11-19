@@ -14,30 +14,30 @@ const State = require('../lib/State');
 // Simulate query builder state
 let state = new State();
 
-let mixedSet = function mixedSet(letName, valType, key, val) {
-    let obj = {};
+let mixedSet = function mixedSet (letName, valType, key, val) {
+	let obj = {};
 
-    if (helpers.isScalar(key) && !helpers.isUndefined(val)) {
-        // Convert key/val pair to a simple object
-        obj[key] = val;
-    } else if (helpers.isScalar(key) && helpers.isUndefined(val)) {
-        // If just a string for the key, and no value, create a simple object with duplicate key/val
-        obj[key] = key;
-    } else {
-        obj = key;
-    }
+	if (helpers.isScalar(key) && !helpers.isUndefined(val)) {
+		// Convert key/val pair to a simple object
+		obj[key] = val;
+	} else if (helpers.isScalar(key) && helpers.isUndefined(val)) {
+		// If just a string for the key, and no value, create a simple object with duplicate key/val
+		obj[key] = key;
+	} else {
+		obj = key;
+	}
 
-    Object.keys(obj).forEach(k => {
-        // If a single value for the return
-        if (['key', 'value'].indexOf(valType) !== -1) {
-            let pushVal = (valType === 'key') ? k : obj[k];
-            state[letName].push(pushVal);
-        } else {
-            state[letName][k] = obj[k];
-        }
-    });
+	Object.keys(obj).forEach(k => {
+		// If a single value for the return
+		if (['key', 'value'].indexOf(valType) !== -1) {
+			let pushVal = (valType === 'key') ? k : obj[k];
+			state[letName].push(pushVal);
+		} else {
+			state[letName][k] = obj[k];
+		}
+	});
 
-    return state[letName];
+	return state[letName];
 };
 
 let whereMock = function (key, val) {

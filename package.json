@@ -42,6 +42,7 @@
     "node-firebird": "^0.7.5",
     "pg": "^6.0.0",
     "require-reload": "~0.2.2",
+    "sqlite3": "^3.1.8",
     "xregexp": "^3.0.0"
   },
   "devDependencies": {

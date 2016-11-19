@@ -12,10 +12,10 @@ const testRunner = testBase.promiseTestRunner;
 const config = testBase.config;
 
 // Set up the query builder object
-let nodeQuery = require('../../lib/NodeQuery')(config.dblite);
+let nodeQuery = require('../../lib/NodeQuery')(config.sqlite3);
 let qb = nodeQuery.getQuery();
 
-suite('Dblite adapter tests -', () => {
+suite('Sqlite3 adapter tests -', () => {
 	suiteSetup(done => {
 		// Set up the sqlite database
 		const createTest = 'CREATE TABLE IF NOT EXISTS "create_test" ("id" INTEGER PRIMARY KEY, "key" TEXT, "val" TEXT);';

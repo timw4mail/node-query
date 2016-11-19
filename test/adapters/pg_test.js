@@ -43,20 +43,6 @@ suite('Pg adapter tests -', () => {
 		}
 	});
 
-	// --------------------------------------------------------------------------
-	// Callback Tests
-	// --------------------------------------------------------------------------
-	/* testRunner(qb, (err, result, done) => {
-		expect(err).is.not.ok;
-		expect(result.rows).is.an('array');
-		expect(result.rowCount()).to.not.be.undefined;
-		expect(result.columnCount()).to.not.be.undefined;
-		done();
-	}); */
-	
-	// --------------------------------------------------------------------------
-	// Promise Tests
-	// --------------------------------------------------------------------------
 	testRunner(qb);
 	test('Promise - Select with function and argument in WHERE clause', () => {
 		let promise = qb.select('id')
