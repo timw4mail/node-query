@@ -418,7 +418,7 @@ query.get('table_name', 5); // Get 5 rows from the table
 query.get(); // Get the results of a query generated with other methods
 ```
 
-Returns **(void | [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise))** If no callback is passed, a promise is returned
+Returns **[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[Result](#result)>** Promise containing the result of the query
 
 ## insert
 
@@ -429,7 +429,7 @@ Run the generated insert query
 -   `table` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The table to insert into
 -   `data` **\[[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)]** Data to insert, if not already added with the 'set' method
 
-Returns **[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)** If no callback is passed, a promise is returned
+Returns **[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[Result](#result)>** Promise containing the result of the query
 
 ## insertBatch
 
@@ -447,7 +447,7 @@ query.insertBatch('foo',[{id:1,val:'bar'},{id:2,val:'baz'}])
 .then(promiseCallback);
 ```
 
-Returns **[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)** If no callback is passed, a promise is returned
+Returns **[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[Result](#result)>** Promise containing the result of the query
 
 ## update
 
@@ -458,7 +458,7 @@ Run the generated update query
 -   `table` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The table to insert into
 -   `data` **\[[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)]** Data to insert, if not already added with the 'set' method
 
-Returns **[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)** If no callback is passed, a promise is returned
+Returns **[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[Result](#result)>** Promise containing the result of the query
 
 ## delete
 
@@ -469,7 +469,7 @@ Run the generated delete query
 -   `table` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The table to insert into
 -   `where` **\[[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)]** Where clause for delete statement
 
-Returns **[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)** If no callback is passed, a promise is returned
+Returns **[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[Result](#result)>** Promise containing the result of the query
 
 ## getCompiledSelect
 
