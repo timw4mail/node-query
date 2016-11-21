@@ -9,6 +9,7 @@ A node query builder for various SQL databases, based on [CodeIgniter](http://ww
 
 ### Supported databases
 
+* Firebird (via `node-firebird`)
 * Mysql (via `mysql2`)
 * PostgreSQL (via `pg`)
 * Sqlite (via `dblite`)
@@ -38,19 +39,9 @@ const nodeQuery = require('ci-node-query')({
 // Get the query builder
 const query = nodeQuery.getQuery();
 
-query.select('foo')
-	.from('bar')
-	.where('x', 3)
-	.orWhere({y: 2})
-	.join('baz', 'baz.boo = bar.foo', 'left')
-	.orderBy('x', 'DESC')
-	.limit(2, 3)
-	.get(function(err, result) {
-		// Handle Results Here
-	});
-
 // As of version 3.1.0, you can also get promises
-var queryPromise = query.select('foo')
+// Version 5.0.0 removes all callback interfaces
+const queryPromise = query.select('foo')
 	.from('bar')
 	.where('x', 3)
 	.orWhere({y: 2})
@@ -93,5 +84,7 @@ As of version 2, `where` and `having` type methods parse the values passed to lo
 * Generated documentation is in the docs/ folder
 * The API is documented in [API.md](./API.md)
 * The `tests/adapters` folder contains examples of how to set up a connection for the appropriate database library
-* The documentation generated for the latest dev build is also [Available](https://github.timshomepage.net/node-query/docs/)
+* The documentation generated for the latest dev build is also [Available](https://github.timshomepage.net/node-query/docs/index.html)
+
+[![js-happiness-style](https://cdn.rawgit.com/JedWatson/happiness/master/badge.svg)](https://github.com/JedWatson/happiness)
 

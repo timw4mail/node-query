@@ -1,0 +1,31 @@
+before_script:
+    # Install dependencies
+    - bash test/docker_install.sh > /dev/null
+    - npm install
+
+services:
+  - mysql:latest
+  - postgres:latest
+
+variables:
+    MYSQL_ROOT_PASSWORD: foo-bar-baz
+    MYSQL_DATABASE: test
+    MYSQL_USER: test
+    MYSQL_PASSWORD: test
+    POSTGRES_DB: test
+    POSTGRES_USER: test
+    POSTGRES_PASSWORD: test
+
+# This folder is cached between builds
+# http://docs.gitlab.com/ce/ci/yaml/README.html#cache
+cache:
+  paths:
+  - node_modules/
+
+test:6:
+  image: node:6
+  script: npm run test
+
+test:latest:
+  image: node:latest
+  script: npm run test

@@ -1,10 +1,11 @@
+/* eslint-env node, mocha */
 'use strict';
 
-let expect = require('chai').expect,
-	reload = require('require-reload')(require),
-	glob = require('glob'),
-	nodeQuery = reload('../lib/NodeQuery')(),
-	Adapter = reload('../lib/Adapter');
+const expect = require('chai').expect;
+const reload = require('require-reload')(require);
+const glob = require('glob');
+const nodeQuery = reload('../lib/NodeQuery')();
+const Adapter = reload('../lib/Adapter');
 
 suite('Base tests -', () => {
 	suite('Sanity check', () => {
@@ -31,7 +32,7 @@ suite('Base tests -', () => {
 	test('Invalid driver type', () => {
 		expect(() => {
 			reload('../lib/NodeQuery')({
-				driver: 'Foo',
+				driver: 'Foo'
 			});
 		}).to.throw(Error, 'Selected driver (Foo) does not exist!');
 	});

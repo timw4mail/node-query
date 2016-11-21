@@ -1,0 +1,39 @@
+{
+	"mysql2": {
+		"driver": "mysql",
+		"connection": {
+			"host": "mysql2",
+			"user": "test",
+			"password": "test",
+			"database": "test"
+		}
+	},
+	"pg": {
+		"driver": "pg",
+		"connection": "postgres://test:test@posgres/test"
+	},
+	"pg-object": {
+		"driver": "pg",
+		"connection": {
+			"database": "test"
+		}
+	},
+	"dblite": {
+		"adapter": "dblite",
+		"driver": "sqlite",
+		"connection": ":memory:"
+	},
+	"sqlite3": {
+		"driver": "sqlite",
+		"connection": ":memory:"
+	},
+	"node-firebird": {
+		"driver": "firebird",
+		"connection": {
+			"host": "127.0.0.1",
+			"database": "/../FB_TEST_DB.FDB",
+			"user": "SYSDBA",
+			"password": "masterkey"
+		}
+	}
+}

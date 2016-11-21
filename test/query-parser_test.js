@@ -1,56 +1,51 @@
+/* eslint-env node, mocha */
 'use strict';
-let expect = require('chai').expect;
+const expect = require('chai').expect;
 
 // Use the base driver as a mock for testing
-let getArgs = require('getargs');
-let helpers = require('../lib/helpers');
-let driver = require('../lib/Driver');
+const helpers = require('../lib/helpers');
+const driver = require('../lib/Driver');
 
-let P = require('../lib/QueryParser');
+const P = require('../lib/QueryParser');
 let	parser = new P(driver);
 
-let State = require('../lib/State');
+const State = require('../lib/State');
 
 // Simulate query builder state
 let state = new State();
 
-let mixedSet = function mixedSet(/* $letName, $valType, $key, [$val] */) {
-	const argPattern = '$letName:string, $valType:string, $key:object|string|number, [$val]';
-	let args = getArgs(argPattern, arguments);
-
+let mixedSet = function mixedSet (letName, valType, key, val) {
 	let obj = {};
 
-	if (helpers.isScalar(args.$key) && !helpers.isUndefined(args.$val)) {
+	if (helpers.isScalar(key) && !helpers.isUndefined(val)) {
 		// Convert key/val pair to a simple object
-		obj[args.$key] = args.$val;
-	} else if (helpers.isScalar(args.$key) && helpers.isUndefined(args.$val)) {
+		obj[key] = val;
+	} else if (helpers.isScalar(key) && helpers.isUndefined(val)) {
 		// If just a string for the key, and no value, create a simple object with duplicate key/val
-		obj[args.$key] = args.$key;
+		obj[key] = key;
 	} else {
-		obj = args.$key;
+		obj = key;
 	}
 
 	Object.keys(obj).forEach(k => {
 		// If a single value for the return
-		if (['key', 'value'].indexOf(args.$valType) !== -1) {
-			let pushVal = (args.$valType === 'key') ? k : obj[k];
-			state[args.$letName].push(pushVal);
+		if (['key', 'value'].indexOf(valType) !== -1) {
+			let pushVal = (valType === 'key') ? k : obj[k];
+			state[letName].push(pushVal);
 		} else {
-			state[args.$letName][k] = obj[k];
+			state[letName][k] = obj[k];
 		}
 	});
 
-	return state[args.$letName];
+	return state[letName];
 };
 
-let whereMock = function () {
-	let args = getArgs('key:string|object, [val]', arguments);
-
+let whereMock = function (key, val) {
 	state.whereMap = [];
 	state.whereValues = [];
 
-	mixedSet('rawWhereValues', 'value', args.key, args.val);
-	mixedSet('whereMap', 'both', args.key, args.val);
+	mixedSet('rawWhereValues', 'value', key, val);
+	mixedSet('whereMap', 'both', key, val);
 };
 
 // -----------------------------------------------------------------------------
@@ -86,7 +81,7 @@ suite('Query Parser Tests', () => {
 		});
 		test('Has function key/val object', () => {
 			whereMock({
-				'time <': 'SUM(FOO(BAR(\'x\')))',
+				'time <': 'SUM(FOO(BAR(\'x\')))'
 			});
 			parser.parseWhere(driver, state);
 			expect(state.whereMap)
@@ -94,7 +89,7 @@ suite('Query Parser Tests', () => {
 		});
 		test('Has literal value', () => {
 			whereMock({
-				foo: 3,
+				foo: 3
 			});
 			parser.parseWhere(driver, state);
 			expect(state.whereMap)
@@ -105,7 +100,7 @@ suite('Query Parser Tests', () => {
 		test('Has multiple literal values', () => {
 			whereMock({
 				foo: 3,
-				bar: 5,
+				bar: 5
 			});
 			parser.parseWhere(driver, state);
 			expect(state.whereMap)
@@ -119,20 +114,20 @@ suite('Query Parser Tests', () => {
 			{
 				desc: 'Simple equals condition',
 				join: 'table1.field1=table2.field2',
-				expected: ['table1.field1', '=', 'table2.field2'],
+				expected: ['table1.field1', '=', 'table2.field2']
 			}, {
 				desc: 'Db.table.field condition',
 				join: 'db1.table1.field1!=db2.table2.field2',
-				expected: ['db1.table1.field1', '!=', 'db2.table2.field2'],
+				expected: ['db1.table1.field1', '!=', 'db2.table2.field2']
 			}, {
 				desc: 'Underscore in identifier',
 				join: 'table_1.field1 = tab_le2.field_2',
-				expected: ['table_1.field1', '=', 'tab_le2.field_2'],
+				expected: ['table_1.field1', '=', 'tab_le2.field_2']
 			}, {
 				desc: 'Function in condition',
 				join: 'table1.field1 > SUM(3+6)',
-				expected: ['table1.field1', '>', 'SUM(3+6)'],
-			},
+				expected: ['table1.field1', '>', 'SUM(3+6)']
+			}
 		];
 
 		data.forEach(datum => {
@@ -147,20 +142,20 @@ suite('Query Parser Tests', () => {
 			{
 				desc: 'Simple equals condition',
 				clause: 'table1.field1=table2.field2',
-				expected: '"table1"."field1" = "table2"."field2"',
+				expected: '"table1"."field1" = "table2"."field2"'
 			}, {
 				desc: 'Db.table.field condition',
 				clause: 'db1.table1.field1!=db2.table2.field2',
-				expected: '"db1"."table1"."field1" != "db2"."table2"."field2"',
+				expected: '"db1"."table1"."field1" != "db2"."table2"."field2"'
 			}, {
 				desc: 'Underscore in identifier',
 				clause: 'table_1.field1 = tab_le2.field_2',
-				expected: '"table_1"."field1" = "tab_le2"."field_2"',
+				expected: '"table_1"."field1" = "tab_le2"."field_2"'
 			}, {
 				desc: 'Function in condition',
 				clause: 'table1.field1 > SUM(3+6)',
-				expected: '"table1"."field1" > SUM(3+6)',
-			},
+				expected: '"table1"."field1" > SUM(3+6)'
+			}
 		];
 
 		data.forEach(datum => {

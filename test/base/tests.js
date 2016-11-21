@@ -1,26 +1,25 @@
 'use strict';
 
-// jscs:disable
 module.exports = {
 	'Get tests -': {
 		'Get with function': {
 			select: ['id, COUNT(id) as count'],
 			from: ['create_test'],
 			groupBy: ['id'],
-			get: [],
+			get: []
 		},
 		'Basic select all get': {
-			get: ['create_test'],
+			get: ['create_test']
 		},
 		'Basic select all with from': {
 			from: ['create_test'],
-			get: [],
+			get: []
 		},
 		'Get with limit': {
-			get: ['create_test', 2],
+			get: ['create_test', 2]
 		},
 		'Get with limit and offset': {
-			get: ['create_test', 2, 1],
+			get: ['create_test', 2, 1]
 		},
 		'Get with having': {
 			select: ['id'],
@@ -30,9 +29,9 @@ module.exports = {
 				'multiple',
 				[{'id >': 1}],
 				['id !=', 3],
-				['id', 900],
+				['id', 900]
 			],
-			get: [],
+			get: []
 		},
 		'Get with orHaving': {
 			select: ['id'],
@@ -40,8 +39,8 @@ module.exports = {
 			groupBy: ['id'],
 			having: [{'id >': 1}],
 			orHaving: ['id !=', 3],
-			get: [],
-		},
+			get: []
+		}
 	},
 	'Select tests -': {
 		'Select where get': {
@@ -49,94 +48,94 @@ module.exports = {
 			where: [
 				'multiple',
 				['id >', 1],
-				['id <', 900],
+				['id <', 900]
 			],
-			get: ['create_test', 2, 1],
+			get: ['create_test', 2, 1]
 		},
 		'Select where get 2': {
 			select: ['id, key as k, val'],
 			where: ['id !=', 1],
-			get: ['create_test', 2, 1],
+			get: ['create_test', 2, 1]
 		},
 		'Multi Order By': {
 			from: ['create_test'],
 			orderBy: ['id, key'],
-			get: [],
+			get: []
 		},
 		'Select get': {
 			select: ['id, key as k, val'],
-			get: ['create_test', 2, 1],
+			get: ['create_test', 2, 1]
 		},
 		'Select from get': {
 			select: ['id, key as k, val'],
 			from: ['create_test ct'],
 			where: ['id >', 1],
-			get: [],
+			get: []
 		},
 		'Select from limit get': {
 			select: ['id, key as k, val'],
 			from: ['create_test ct'],
 			where: ['id >', 1],
 			limit: [3],
-			get: [],
+			get: []
 		},
 		'Select where IS NOT NULL': {
 			select: ['id', 'key as k', 'val'],
 			from: ['create_test ct'],
 			whereIsNotNull: ['id'],
-			get: [],
+			get: []
 		},
 		'Select where IS NULL': {
 			select: ['id', 'key as k', 'val'],
 			from: ['create_test ct'],
 			whereIsNull: ['id'],
-			get: [],
+			get: []
 		},
 		'Select where OR IS NOT NULL': {
 			select: ['id', 'key as k', 'val'],
 			from: ['create_test ct'],
 			whereIsNull: ['id'],
 			orWhereIsNotNull: ['id'],
-			get: [],
+			get: []
 		},
 		'Select where OR IS NULL': {
 			select: ['id', 'key as k', 'val'],
 			from: ['create_test ct'],
 			where: ['id', 3],
 			orWhereIsNull: ['id'],
-			get: [],
+			get: []
 		},
 		'Select with string where value': {
 			select: ['id', 'key as k', 'val'],
 			from: ['create_test ct'],
 			where: ['id > 3'],
-			get: [],
-		},
+			get: []
+		}
 	},
 	'Where in tests -': {
 		'Where in': {
 			from: ['create_test'],
 			whereIn: ['id', [0, 6, 56, 563, 341]],
-			get: [],
+			get: []
 		},
 		'Or Where in': {
 			from: ['create_test'],
 			where: ['key', 'false'],
 			orWhereIn: ['id', [0, 6, 56, 563, 341]],
-			get: [],
+			get: []
 		},
 		'Where Not in': {
 			from: ['create_test'],
 			where: ['key', 'false'],
 			whereNotIn: ['id', [0, 6, 56, 563, 341]],
-			get: [],
+			get: []
 		},
 		'Or Where Not in': {
 			from: ['create_test'],
 			where: ['key', 'false'],
 			orWhereNotIn: ['id', [0, 6, 56, 563, 341]],
-			get: [],
-		},
+			get: []
+		}
 	},
 	'Query modifier tests -': {
 		'Order By': {
@@ -145,15 +144,15 @@ module.exports = {
 			where: [
 				'multiple',
 				['id >', 0],
-				['id <', 9000],
+				['id <', 9000]
 			],
 			orderBy: [
 				'multiple',
 				['id', 'DESC'],
-				['k', 'ASC'],
+				['k', 'ASC']
 			],
 			limit: [5, 2],
-			get: [],
+			get: []
 		},
 		'Group By': {
 			select: ['id, key as k, val'],
@@ -161,20 +160,20 @@ module.exports = {
 			where: [
 				'multiple',
 				['id >', 0],
-				['id <', 9000],
+				['id <', 9000]
 			],
 			groupBy: [
 				'multiple',
 				['k'],
-				[['id', 'val']],
+				[['id', 'val']]
 			],
 			orderBy: [
 				'multiple',
 				['id', 'DESC'],
-				['k', 'ASC'],
+				['k', 'ASC']
 			],
 			limit: [5, 2],
-			get: [],
+			get: []
 		},
 		'Or Where': {
 			select: ['id, key as k, val'],
@@ -182,55 +181,55 @@ module.exports = {
 			where: [' id ', 1],
 			orWhere: ['key > ', 0],
 			limit: [2, 1],
-			get: [],
+			get: []
 		},
 		Like: {
 			from: ['create_test'],
 			like: ['key', 'og'],
-			get: [],
+			get: []
 		},
 		'Or Like': {
 			from: ['create_test'],
 			like: ['key', 'og'],
 			orLike: ['key', 'val'],
-			get: [],
+			get: []
 		},
 		'Not Like': {
 			from: ['create_test'],
 			like: ['key', 'og', 'before'],
 			notLike: ['key', 'val'],
-			get: [],
+			get: []
 		},
 		'Or Not Like': {
 			from: ['create_test'],
 			like: ['key', 'og', 'before'],
 			orNotLike: ['key', 'val'],
-			get: [],
+			get: []
 		},
 		'Like Before': {
 			from: ['create_test'],
 			like: ['key', 'og', 'before'],
-			get: [],
+			get: []
 		},
 		'Like After': {
 			from: ['create_test'],
 			like: ['key', 'og', 'after'],
-			get: [],
+			get: []
 		},
 		'Basic Join': {
 			from: ['create_test ct'],
 			join: ['create_join cj', 'cj.id=ct.id'],
-			get: [],
+			get: []
 		},
 		'Left Join': {
 			from: ['create_test ct'],
 			join: ['create_join cj', 'cj.id=ct.id', 'left'],
-			get: [],
+			get: []
 		},
 		'Inner Join': {
 			from: ['create_test ct'],
 			join: ['create_join cj', 'cj.id=ct.id', 'inner'],
-			get: [],
+			get: []
 		},
 		'Join with multiple where values': {
 			from: ['create_test ct'],
@@ -238,10 +237,10 @@ module.exports = {
 			where: [
 				{
 					'ct.id < ': 3,
-					'ct.key ': 'foo',
-				},
+					'ct.key ': 'foo'
+				}
 			],
-			get: [],
-		},
-	},
+			get: []
+		}
+	}
 };

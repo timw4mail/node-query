@@ -1,5 +1,9 @@
 # Changelog
 
+# 5.0.0
+* Re-added firebird as a database
+* Replaced all callback interfaces with promises
+
 ## 4.0.0
 * Changed connection setup to just use a config object - the appropriate adapter object is created by the library.
 * Removed mysql adapter, as mysql2 is very similar and does proper prepared statements

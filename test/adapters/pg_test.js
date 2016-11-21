@@ -1,12 +1,12 @@
+/* eslint-env node, mocha */
 'use strict';
 
 // Load the test base
 const reload = require('require-reload')(require);
 reload.emptyCache();
 const testBase = reload('../base');
-const expect =  testBase.expect;
-const promiseTestRunner = testBase.promiseTestRunner;
-const testRunner = testBase.testRunner;
+const expect = testBase.expect;
+const testRunner = testBase.promiseTestRunner;
 
 // Load the test config file
 let adapterName = 'pg';
@@ -32,53 +32,18 @@ suite('Pg adapter tests -', () => {
 		return expect(qb2).to.be.ok;
 	});
 
-	//--------------------------------------------------------------------------
-	// Callback Tests
-	//--------------------------------------------------------------------------
-	testRunner(qb, (err, result, done) => {
-		expect(err).is.not.ok;
-		expect(result.rows).is.an('array');
-		expect(result.rowCount()).to.not.be.undefined;
-		expect(result.columnCount()).to.not.be.undefined;
-		done();
-	});
-	test('Callback - Select with function and argument in WHERE clause', done => {
-		qb.select('id')
-			.from('create_test')
-			.where('id', 'CEILING(SQRT(88))')
-			.get((err, rows) => {
-				expect(rows).is.ok;
-				expect(err).is.not.ok;
-				return done(err);
-			});
-	});
-	test('Callback - Test Insert Batch', done => {
-		let data = [
-			{
-				id: 5441,
-				key: 3,
-				val: new Buffer('7'),
-			}, {
-				id: 891,
-				key: 34,
-				val: new Buffer('10 o\'clock'),
-			}, {
-				id: 481,
-				key: 403,
-				val: new Buffer('97'),
-			},
-		];
-
-		qb.insertBatch('create_test', data, (err, res) => {
-			expect(err).is.not.ok;
-			return done(err);
-		});
+	test('Test Connection Error', done => {
+		try {
+			reload('../../lib/NodeQuery')({});
+			done(true);
+		} catch (e) {
+			expect(e).to.be.ok;
+			expect(e).is.an('Error');
+			done();
+		}
 	});
 
-	//--------------------------------------------------------------------------
-	// Promise Tests
-	//--------------------------------------------------------------------------
-	promiseTestRunner(qb);
+	testRunner(qb);
 	test('Promise - Select with function and argument in WHERE clause', () => {
 		let promise = qb.select('id')
 			.from('create_test')
@@ -87,21 +52,25 @@ suite('Pg adapter tests -', () => {
 
 		return expect(promise).to.be.fulfilled;
 	});
+	test('Promise - Test Truncate', () => {
+		let promise = qb.truncate('create_test');
+		return expect(promise).to.be.fulfilled;
+	});
 	test('Promise - Test Insert Batch', () => {
 		let data = [
 			{
 				id: 544,
 				key: 3,
-				val: new Buffer('7'),
+				val: Buffer.from('7')
 			}, {
 				id: 89,
 				key: 34,
-				val: new Buffer('10 o\'clock'),
+				val: Buffer.from('10 o\'clock')
 			}, {
 				id: 48,
 				key: 403,
-				val: new Buffer('97'),
-			},
+				val: Buffer.from('97')
+			}
 		];
 
 		let promise = qb.insertBatch('create_test', data);
