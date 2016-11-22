@@ -17,6 +17,12 @@ let nodeQuery = reload('../../lib/NodeQuery')(config);
 let qb = nodeQuery.getQuery();
 
 suite('Mysql2 adapter tests -', () => {
+	suiteSetup(done => {
+		qb.queryFile(`${__dirname}/../sql/mysql.sql`)
+			.then(() => done())
+			.catch(e => done(e));
+	});
+
 	test('nodeQuery.getQuery = nodeQuery.init', () => {
 		expect(nodeQuery.getQuery())
 			.to.be.deep.equal(qb);
