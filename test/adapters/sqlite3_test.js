@@ -17,15 +17,9 @@ let qb = nodeQuery.getQuery();
 
 suite('Sqlite3 adapter tests -', () => {
 	suiteSetup(done => {
-		// Set up the sqlite database
-		const createTest = 'CREATE TABLE IF NOT EXISTS "create_test" ("id" INTEGER PRIMARY KEY, "key" TEXT, "val" TEXT);';
-		const createJoin = 'CREATE TABLE IF NOT EXISTS "create_join" ("id" INTEGER PRIMARY KEY, "key" TEXT, "val" TEXT);';
-
-		qb.query(createTest)
-			.then(() => qb.query(createJoin))
-			.then(() => {
-				return done();
-			});
+		qb.queryFile(`${__dirname}/../sql/sqlite.sql`)
+			.then(() => done())
+			.catch(e => done(e));
 	});
 
 	testRunner(qb);
