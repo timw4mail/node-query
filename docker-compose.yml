@@ -1,0 +1,33 @@
+mariadb:
+  image: mariadb:latest
+  environment:
+    - MYSQL_USER=test
+    - MYSQL_PASSWORD=test
+    - MYSQL_DATABASE=test
+    - MYSQL_RANDOM_ROOT_PASSWORD=yes
+  ports:
+    - 3306:3306
+
+postgresql:
+  image: postgres:latest
+  environment:
+    - POSTGRES_USER=test
+    - POSTGRES_PASSWORD=test
+    - POSTGRES_DB=test
+  ports:
+    - 5432:5432
+
+sqlserver:
+  image: microsoft/mssql-server-linux
+  environment:
+    - ACCEPT_EULA=Y
+    - SA_PASSWORD=t3571ng0n1y
+  ports:
+    - 1433:1433
+
+firebird:
+  image: itherz/firebird3:latest
+  ports:
+    - 5040:5040
+  volumes:
+    - ./test:/databases

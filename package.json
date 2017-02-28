@@ -23,12 +23,14 @@
     "codeigniter",
     "mariadb",
     "mysql",
+    "mssql",
     "query builder",
     "postgres",
     "postgresql",
     "sql",
     "sqlite",
-    "sqlite3"
+    "sqlite3",
+    "sqlserver"
   ],
   "bugs": {
     "url": "https://git.timshomepage.net/timw4mail/node-query/issues"
@@ -43,6 +45,7 @@
     "pg": "^6.0.0",
     "require-reload": "~0.2.2",
     "sqlite3": "^3.1.8",
+    "tedious": "^1.14.0",
     "xregexp": "^3.0.0"
   },
   "devDependencies": {
@@ -53,6 +56,7 @@
     "globstar": "^1.0.0",
     "happiness": "^7.1.2",
     "jest": "^19.0.2",
+    "jsdoc": "^3.4.3",
     "npm-run-all": "^3.0.0",
     "nsp": "^2.2.1"
   },
@@ -77,6 +81,7 @@
     "default": "npm-run-all --parallel audit lint:src lint:tests && npm run test",
     "predocs": "globstar -- documentation build -f md -o API.md \"lib/*.js\"",
     "docs": "globstar -- documentation build -f html -o docs \"lib/*.js\"",
+    "postdocs": "jsdoc lib -r -d documentation",
     "happy": "happiness \"lib/**/*.js\" \"test/**/*.js\"",
     "happy:src": "happiness \"lib/**/*.js\"",
     "happy:tests": "happiness \"test/**/*.js\"",

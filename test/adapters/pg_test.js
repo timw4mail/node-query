@@ -19,6 +19,12 @@ let qb = nodeQuery.getQuery();
 let qb2 = null;
 
 describe('Pg adapter tests -', () => {
+	beforeAll(done => {
+		qb.queryFile(`${__dirname}/../sql/pgsql.sql`)
+			.then(() => done())
+			.catch(e => done(e));
+	});
+
 	it('nodeQuery.getQuery = nodeQuery.init', () => {
 		expect(nodeQuery.getQuery())
 			.to.be.deep.equal(qb);

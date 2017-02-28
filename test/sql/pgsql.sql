@@ -13,4 +13,4 @@ CREATE TABLE "create_test" (
     id integer NOT NULL,
     key text,
     val text
-);
+)
