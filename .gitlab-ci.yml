@@ -5,7 +5,7 @@ before_script:
 
 services:
   - mariadb:latest
-  - postgres: alpine
+  - postgres:alpine
 
 variables:
     MYSQL_ROOT_PASSWORD: foo-bar-baz
@@ -24,8 +24,8 @@ cache:
 
 test:6:
   image: node:6-alpine
-  script: npm run test
+  script: yarn run test
 
 test:latest:
   image: node:alpine
-  script: npm run test
+  script: yarn run test
