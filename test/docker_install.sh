@@ -9,8 +9,8 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 set -xe
 
 # Install sqlite3
-apt-get update -yqq
-apt-get install sqlite3 libsqlite3-dev -yqq
+echo -e 'http://dl-cdn.alpinelinux.org/alpine/edge/main\nhttp://dl-cdn.alpinelinux.org/alpine/edge/community\nhttp://dl-cdn.alpinelinux.org/alpine/edge/testing' > /etc/apk/repositories
+apk add --no-cache git yarn sqlite3 libsqlite3
 
 # Replace test config with docker config file
 mv "$DIR/config-ci.json" "$DIR/config.json"

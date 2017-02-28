@@ -52,25 +52,37 @@
     "eslint": "^3.5.0",
     "globstar": "^1.0.0",
     "happiness": "^7.1.2",
-    "istanbul": "~0.4.2",
-    "mocha": "^3.0.0",
+    "jest": "^19.0.2",
     "npm-run-all": "^3.0.0",
     "nsp": "^2.2.1"
   },
   "license": "MIT",
+  "jest": {
+    "coverageDirectory": "coverage",
+    "coverageReporters": [
+      "html",
+      "json",
+      "lcov",
+      "text-summary"
+    ],
+    "testEnvironment": "node",
+    "testMatch": [
+      "**/test/**/*_test.js"
+    ]
+  },
   "scripts": {
     "audit": "nsp check",
     "build": "npm-run-all --parallel lint:src lint:tests docs coverage",
-    "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha",
+    "coverage": "jest --coverage",
     "default": "npm-run-all --parallel audit lint:src lint:tests && npm run test",
     "predocs": "globstar -- documentation build -f md -o API.md \"lib/*.js\"",
     "docs": "globstar -- documentation build -f html -o docs \"lib/*.js\"",
     "happy": "happiness \"lib/**/*.js\" \"test/**/*.js\"",
     "happy:src": "happiness \"lib/**/*.js\"",
     "happy:tests": "happiness \"test/**/*.js\"",
-    "lint": "npm-run-all lint:tests lint:src && happy",
+    "lint": "npm-run-all lint:tests lint:src happy",
     "lint:src": "eslint ./lib",
     "lint:tests": "eslint ./test",
-    "test": "mocha -R spec"
+    "test": "jest"
   }
 }

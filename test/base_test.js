@@ -7,19 +7,19 @@ const glob = require('glob');
 const nodeQuery = reload('../lib/NodeQuery')();
 const Adapter = reload('../lib/Adapter');
 
-suite('Base tests -', () => {
-	suite('Sanity check', () => {
+describe('Base tests -', () => {
+	describe('Sanity check', () => {
 		let files = glob.sync(`${__dirname}/../lib/**/*.js`);
 		files.forEach(mod => {
 			let obj = require(mod);
 			let shortName = mod.replace(/^\/(.*?)\/lib\/(.*?)\.js$/g, '$2');
-			test(`${shortName} module is sane`, () => {
+			it(`${shortName} module is sane`, () => {
 				expect(obj).to.be.ok;
 			});
 		});
 	});
 
-	test('NodeQuery.getQuery with no instance', () => {
+	it('NodeQuery.getQuery with no instance', () => {
 		// Hack for testing to work around node
 		// module caching
 		let nodeQueryCopy = Object.create(nodeQuery);
@@ -29,7 +29,7 @@ suite('Base tests -', () => {
 		}).to.throw(Error, 'No Query Builder instance to return');
 	});
 
-	test('Invalid driver type', () => {
+	it('Invalid driver type', () => {
 		expect(() => {
 			reload('../lib/NodeQuery')({
 				driver: 'Foo'
@@ -37,14 +37,14 @@ suite('Base tests -', () => {
 		}).to.throw(Error, 'Selected driver (Foo) does not exist!');
 	});
 
-	test('Invalid adapter', () => {
+	it('Invalid adapter', () => {
 		expect(() => {
 			let a = new Adapter();
 			a.execute();
 		}).to.throw(Error, 'Correct adapter not defined for query execution');
 	});
 
-	test('Invalid adapter - missing transformResult', () => {
+	it('Invalid adapter - missing transformResult', () => {
 		expect(() => {
 			let a = new Adapter();
 			a.transformResult([]);

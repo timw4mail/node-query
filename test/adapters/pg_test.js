@@ -18,21 +18,21 @@ let nodeQuery = reload('../../lib/NodeQuery')(config);
 let qb = nodeQuery.getQuery();
 let qb2 = null;
 
-suite('Pg adapter tests -', () => {
-	test('nodeQuery.getQuery = nodeQuery.init', () => {
+describe('Pg adapter tests -', () => {
+	it('nodeQuery.getQuery = nodeQuery.init', () => {
 		expect(nodeQuery.getQuery())
 			.to.be.deep.equal(qb);
 	});
 
-	test('Connecting with an object also works', () => {
+	it('Connecting with an object also works', () => {
 		let config = allConfig[`${adapterName}-object`];
 		let nodeQuery = reload('../../lib/NodeQuery')(config);
 		qb2 = nodeQuery.getQuery();
 
-		return expect(qb2).to.be.ok;
+		expect(qb2).to.be.ok;
 	});
 
-	test('Test Connection Error', done => {
+	it('Test Connection Error', done => {
 		try {
 			reload('../../lib/NodeQuery')({});
 			done(true);
@@ -44,7 +44,7 @@ suite('Pg adapter tests -', () => {
 	});
 
 	testRunner(qb);
-	test('Promise - Select with function and argument in WHERE clause', () => {
+	it('Promise - Select with function and argument in WHERE clause', () => {
 		let promise = qb.select('id')
 			.from('create_test')
 			.where('id', 'CEILING(SQRT(88))')
@@ -52,11 +52,11 @@ suite('Pg adapter tests -', () => {
 
 		return expect(promise).to.be.fulfilled;
 	});
-	test('Promise - Test Truncate', () => {
+	it('Promise - Test Truncate', () => {
 		let promise = qb.truncate('create_test');
 		return expect(promise).to.be.fulfilled;
 	});
-	test('Promise - Test Insert Batch', () => {
+	it('Promise - Test Insert Batch', () => {
 		let data = [
 			{
 				id: 544,
@@ -76,7 +76,7 @@ suite('Pg adapter tests -', () => {
 		let promise = qb.insertBatch('create_test', data);
 		return expect(promise).to.be.fulfilled;
 	});
-	suiteTeardown(() => {
+	afterAll(() => {
 		qb.end();
 		qb2.end();
 	});

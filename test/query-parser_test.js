@@ -52,34 +52,34 @@ let whereMock = function (key, val) {
 // ! Start Tests
 // -----------------------------------------------------------------------------
 
-suite('Query Parser Tests', () => {
-	suite('Has operator tests', () => {
-		test('Has operator', () => {
+describe('Query Parser Tests', () => {
+	describe('Has operator tests', () => {
+		it('Has operator', () => {
 			let matches = parser.hasOperator('foo <> 2');
 			expect(matches).to.be.deep.equal(['<>']);
 		});
-		test('Has no operator', () => {
+		it('Has no operator', () => {
 			let matches = parser.hasOperator('foo');
 			expect(matches).to.be.null;
 		});
 	});
-	suite('Where parser tests', () => {
-		setup(() => {
+	describe('Where parser tests', () => {
+		beforeAll(() => {
 			state = new State();
 		});
-		test('Has function full string', () => {
+		it('Has function full string', () => {
 			whereMock('time < SUM(FOO(BAR()))');
 			parser.parseWhere(driver, state);
 			expect(state.whereMap)
 				.to.be.deep.equal(['"time" < SUM(FOO(BAR()))']);
 		});
-		test('Has function key/val', () => {
+		it('Has function key/val', () => {
 			whereMock('time <', 'SUM(FOO(BAR()))');
 			parser.parseWhere(driver, state);
 			expect(state.whereMap)
 				.to.be.deep.equal(['"time" < SUM(FOO(BAR()))']);
 		});
-		test('Has function key/val object', () => {
+		it('Has function key/val object', () => {
 			whereMock({
 				'time <': 'SUM(FOO(BAR(\'x\')))'
 			});
@@ -87,7 +87,7 @@ suite('Query Parser Tests', () => {
 			expect(state.whereMap)
 				.to.be.deep.equal(['"time" < SUM(FOO(BAR(\'x\')))']);
 		});
-		test('Has literal value', () => {
+		it('Has literal value', () => {
 			whereMock({
 				foo: 3
 			});
@@ -97,7 +97,7 @@ suite('Query Parser Tests', () => {
 			expect(state.whereValues)
 				.to.be.deep.equal(['3']);
 		});
-		test('Has multiple literal values', () => {
+		it('Has multiple literal values', () => {
 			whereMock({
 				foo: 3,
 				bar: 5
@@ -109,7 +109,7 @@ suite('Query Parser Tests', () => {
 				.to.be.deep.equal(['3', '5']);
 		});
 	});
-	suite('Parse join tests', () => {
+	describe('Parse join tests', () => {
 		let data = [
 			{
 				desc: 'Simple equals condition',
@@ -131,13 +131,13 @@ suite('Query Parser Tests', () => {
 		];
 
 		data.forEach(datum => {
-			test(datum.desc, () => {
+			it(datum.desc, () => {
 				let matches = parser.parseJoin(datum.join);
 				expect(matches.combined).to.be.deep.equal(datum.expected);
 			});
 		});
 	});
-	suite('Compile join tests', () => {
+	describe('Compile join tests', () => {
 		let data = [
 			{
 				desc: 'Simple equals condition',
@@ -159,7 +159,7 @@ suite('Query Parser Tests', () => {
 		];
 
 		data.forEach(datum => {
-			test(datum.desc, () => {
+			it(datum.desc, () => {
 				let join = parser.compileJoin(datum.clause);
 				expect(join).to.be.deep.equal(datum.expected);
 			});

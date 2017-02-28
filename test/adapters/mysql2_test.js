@@ -16,14 +16,14 @@ const config = testBase.config[adapterName];
 let nodeQuery = reload('../../lib/NodeQuery')(config);
 let qb = nodeQuery.getQuery();
 
-suite('Mysql2 adapter tests -', () => {
-	test('nodeQuery.getQuery = nodeQuery.init', () => {
+describe('Mysql2 adapter tests -', () => {
+	it('nodeQuery.getQuery = nodeQuery.init', () => {
 		expect(nodeQuery.getQuery())
 			.to.be.deep.equal(qb);
 	});
 
 	testRunner(qb);
-	test('Promise - Select with function and argument in WHERE clause', () => {
+	it('Promise - Select with function and argument in WHERE clause', () => {
 		let promise = qb.select('id')
 			.from('create_test')
 			.where('id', 'CEILING(SQRT(88))')
@@ -31,11 +31,11 @@ suite('Mysql2 adapter tests -', () => {
 
 		return expect(promise).to.be.fulfilled;
 	});
-	test('Test Truncate', () => {
+	it('Test Truncate', () => {
 		let promise = qb.truncate('create_test');
 		return expect(promise).to.be.fullfilled;
 	});
-	test('Test Insert Batch', () => {
+	it('Test Insert Batch', () => {
 		let data = [
 			{
 				id: 5442,
@@ -55,7 +55,7 @@ suite('Mysql2 adapter tests -', () => {
 		return expect(qb.insertBatch('create_test', data)).to.be.fulfilled;
 	});
 
-	/* suiteTeardown(() => {
+	/* describeTeardown(() => {
 		qb.end();
 	}); */
 });

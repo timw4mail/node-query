@@ -18,12 +18,12 @@ if (!(process.env.CI || process.env.TRAVIS)) {
 
 	let qb = nodeQuery.getQuery();
 
-	suite('Firebird adapter tests -', () => {
-		test('nodeQuery.getQuery = nodeQuery.init', () => {
+	describe('Firebird adapter tests -', () => {
+		it('nodeQuery.getQuery = nodeQuery.init', () => {
 			expect(nodeQuery.getQuery())
 				.to.be.deep.equal(qb);
 		});
-		test('insertBatch throws error', () => {
+		it('insertBatch throws error', () => {
 			expect(() => {
 				qb.driver.insertBatch('create_test', []);
 			}).to.throw(Error, 'Not Implemented');
@@ -31,7 +31,7 @@ if (!(process.env.CI || process.env.TRAVIS)) {
 
 		testRunner(qb);
 
-		suiteTeardown(() => {
+		afterAll(() => {
 			qb.end();
 		});
 	});

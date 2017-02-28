@@ -15,8 +15,8 @@ const config = testBase.config;
 let nodeQuery = require('../../lib/NodeQuery')(config.dblite);
 let qb = nodeQuery.getQuery();
 
-suite('Dblite adapter tests -', () => {
-	suiteSetup(done => {
+describe('Dblite adapter tests -', () => {
+	beforeAll(done => {
 		// Set up the sqlite database
 		const createTest = 'CREATE TABLE IF NOT EXISTS "create_test" ("id" INTEGER PRIMARY KEY, "key" TEXT, "val" TEXT);';
 		const createJoin = 'CREATE TABLE IF NOT EXISTS "create_join" ("id" INTEGER PRIMARY KEY, "key" TEXT, "val" TEXT);';
@@ -29,7 +29,7 @@ suite('Dblite adapter tests -', () => {
 	});
 
 	testRunner(qb);
-	test('Promise - Select with function and argument in WHERE clause', () => {
+	it('Promise - Select with function and argument in WHERE clause', () => {
 		let promise = qb.select('id')
 			.from('create_test')
 			.where('id', 'ABS(-88)')
@@ -37,7 +37,7 @@ suite('Dblite adapter tests -', () => {
 
 		expect(promise).to.be.fulfilled;
 	});
-	test('Promise - Test Insert Batch', () => {
+	it('Promise - Test Insert Batch', () => {
 		let data = [
 			{
 				id: 544,
@@ -57,7 +57,7 @@ suite('Dblite adapter tests -', () => {
 		let promise = qb.insertBatch('create_test', data);
 		expect(promise).to.be.fulfilled;
 	});
-	suiteTeardown(() => {
+	afterAll(() => {
 		qb.end();
 	});
 });
