@@ -3,7 +3,7 @@
 const expect = require('chai').expect;
 
 // Use the base driver as a mock for testing
-const helpers = require('../lib/helpers');
+const Helpers = require('../lib/Helpers');
 const driver = require('../lib/Driver');
 
 const P = require('../lib/QueryParser');
@@ -17,10 +17,10 @@ let state = new State();
 let mixedSet = function mixedSet (letName, valType, key, val) {
 	let obj = {};
 
-	if (helpers.isScalar(key) && !helpers.isUndefined(val)) {
+	if (Helpers.isScalar(key) && !Helpers.isUndefined(val)) {
 		// Convert key/val pair to a simple object
 		obj[key] = val;
-	} else if (helpers.isScalar(key) && helpers.isUndefined(val)) {
+	} else if (Helpers.isScalar(key) && Helpers.isUndefined(val)) {
 		// If just a string for the key, and no value, create a simple object with duplicate key/val
 		obj[key] = key;
 	} else {

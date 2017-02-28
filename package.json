@@ -37,15 +37,9 @@
   },
   "main": "lib/NodeQuery.js",
   "dependencies": {
-    "dblite": "~0.7.6",
     "getargs": "~0.0.8",
     "glob": "^7.0.3",
-    "mysql2": "^1.0.0-rc.1",
-    "node-firebird": "^0.7.5",
-    "pg": "^6.0.0",
     "require-reload": "~0.2.2",
-    "sqlite3": "^3.1.8",
-    "tedious": "^1.14.0",
     "xregexp": "^3.0.0"
   },
   "devDependencies": {
@@ -57,7 +51,7 @@
     "happiness": "^7.1.2",
     "jest": "^19.0.2",
     "jsdoc": "^3.4.3",
-    "npm-run-all": "^3.0.0",
+    "npm-run-all": "^4.0.2",
     "nsp": "^2.2.1"
   },
   "license": "MIT",
@@ -89,5 +83,13 @@
     "lint:src": "eslint ./lib",
     "lint:tests": "eslint ./test",
     "test": "jest"
+  },
+  "peerDependencies": {
+    "dblite": "^0.7.8",
+    "mysql2": "^1.2.0",
+    "node-firebird": "^0.8.1",
+    "pg-native": "^1.10.0",
+    "sqlite3": "^3.1.8",
+    "tedious": "^1.14.0"
   }
 }

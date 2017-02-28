@@ -1,11 +1,11 @@
 before_script:
     # Install dependencies
     - bash test/docker_install.sh > /dev/null
-    - npm install
+    - yarn
 
 services:
-  - mysql:latest
-  - postgres:latest
+  - mariadb:latest
+  - postgres: alpine
 
 variables:
     MYSQL_ROOT_PASSWORD: foo-bar-baz
@@ -23,9 +23,9 @@ cache:
   - node_modules/
 
 test:6:
-  image: node:6
+  image: node:6-alpine
   script: npm run test
 
 test:latest:
-  image: node:latest
+  image: node:alpine
   script: npm run test
