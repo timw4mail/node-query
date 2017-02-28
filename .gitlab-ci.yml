@@ -1,6 +1,6 @@
 before_script:
     # Install dependencies
-    - bash test/docker_install.sh > /dev/null
+    - sh test/docker_install.sh > /dev/null
     - yarn
 
 services:
