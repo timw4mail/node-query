@@ -11,4 +11,4 @@ apk add --no-cache git yarn sqlite
 npm install pg sqlite3 dblite mysql2
 
 # Replace test config with docker config file
-mv "./config-ci.json" "./config.json"
+mv "./test/config-ci.json" "./test/config.json"
