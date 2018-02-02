@@ -34,5 +34,6 @@
 		"callback-return": [1],
 		"object-shorthand": [1, "methods"],
 		"prefer-template": [1]
-	}
+	},
+	"parser": "babel-eslint"
 }

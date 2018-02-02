@@ -1,11 +1,7 @@
-/* eslint-env node, mocha */
-'use strict';
-
 // Load the test base
 const reload = require('require-reload')(require);
 reload.emptyCache();
 const testBase = reload('../base');
-const expect = testBase.expect;
 const testRunner = testBase.promiseTestRunner;
 
 // Load the test config file
@@ -24,24 +20,23 @@ describe('Mysql2 adapter tests -', () => {
 	});
 
 	it('nodeQuery.getQuery = nodeQuery.init', () => {
-		expect(nodeQuery.getQuery())
-			.to.be.deep.equal(qb);
+		expect(nodeQuery.getQuery()).toEqual(qb);
 	});
 
 	testRunner(qb);
-	it('Promise - Select with function and argument in WHERE clause', () => {
-		let promise = qb.select('id')
+	it('Promise - Select with function and argument in WHERE clause', async () => {
+		let promise = await qb.select('id')
 			.from('create_test')
 			.where('id', 'CEILING(SQRT(88))')
 			.get();
 
-		return expect(promise).to.be.fulfilled;
+		expect(promise).toEqual(expect.anything());
 	});
-	it('Test Truncate', () => {
-		let promise = qb.truncate('create_test');
-		return expect(promise).to.be.fullfilled;
+	it('Test Truncate', async () => {
+		let promise = await qb.truncate('create_test');
+		expect(promise).toEqual(expect.anything());
 	});
-	it('Test Insert Batch', () => {
+	it('Test Insert Batch', async () => {
 		let data = [
 			{
 				id: 5442,
@@ -58,7 +53,8 @@ describe('Mysql2 adapter tests -', () => {
 			}
 		];
 
-		return expect(qb.insertBatch('create_test', data)).to.be.fulfilled;
+		const promise = await qb.insertBatch('create_test', data);
+		expect(promise).toEqual(expect.anything());
 	});
 
 	/* describeTeardown(() => {

@@ -1,11 +1,7 @@
-/* eslint-env node, mocha */
-'use strict';
-
 // Load the test base
 const reload = require('require-reload')(require);
 reload.emptyCache();
 const testBase = reload('../base');
-const expect = testBase.expect;
 const testRunner = testBase.promiseTestRunner;
 
 // Load the test config file
@@ -27,7 +23,7 @@ describe('Pg adapter tests -', () => {
 
 	it('nodeQuery.getQuery = nodeQuery.init', () => {
 		expect(nodeQuery.getQuery())
-			.to.be.deep.equal(qb);
+			.toEqual(qb);
 	});
 
 	it('Connecting with an object also works', () => {
@@ -35,7 +31,7 @@ describe('Pg adapter tests -', () => {
 		let nodeQuery = reload('../../lib/NodeQuery')(config);
 		qb2 = nodeQuery.getQuery();
 
-		expect(qb2).to.be.ok;
+		expect(qb2).toEqual(expect.anything());
 	});
 
 	it('Test Connection Error', done => {
@@ -43,26 +39,25 @@ describe('Pg adapter tests -', () => {
 			reload('../../lib/NodeQuery')({});
 			done(true);
 		} catch (e) {
-			expect(e).to.be.ok;
-			expect(e).is.an('Error');
+			expect(e).toEqual(expect.anything());
 			done();
 		}
 	});
 
 	testRunner(qb);
-	it('Promise - Select with function and argument in WHERE clause', () => {
-		let promise = qb.select('id')
+	it('Promise - Select with function and argument in WHERE clause', async () => {
+		let promise = await qb.select('id')
 			.from('create_test')
 			.where('id', 'CEILING(SQRT(88))')
 			.get();
 
-		return expect(promise).to.be.fulfilled;
+		expect(promise).toEqual(expect.anything());
 	});
-	it('Promise - Test Truncate', () => {
-		let promise = qb.truncate('create_test');
-		return expect(promise).to.be.fulfilled;
+	it('Promise - Test Truncate', async () => {
+		let promise = await qb.truncate('create_test');
+		expect(promise).toEqual(expect.anything());
 	});
-	it('Promise - Test Insert Batch', () => {
+	it('Promise - Test Insert Batch', async () => {
 		let data = [
 			{
 				id: 544,
@@ -79,8 +74,8 @@ describe('Pg adapter tests -', () => {
 			}
 		];
 
-		let promise = qb.insertBatch('create_test', data);
-		return expect(promise).to.be.fulfilled;
+		let promise = await qb.insertBatch('create_test', data);
+		expect(promise).toEqual(expect.anything());
 	});
 	afterAll(() => {
 		qb.end();

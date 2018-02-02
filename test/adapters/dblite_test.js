@@ -1,11 +1,7 @@
-/* eslint-env node, mocha */
-'use strict';
-
 // Load the test base
 const reload = require('require-reload')(require);
 reload.emptyCache();
 const testBase = reload('../base');
-const expect = testBase.expect;
 const testRunner = testBase.promiseTestRunner;
 
 // Load the test config file
@@ -23,15 +19,15 @@ describe('Dblite adapter tests -', () => {
 	});
 
 	testRunner(qb);
-	it('Promise - Select with function and argument in WHERE clause', () => {
-		let promise = qb.select('id')
+	it('Promise - Select with function and argument in WHERE clause', async () => {
+		let promise = await qb.select('id')
 			.from('create_test')
 			.where('id', 'ABS(-88)')
 			.get();
 
-		expect(promise).to.be.fulfilled;
+		expect(promise).toEqual(expect.anything());
 	});
-	it('Promise - Test Insert Batch', () => {
+	it('Promise - Test Insert Batch', async () => {
 		let data = [
 			{
 				id: 544,
@@ -48,8 +44,8 @@ describe('Dblite adapter tests -', () => {
 			}
 		];
 
-		let promise = qb.insertBatch('create_test', data);
-		expect(promise).to.be.fulfilled;
+		let promise = await qb.insertBatch('create_test', data);
+		expect(promise).toEqual(expect.anything());
 	});
 	afterAll(() => {
 		qb.end();

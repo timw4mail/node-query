@@ -1,7 +1,3 @@
-/* eslint-env node, mocha */
-'use strict';
-
-const expect = require('chai').expect;
 const reload = require('require-reload')(require);
 const glob = require('glob');
 const nodeQuery = reload('../lib/NodeQuery')();
@@ -14,7 +10,7 @@ describe('Base tests -', () => {
 			let obj = require(mod);
 			let shortName = mod.replace(/^\/(.*?)\/lib\/(.*?)\.js$/g, '$2');
 			it(`${shortName} module is sane`, () => {
-				expect(obj).to.be.ok;
+				expect(obj).toEqual(expect.anything());
 			});
 		});
 	});
@@ -26,7 +22,7 @@ describe('Base tests -', () => {
 		nodeQueryCopy.instance = null;
 		expect(() => {
 			nodeQueryCopy.getQuery();
-		}).to.throw(Error, 'No Query Builder instance to return');
+		}).toThrow(Error, 'No Query Builder instance to return');
 	});
 
 	it('Invalid driver type', () => {
@@ -34,20 +30,20 @@ describe('Base tests -', () => {
 			reload('../lib/NodeQuery')({
 				driver: 'Foo'
 			});
-		}).to.throw(Error, 'Selected driver (Foo) does not exist!');
+		}).toThrow(Error, 'Selected driver (Foo) does not exist!');
 	});
 
 	it('Invalid adapter', () => {
 		expect(() => {
 			let a = new Adapter();
 			a.execute();
-		}).to.throw(Error, 'Correct adapter not defined for query execution');
+		}).toThrow(Error, 'Correct adapter not defined for query execution');
 	});
 
 	it('Invalid adapter - missing transformResult', () => {
 		expect(() => {
 			let a = new Adapter();
 			a.transformResult([]);
-		}).to.throw(Error, 'Result transformer method not defined for current adapter');
+		}).toThrow(Error, 'Result transformer method not defined for current adapter');
 	});
 });

@@ -1,7 +1,3 @@
-/* eslint-env node, mocha */
-'use strict';
-const expect = require('chai').expect;
-
 // Use the base driver as a mock for testing
 const Helpers = require('../lib/Helpers');
 const driver = require('../lib/Driver');
@@ -56,11 +52,11 @@ describe('Query Parser Tests', () => {
 	describe('Has operator tests', () => {
 		it('Has operator', () => {
 			let matches = parser.hasOperator('foo <> 2');
-			expect(matches).to.be.deep.equal(['<>']);
+			expect(matches).toEqual(['<>']);
 		});
 		it('Has no operator', () => {
 			let matches = parser.hasOperator('foo');
-			expect(matches).to.be.null;
+			expect(matches).toBe(null);
 		});
 	});
 	describe('Where parser tests', () => {
@@ -71,13 +67,13 @@ describe('Query Parser Tests', () => {
 			whereMock('time < SUM(FOO(BAR()))');
 			parser.parseWhere(driver, state);
 			expect(state.whereMap)
-				.to.be.deep.equal(['"time" < SUM(FOO(BAR()))']);
+				.toEqual(['"time" < SUM(FOO(BAR()))']);
 		});
 		it('Has function key/val', () => {
 			whereMock('time <', 'SUM(FOO(BAR()))');
 			parser.parseWhere(driver, state);
 			expect(state.whereMap)
-				.to.be.deep.equal(['"time" < SUM(FOO(BAR()))']);
+				.toEqual(['"time" < SUM(FOO(BAR()))']);
 		});
 		it('Has function key/val object', () => {
 			whereMock({
@@ -85,7 +81,7 @@ describe('Query Parser Tests', () => {
 			});
 			parser.parseWhere(driver, state);
 			expect(state.whereMap)
-				.to.be.deep.equal(['"time" < SUM(FOO(BAR(\'x\')))']);
+				.toEqual(['"time" < SUM(FOO(BAR(\'x\')))']);
 		});
 		it('Has literal value', () => {
 			whereMock({
@@ -93,9 +89,9 @@ describe('Query Parser Tests', () => {
 			});
 			parser.parseWhere(driver, state);
 			expect(state.whereMap)
-				.to.be.deep.equal(['"foo" = ?']);
+				.toEqual(['"foo" = ?']);
 			expect(state.whereValues)
-				.to.be.deep.equal(['3']);
+				.toEqual(['3']);
 		});
 		it('Has multiple literal values', () => {
 			whereMock({
@@ -104,9 +100,9 @@ describe('Query Parser Tests', () => {
 			});
 			parser.parseWhere(driver, state);
 			expect(state.whereMap)
-				.to.be.deep.equal(['"foo" = ?', '"bar" = ?']);
+				.toEqual(['"foo" = ?', '"bar" = ?']);
 			expect(state.whereValues)
-				.to.be.deep.equal(['3', '5']);
+				.toEqual(['3', '5']);
 		});
 	});
 	describe('Parse join tests', () => {
@@ -133,7 +129,7 @@ describe('Query Parser Tests', () => {
 		data.forEach(datum => {
 			it(datum.desc, () => {
 				let matches = parser.parseJoin(datum.join);
-				expect(matches.combined).to.be.deep.equal(datum.expected);
+				expect(matches.combined).toEqual(datum.expected);
 			});
 		});
 	});
@@ -161,7 +157,7 @@ describe('Query Parser Tests', () => {
 		data.forEach(datum => {
 			it(datum.desc, () => {
 				let join = parser.compileJoin(datum.clause);
-				expect(join).to.be.deep.equal(datum.expected);
+				expect(join).toEqual(datum.expected);
 			});
 		});
 	});
