@@ -1,6 +1,6 @@
 {
 	"name": "ci-node-query",
-	"version": "6.0.0",
+	"version": "5.0.0",
 	"description": "A query builder for node based on the one in CodeIgniter",
 	"author": "Timothy J Warren <tim@timshomepage.net>",
 	"engines": {
@@ -42,27 +42,31 @@
 		"glob": "^7.0.3",
 		"mysql2": "^1.2.0",
 		"pg": "^7.4",
-		"require-reload": "~0.2.2",
 		"sqlite3": "^3.1.8",
 		"tedious": "^2.0.0",
 		"xregexp": "^4.0.0"
 	},
 	"devDependencies": {
 		"babel-eslint": "^8.2.1",
-		"chai": "^4.1",
-		"chai-as-promised": "^7.1",
 		"documentation": "latest",
 		"eslint": "^4.16.0",
+		"eslint-config-happiness": "^10.2.1",
+		"eslint-plugin-import": "^2.8.0",
+		"eslint-plugin-node": "^5.2.1",
+		"eslint-plugin-promise": "^3.6.0",
+		"eslint-plugin-standard": "^3.0.1",
 		"globstar": "^1.0.0",
-		"happiness": "^10.0",
 		"jest": "^22.0.0",
 		"jsdoc": "^3.4.3",
 		"npm-run-all": "^4.0.2",
 		"nsp": "^3.1",
-		"pg-native": "^2.2"
+		"require-reload": "~0.2.2"
 	},
 	"license": "MIT",
 	"jest": {
+		"collectCoverageFrom": [
+			"lib/**/*.js"
+		],
 		"coverageDirectory": "coverage",
 		"coverageReporters": [
 			"html",
@@ -82,21 +86,11 @@
 		"default": "npm-run-all --parallel audit lint:src lint:tests && npm run test",
 		"predocs": "globstar -- documentation build -f md -o API.md \"lib/*.js\"",
 		"docs": "globstar -- documentation build -f html -o docs \"lib/*.js\"",
-		"fix": "happiness --fix \"lib/**/*.js\" \"test/**/*.js\"",
+		"fix": "eslint --fix ./lib ./test",
 		"postdocs": "jsdoc lib -r -d documentation",
-		"happy": "happiness \"lib/**/*.js\" \"test/**/*.js\"",
-		"happy:src": "happiness \"lib/**/*.js\"",
-		"happy:tests": "happiness \"test/**/*.js\"",
-		"lint": "npm-run-all lint:tests lint:src happy",
+		"lint": "npm-run-all lint:src lint:tests",
 		"lint:src": "eslint ./lib",
 		"lint:tests": "eslint ./test",
 		"test": "jest"
-	},
-	"happiness": {
-		"env": {
-			"es6": true,
-			"jest": true
-		},
-		"parser": "babel-eslint"
 	}
 }

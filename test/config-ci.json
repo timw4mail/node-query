@@ -18,6 +18,18 @@
 			"database": "test"
 		}
 	},
+	"pg-native": {
+		"driver": "pg",
+		"native": true,
+		"connection": "postgres://test:test@posgres/test"
+	},
+	"pg-object-native": {
+		"driver": "pg",
+		"native": true,
+		"connection": {
+			"database": "test"
+		}
+	},
 	"dblite": {
 		"adapter": "dblite",
 		"driver": "sqlite",
@@ -26,14 +38,5 @@
 	"sqlite3": {
 		"driver": "sqlite",
 		"connection": ":memory:"
-	},
-	"node-firebird": {
-		"driver": "firebird",
-		"connection": {
-			"host": "127.0.0.1",
-			"database": "/../FB_TEST_DB.FDB",
-			"user": "SYSDBA",
-			"password": "masterkey"
-		}
 	}
 }

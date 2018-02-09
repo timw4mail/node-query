@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Mysql2 adapter tests - Get compiled -  getCompiledDelete 1`] = `"DELETE FROM \`create_test\` WHERE \`id\` = ?"`;
+
+exports[`Mysql2 adapter tests - Get compiled -  getCompiledInsert 1`] = `"INSERT INTO \`create_test\` (\`id\`,\`key\`,\`val\`) VALUES (?,?,?)"`;
+
+exports[`Mysql2 adapter tests - Get compiled -  getCompiledSelect 1`] = `"SELECT \`id\`, \`key\` AS \`k\`, \`val\` FROM \`create_test\` WHERE (\`id\` > ? AND \`id\` < ?) LIMIT 1,2"`;
+
+exports[`Mysql2 adapter tests - Get compiled -  getCompiledSelect 2 1`] = `"SELECT \`id\`, \`key\` AS \`k\`, \`val\` FROM \`create_test\` WHERE (\`id\` > ? AND \`id\` < ?) LIMIT 1,2"`;
+
+exports[`Mysql2 adapter tests - Get compiled -  getCompiledUpdate 1`] = `"UPDATE \`create_test\` SET \`id\`=?,\`key\`=?,\`val\`=? WHERE \`id\` = ?"`;

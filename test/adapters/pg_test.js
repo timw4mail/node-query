@@ -45,36 +45,16 @@ describe('Pg adapter tests -', () => {
 	});
 
 	testRunner(qb);
-	it('Promise - Select with function and argument in WHERE clause', async () => {
-		let promise = await qb.select('id')
+	it('Select with function and argument in WHERE clause', async () => {
+		const promise = await qb.select('id')
 			.from('create_test')
 			.where('id', 'CEILING(SQRT(88))')
 			.get();
 
 		expect(promise).toEqual(expect.anything());
 	});
-	it('Promise - Test Truncate', async () => {
-		let promise = await qb.truncate('create_test');
-		expect(promise).toEqual(expect.anything());
-	});
-	it('Promise - Test Insert Batch', async () => {
-		let data = [
-			{
-				id: 544,
-				key: 3,
-				val: Buffer.from('7')
-			}, {
-				id: 89,
-				key: 34,
-				val: Buffer.from('10 o\'clock')
-			}, {
-				id: 48,
-				key: 403,
-				val: Buffer.from('97')
-			}
-		];
-
-		let promise = await qb.insertBatch('create_test', data);
+	it('Test Truncate', async () => {
+		const promise = await qb.truncate('create_test');
 		expect(promise).toEqual(expect.anything());
 	});
 	afterAll(() => {

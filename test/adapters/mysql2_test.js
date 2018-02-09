@@ -24,7 +24,7 @@ describe('Mysql2 adapter tests -', () => {
 	});
 
 	testRunner(qb);
-	it('Promise - Select with function and argument in WHERE clause', async () => {
+	it('Select with function and argument in WHERE clause', async () => {
 		let promise = await qb.select('id')
 			.from('create_test')
 			.where('id', 'CEILING(SQRT(88))')
@@ -36,28 +36,7 @@ describe('Mysql2 adapter tests -', () => {
 		let promise = await qb.truncate('create_test');
 		expect(promise).toEqual(expect.anything());
 	});
-	it('Test Insert Batch', async () => {
-		let data = [
-			{
-				id: 5442,
-				key: 4,
-				val: Buffer.from('7')
-			}, {
-				id: 892,
-				key: 35,
-				val: Buffer.from('10 o\'clock')
-			}, {
-				id: 482,
-				key: 404,
-				val: 97
-			}
-		];
-
-		const promise = await qb.insertBatch('create_test', data);
-		expect(promise).toEqual(expect.anything());
-	});
-
-	/* describeTeardown(() => {
+	afterAll(() => {
 		qb.end();
-	}); */
+	});
 });
