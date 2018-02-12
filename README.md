@@ -9,7 +9,6 @@ A node query builder for various SQL databases, based on [CodeIgniter](http://ww
 
 ### Supported databases
 
-* Firebird (via `node-firebird`)
 * Mysql (via `mysql2`)
 * PostgreSQL (via `pg`)
 * Sqlite (via `dblite`)

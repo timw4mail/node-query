@@ -1,5 +1,3 @@
-'use strict';
-
 module.exports = {
 	'Get tests -': {
 		'Get with function': {

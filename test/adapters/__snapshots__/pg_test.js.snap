@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pg adapter tests - Get compiled -  getCompiledDelete 1`] = `"DELETE FROM \\"create_test\\" WHERE \\"id\\" = ?"`;
+
+exports[`Pg adapter tests - Get compiled -  getCompiledInsert 1`] = `"INSERT INTO \\"create_test\\" (\\"id\\",\\"key\\",\\"val\\") VALUES (?,?,?)"`;
+
+exports[`Pg adapter tests - Get compiled -  getCompiledSelect 1`] = `"SELECT \\"id\\", \\"key\\" AS \\"k\\", \\"val\\" FROM \\"create_test\\" WHERE (\\"id\\" > ? AND \\"id\\" < ?) LIMIT 2 OFFSET 1"`;
+
+exports[`Pg adapter tests - Get compiled -  getCompiledSelect 2 1`] = `"SELECT \\"id\\", \\"key\\" AS \\"k\\", \\"val\\" FROM \\"create_test\\" WHERE (\\"id\\" > ? AND \\"id\\" < ?) LIMIT 2 OFFSET 1"`;
+
+exports[`Pg adapter tests - Get compiled -  getCompiledUpdate 1`] = `"UPDATE \\"create_test\\" SET \\"id\\"=?,\\"key\\"=?,\\"val\\"=? WHERE \\"id\\" = ?"`;

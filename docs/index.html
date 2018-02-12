@@ -2,19 +2,19 @@
 <html>
 <head>
   <meta charset='utf-8' />
-  <title>  | Documentation</title>
+  <title>ci-node-query 5.0.0 | Documentation</title>
   <meta name='viewport' content='width=device-width,initial-scale=1'>
   <link href='assets/bass.css' type='text/css' rel='stylesheet' />
   <link href='assets/style.css' type='text/css' rel='stylesheet' />
   <link href='assets/github.css' type='text/css' rel='stylesheet' />
+  <link href='assets/split.css' type='text/css' rel='stylesheet' />
 </head>
-<body class='documentation'>
-  <div class='max-width-4 mx-auto'>
-    <div class='clearfix md-mxn2'>
-      <div class='fixed xs-hide fix-3 overflow-auto max-height-100'>
+<body class='documentation m0'>
+    <div class='flex'>
+      <div id='split-left' class='overflow-auto fs0 height-viewport-100'>
         <div class='py1 px2'>
-          <h3 class='mb0 no-anchor'></h3>
-          <div class='mb1'><code></code></div>
+          <h3 class='mb0 no-anchor'>ci-node-query</h3>
+          <div class='mb1'><code>5.0.0</code></div>
           <input
             placeholder='Filter'
             id='filter-input'
@@ -38,18 +38,13 @@
                       <li class='h5'><span>Instance members</span></li>
                       
                       <li><a
-                        href='#NodeQuery#constructor'
-                        class='regular pre-open'>
-                        #constructor
-                      </a></li>
-                      
-                      <li><a
-                        href='#NodeQuery#getQuery'
+                        href='#nodequerygetquery'
                         class='regular pre-open'>
                         #getQuery
                       </a></li>
                       
                     </ul>
+                  
                   
                   
                 </div>
@@ -71,246 +66,259 @@
                       <li class='h5'><span>Instance members</span></li>
                       
                       <li><a
-                        href='#QueryBuilder#query'
+                        href='#querybuilderqueryfile'
+                        class='regular pre-open'>
+                        #queryFile
+                      </a></li>
+                      
+                      <li><a
+                        href='#querybuilderquery'
                         class='regular pre-open'>
                         #query
                       </a></li>
                       
                       <li><a
-                        href='#QueryBuilder#resetQuery'
+                        href='#querybuilderresetquery'
                         class='regular pre-open'>
                         #resetQuery
                       </a></li>
                       
                       <li><a
-                        href='#QueryBuilder#truncate'
+                        href='#querybuildertruncate'
                         class='regular pre-open'>
                         #truncate
                       </a></li>
                       
                       <li><a
-                        href='#QueryBuilder#end'
+                        href='#querybuilderend'
                         class='regular pre-open'>
                         #end
                       </a></li>
                       
                       <li><a
-                        href='#QueryBuilder#select'
+                        href='#querybuilderselect'
                         class='regular pre-open'>
                         #select
                       </a></li>
                       
                       <li><a
-                        href='#QueryBuilder#from'
+                        href='#querybuilderfrom'
                         class='regular pre-open'>
                         #from
                       </a></li>
                       
                       <li><a
-                        href='#QueryBuilder#like'
+                        href='#querybuilderlike'
                         class='regular pre-open'>
                         #like
                       </a></li>
                       
                       <li><a
-                        href='#QueryBuilder#notLike'
+                        href='#querybuildernotlike'
                         class='regular pre-open'>
                         #notLike
                       </a></li>
                       
                       <li><a
-                        href='#QueryBuilder#orLike'
+                        href='#querybuilderorlike'
                         class='regular pre-open'>
                         #orLike
                       </a></li>
                       
                       <li><a
-                        href='#QueryBuilder#orNotLike'
+                        href='#querybuilderornotlike'
                         class='regular pre-open'>
                         #orNotLike
                       </a></li>
                       
                       <li><a
-                        href='#QueryBuilder#having'
+                        href='#querybuilderhaving'
                         class='regular pre-open'>
                         #having
                       </a></li>
                       
                       <li><a
-                        href='#QueryBuilder#orHaving'
+                        href='#querybuilderorhaving'
                         class='regular pre-open'>
                         #orHaving
                       </a></li>
                       
                       <li><a
-                        href='#QueryBuilder#where'
+                        href='#querybuilderwhere'
                         class='regular pre-open'>
                         #where
                       </a></li>
                       
                       <li><a
-                        href='#QueryBuilder#orWhere'
+                        href='#querybuilderorwhere'
                         class='regular pre-open'>
                         #orWhere
                       </a></li>
                       
                       <li><a
-                        href='#QueryBuilder#whereIsNull'
+                        href='#querybuilderwhereisnull'
                         class='regular pre-open'>
                         #whereIsNull
                       </a></li>
                       
                       <li><a
-                        href='#QueryBuilder#whereIsNotNull'
+                        href='#querybuilderwhereisnotnull'
                         class='regular pre-open'>
                         #whereIsNotNull
                       </a></li>
                       
                       <li><a
-                        href='#QueryBuilder#orWhereIsNull'
+                        href='#querybuilderorwhereisnull'
                         class='regular pre-open'>
                         #orWhereIsNull
                       </a></li>
                       
                       <li><a
-                        href='#QueryBuilder#orWhereIsNotNull'
+                        href='#querybuilderorwhereisnotnull'
                         class='regular pre-open'>
                         #orWhereIsNotNull
                       </a></li>
                       
                       <li><a
-                        href='#QueryBuilder#whereIn'
+                        href='#querybuilderwherein'
                         class='regular pre-open'>
                         #whereIn
                       </a></li>
                       
                       <li><a
-                        href='#QueryBuilder#orWhereIn'
+                        href='#querybuilderorwherein'
                         class='regular pre-open'>
                         #orWhereIn
                       </a></li>
                       
                       <li><a
-                        href='#QueryBuilder#whereNotIn'
+                        href='#querybuilderwherenotin'
                         class='regular pre-open'>
                         #whereNotIn
                       </a></li>
                       
                       <li><a
-                        href='#QueryBuilder#orWhereNotIn'
+                        href='#querybuilderorwherenotin'
                         class='regular pre-open'>
                         #orWhereNotIn
                       </a></li>
                       
                       <li><a
-                        href='#QueryBuilder#set'
+                        href='#querybuilderset'
                         class='regular pre-open'>
                         #set
                       </a></li>
                       
                       <li><a
-                        href='#QueryBuilder#join'
+                        href='#querybuilderjoin'
                         class='regular pre-open'>
                         #join
                       </a></li>
                       
                       <li><a
-                        href='#QueryBuilder#groupBy'
+                        href='#querybuildergroupby'
                         class='regular pre-open'>
                         #groupBy
                       </a></li>
                       
                       <li><a
-                        href='#QueryBuilder#orderBy'
+                        href='#querybuilderorderby'
                         class='regular pre-open'>
                         #orderBy
                       </a></li>
                       
                       <li><a
-                        href='#QueryBuilder#limit'
+                        href='#querybuilderlimit'
                         class='regular pre-open'>
                         #limit
                       </a></li>
                       
                       <li><a
-                        href='#QueryBuilder#groupStart'
+                        href='#querybuildergroupstart'
                         class='regular pre-open'>
                         #groupStart
                       </a></li>
                       
                       <li><a
-                        href='#QueryBuilder#orGroupStart'
+                        href='#querybuilderorgroupstart'
                         class='regular pre-open'>
                         #orGroupStart
                       </a></li>
                       
                       <li><a
-                        href='#QueryBuilder#orNotGroupStart'
+                        href='#querybuilderornotgroupstart'
                         class='regular pre-open'>
                         #orNotGroupStart
                       </a></li>
                       
                       <li><a
-                        href='#QueryBuilder#groupEnd'
+                        href='#querybuildergroupend'
                         class='regular pre-open'>
                         #groupEnd
                       </a></li>
                       
                       <li><a
-                        href='#QueryBuilder#get'
+                        href='#querybuilderget'
                         class='regular pre-open'>
                         #get
                       </a></li>
                       
                       <li><a
-                        href='#QueryBuilder#insert'
+                        href='#querybuilderinsert'
                         class='regular pre-open'>
                         #insert
                       </a></li>
                       
                       <li><a
-                        href='#QueryBuilder#insertBatch'
+                        href='#querybuilderinsertbatch'
                         class='regular pre-open'>
                         #insertBatch
                       </a></li>
                       
                       <li><a
-                        href='#QueryBuilder#update'
+                        href='#querybuilderupdate'
                         class='regular pre-open'>
                         #update
                       </a></li>
                       
                       <li><a
-                        href='#QueryBuilder#delete'
+                        href='#querybuilderupdatebatch'
+                        class='regular pre-open'>
+                        #updateBatch
+                      </a></li>
+                      
+                      <li><a
+                        href='#querybuilderdelete'
                         class='regular pre-open'>
                         #delete
                       </a></li>
                       
                       <li><a
-                        href='#QueryBuilder#getCompiledSelect'
+                        href='#querybuildergetcompiledselect'
                         class='regular pre-open'>
                         #getCompiledSelect
                       </a></li>
                       
                       <li><a
-                        href='#QueryBuilder#getCompiledInsert'
+                        href='#querybuildergetcompiledinsert'
                         class='regular pre-open'>
                         #getCompiledInsert
                       </a></li>
                       
                       <li><a
-                        href='#QueryBuilder#getCompiledUpdate'
+                        href='#querybuildergetcompiledupdate'
                         class='regular pre-open'>
                         #getCompiledUpdate
                       </a></li>
                       
                       <li><a
-                        href='#QueryBuilder#getCompiledDelete'
+                        href='#querybuildergetcompileddelete'
                         class='regular pre-open'>
                         #getCompiledDelete
                       </a></li>
                       
                     </ul>
+                  
                   
                   
                 </div>
@@ -332,18 +340,19 @@
                       <li class='h5'><span>Instance members</span></li>
                       
                       <li><a
-                        href='#Result#rowCount'
+                        href='#resultrowcount'
                         class='regular pre-open'>
                         #rowCount
                       </a></li>
                       
                       <li><a
-                        href='#Result#columnCount'
+                        href='#resultcolumncount'
                         class='regular pre-open'>
                         #columnCount
                       </a></li>
                       
                     </ul>
+                  
                   
                   
                 </div>
@@ -357,7 +366,7 @@
           </div>
         </div>
       </div>
-      <div class='fix-margin-3'>
+      <div id='split-right' class='relative overflow-auto height-viewport-100'>
         
           
             <section class='p2 mb2 clearfix bg-white minishadow'>
@@ -376,10 +385,11 @@
   <p>Class for connection management</p>
 
 
-  <div class='pre p1 fill-light mt0'>new NodeQuery(config: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</div>
-
+  <div class='pre p1 fill-light mt0'>new NodeQuery(config: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</div>
+  
   
 
+  
   
   
   
@@ -392,7 +402,8 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>config</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code> connection parameters
+            <span class='code bold'>config</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+	    connection parameters
 
           </div>
           
@@ -415,85 +426,7 @@
     <div class='py1 quiet mt1 prose-big'>Instance Members</div>
     <div class="clearfix">
   
-    <div class='border-bottom' id='NodeQuery#constructor'>
-      <div class="clearfix small pointer toggle-sibling">
-        <div class="py1 contain">
-            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>constructor(config)</span>
-        </div>
-      </div>
-      <div class="clearfix display-none toggle-target">
-        <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-
-  <p>Constructor</p>
-
-
-  <div class='pre p1 fill-light mt0'>constructor(config: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</div>
-
-  
-
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>config</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code> connection parameters
-
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Example</div>
-    
-      
-      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">let</span> nodeQuery = <span class="hljs-built_in">require</span>(<span class="hljs-string">'ci-node-query'</span>)({
-	<span class="hljs-attr">driver</span>: <span class="hljs-string">'mysql'</span>,
-	<span class="hljs-attr">connection</span>: {
-		<span class="hljs-attr">host</span>: <span class="hljs-string">'localhost'</span>,
-		<span class="hljs-attr">user</span>: <span class="hljs-string">'root'</span>,
-		<span class="hljs-attr">password</span>: <span class="hljs-string">''</span>,
-		<span class="hljs-attr">database</span>: <span class="hljs-string">'mysql'</span>
-	}
-});</pre>
-    
-      
-      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">let</span> nodeQuery = <span class="hljs-built_in">require</span>(<span class="hljs-string">'ci-node-query'</span>)({
-	<span class="hljs-attr">driver</span>: <span class="hljs-string">'sqlite'</span>,
-	<span class="hljs-attr">connection</span>: <span class="hljs-string">':memory:'</span>
-});</pre>
-    
-  
-
-  
-
-  
-
-  
-</section>
-
-      </div>
-    </div>
-  
-    <div class='border-bottom' id='NodeQuery#getQuery'>
+    <div class='border-bottom' id='nodequerygetquery'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
@@ -509,9 +442,10 @@
 
 
   <div class='pre p1 fill-light mt0'>getQuery(): <a href="#querybuilder">QueryBuilder</a></div>
-
+  
   
 
+  
   
   
   
@@ -573,7 +507,7 @@
 
 
   <div class='pre p1 fill-light mt0'>new QueryBuilder(Driver: Driver, Adapter: Adapter)</div>
-
+  
   
     <p>
       Extends
@@ -588,6 +522,7 @@
   
   
   
+  
 
   
     <div class='py1 quiet mt1 prose-big'>Parameters</div>
@@ -595,7 +530,8 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>Driver</span> <code class='quiet'>(Driver)</code> The syntax driver for the database
+            <span class='code bold'>Driver</span> <code class='quiet'>(Driver)</code>
+	    The syntax driver for the database
 
           </div>
           
@@ -603,7 +539,8 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>Adapter</span> <code class='quiet'>(Adapter)</code> The database module adapter for running queries
+            <span class='code bold'>Adapter</span> <code class='quiet'>(Adapter)</code>
+	    The database module adapter for running queries
 
           </div>
           
@@ -626,11 +563,11 @@
     <div class='py1 quiet mt1 prose-big'>Instance Members</div>
     <div class="clearfix">
   
-    <div class='border-bottom' id='QueryBuilder#query'>
+    <div class='border-bottom' id='querybuilderqueryfile'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>query(sql, [params])</span>
+            <span class='code strong strong truncate'>queryFile(file, separator)</span>
         </div>
       </div>
       <div class="clearfix display-none toggle-target">
@@ -638,13 +575,14 @@
 
   
 
-  <p>Run an arbitrary sql query. Run as a prepared statement.</p>
+  <p>Run a set of queries from a file</p>
 
 
-  <div class='pre p1 fill-light mt0'>query(sql: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, params: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>]): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></div>
-
+  <div class='pre p1 fill-light mt0'>queryFile(file: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, separator: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></div>
+  
   
 
+  
   
   
   
@@ -657,7 +595,8 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>sql</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code> The sql to execute
+            <span class='code bold'>file</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The path to the sql file
 
           </div>
           
@@ -665,7 +604,9 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>params</span> <code class='quiet'>([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>])</code> The query parameters
+            <span class='code bold'>separator</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>
+            = <code>&#39;;&#39;</code>)</code>
+	    The character separating each query
 
           </div>
           
@@ -679,7 +620,84 @@
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></code>:
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></code>:
+        The result of all the queries
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='querybuilderquery'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>query(sql, params?)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Run an arbitrary sql query. Run as a prepared statement.</p>
+
+
+  <div class='pre p1 fill-light mt0'>query(sql: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, params: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>?): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>sql</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The sql to execute
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>params</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>?)</code>
+	    The query parameters
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></code>:
         Promise with result of query
 
       
@@ -700,7 +718,7 @@
       </div>
     </div>
   
-    <div class='border-bottom' id='QueryBuilder#resetQuery'>
+    <div class='border-bottom' id='querybuilderresetquery'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
@@ -716,9 +734,10 @@
 
 
   <div class='pre p1 fill-light mt0'>resetQuery(): void</div>
-
+  
   
 
+  
   
   
   
@@ -753,7 +772,7 @@
       </div>
     </div>
   
-    <div class='border-bottom' id='QueryBuilder#truncate'>
+    <div class='border-bottom' id='querybuildertruncate'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
@@ -768,10 +787,11 @@
   <p>Empties the selected database table</p>
 
 
-  <div class='pre p1 fill-light mt0'>truncate(table: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): (void | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>)</div>
-
+  <div class='pre p1 fill-light mt0'>truncate(table: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): (void | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>)</div>
+  
   
 
+  
   
   
   
@@ -784,7 +804,8 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>table</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code> the name of the table to truncate
+            <span class='code bold'>table</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    the name of the table to truncate
 
           </div>
           
@@ -798,7 +819,7 @@
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>(void | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>)</code>:
+      <code>(void | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>)</code>:
         Returns a promise if no callback is supplied
 
       
@@ -819,7 +840,7 @@
       </div>
     </div>
   
-    <div class='border-bottom' id='QueryBuilder#end'>
+    <div class='border-bottom' id='querybuilderend'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
@@ -835,9 +856,10 @@
 
 
   <div class='pre p1 fill-light mt0'>end(): void</div>
-
+  
   
 
+  
   
   
   
@@ -872,7 +894,7 @@
       </div>
     </div>
   
-    <div class='border-bottom' id='QueryBuilder#select'>
+    <div class='border-bottom' id='querybuilderselect'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
@@ -887,10 +909,11 @@
   <p>Specify rows to select in the query</p>
 
 
-  <div class='pre p1 fill-light mt0'>select(fields: (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)): <a href="#querybuilder">QueryBuilder</a></div>
-
+  <div class='pre p1 fill-light mt0'>select(fields: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)): <a href="#querybuilder">QueryBuilder</a></div>
+  
   
 
+  
   
   
   
@@ -903,7 +926,8 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>fields</span> <code class='quiet'>((<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>))</code> The fields to select from the current table
+            <span class='code bold'>fields</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>))</code>
+	    The fields to select from the current table
 
           </div>
           
@@ -947,7 +971,7 @@
       </div>
     </div>
   
-    <div class='border-bottom' id='QueryBuilder#from'>
+    <div class='border-bottom' id='querybuilderfrom'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
@@ -962,10 +986,11 @@
   <p>Specify the database table to select from</p>
 
 
-  <div class='pre p1 fill-light mt0'>from(tableName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): <a href="#querybuilder">QueryBuilder</a></div>
-
+  <div class='pre p1 fill-light mt0'>from(tableName: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): <a href="#querybuilder">QueryBuilder</a></div>
+  
   
 
+  
   
   
   
@@ -978,7 +1003,8 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>tableName</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> The table to use for the current query
+            <span class='code bold'>tableName</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+	    The table to use for the current query
 
           </div>
           
@@ -1022,11 +1048,11 @@
       </div>
     </div>
   
-    <div class='border-bottom' id='QueryBuilder#like'>
+    <div class='border-bottom' id='querybuilderlike'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>like(field, val, [pos])</span>
+            <span class='code strong strong truncate'>like(field, val, pos)</span>
         </div>
       </div>
       <div class="clearfix display-none toggle-target">
@@ -1037,10 +1063,11 @@
   <p>Add a 'like/ and like' clause to the query</p>
 
 
-  <div class='pre p1 fill-light mt0'>like(field: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, val: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, pos: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>]): <a href="#querybuilder">QueryBuilder</a></div>
-
+  <div class='pre p1 fill-light mt0'>like(field: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, val: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, pos: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): <a href="#querybuilder">QueryBuilder</a></div>
+  
   
 
+  
   
   
   
@@ -1053,7 +1080,8 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>field</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> The name of the field  to compare to
+            <span class='code bold'>field</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+	    The name of the field  to compare to
 
           </div>
           
@@ -1061,7 +1089,8 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>val</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> The value to compare to
+            <span class='code bold'>val</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+	    The value to compare to
 
           </div>
           
@@ -1069,9 +1098,9 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>pos</span> <code class='quiet'>([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>]
-            (default <code>both</code>)
-            )</code> The placement of the wildcard character(s): before, after, or both
+            <span class='code bold'>pos</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>
+            = <code>both</code>)</code>
+	    The placement of the wildcard character(s): before, after, or both
 
           </div>
           
@@ -1106,11 +1135,11 @@
       </div>
     </div>
   
-    <div class='border-bottom' id='QueryBuilder#notLike'>
+    <div class='border-bottom' id='querybuildernotlike'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>notLike(field, val, [pos])</span>
+            <span class='code strong strong truncate'>notLike(field, val, pos)</span>
         </div>
       </div>
       <div class="clearfix display-none toggle-target">
@@ -1121,10 +1150,11 @@
   <p>Add a 'not like/ and not like' clause to the query</p>
 
 
-  <div class='pre p1 fill-light mt0'>notLike(field: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, val: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, pos: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>]): <a href="#querybuilder">QueryBuilder</a></div>
-
+  <div class='pre p1 fill-light mt0'>notLike(field: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, val: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, pos: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): <a href="#querybuilder">QueryBuilder</a></div>
+  
   
 
+  
   
   
   
@@ -1137,7 +1167,8 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>field</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> The name of the field  to compare to
+            <span class='code bold'>field</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+	    The name of the field  to compare to
 
           </div>
           
@@ -1145,7 +1176,8 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>val</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> The value to compare to
+            <span class='code bold'>val</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+	    The value to compare to
 
           </div>
           
@@ -1153,9 +1185,9 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>pos</span> <code class='quiet'>([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>]
-            (default <code>both</code>)
-            )</code> The placement of the wildcard character(s): before, after, or both
+            <span class='code bold'>pos</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>
+            = <code>both</code>)</code>
+	    The placement of the wildcard character(s): before, after, or both
 
           </div>
           
@@ -1190,11 +1222,11 @@
       </div>
     </div>
   
-    <div class='border-bottom' id='QueryBuilder#orLike'>
+    <div class='border-bottom' id='querybuilderorlike'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>orLike(field, val, [pos])</span>
+            <span class='code strong strong truncate'>orLike(field, val, pos)</span>
         </div>
       </div>
       <div class="clearfix display-none toggle-target">
@@ -1205,10 +1237,11 @@
   <p>Add an 'or like' clause to the query</p>
 
 
-  <div class='pre p1 fill-light mt0'>orLike(field: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, val: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, pos: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>]): <a href="#querybuilder">QueryBuilder</a></div>
-
+  <div class='pre p1 fill-light mt0'>orLike(field: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, val: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, pos: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): <a href="#querybuilder">QueryBuilder</a></div>
+  
   
 
+  
   
   
   
@@ -1221,7 +1254,8 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>field</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> The name of the field  to compare to
+            <span class='code bold'>field</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+	    The name of the field  to compare to
 
           </div>
           
@@ -1229,7 +1263,8 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>val</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> The value to compare to
+            <span class='code bold'>val</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+	    The value to compare to
 
           </div>
           
@@ -1237,9 +1272,9 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>pos</span> <code class='quiet'>([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>]
-            (default <code>both</code>)
-            )</code> The placement of the wildcard character(s): before, after, or both
+            <span class='code bold'>pos</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>
+            = <code>both</code>)</code>
+	    The placement of the wildcard character(s): before, after, or both
 
           </div>
           
@@ -1274,11 +1309,11 @@
       </div>
     </div>
   
-    <div class='border-bottom' id='QueryBuilder#orNotLike'>
+    <div class='border-bottom' id='querybuilderornotlike'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>orNotLike(field, val, [pos])</span>
+            <span class='code strong strong truncate'>orNotLike(field, val, pos)</span>
         </div>
       </div>
       <div class="clearfix display-none toggle-target">
@@ -1289,10 +1324,11 @@
   <p>Add an 'or not like' clause to the query</p>
 
 
-  <div class='pre p1 fill-light mt0'>orNotLike(field: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, val: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, pos: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>]): <a href="#querybuilder">QueryBuilder</a></div>
-
+  <div class='pre p1 fill-light mt0'>orNotLike(field: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, val: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, pos: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): <a href="#querybuilder">QueryBuilder</a></div>
+  
   
 
+  
   
   
   
@@ -1305,7 +1341,8 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>field</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> The name of the field  to compare to
+            <span class='code bold'>field</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+	    The name of the field  to compare to
 
           </div>
           
@@ -1313,7 +1350,8 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>val</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> The value to compare to
+            <span class='code bold'>val</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+	    The value to compare to
 
           </div>
           
@@ -1321,9 +1359,9 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>pos</span> <code class='quiet'>([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>]
-            (default <code>both</code>)
-            )</code> The placement of the wildcard character(s): before, after, or both
+            <span class='code bold'>pos</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>
+            = <code>both</code>)</code>
+	    The placement of the wildcard character(s): before, after, or both
 
           </div>
           
@@ -1358,11 +1396,11 @@
       </div>
     </div>
   
-    <div class='border-bottom' id='QueryBuilder#having'>
+    <div class='border-bottom' id='querybuilderhaving'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>having(key, [val])</span>
+            <span class='code strong strong truncate'>having(key, val = null)</span>
         </div>
       </div>
       <div class="clearfix display-none toggle-target">
@@ -1373,10 +1411,11 @@
   <p>Add a 'having' clause</p>
 
 
-  <div class='pre p1 fill-light mt0'>having(key: (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>), val: [(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>)]): <a href="#querybuilder">QueryBuilder</a></div>
-
+  <div class='pre p1 fill-light mt0'>having(key: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>), val: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>)?): <a href="#querybuilder">QueryBuilder</a></div>
+  
   
 
+  
   
   
   
@@ -1389,7 +1428,8 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>key</span> <code class='quiet'>((<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>))</code> The name of the field and the comparision operator, or an object
+            <span class='code bold'>key</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>))</code>
+	    The name of the field and the comparision operator, or an object
 
           </div>
           
@@ -1397,7 +1437,9 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>val</span> <code class='quiet'>([(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>)])</code> The value to compare if the value of key is a string
+            <span class='code bold'>val</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>)?
+            = <code>null</code>)</code>
+	    The value to compare if the value of key is a string
 
           </div>
           
@@ -1432,11 +1474,11 @@
       </div>
     </div>
   
-    <div class='border-bottom' id='QueryBuilder#orHaving'>
+    <div class='border-bottom' id='querybuilderorhaving'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>orHaving(key, [val])</span>
+            <span class='code strong strong truncate'>orHaving(key, val = null)</span>
         </div>
       </div>
       <div class="clearfix display-none toggle-target">
@@ -1447,10 +1489,11 @@
   <p>Add an 'or having' clause</p>
 
 
-  <div class='pre p1 fill-light mt0'>orHaving(key: (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>), val: [(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>)]): <a href="#querybuilder">QueryBuilder</a></div>
-
+  <div class='pre p1 fill-light mt0'>orHaving(key: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>), val: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>)?): <a href="#querybuilder">QueryBuilder</a></div>
+  
   
 
+  
   
   
   
@@ -1463,7 +1506,8 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>key</span> <code class='quiet'>((<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>))</code> The name of the field and the comparision operator, or an object
+            <span class='code bold'>key</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>))</code>
+	    The name of the field and the comparision operator, or an object
 
           </div>
           
@@ -1471,7 +1515,9 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>val</span> <code class='quiet'>([(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>)])</code> The value to compare if the value of key is a string
+            <span class='code bold'>val</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>)?
+            = <code>null</code>)</code>
+	    The value to compare if the value of key is a string
 
           </div>
           
@@ -1506,11 +1552,11 @@
       </div>
     </div>
   
-    <div class='border-bottom' id='QueryBuilder#where'>
+    <div class='border-bottom' id='querybuilderwhere'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>where(key, [val])</span>
+            <span class='code strong strong truncate'>where(key, val?)</span>
         </div>
       </div>
       <div class="clearfix display-none toggle-target">
@@ -1521,10 +1567,11 @@
   <p>Set a 'where' clause</p>
 
 
-  <div class='pre p1 fill-light mt0'>where(key: (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>), val: [(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>)]): <a href="#querybuilder">QueryBuilder</a></div>
-
+  <div class='pre p1 fill-light mt0'>where(key: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>), val: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>)?): <a href="#querybuilder">QueryBuilder</a></div>
+  
   
 
+  
   
   
   
@@ -1537,7 +1584,8 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>key</span> <code class='quiet'>((<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>))</code> The name of the field and the comparision operator, or an object
+            <span class='code bold'>key</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>))</code>
+	    The name of the field and the comparision operator, or an object
 
           </div>
           
@@ -1545,7 +1593,8 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>val</span> <code class='quiet'>([(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>)])</code> The value to compare if the value of key is a string
+            <span class='code bold'>val</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>)?)</code>
+	    The value to compare if the value of key is a string
 
           </div>
           
@@ -1580,11 +1629,11 @@
       </div>
     </div>
   
-    <div class='border-bottom' id='QueryBuilder#orWhere'>
+    <div class='border-bottom' id='querybuilderorwhere'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>orWhere(key, [val])</span>
+            <span class='code strong strong truncate'>orWhere(key, val?)</span>
         </div>
       </div>
       <div class="clearfix display-none toggle-target">
@@ -1595,10 +1644,11 @@
   <p>Set a 'or where' clause</p>
 
 
-  <div class='pre p1 fill-light mt0'>orWhere(key: (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>), val: [(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>)]): <a href="#querybuilder">QueryBuilder</a></div>
-
+  <div class='pre p1 fill-light mt0'>orWhere(key: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>), val: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>)?): <a href="#querybuilder">QueryBuilder</a></div>
+  
   
 
+  
   
   
   
@@ -1611,7 +1661,8 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>key</span> <code class='quiet'>((<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>))</code> The name of the field and the comparision operator, or an object
+            <span class='code bold'>key</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>))</code>
+	    The name of the field and the comparision operator, or an object
 
           </div>
           
@@ -1619,7 +1670,8 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>val</span> <code class='quiet'>([(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>)])</code> The value to compare if the value of key is a string
+            <span class='code bold'>val</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>)?)</code>
+	    The value to compare if the value of key is a string
 
           </div>
           
@@ -1654,7 +1706,7 @@
       </div>
     </div>
   
-    <div class='border-bottom' id='QueryBuilder#whereIsNull'>
+    <div class='border-bottom' id='querybuilderwhereisnull'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
@@ -1669,10 +1721,11 @@
   <p>Select a field that is Null</p>
 
 
-  <div class='pre p1 fill-light mt0'>whereIsNull(field: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): <a href="#querybuilder">QueryBuilder</a></div>
-
+  <div class='pre p1 fill-light mt0'>whereIsNull(field: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): <a href="#querybuilder">QueryBuilder</a></div>
+  
   
 
+  
   
   
   
@@ -1685,7 +1738,8 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>field</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> The name of the field that has a NULL value
+            <span class='code bold'>field</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+	    The name of the field that has a NULL value
 
           </div>
           
@@ -1720,7 +1774,7 @@
       </div>
     </div>
   
-    <div class='border-bottom' id='QueryBuilder#whereIsNotNull'>
+    <div class='border-bottom' id='querybuilderwhereisnotnull'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
@@ -1735,10 +1789,11 @@
   <p>Specify that a field IS NOT NULL</p>
 
 
-  <div class='pre p1 fill-light mt0'>whereIsNotNull(field: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): <a href="#querybuilder">QueryBuilder</a></div>
-
+  <div class='pre p1 fill-light mt0'>whereIsNotNull(field: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): <a href="#querybuilder">QueryBuilder</a></div>
+  
   
 
+  
   
   
   
@@ -1751,7 +1806,8 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>field</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> The name so the field that is not to be null
+            <span class='code bold'>field</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+	    The name so the field that is not to be null
 
           </div>
           
@@ -1786,7 +1842,7 @@
       </div>
     </div>
   
-    <div class='border-bottom' id='QueryBuilder#orWhereIsNull'>
+    <div class='border-bottom' id='querybuilderorwhereisnull'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
@@ -1801,10 +1857,11 @@
   <p>Field is null prefixed with 'OR'</p>
 
 
-  <div class='pre p1 fill-light mt0'>orWhereIsNull(field: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): <a href="#querybuilder">QueryBuilder</a></div>
-
+  <div class='pre p1 fill-light mt0'>orWhereIsNull(field: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): <a href="#querybuilder">QueryBuilder</a></div>
+  
   
 
+  
   
   
   
@@ -1817,7 +1874,8 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>field</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> The name of the field
+            <span class='code bold'>field</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+	    The name of the field
 
           </div>
           
@@ -1852,7 +1910,7 @@
       </div>
     </div>
   
-    <div class='border-bottom' id='QueryBuilder#orWhereIsNotNull'>
+    <div class='border-bottom' id='querybuilderorwhereisnotnull'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
@@ -1867,10 +1925,11 @@
   <p>Field is not null prefixed with 'OR'</p>
 
 
-  <div class='pre p1 fill-light mt0'>orWhereIsNotNull(field: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): <a href="#querybuilder">QueryBuilder</a></div>
-
+  <div class='pre p1 fill-light mt0'>orWhereIsNotNull(field: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): <a href="#querybuilder">QueryBuilder</a></div>
+  
   
 
+  
   
   
   
@@ -1883,7 +1942,8 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>field</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> The name of the field
+            <span class='code bold'>field</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+	    The name of the field
 
           </div>
           
@@ -1918,7 +1978,7 @@
       </div>
     </div>
   
-    <div class='border-bottom' id='QueryBuilder#whereIn'>
+    <div class='border-bottom' id='querybuilderwherein'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
@@ -1933,10 +1993,11 @@
   <p>Set a 'where in' clause</p>
 
 
-  <div class='pre p1 fill-light mt0'>whereIn(key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, values: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>): <a href="#querybuilder">QueryBuilder</a></div>
-
+  <div class='pre p1 fill-light mt0'>whereIn(key: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, values: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>): <a href="#querybuilder">QueryBuilder</a></div>
+  
   
 
+  
   
   
   
@@ -1949,7 +2010,8 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>key</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> the field to search
+            <span class='code bold'>key</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+	    the field to search
 
           </div>
           
@@ -1957,7 +2019,8 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>values</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</code> the array of items to search in
+            <span class='code bold'>values</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</code>
+	    the array of items to search in
 
           </div>
           
@@ -1992,7 +2055,7 @@
       </div>
     </div>
   
-    <div class='border-bottom' id='QueryBuilder#orWhereIn'>
+    <div class='border-bottom' id='querybuilderorwherein'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
@@ -2007,10 +2070,11 @@
   <p>Set a 'or where in' clause</p>
 
 
-  <div class='pre p1 fill-light mt0'>orWhereIn(key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, values: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>): <a href="#querybuilder">QueryBuilder</a></div>
-
+  <div class='pre p1 fill-light mt0'>orWhereIn(key: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, values: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>): <a href="#querybuilder">QueryBuilder</a></div>
+  
   
 
+  
   
   
   
@@ -2023,7 +2087,8 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>key</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> the field to search
+            <span class='code bold'>key</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+	    the field to search
 
           </div>
           
@@ -2031,7 +2096,8 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>values</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</code> the array of items to search in
+            <span class='code bold'>values</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</code>
+	    the array of items to search in
 
           </div>
           
@@ -2066,7 +2132,7 @@
       </div>
     </div>
   
-    <div class='border-bottom' id='QueryBuilder#whereNotIn'>
+    <div class='border-bottom' id='querybuilderwherenotin'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
@@ -2081,10 +2147,11 @@
   <p>Set a 'where not in' clause</p>
 
 
-  <div class='pre p1 fill-light mt0'>whereNotIn(key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, values: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>): <a href="#querybuilder">QueryBuilder</a></div>
-
+  <div class='pre p1 fill-light mt0'>whereNotIn(key: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, values: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>): <a href="#querybuilder">QueryBuilder</a></div>
+  
   
 
+  
   
   
   
@@ -2097,7 +2164,8 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>key</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> the field to search
+            <span class='code bold'>key</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+	    the field to search
 
           </div>
           
@@ -2105,7 +2173,8 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>values</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</code> the array of items to search in
+            <span class='code bold'>values</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</code>
+	    the array of items to search in
 
           </div>
           
@@ -2140,7 +2209,7 @@
       </div>
     </div>
   
-    <div class='border-bottom' id='QueryBuilder#orWhereNotIn'>
+    <div class='border-bottom' id='querybuilderorwherenotin'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
@@ -2155,10 +2224,11 @@
   <p>Set a 'or where not in' clause</p>
 
 
-  <div class='pre p1 fill-light mt0'>orWhereNotIn(key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, values: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>): <a href="#querybuilder">QueryBuilder</a></div>
-
+  <div class='pre p1 fill-light mt0'>orWhereNotIn(key: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, values: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>): <a href="#querybuilder">QueryBuilder</a></div>
+  
   
 
+  
   
   
   
@@ -2171,7 +2241,8 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>key</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> the field to search
+            <span class='code bold'>key</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+	    the field to search
 
           </div>
           
@@ -2179,7 +2250,8 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>values</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</code> the array of items to search in
+            <span class='code bold'>values</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</code>
+	    the array of items to search in
 
           </div>
           
@@ -2214,11 +2286,11 @@
       </div>
     </div>
   
-    <div class='border-bottom' id='QueryBuilder#set'>
+    <div class='border-bottom' id='querybuilderset'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>set(key, [val])</span>
+            <span class='code strong strong truncate'>set(key, val?)</span>
         </div>
       </div>
       <div class="clearfix display-none toggle-target">
@@ -2229,10 +2301,11 @@
   <p>Set values for insertion or updating</p>
 
 
-  <div class='pre p1 fill-light mt0'>set(key: (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>), val: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>]): <a href="#querybuilder">QueryBuilder</a></div>
-
+  <div class='pre p1 fill-light mt0'>set(key: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>), val: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>?): <a href="#querybuilder">QueryBuilder</a></div>
+  
   
 
+  
   
   
   
@@ -2245,7 +2318,8 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>key</span> <code class='quiet'>((<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>))</code> The key or object to use
+            <span class='code bold'>key</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>))</code>
+	    The key or object to use
 
           </div>
           
@@ -2253,7 +2327,8 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>val</span> <code class='quiet'>([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>])</code> The value if using a scalar key
+            <span class='code bold'>val</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>?)</code>
+	    The value if using a scalar key
 
           </div>
           
@@ -2297,11 +2372,11 @@
       </div>
     </div>
   
-    <div class='border-bottom' id='QueryBuilder#join'>
+    <div class='border-bottom' id='querybuilderjoin'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>join(table, cond, [type])</span>
+            <span class='code strong strong truncate'>join(table, cond, type)</span>
         </div>
       </div>
       <div class="clearfix display-none toggle-target">
@@ -2312,10 +2387,11 @@
   <p>Add a join clause to the query</p>
 
 
-  <div class='pre p1 fill-light mt0'>join(table: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, cond: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, type: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>]): <a href="#querybuilder">QueryBuilder</a></div>
-
+  <div class='pre p1 fill-light mt0'>join(table: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, cond: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, type: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): <a href="#querybuilder">QueryBuilder</a></div>
+  
   
 
+  
   
   
   
@@ -2328,7 +2404,8 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>table</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> The table you are joining
+            <span class='code bold'>table</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+	    The table you are joining
 
           </div>
           
@@ -2336,7 +2413,8 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>cond</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> The join condition.
+            <span class='code bold'>cond</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+	    The join condition.
 
           </div>
           
@@ -2344,9 +2422,9 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>type</span> <code class='quiet'>([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>]
-            (default <code>&#39;inner&#39;</code>)
-            )</code> The type of join, which defaults to inner
+            <span class='code bold'>type</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>
+            = <code>&#39;inner&#39;</code>)</code>
+	    The type of join, which defaults to inner
 
           </div>
           
@@ -2381,7 +2459,7 @@
       </div>
     </div>
   
-    <div class='border-bottom' id='QueryBuilder#groupBy'>
+    <div class='border-bottom' id='querybuildergroupby'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
@@ -2396,10 +2474,11 @@
   <p>Group the results by the selected field(s)</p>
 
 
-  <div class='pre p1 fill-light mt0'>groupBy(field: (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)): <a href="#querybuilder">QueryBuilder</a></div>
-
+  <div class='pre p1 fill-light mt0'>groupBy(field: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)): <a href="#querybuilder">QueryBuilder</a></div>
+  
   
 
+  
   
   
   
@@ -2412,7 +2491,8 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>field</span> <code class='quiet'>((<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>))</code> The name of the field to group by
+            <span class='code bold'>field</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>))</code>
+	    The name of the field to group by
 
           </div>
           
@@ -2447,11 +2527,11 @@
       </div>
     </div>
   
-    <div class='border-bottom' id='QueryBuilder#orderBy'>
+    <div class='border-bottom' id='querybuilderorderby'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>orderBy(field, [type])</span>
+            <span class='code strong strong truncate'>orderBy(field, type)</span>
         </div>
       </div>
       <div class="clearfix display-none toggle-target">
@@ -2462,10 +2542,11 @@
   <p>Order the results by the selected field(s)</p>
 
 
-  <div class='pre p1 fill-light mt0'>orderBy(field: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, type: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>]): <a href="#querybuilder">QueryBuilder</a></div>
-
+  <div class='pre p1 fill-light mt0'>orderBy(field: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, type: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): <a href="#querybuilder">QueryBuilder</a></div>
+  
   
 
+  
   
   
   
@@ -2478,7 +2559,8 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>field</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> The field(s) to order by
+            <span class='code bold'>field</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+	    The field(s) to order by
 
           </div>
           
@@ -2486,9 +2568,9 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>type</span> <code class='quiet'>([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>]
-            (default <code>&#39;ASC&#39;</code>)
-            )</code> The order direction, ASC or DESC
+            <span class='code bold'>type</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>
+            = <code>&#39;ASC&#39;</code>)</code>
+	    The order direction, ASC or DESC
 
           </div>
           
@@ -2523,11 +2605,11 @@
       </div>
     </div>
   
-    <div class='border-bottom' id='QueryBuilder#limit'>
+    <div class='border-bottom' id='querybuilderlimit'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>limit(limit, [offset])</span>
+            <span class='code strong strong truncate'>limit(limit, offset?)</span>
         </div>
       </div>
       <div class="clearfix display-none toggle-target">
@@ -2538,10 +2620,11 @@
   <p>Put a limit on the query</p>
 
 
-  <div class='pre p1 fill-light mt0'>limit(limit: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>, offset: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>]): <a href="#querybuilder">QueryBuilder</a></div>
-
+  <div class='pre p1 fill-light mt0'>limit(limit: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>, offset: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>?): <a href="#querybuilder">QueryBuilder</a></div>
+  
   
 
+  
   
   
   
@@ -2554,7 +2637,8 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>limit</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>)</code> The maximum number of rows to fetch
+            <span class='code bold'>limit</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>)</code>
+	    The maximum number of rows to fetch
 
           </div>
           
@@ -2562,7 +2646,8 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>offset</span> <code class='quiet'>([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>])</code> The row number to start from
+            <span class='code bold'>offset</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>?)</code>
+	    The row number to start from
 
           </div>
           
@@ -2597,7 +2682,7 @@
       </div>
     </div>
   
-    <div class='border-bottom' id='QueryBuilder#groupStart'>
+    <div class='border-bottom' id='querybuildergroupstart'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
@@ -2613,9 +2698,10 @@
 
 
   <div class='pre p1 fill-light mt0'>groupStart(): <a href="#querybuilder">QueryBuilder</a></div>
-
+  
   
 
+  
   
   
   
@@ -2650,7 +2736,7 @@
       </div>
     </div>
   
-    <div class='border-bottom' id='QueryBuilder#orGroupStart'>
+    <div class='border-bottom' id='querybuilderorgroupstart'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
@@ -2667,9 +2753,10 @@ prefixed with 'OR'</p>
 
 
   <div class='pre p1 fill-light mt0'>orGroupStart(): <a href="#querybuilder">QueryBuilder</a></div>
-
+  
   
 
+  
   
   
   
@@ -2704,7 +2791,7 @@ prefixed with 'OR'</p>
       </div>
     </div>
   
-    <div class='border-bottom' id='QueryBuilder#orNotGroupStart'>
+    <div class='border-bottom' id='querybuilderornotgroupstart'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
@@ -2721,9 +2808,10 @@ prefixed with 'OR NOT'</p>
 
 
   <div class='pre p1 fill-light mt0'>orNotGroupStart(): <a href="#querybuilder">QueryBuilder</a></div>
-
+  
   
 
+  
   
   
   
@@ -2758,7 +2846,7 @@ prefixed with 'OR NOT'</p>
       </div>
     </div>
   
-    <div class='border-bottom' id='QueryBuilder#groupEnd'>
+    <div class='border-bottom' id='querybuildergroupend'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
@@ -2774,9 +2862,10 @@ prefixed with 'OR NOT'</p>
 
 
   <div class='pre p1 fill-light mt0'>groupEnd(): <a href="#querybuilder">QueryBuilder</a></div>
-
+  
   
 
+  
   
   
   
@@ -2811,11 +2900,11 @@ prefixed with 'OR NOT'</p>
       </div>
     </div>
   
-    <div class='border-bottom' id='QueryBuilder#get'>
+    <div class='border-bottom' id='querybuilderget'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>get([table], [limit], [offset])</span>
+            <span class='code strong strong truncate'>get(table?, limit?, offset?)</span>
         </div>
       </div>
       <div class="clearfix display-none toggle-target">
@@ -2826,10 +2915,11 @@ prefixed with 'OR NOT'</p>
   <p>Get the results of the compiled query</p>
 
 
-  <div class='pre p1 fill-light mt0'>get(table: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>], limit: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>], offset: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>]): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>&#x3C;<a href="#result">Result</a>></div>
-
+  <div class='pre p1 fill-light mt0'>get(table: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>?, limit: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>?, offset: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>?): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>&#x3C;<a href="#result">Result</a>></div>
+  
   
 
+  
   
   
   
@@ -2842,7 +2932,8 @@ prefixed with 'OR NOT'</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>table</span> <code class='quiet'>([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>])</code> The table to select from
+            <span class='code bold'>table</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>?)</code>
+	    The table to select from
 
           </div>
           
@@ -2850,7 +2941,8 @@ prefixed with 'OR NOT'</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>limit</span> <code class='quiet'>([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>])</code> A limit for the query
+            <span class='code bold'>limit</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>?)</code>
+	    A limit for the query
 
           </div>
           
@@ -2858,7 +2950,8 @@ prefixed with 'OR NOT'</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>offset</span> <code class='quiet'>([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>])</code> An offset for the query
+            <span class='code bold'>offset</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>?)</code>
+	    An offset for the query
 
           </div>
           
@@ -2872,7 +2965,7 @@ prefixed with 'OR NOT'</p>
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>&#x3C;<a href="#result">Result</a>></code>:
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>&#x3C;<a href="#result">Result</a>></code>:
         Promise containing the result of the query
 
       
@@ -2905,11 +2998,11 @@ prefixed with 'OR NOT'</p>
       </div>
     </div>
   
-    <div class='border-bottom' id='QueryBuilder#insert'>
+    <div class='border-bottom' id='querybuilderinsert'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>insert(table, [data])</span>
+            <span class='code strong strong truncate'>insert(table, data?)</span>
         </div>
       </div>
       <div class="clearfix display-none toggle-target">
@@ -2920,10 +3013,11 @@ prefixed with 'OR NOT'</p>
   <p>Run the generated insert query</p>
 
 
-  <div class='pre p1 fill-light mt0'>insert(table: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, data: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>]): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>&#x3C;<a href="#result">Result</a>></div>
-
+  <div class='pre p1 fill-light mt0'>insert(table: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, data: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>?): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>&#x3C;<a href="#result">Result</a>></div>
+  
   
 
+  
   
   
   
@@ -2936,7 +3030,8 @@ prefixed with 'OR NOT'</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>table</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> The table to insert into
+            <span class='code bold'>table</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+	    The table to insert into
 
           </div>
           
@@ -2944,7 +3039,8 @@ prefixed with 'OR NOT'</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>data</span> <code class='quiet'>([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>])</code> Data to insert, if not already added with the 'set' method
+            <span class='code bold'>data</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>?)</code>
+	    Data to insert, if not already added with the 'set' method
 
           </div>
           
@@ -2958,7 +3054,7 @@ prefixed with 'OR NOT'</p>
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>&#x3C;<a href="#result">Result</a>></code>:
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>&#x3C;<a href="#result">Result</a>></code>:
         Promise containing the result of the query
 
       
@@ -2979,7 +3075,7 @@ prefixed with 'OR NOT'</p>
       </div>
     </div>
   
-    <div class='border-bottom' id='QueryBuilder#insertBatch'>
+    <div class='border-bottom' id='querybuilderinsertbatch'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
@@ -2994,10 +3090,11 @@ prefixed with 'OR NOT'</p>
   <p>Insert multiple sets of rows at a time</p>
 
 
-  <div class='pre p1 fill-light mt0'>insertBatch(table: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, data: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>&#x3C;<a href="#result">Result</a>></div>
-
+  <div class='pre p1 fill-light mt0'>insertBatch(table: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, data: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>&#x3C;<a href="#result">Result</a>></div>
+  
   
 
+  
   
   
   
@@ -3010,7 +3107,8 @@ prefixed with 'OR NOT'</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>table</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> The table to insert into
+            <span class='code bold'>table</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+	    The table to insert into
 
           </div>
           
@@ -3018,7 +3116,8 @@ prefixed with 'OR NOT'</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>data</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</code> The array of objects containing data rows to insert
+            <span class='code bold'>data</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</code>
+	    The array of objects containing data rows to insert
 
           </div>
           
@@ -3032,7 +3131,7 @@ prefixed with 'OR NOT'</p>
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>&#x3C;<a href="#result">Result</a>></code>:
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>&#x3C;<a href="#result">Result</a>></code>:
         Promise containing the result of the query
 
       
@@ -3060,11 +3159,11 @@ prefixed with 'OR NOT'</p>
       </div>
     </div>
   
-    <div class='border-bottom' id='QueryBuilder#update'>
+    <div class='border-bottom' id='querybuilderupdate'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>update(table, [data])</span>
+            <span class='code strong strong truncate'>update(table, data?)</span>
         </div>
       </div>
       <div class="clearfix display-none toggle-target">
@@ -3075,10 +3174,11 @@ prefixed with 'OR NOT'</p>
   <p>Run the generated update query</p>
 
 
-  <div class='pre p1 fill-light mt0'>update(table: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, data: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>]): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>&#x3C;<a href="#result">Result</a>></div>
-
+  <div class='pre p1 fill-light mt0'>update(table: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, data: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>?): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>&#x3C;<a href="#result">Result</a>></div>
+  
   
 
+  
   
   
   
@@ -3091,7 +3191,8 @@ prefixed with 'OR NOT'</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>table</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> The table to insert into
+            <span class='code bold'>table</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+	    The table to insert into
 
           </div>
           
@@ -3099,7 +3200,8 @@ prefixed with 'OR NOT'</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>data</span> <code class='quiet'>([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>])</code> Data to insert, if not already added with the 'set' method
+            <span class='code bold'>data</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>?)</code>
+	    Data to insert, if not already added with the 'set' method
 
           </div>
           
@@ -3113,7 +3215,7 @@ prefixed with 'OR NOT'</p>
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>&#x3C;<a href="#result">Result</a>></code>:
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>&#x3C;<a href="#result">Result</a>></code>:
         Promise containing the result of the query
 
       
@@ -3134,11 +3236,97 @@ prefixed with 'OR NOT'</p>
       </div>
     </div>
   
-    <div class='border-bottom' id='QueryBuilder#delete'>
+    <div class='border-bottom' id='querybuilderupdatebatch'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>delete(table, [where])</span>
+            <span class='code strong strong truncate'>updateBatch(table, data, updateKey)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Creates a batch update sql statement</p>
+
+
+  <div class='pre p1 fill-light mt0'>updateBatch(table: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, data: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, updateKey: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>table</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+	    The table to update
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>data</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+	    Batch insert data
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>updateKey</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+	    The field in the table to compare against for updating
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></code>:
+        Number of rows updated
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='querybuilderdelete'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>delete(table, where?)</span>
         </div>
       </div>
       <div class="clearfix display-none toggle-target">
@@ -3149,10 +3337,11 @@ prefixed with 'OR NOT'</p>
   <p>Run the generated delete query</p>
 
 
-  <div class='pre p1 fill-light mt0'>delete(table: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, where: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>]): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>&#x3C;<a href="#result">Result</a>></div>
-
+  <div class='pre p1 fill-light mt0'>delete(table: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, where: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>?): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>&#x3C;<a href="#result">Result</a>></div>
+  
   
 
+  
   
   
   
@@ -3165,7 +3354,8 @@ prefixed with 'OR NOT'</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>table</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> The table to insert into
+            <span class='code bold'>table</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+	    The table to insert into
 
           </div>
           
@@ -3173,7 +3363,8 @@ prefixed with 'OR NOT'</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>where</span> <code class='quiet'>([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>])</code> Where clause for delete statement
+            <span class='code bold'>where</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>?)</code>
+	    Where clause for delete statement
 
           </div>
           
@@ -3187,7 +3378,7 @@ prefixed with 'OR NOT'</p>
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>&#x3C;<a href="#result">Result</a>></code>:
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>&#x3C;<a href="#result">Result</a>></code>:
         Promise containing the result of the query
 
       
@@ -3208,11 +3399,11 @@ prefixed with 'OR NOT'</p>
       </div>
     </div>
   
-    <div class='border-bottom' id='QueryBuilder#getCompiledSelect'>
+    <div class='border-bottom' id='querybuildergetcompiledselect'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>getCompiledSelect([table], [reset])</span>
+            <span class='code strong strong truncate'>getCompiledSelect(table?, reset)</span>
         </div>
       </div>
       <div class="clearfix display-none toggle-target">
@@ -3223,10 +3414,11 @@ prefixed with 'OR NOT'</p>
   <p>Return generated select query SQL</p>
 
 
-  <div class='pre p1 fill-light mt0'>getCompiledSelect(table: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>], reset: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>]): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></div>
-
+  <div class='pre p1 fill-light mt0'>getCompiledSelect(table: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>?, reset: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></div>
+  
   
 
+  
   
   
   
@@ -3239,7 +3431,8 @@ prefixed with 'OR NOT'</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>table</span> <code class='quiet'>([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>])</code> the name of the table to retrieve from
+            <span class='code bold'>table</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>?)</code>
+	    the name of the table to retrieve from
 
           </div>
           
@@ -3247,9 +3440,9 @@ prefixed with 'OR NOT'</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>reset</span> <code class='quiet'>([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>]
-            (default <code>true</code>)
-            )</code> Whether to reset the query builder so another query can be built
+            <span class='code bold'>reset</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>
+            = <code>true</code>)</code>
+	    Whether to reset the query builder so another query can be built
 
           </div>
           
@@ -3263,7 +3456,7 @@ prefixed with 'OR NOT'</p>
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>:
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>:
         The compiled sql statement
 
       
@@ -3284,11 +3477,11 @@ prefixed with 'OR NOT'</p>
       </div>
     </div>
   
-    <div class='border-bottom' id='QueryBuilder#getCompiledInsert'>
+    <div class='border-bottom' id='querybuildergetcompiledinsert'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>getCompiledInsert(table, [reset])</span>
+            <span class='code strong strong truncate'>getCompiledInsert(table, reset)</span>
         </div>
       </div>
       <div class="clearfix display-none toggle-target">
@@ -3299,10 +3492,11 @@ prefixed with 'OR NOT'</p>
   <p>Return generated insert query SQL</p>
 
 
-  <div class='pre p1 fill-light mt0'>getCompiledInsert(table: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, reset: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>]): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></div>
-
+  <div class='pre p1 fill-light mt0'>getCompiledInsert(table: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, reset: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></div>
+  
   
 
+  
   
   
   
@@ -3315,7 +3509,8 @@ prefixed with 'OR NOT'</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>table</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> the name of the table to insert into
+            <span class='code bold'>table</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+	    the name of the table to insert into
 
           </div>
           
@@ -3323,9 +3518,9 @@ prefixed with 'OR NOT'</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>reset</span> <code class='quiet'>([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>]
-            (default <code>true</code>)
-            )</code> Whether to reset the query builder so another query can be built
+            <span class='code bold'>reset</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>
+            = <code>true</code>)</code>
+	    Whether to reset the query builder so another query can be built
 
           </div>
           
@@ -3339,7 +3534,7 @@ prefixed with 'OR NOT'</p>
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>:
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>:
         The compiled sql statement
 
       
@@ -3360,11 +3555,11 @@ prefixed with 'OR NOT'</p>
       </div>
     </div>
   
-    <div class='border-bottom' id='QueryBuilder#getCompiledUpdate'>
+    <div class='border-bottom' id='querybuildergetcompiledupdate'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>getCompiledUpdate(table, [reset])</span>
+            <span class='code strong strong truncate'>getCompiledUpdate(table, reset)</span>
         </div>
       </div>
       <div class="clearfix display-none toggle-target">
@@ -3375,10 +3570,11 @@ prefixed with 'OR NOT'</p>
   <p>Return generated update query SQL</p>
 
 
-  <div class='pre p1 fill-light mt0'>getCompiledUpdate(table: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, reset: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>]): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></div>
-
+  <div class='pre p1 fill-light mt0'>getCompiledUpdate(table: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, reset: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></div>
+  
   
 
+  
   
   
   
@@ -3391,7 +3587,8 @@ prefixed with 'OR NOT'</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>table</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> the name of the table to update
+            <span class='code bold'>table</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+	    the name of the table to update
 
           </div>
           
@@ -3399,9 +3596,9 @@ prefixed with 'OR NOT'</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>reset</span> <code class='quiet'>([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>]
-            (default <code>true</code>)
-            )</code> Whether to reset the query builder so another query can be built
+            <span class='code bold'>reset</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>
+            = <code>true</code>)</code>
+	    Whether to reset the query builder so another query can be built
 
           </div>
           
@@ -3415,7 +3612,7 @@ prefixed with 'OR NOT'</p>
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>:
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>:
         The compiled sql statement
 
       
@@ -3436,11 +3633,11 @@ prefixed with 'OR NOT'</p>
       </div>
     </div>
   
-    <div class='border-bottom' id='QueryBuilder#getCompiledDelete'>
+    <div class='border-bottom' id='querybuildergetcompileddelete'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>getCompiledDelete(table, [reset])</span>
+            <span class='code strong strong truncate'>getCompiledDelete(table, reset)</span>
         </div>
       </div>
       <div class="clearfix display-none toggle-target">
@@ -3451,10 +3648,11 @@ prefixed with 'OR NOT'</p>
   <p>Return generated delete query SQL</p>
 
 
-  <div class='pre p1 fill-light mt0'>getCompiledDelete(table: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, reset: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>]): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></div>
-
+  <div class='pre p1 fill-light mt0'>getCompiledDelete(table: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, reset: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></div>
+  
   
 
+  
   
   
   
@@ -3467,7 +3665,8 @@ prefixed with 'OR NOT'</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>table</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> the name of the table to delete from
+            <span class='code bold'>table</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+	    the name of the table to delete from
 
           </div>
           
@@ -3475,9 +3674,9 @@ prefixed with 'OR NOT'</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>reset</span> <code class='quiet'>([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>]
-            (default <code>true</code>)
-            )</code> Whether to reset the query builder so another query can be built
+            <span class='code bold'>reset</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>
+            = <code>true</code>)</code>
+	    Whether to reset the query builder so another query can be built
 
           </div>
           
@@ -3491,7 +3690,7 @@ prefixed with 'OR NOT'</p>
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>:
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>:
         The compiled sql statement
 
       
@@ -3538,10 +3737,11 @@ prefixed with 'OR NOT'</p>
   <p>Query result object</p>
 
 
-  <div class='pre p1 fill-light mt0'>new Result(rows: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>, columns: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</div>
-
+  <div class='pre p1 fill-light mt0'>new Result(rows: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>, columns: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</div>
+  
   
 
+  
   
   
   
@@ -3554,7 +3754,9 @@ prefixed with 'OR NOT'</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>rows</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</code> the data rows of the result
+            <span class='code bold'>rows</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>
+            = <code>[]</code>)</code>
+	    the data rows of the result
 
           </div>
           
@@ -3562,7 +3764,9 @@ prefixed with 'OR NOT'</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>columns</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</code> the column names in the result
+            <span class='code bold'>columns</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>
+            = <code>[]</code>)</code>
+	    the column names in the result
 
           </div>
           
@@ -3585,7 +3789,7 @@ prefixed with 'OR NOT'</p>
     <div class='py1 quiet mt1 prose-big'>Instance Members</div>
     <div class="clearfix">
   
-    <div class='border-bottom' id='Result#rowCount'>
+    <div class='border-bottom' id='resultrowcount'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
@@ -3600,10 +3804,11 @@ prefixed with 'OR NOT'</p>
   <p>Get the number of rows returned by the query</p>
 
 
-  <div class='pre p1 fill-light mt0'>rowCount(): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></div>
-
+  <div class='pre p1 fill-light mt0'>rowCount(): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></div>
+  
   
 
+  
   
   
   
@@ -3617,7 +3822,7 @@ prefixed with 'OR NOT'</p>
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></code>:
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></code>:
         the number of rows in the result
 
       
@@ -3638,7 +3843,7 @@ prefixed with 'OR NOT'</p>
       </div>
     </div>
   
-    <div class='border-bottom' id='Result#columnCount'>
+    <div class='border-bottom' id='resultcolumncount'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
@@ -3653,10 +3858,11 @@ prefixed with 'OR NOT'</p>
   <p>Get the number of columns returned by the query</p>
 
 
-  <div class='pre p1 fill-light mt0'>columnCount(): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></div>
-
+  <div class='pre p1 fill-light mt0'>columnCount(): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></div>
+  
   
 
+  
   
   
   
@@ -3670,7 +3876,7 @@ prefixed with 'OR NOT'</p>
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></code>:
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></code>:
         the number of columns in the result
 
       
@@ -3702,8 +3908,8 @@ prefixed with 'OR NOT'</p>
         
       </div>
     </div>
-  </div>
   <script src='assets/anchor.js'></script>
+  <script src='assets/split.js'></script>
   <script src='assets/site.js'></script>
 </body>
 </html>

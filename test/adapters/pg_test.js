@@ -1,11 +1,7 @@
-/* eslint-env node, mocha */
-'use strict';
-
 // Load the test base
 const reload = require('require-reload')(require);
 reload.emptyCache();
 const testBase = reload('../base');
-const expect = testBase.expect;
 const testRunner = testBase.promiseTestRunner;
 
 // Load the test config file
@@ -18,65 +14,50 @@ let nodeQuery = reload('../../lib/NodeQuery')(config);
 let qb = nodeQuery.getQuery();
 let qb2 = null;
 
-suite('Pg adapter tests -', () => {
-	test('nodeQuery.getQuery = nodeQuery.init', () => {
-		expect(nodeQuery.getQuery())
-			.to.be.deep.equal(qb);
+describe('Pg adapter tests -', () => {
+	beforeAll(done => {
+		qb.queryFile(`${__dirname}/../sql/pgsql.sql`)
+			.then(() => done())
+			.catch(e => done(e));
 	});
 
-	test('Connecting with an object also works', () => {
+	it('nodeQuery.getQuery = nodeQuery.init', () => {
+		expect(nodeQuery.getQuery())
+			.toEqual(qb);
+	});
+
+	it('Connecting with an object also works', () => {
 		let config = allConfig[`${adapterName}-object`];
 		let nodeQuery = reload('../../lib/NodeQuery')(config);
 		qb2 = nodeQuery.getQuery();
 
-		return expect(qb2).to.be.ok;
+		expect(qb2).toEqual(expect.anything());
 	});
 
-	test('Test Connection Error', done => {
+	it('Test Connection Error', done => {
 		try {
 			reload('../../lib/NodeQuery')({});
 			done(true);
 		} catch (e) {
-			expect(e).to.be.ok;
-			expect(e).is.an('Error');
+			expect(e).toEqual(expect.anything());
 			done();
 		}
 	});
 
 	testRunner(qb);
-	test('Promise - Select with function and argument in WHERE clause', () => {
-		let promise = qb.select('id')
+	it('Select with function and argument in WHERE clause', async () => {
+		const promise = await qb.select('id')
 			.from('create_test')
 			.where('id', 'CEILING(SQRT(88))')
 			.get();
 
-		return expect(promise).to.be.fulfilled;
+		expect(promise).toEqual(expect.anything());
 	});
-	test('Promise - Test Truncate', () => {
-		let promise = qb.truncate('create_test');
-		return expect(promise).to.be.fulfilled;
+	it('Test Truncate', async () => {
+		const promise = await qb.truncate('create_test');
+		expect(promise).toEqual(expect.anything());
 	});
-	test('Promise - Test Insert Batch', () => {
-		let data = [
-			{
-				id: 544,
-				key: 3,
-				val: Buffer.from('7')
-			}, {
-				id: 89,
-				key: 34,
-				val: Buffer.from('10 o\'clock')
-			}, {
-				id: 48,
-				key: 403,
-				val: Buffer.from('97')
-			}
-		];
-
-		let promise = qb.insertBatch('create_test', data);
-		return expect(promise).to.be.fulfilled;
-	});
-	suiteTeardown(() => {
+	afterAll(() => {
 		qb.end();
 		qb2.end();
 	});

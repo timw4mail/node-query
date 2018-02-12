@@ -3,25 +3,21 @@
 --
 -- Table structure for table `create_join`
 --
-
 DROP TABLE IF EXISTS `create_join` CASCADE;
-CREATE TABLE `create_join` (
-  `id` int(10) NOT NULL,
-  `key` text,
-  `val` text
+CREATE TABLE IF NOT EXISTS `create_join` (
+  `id` int(10) PRIMARY KEY NOT NULL,
+  `key` VARCHAR(128),
+  `val` MEDIUMTEXT
 );
-ALTER TABLE `create_join`
- ADD PRIMARY KEY (`id`);
 
 --
 -- Table structure for table `create_test`
 --
-
 DROP TABLE IF EXISTS `create_test` CASCADE;
 CREATE TABLE `create_test` (
   `id` int(10) NOT NULL,
-  `key` text,
-  `val` text
+  `key` TEXT,
+  `val` LONGTEXT
 );
 ALTER TABLE `create_test`
- ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`)

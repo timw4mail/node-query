@@ -1,76 +1,96 @@
 {
-  "name": "ci-node-query",
-  "version": "5.0.0",
-  "description": "A query builder for node based on the one in CodeIgniter",
-  "author": "Timothy J Warren <tim@timshomepage.net>",
-  "engines": {
-    "node": ">=6.0.0"
-  },
-  "files": [
-    "lib/"
-  ],
-  "contributors": [
-    {
-      "name": "Timothy J Warren",
-      "email": "tim@timshomepage.net"
-    }
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://git.timshomepage.net/timw4mail/node-query.git"
-  },
-  "keywords": [
-    "codeigniter",
-    "mariadb",
-    "mysql",
-    "query builder",
-    "postgres",
-    "postgresql",
-    "sql",
-    "sqlite",
-    "sqlite3"
-  ],
-  "bugs": {
-    "url": "https://git.timshomepage.net/timw4mail/node-query/issues"
-  },
-  "main": "lib/NodeQuery.js",
-  "dependencies": {
-    "dblite": "~0.7.6",
-    "getargs": "~0.0.8",
-    "glob": "^7.0.3",
-    "mysql2": "^1.0.0-rc.1",
-    "node-firebird": "^0.7.5",
-    "pg": "^6.0.0",
-    "require-reload": "~0.2.2",
-    "sqlite3": "^3.1.8",
-    "xregexp": "^3.0.0"
-  },
-  "devDependencies": {
-    "chai": "^3.5.0",
-    "chai-as-promised": "^6.0.0",
-    "documentation": "latest",
-    "eslint": "^3.5.0",
-    "globstar": "^1.0.0",
-    "happiness": "^7.1.2",
-    "istanbul": "~0.4.2",
-    "mocha": "^3.0.0",
-    "npm-run-all": "^3.0.0",
-    "nsp": "^2.2.1"
-  },
-  "license": "MIT",
-  "scripts": {
-    "audit": "nsp check",
-    "build": "npm-run-all --parallel lint:src lint:tests docs coverage",
-    "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha",
-    "default": "npm-run-all --parallel audit lint:src lint:tests && npm run test",
-    "predocs": "globstar -- documentation build -f md -o API.md \"lib/*.js\"",
-    "docs": "globstar -- documentation build -f html -o docs \"lib/*.js\"",
-    "happy": "happiness \"lib/**/*.js\" \"test/**/*.js\"",
-    "happy:src": "happiness \"lib/**/*.js\"",
-    "happy:tests": "happiness \"test/**/*.js\"",
-    "lint": "npm-run-all lint:tests lint:src && happy",
-    "lint:src": "eslint ./lib",
-    "lint:tests": "eslint ./test",
-    "test": "mocha -R spec"
-  }
+	"name": "ci-node-query",
+	"version": "5.0.0",
+	"description": "A query builder for node based on the one in CodeIgniter",
+	"author": "Timothy J Warren <tim@timshomepage.net>",
+	"engines": {
+		"node": ">=8.0.0"
+	},
+	"files": [
+		"lib/"
+	],
+	"contributors": [
+		{
+			"name": "Timothy J Warren",
+			"email": "tim@timshomepage.net"
+		}
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://git.timshomepage.net/timw4mail/node-query.git"
+	},
+	"keywords": [
+		"codeigniter",
+		"mariadb",
+		"mysql",
+		"mssql",
+		"query builder",
+		"postgres",
+		"postgresql",
+		"sql",
+		"sqlite",
+		"sqlite3",
+		"sqlserver"
+	],
+	"bugs": {
+		"url": "https://git.timshomepage.net/timw4mail/node-query/issues"
+	},
+	"main": "lib/NodeQuery.js",
+	"dependencies": {
+		"dblite": "^0.8.0",
+		"getargs": "~0.0.8",
+		"glob": "^7.0.3",
+		"mysql2": "^1.2.0",
+		"pg": "^7.4",
+		"sqlite3": "^3.1.8",
+		"tedious": "^2.0.0",
+		"xregexp": "^4.0.0"
+	},
+	"devDependencies": {
+		"babel-eslint": "^8.2.1",
+		"documentation": "latest",
+		"eslint": "^4.16.0",
+		"eslint-config-happiness": "^10.2.1",
+		"eslint-plugin-import": "^2.8.0",
+		"eslint-plugin-node": "^5.2.1",
+		"eslint-plugin-promise": "^3.6.0",
+		"eslint-plugin-standard": "^3.0.1",
+		"globstar": "^1.0.0",
+		"jest": "^22.0.0",
+		"jsdoc": "^3.4.3",
+		"npm-run-all": "^4.0.2",
+		"nsp": "^3.1",
+		"require-reload": "~0.2.2"
+	},
+	"license": "MIT",
+	"jest": {
+		"collectCoverageFrom": [
+			"lib/**/*.js"
+		],
+		"coverageDirectory": "coverage",
+		"coverageReporters": [
+			"html",
+			"json",
+			"lcov",
+			"text-summary"
+		],
+		"testEnvironment": "node",
+		"testMatch": [
+			"**/test/**/*_test.js"
+		]
+	},
+	"scripts": {
+		"audit": "nsp check",
+		"build": "npm-run-all --parallel lint:src lint:tests docs coverage",
+		"coverage": "jest --coverage",
+		"default": "npm-run-all --parallel audit lint:src lint:tests && npm run test",
+		"predocs": "globstar -- documentation build -f md -o API.md \"lib/*.js\"",
+		"docs": "globstar -- documentation build -f html -o docs \"lib/*.js\"",
+		"fix": "eslint --fix ./lib ./test",
+		"postdocs": "jsdoc lib -r -d documentation",
+		"lint": "npm-run-all lint:src lint:tests",
+		"lint:src": "eslint ./lib",
+		"lint:tests": "eslint ./test",
+		"test": "jest"
+	}
 }
