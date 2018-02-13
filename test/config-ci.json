@@ -2,7 +2,7 @@
 	"mysql2": {
 		"driver": "mysql",
 		"connection": {
-			"host": "mysql2",
+			"host": "mysql",
 			"user": "test",
 			"password": "test",
 			"database": "test"
