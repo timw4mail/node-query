@@ -8,6 +8,3 @@ set -xe
 # Install sqlite3
 echo -e 'http://dl-cdn.alpinelinux.org/alpine/edge/main\nhttp://dl-cdn.alpinelinux.org/alpine/edge/community\nhttp://dl-cdn.alpinelinux.org/alpine/edge/testing' > /etc/apk/repositories
 apk add --no-cache git yarn sqlite
-
-# Replace test config with docker config file
-mv "./test/config-ci.json" "./test/config.json"
